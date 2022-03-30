@@ -28,7 +28,7 @@ class io__k8s__api__admissionregistration__v1__RuleWithOperations(K8STemplatable
         scope: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiGroups is not None:
             self.apiGroups = apiGroups
         if apiVersions is not None:
@@ -60,7 +60,7 @@ class io__k8s__api__admissionregistration__v1__ServiceReference(K8STemplatable):
         port: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if namespace is not None:
@@ -88,7 +88,7 @@ class io__k8s__api__admissionregistration__v1__WebhookClientConfig(K8STemplatabl
         url: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if caBundle is not None:
             self.caBundle = caBundle
         if service is not None:
@@ -114,7 +114,7 @@ class io__k8s__api__apiserverinternal__v1alpha1__ServerStorageVersion(K8STemplat
         encodingVersion: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiServerID is not None:
             self.apiServerID = apiServerID
         if decodableVersions is not None:
@@ -130,7 +130,7 @@ class io__k8s__api__apiserverinternal__v1alpha1__StorageVersionSpec(K8STemplatab
     required_props: List[str] = []
 
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
 
 
 class io__k8s__api__apps__v1__RollingUpdateStatefulSetStrategy(K8STemplatable):
@@ -142,7 +142,7 @@ class io__k8s__api__apps__v1__RollingUpdateStatefulSetStrategy(K8STemplatable):
     partition: int
 
     def __init__(self, partition: int = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if partition is not None:
             self.partition = partition
 
@@ -159,7 +159,7 @@ class io__k8s__api__apps__v1__StatefulSetPersistentVolumeClaimRetentionPolicy(
     whenScaled: str
 
     def __init__(self, whenDeleted: str = None, whenScaled: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if whenDeleted is not None:
             self.whenDeleted = whenDeleted
         if whenScaled is not None:
@@ -181,7 +181,7 @@ class io__k8s__api__apps__v1__StatefulSetUpdateStrategy(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if rollingUpdate is not None:
             self.rollingUpdate = rollingUpdate
         if type is not None:
@@ -207,7 +207,7 @@ class io__k8s__api__authentication__v1__BoundObjectReference(K8STemplatable):
         uid: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiVersion is not None:
             self.apiVersion = apiVersion
         if kind is not None:
@@ -235,7 +235,7 @@ class io__k8s__api__authentication__v1__TokenRequestSpec(K8STemplatable):
         expirationSeconds: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if audiences is not None:
             self.audiences = audiences
         if boundObjectRef is not None:
@@ -254,7 +254,7 @@ class io__k8s__api__authentication__v1__TokenReviewSpec(K8STemplatable):
     token: str
 
     def __init__(self, audiences: List[str] = None, token: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if audiences is not None:
             self.audiences = audiences
         if token is not None:
@@ -280,7 +280,7 @@ class io__k8s__api__authentication__v1__UserInfo(K8STemplatable):
         username: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if extra is not None:
             self.extra = extra
         if groups is not None:
@@ -301,7 +301,7 @@ class io__k8s__api__authorization__v1__NonResourceAttributes(K8STemplatable):
     verb: str
 
     def __init__(self, path: str = None, verb: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if path is not None:
             self.path = path
         if verb is not None:
@@ -320,7 +320,7 @@ class io__k8s__api__authorization__v1__NonResourceRule(K8STemplatable):
     def __init__(
         self, nonResourceURLs: List[str] = None, verbs: List[str] = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if nonResourceURLs is not None:
             self.nonResourceURLs = nonResourceURLs
         if verbs is not None:
@@ -360,7 +360,7 @@ class io__k8s__api__authorization__v1__ResourceAttributes(K8STemplatable):
         version: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if group is not None:
             self.group = group
         if name is not None:
@@ -396,7 +396,7 @@ class io__k8s__api__authorization__v1__ResourceRule(K8STemplatable):
         verbs: List[str] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiGroups is not None:
             self.apiGroups = apiGroups
         if resourceNames is not None:
@@ -422,7 +422,7 @@ class io__k8s__api__authorization__v1__SelfSubjectAccessReviewSpec(K8STemplatabl
         resourceAttributes: io__k8s__api__authorization__v1__ResourceAttributes = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if nonResourceAttributes is not None:
             self.nonResourceAttributes = nonResourceAttributes
         if resourceAttributes is not None:
@@ -438,7 +438,7 @@ class io__k8s__api__authorization__v1__SelfSubjectRulesReviewSpec(K8STemplatable
     namespace: str
 
     def __init__(self, namespace: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if namespace is not None:
             self.namespace = namespace
 
@@ -473,7 +473,7 @@ class io__k8s__api__authorization__v1__SubjectAccessReviewSpec(K8STemplatable):
         user: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if extra is not None:
             self.extra = extra
         if groups is not None:
@@ -507,7 +507,7 @@ class io__k8s__api__authorization__v1__SubjectAccessReviewStatus(K8STemplatable)
         reason: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if allowed is not None:
             self.allowed = allowed
         if denied is not None:
@@ -542,7 +542,7 @@ class io__k8s__api__authorization__v1__SubjectRulesReviewStatus(K8STemplatable):
         resourceRules: List[io__k8s__api__authorization__v1__ResourceRule] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if evaluationError is not None:
             self.evaluationError = evaluationError
         if incomplete is not None:
@@ -566,7 +566,7 @@ class io__k8s__api__autoscaling__v1__CrossVersionObjectReference(K8STemplatable)
     def __init__(
         self, apiVersion: str = None, kind: str = None, name: str = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiVersion is not None:
             self.apiVersion = apiVersion
         if kind is not None:
@@ -599,7 +599,7 @@ class io__k8s__api__autoscaling__v1__HorizontalPodAutoscalerSpec(K8STemplatable)
         targetCPUUtilizationPercentage: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if maxReplicas is not None:
             self.maxReplicas = maxReplicas
         if minReplicas is not None:
@@ -619,7 +619,7 @@ class io__k8s__api__autoscaling__v1__ScaleSpec(K8STemplatable):
     replicas: int
 
     def __init__(self, replicas: int = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if replicas is not None:
             self.replicas = replicas
 
@@ -634,7 +634,7 @@ class io__k8s__api__autoscaling__v1__ScaleStatus(K8STemplatable):
     selector: str
 
     def __init__(self, replicas: int = None, selector: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if replicas is not None:
             self.replicas = replicas
         if selector is not None:
@@ -654,7 +654,7 @@ class io__k8s__api__autoscaling__v2__CrossVersionObjectReference(K8STemplatable)
     def __init__(
         self, apiVersion: str = None, kind: str = None, name: str = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiVersion is not None:
             self.apiVersion = apiVersion
         if kind is not None:
@@ -676,7 +676,7 @@ class io__k8s__api__autoscaling__v2__HPAScalingPolicy(K8STemplatable):
     def __init__(
         self, periodSeconds: int = None, type: str = None, value: int = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if periodSeconds is not None:
             self.periodSeconds = periodSeconds
         if type is not None:
@@ -702,7 +702,7 @@ class io__k8s__api__autoscaling__v2__HPAScalingRules(K8STemplatable):
         stabilizationWindowSeconds: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if policies is not None:
             self.policies = policies
         if selectPolicy is not None:
@@ -726,7 +726,7 @@ class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerBehavior(K8STemplata
         scaleUp: io__k8s__api__autoscaling__v2__HPAScalingRules = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if scaleDown is not None:
             self.scaleDown = scaleDown
         if scaleUp is not None:
@@ -746,7 +746,7 @@ class io__k8s__api__autoscaling__v2beta1__CrossVersionObjectReference(K8STemplat
     def __init__(
         self, apiVersion: str = None, kind: str = None, name: str = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiVersion is not None:
             self.apiVersion = apiVersion
         if kind is not None:
@@ -768,7 +768,7 @@ class io__k8s__api__autoscaling__v2beta2__CrossVersionObjectReference(K8STemplat
     def __init__(
         self, apiVersion: str = None, kind: str = None, name: str = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiVersion is not None:
             self.apiVersion = apiVersion
         if kind is not None:
@@ -790,7 +790,7 @@ class io__k8s__api__autoscaling__v2beta2__HPAScalingPolicy(K8STemplatable):
     def __init__(
         self, periodSeconds: int = None, type: str = None, value: int = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if periodSeconds is not None:
             self.periodSeconds = periodSeconds
         if type is not None:
@@ -816,7 +816,7 @@ class io__k8s__api__autoscaling__v2beta2__HPAScalingRules(K8STemplatable):
         stabilizationWindowSeconds: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if policies is not None:
             self.policies = policies
         if selectPolicy is not None:
@@ -842,7 +842,7 @@ class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerBehavior(
         scaleUp: io__k8s__api__autoscaling__v2beta2__HPAScalingRules = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if scaleDown is not None:
             self.scaleDown = scaleDown
         if scaleUp is not None:
@@ -859,7 +859,7 @@ class io__k8s__api__batch__v1__UncountedTerminatedPods(K8STemplatable):
     succeeded: List[str]
 
     def __init__(self, failed: List[str] = None, succeeded: List[str] = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if failed is not None:
             self.failed = failed
         if succeeded is not None:
@@ -902,7 +902,7 @@ class io__k8s__api__certificates__v1__CertificateSigningRequestSpec(K8STemplatab
         username: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if expirationSeconds is not None:
             self.expirationSeconds = expirationSeconds
         if extra is not None:
@@ -942,7 +942,7 @@ class io__k8s__api__core__v1__AWSElasticBlockStoreVolumeSource(K8STemplatable):
         volumeID: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if fsType is not None:
             self.fsType = fsType
         if partition is not None:
@@ -963,7 +963,7 @@ class io__k8s__api__core__v1__AttachedVolume(K8STemplatable):
     name: str
 
     def __init__(self, devicePath: str = None, name: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if devicePath is not None:
             self.devicePath = devicePath
         if name is not None:
@@ -1000,7 +1000,7 @@ class io__k8s__api__core__v1__AzureDiskVolumeSource(K8STemplatable):
         readOnly: bool = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if cachingMode is not None:
             self.cachingMode = cachingMode
         if diskName is not None:
@@ -1034,7 +1034,7 @@ class io__k8s__api__core__v1__AzureFilePersistentVolumeSource(K8STemplatable):
         shareName: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if readOnly is not None:
             self.readOnly = readOnly
         if secretName is not None:
@@ -1062,7 +1062,7 @@ class io__k8s__api__core__v1__AzureFileVolumeSource(K8STemplatable):
         shareName: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if readOnly is not None:
             self.readOnly = readOnly
         if secretName is not None:
@@ -1081,7 +1081,7 @@ class io__k8s__api__core__v1__Capabilities(K8STemplatable):
     drop: List[str]
 
     def __init__(self, add: List[str] = None, drop: List[str] = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if add is not None:
             self.add = add
         if drop is not None:
@@ -1097,7 +1097,7 @@ class io__k8s__api__core__v1__ClientIPConfig(K8STemplatable):
     timeoutSeconds: int
 
     def __init__(self, timeoutSeconds: int = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if timeoutSeconds is not None:
             self.timeoutSeconds = timeoutSeconds
 
@@ -1121,7 +1121,7 @@ class io__k8s__api__core__v1__ComponentCondition(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if error is not None:
             self.error = error
         if message is not None:
@@ -1144,7 +1144,7 @@ class io__k8s__api__core__v1__ConfigMapEnvSource(K8STemplatable):
     optional: bool
 
     def __init__(self, name: str = None, optional: bool = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if optional is not None:
@@ -1164,7 +1164,7 @@ class io__k8s__api__core__v1__ConfigMapKeySelector(K8STemplatable):
     def __init__(
         self, key: str = None, name: str = None, optional: bool = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if key is not None:
             self.key = key
         if name is not None:
@@ -1200,7 +1200,7 @@ class io__k8s__api__core__v1__ConfigMapNodeConfigSource(K8STemplatable):
         uid: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if kubeletConfigKey is not None:
             self.kubeletConfigKey = kubeletConfigKey
         if name is not None:
@@ -1223,7 +1223,7 @@ class io__k8s__api__core__v1__ContainerImage(K8STemplatable):
     sizeBytes: int
 
     def __init__(self, names: List[str] = None, sizeBytes: int = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if names is not None:
             self.names = names
         if sizeBytes is not None:
@@ -1251,7 +1251,7 @@ class io__k8s__api__core__v1__ContainerPort(K8STemplatable):
         protocol: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if containerPort is not None:
             self.containerPort = containerPort
         if hostIP is not None:
@@ -1274,7 +1274,7 @@ class io__k8s__api__core__v1__ContainerStateWaiting(K8STemplatable):
     reason: str
 
     def __init__(self, message: str = None, reason: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if message is not None:
             self.message = message
         if reason is not None:
@@ -1290,7 +1290,7 @@ class io__k8s__api__core__v1__DaemonEndpoint(K8STemplatable):
     Port: int
 
     def __init__(self, Port: int = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if Port is not None:
             self.Port = Port
 
@@ -1314,7 +1314,7 @@ class io__k8s__api__core__v1__EndpointPort(K8STemplatable):
         protocol: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if appProtocol is not None:
             self.appProtocol = appProtocol
         if name is not None:
@@ -1335,7 +1335,7 @@ class io__k8s__api__core__v1__EventSource(K8STemplatable):
     host: str
 
     def __init__(self, component: str = None, host: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if component is not None:
             self.component = component
         if host is not None:
@@ -1351,7 +1351,7 @@ class io__k8s__api__core__v1__ExecAction(K8STemplatable):
     command: List[str]
 
     def __init__(self, command: List[str] = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if command is not None:
             self.command = command
 
@@ -1377,7 +1377,7 @@ class io__k8s__api__core__v1__FCVolumeSource(K8STemplatable):
         wwids: List[str] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if fsType is not None:
             self.fsType = fsType
         if lun is not None:
@@ -1400,7 +1400,7 @@ class io__k8s__api__core__v1__FlockerVolumeSource(K8STemplatable):
     datasetUUID: str
 
     def __init__(self, datasetName: str = None, datasetUUID: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if datasetName is not None:
             self.datasetName = datasetName
         if datasetUUID is not None:
@@ -1428,7 +1428,7 @@ class io__k8s__api__core__v1__GCEPersistentDiskVolumeSource(K8STemplatable):
         readOnly: bool = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if fsType is not None:
             self.fsType = fsType
         if partition is not None:
@@ -1449,7 +1449,7 @@ class io__k8s__api__core__v1__GRPCAction(K8STemplatable):
     service: str
 
     def __init__(self, port: int = None, service: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if port is not None:
             self.port = port
         if service is not None:
@@ -1475,7 +1475,7 @@ class io__k8s__api__core__v1__GitRepoVolumeSource(K8STemplatable):
         revision: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if directory is not None:
             self.directory = directory
         if repository is not None:
@@ -1503,7 +1503,7 @@ class io__k8s__api__core__v1__GlusterfsPersistentVolumeSource(K8STemplatable):
         readOnly: bool = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if endpoints is not None:
             self.endpoints = endpoints
         if endpointsNamespace is not None:
@@ -1527,7 +1527,7 @@ class io__k8s__api__core__v1__GlusterfsVolumeSource(K8STemplatable):
     def __init__(
         self, endpoints: str = None, path: str = None, readOnly: bool = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if endpoints is not None:
             self.endpoints = endpoints
         if path is not None:
@@ -1546,7 +1546,7 @@ class io__k8s__api__core__v1__HTTPHeader(K8STemplatable):
     value: str
 
     def __init__(self, name: str = None, value: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if value is not None:
@@ -1563,7 +1563,7 @@ class io__k8s__api__core__v1__HostAlias(K8STemplatable):
     ip: str
 
     def __init__(self, hostnames: List[str] = None, ip: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if hostnames is not None:
             self.hostnames = hostnames
         if ip is not None:
@@ -1580,7 +1580,7 @@ class io__k8s__api__core__v1__HostPathVolumeSource(K8STemplatable):
     type: str
 
     def __init__(self, path: str = None, type: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if path is not None:
             self.path = path
         if type is not None:
@@ -1598,7 +1598,7 @@ class io__k8s__api__core__v1__KeyToPath(K8STemplatable):
     path: str
 
     def __init__(self, key: str = None, mode: int = None, path: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if key is not None:
             self.key = key
         if mode is not None:
@@ -1628,7 +1628,7 @@ class io__k8s__api__core__v1__LimitRangeItem(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if defaultRequest is not None:
             self.defaultRequest = defaultRequest
         if max is not None:
@@ -1652,7 +1652,7 @@ class io__k8s__api__core__v1__LimitRangeSpec(K8STemplatable):
     def __init__(
         self, limits: List[io__k8s__api__core__v1__LimitRangeItem] = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if limits is not None:
             self.limits = limits
 
@@ -1666,7 +1666,7 @@ class io__k8s__api__core__v1__LocalObjectReference(K8STemplatable):
     name: str
 
     def __init__(self, name: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
 
@@ -1681,7 +1681,7 @@ class io__k8s__api__core__v1__LocalVolumeSource(K8STemplatable):
     path: str
 
     def __init__(self, fsType: str = None, path: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if fsType is not None:
             self.fsType = fsType
         if path is not None:
@@ -1701,7 +1701,7 @@ class io__k8s__api__core__v1__NFSVolumeSource(K8STemplatable):
     def __init__(
         self, path: str = None, readOnly: bool = None, server: str = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if path is not None:
             self.path = path
         if readOnly is not None:
@@ -1719,7 +1719,7 @@ class io__k8s__api__core__v1__NamespaceSpec(K8STemplatable):
     finalizers: List[str]
 
     def __init__(self, finalizers: List[str] = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if finalizers is not None:
             self.finalizers = finalizers
 
@@ -1734,7 +1734,7 @@ class io__k8s__api__core__v1__NodeAddress(K8STemplatable):
     type: str
 
     def __init__(self, address: str = None, type: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if address is not None:
             self.address = address
         if type is not None:
@@ -1754,7 +1754,7 @@ class io__k8s__api__core__v1__NodeConfigSource(K8STemplatable):
         configMap: io__k8s__api__core__v1__ConfigMapNodeConfigSource = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if configMap is not None:
             self.configMap = configMap
 
@@ -1778,7 +1778,7 @@ class io__k8s__api__core__v1__NodeConfigStatus(K8STemplatable):
         lastKnownGood: io__k8s__api__core__v1__NodeConfigSource = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if active is not None:
             self.active = active
         if assigned is not None:
@@ -1800,7 +1800,7 @@ class io__k8s__api__core__v1__NodeDaemonEndpoints(K8STemplatable):
     def __init__(
         self, kubeletEndpoint: io__k8s__api__core__v1__DaemonEndpoint = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if kubeletEndpoint is not None:
             self.kubeletEndpoint = kubeletEndpoint
 
@@ -1818,7 +1818,7 @@ class io__k8s__api__core__v1__NodeSelectorRequirement(K8STemplatable):
     def __init__(
         self, key: str = None, operator: str = None, values: List[str] = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if key is not None:
             self.key = key
         if operator is not None:
@@ -1842,7 +1842,7 @@ class io__k8s__api__core__v1__NodeSelectorTerm(K8STemplatable):
         matchFields: List[io__k8s__api__core__v1__NodeSelectorRequirement] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if matchExpressions is not None:
             self.matchExpressions = matchExpressions
         if matchFields is not None:
@@ -1902,7 +1902,7 @@ class io__k8s__api__core__v1__NodeSystemInfo(K8STemplatable):
         systemUUID: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if architecture is not None:
             self.architecture = architecture
         if bootID is not None:
@@ -1935,7 +1935,7 @@ class io__k8s__api__core__v1__ObjectFieldSelector(K8STemplatable):
     fieldPath: str
 
     def __init__(self, apiVersion: str = None, fieldPath: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiVersion is not None:
             self.apiVersion = apiVersion
         if fieldPath is not None:
@@ -1975,7 +1975,7 @@ class io__k8s__api__core__v1__ObjectReference(K8STemplatable):
         uid: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiVersion is not None:
             self.apiVersion = apiVersion
         if fieldPath is not None:
@@ -2002,7 +2002,7 @@ class io__k8s__api__core__v1__PersistentVolumeClaimVolumeSource(K8STemplatable):
     readOnly: bool
 
     def __init__(self, claimName: str = None, readOnly: bool = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if claimName is not None:
             self.claimName = claimName
         if readOnly is not None:
@@ -2022,7 +2022,7 @@ class io__k8s__api__core__v1__PersistentVolumeStatus(K8STemplatable):
     def __init__(
         self, message: str = None, phase: str = None, reason: str = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if message is not None:
             self.message = message
         if phase is not None:
@@ -2041,7 +2041,7 @@ class io__k8s__api__core__v1__PhotonPersistentDiskVolumeSource(K8STemplatable):
     pdID: str
 
     def __init__(self, fsType: str = None, pdID: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if fsType is not None:
             self.fsType = fsType
         if pdID is not None:
@@ -2058,7 +2058,7 @@ class io__k8s__api__core__v1__PodDNSConfigOption(K8STemplatable):
     value: str
 
     def __init__(self, name: str = None, value: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if value is not None:
@@ -2075,7 +2075,7 @@ class io__k8s__api__core__v1__PodIP(K8STemplatable):
     ip: str
 
     def __init__(self, ip: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if ip is not None:
             self.ip = ip
 
@@ -2089,7 +2089,7 @@ class io__k8s__api__core__v1__PodOS(K8STemplatable):
     name: str
 
     def __init__(self, name: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
 
@@ -2103,7 +2103,7 @@ class io__k8s__api__core__v1__PodReadinessGate(K8STemplatable):
     conditionType: str
 
     def __init__(self, conditionType: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if conditionType is not None:
             self.conditionType = conditionType
 
@@ -2121,7 +2121,7 @@ class io__k8s__api__core__v1__PortStatus(K8STemplatable):
     def __init__(
         self, error: str = None, port: int = None, protocol: str = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if error is not None:
             self.error = error
         if port is not None:
@@ -2143,7 +2143,7 @@ class io__k8s__api__core__v1__PortworxVolumeSource(K8STemplatable):
     def __init__(
         self, fsType: str = None, readOnly: bool = None, volumeID: str = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if fsType is not None:
             self.fsType = fsType
         if readOnly is not None:
@@ -2167,7 +2167,7 @@ class io__k8s__api__core__v1__PreferredSchedulingTerm(K8STemplatable):
         weight: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if preference is not None:
             self.preference = preference
         if weight is not None:
@@ -2197,7 +2197,7 @@ class io__k8s__api__core__v1__QuobyteVolumeSource(K8STemplatable):
         volume: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if group is not None:
             self.group = group
         if readOnly is not None:
@@ -2248,7 +2248,7 @@ class io__k8s__api__core__v1__RBDVolumeSource(K8STemplatable):
         user: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if fsType is not None:
             self.fsType = fsType
         if image is not None:
@@ -2277,7 +2277,7 @@ class io__k8s__api__core__v1__ResourceQuotaStatus(K8STemplatable):
     used: Any
 
     def __init__(self, hard: Any = None, used: Any = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if hard is not None:
             self.hard = hard
         if used is not None:
@@ -2294,7 +2294,7 @@ class io__k8s__api__core__v1__ResourceRequirements(K8STemplatable):
     requests: Any
 
     def __init__(self, limits: Any = None, requests: Any = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if limits is not None:
             self.limits = limits
         if requests is not None:
@@ -2320,7 +2320,7 @@ class io__k8s__api__core__v1__SELinuxOptions(K8STemplatable):
         user: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if level is not None:
             self.level = level
         if role is not None:
@@ -2373,7 +2373,7 @@ class io__k8s__api__core__v1__ScaleIOVolumeSource(K8STemplatable):
         volumeName: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if fsType is not None:
             self.fsType = fsType
         if gateway is not None:
@@ -2413,7 +2413,7 @@ class io__k8s__api__core__v1__ScopedResourceSelectorRequirement(K8STemplatable):
         values: List[str] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if operator is not None:
             self.operator = operator
         if scopeName is not None:
@@ -2432,7 +2432,7 @@ class io__k8s__api__core__v1__SeccompProfile(K8STemplatable):
     type: str
 
     def __init__(self, localhostProfile: str = None, type: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if localhostProfile is not None:
             self.localhostProfile = localhostProfile
         if type is not None:
@@ -2451,7 +2451,7 @@ class io__k8s__api__core__v1__SecretEnvSource(K8STemplatable):
     optional: bool
 
     def __init__(self, name: str = None, optional: bool = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if optional is not None:
@@ -2471,7 +2471,7 @@ class io__k8s__api__core__v1__SecretKeySelector(K8STemplatable):
     def __init__(
         self, key: str = None, name: str = None, optional: bool = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if key is not None:
             self.key = key
         if name is not None:
@@ -2499,7 +2499,7 @@ class io__k8s__api__core__v1__SecretProjection(K8STemplatable):
         optional: bool = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if name is not None:
@@ -2518,7 +2518,7 @@ class io__k8s__api__core__v1__SecretReference(K8STemplatable):
     namespace: str
 
     def __init__(self, name: str = None, namespace: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if namespace is not None:
@@ -2546,7 +2546,7 @@ class io__k8s__api__core__v1__SecretVolumeSource(K8STemplatable):
         secretName: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if defaultMode is not None:
             self.defaultMode = defaultMode
         if items is not None:
@@ -2574,7 +2574,7 @@ class io__k8s__api__core__v1__ServiceAccountTokenProjection(K8STemplatable):
         path: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if audience is not None:
             self.audience = audience
         if expirationSeconds is not None:
@@ -2594,7 +2594,7 @@ class io__k8s__api__core__v1__SessionAffinityConfig(K8STemplatable):
     def __init__(
         self, clientIP: io__k8s__api__core__v1__ClientIPConfig = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if clientIP is not None:
             self.clientIP = clientIP
 
@@ -2626,7 +2626,7 @@ class io__k8s__api__core__v1__StorageOSPersistentVolumeSource(K8STemplatable):
         volumeNamespace: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if fsType is not None:
             self.fsType = fsType
         if readOnly is not None:
@@ -2666,7 +2666,7 @@ class io__k8s__api__core__v1__StorageOSVolumeSource(K8STemplatable):
         volumeNamespace: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if fsType is not None:
             self.fsType = fsType
         if readOnly is not None:
@@ -2689,7 +2689,7 @@ class io__k8s__api__core__v1__Sysctl(K8STemplatable):
     value: str
 
     def __init__(self, name: str = None, value: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if value is not None:
@@ -2717,7 +2717,7 @@ class io__k8s__api__core__v1__Toleration(K8STemplatable):
         value: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if effect is not None:
             self.effect = effect
         if key is not None:
@@ -2740,7 +2740,7 @@ class io__k8s__api__core__v1__TopologySelectorLabelRequirement(K8STemplatable):
     values: List[str]
 
     def __init__(self, key: str = None, values: List[str] = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if key is not None:
             self.key = key
         if values is not None:
@@ -2764,7 +2764,7 @@ class io__k8s__api__core__v1__TopologySelectorTerm(K8STemplatable):
         ] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if matchLabelExpressions is not None:
             self.matchLabelExpressions = matchLabelExpressions
 
@@ -2782,7 +2782,7 @@ class io__k8s__api__core__v1__TypedLocalObjectReference(K8STemplatable):
     def __init__(
         self, apiGroup: str = None, kind: str = None, name: str = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiGroup is not None:
             self.apiGroup = apiGroup
         if kind is not None:
@@ -2801,7 +2801,7 @@ class io__k8s__api__core__v1__VolumeDevice(K8STemplatable):
     name: str
 
     def __init__(self, devicePath: str = None, name: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if devicePath is not None:
             self.devicePath = devicePath
         if name is not None:
@@ -2838,7 +2838,7 @@ class io__k8s__api__core__v1__VolumeMount(K8STemplatable):
         subPathExpr: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if mountPath is not None:
             self.mountPath = mountPath
         if mountPropagation is not None:
@@ -2872,7 +2872,7 @@ class io__k8s__api__core__v1__VsphereVirtualDiskVolumeSource(K8STemplatable):
         volumePath: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if fsType is not None:
             self.fsType = fsType
         if storagePolicyID is not None:
@@ -2907,7 +2907,7 @@ class io__k8s__api__core__v1__WindowsSecurityContextOptions(K8STemplatable):
         runAsUserName: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if gmsaCredentialSpec is not None:
             self.gmsaCredentialSpec = gmsaCredentialSpec
         if gmsaCredentialSpecName is not None:
@@ -2935,7 +2935,7 @@ class io__k8s__api__discovery__v1__EndpointConditions(K8STemplatable):
         terminating: bool = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if ready is not None:
             self.ready = ready
         if serving is not None:
@@ -2963,7 +2963,7 @@ class io__k8s__api__discovery__v1__EndpointPort(K8STemplatable):
         protocol: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if appProtocol is not None:
             self.appProtocol = appProtocol
         if name is not None:
@@ -2983,7 +2983,7 @@ class io__k8s__api__discovery__v1__ForZone(K8STemplatable):
     name: str
 
     def __init__(self, name: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
 
@@ -3005,7 +3005,7 @@ class io__k8s__api__discovery__v1beta1__EndpointConditions(K8STemplatable):
         terminating: bool = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if ready is not None:
             self.ready = ready
         if serving is not None:
@@ -3033,7 +3033,7 @@ class io__k8s__api__discovery__v1beta1__EndpointPort(K8STemplatable):
         protocol: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if appProtocol is not None:
             self.appProtocol = appProtocol
         if name is not None:
@@ -3053,7 +3053,7 @@ class io__k8s__api__discovery__v1beta1__ForZone(K8STemplatable):
     name: str
 
     def __init__(self, name: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
 
@@ -3067,7 +3067,7 @@ class io__k8s__api__flowcontrol__v1beta1__FlowDistinguisherMethod(K8STemplatable
     type: str
 
     def __init__(self, type: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if type is not None:
             self.type = type
 
@@ -3081,7 +3081,7 @@ class io__k8s__api__flowcontrol__v1beta1__GroupSubject(K8STemplatable):
     name: str
 
     def __init__(self, name: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
 
@@ -3098,7 +3098,7 @@ class io__k8s__api__flowcontrol__v1beta1__NonResourcePolicyRule(K8STemplatable):
     def __init__(
         self, nonResourceURLs: List[str] = None, verbs: List[str] = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if nonResourceURLs is not None:
             self.nonResourceURLs = nonResourceURLs
         if verbs is not None:
@@ -3116,7 +3116,7 @@ class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationReference(
     name: str
 
     def __init__(self, name: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
 
@@ -3138,7 +3138,7 @@ class io__k8s__api__flowcontrol__v1beta1__QueuingConfiguration(K8STemplatable):
         queues: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if handSize is not None:
             self.handSize = handSize
         if queueLengthLimit is not None:
@@ -3168,7 +3168,7 @@ class io__k8s__api__flowcontrol__v1beta1__ResourcePolicyRule(K8STemplatable):
         verbs: List[str] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiGroups is not None:
             self.apiGroups = apiGroups
         if clusterScope is not None:
@@ -3191,7 +3191,7 @@ class io__k8s__api__flowcontrol__v1beta1__ServiceAccountSubject(K8STemplatable):
     namespace: str
 
     def __init__(self, name: str = None, namespace: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if namespace is not None:
@@ -3207,7 +3207,7 @@ class io__k8s__api__flowcontrol__v1beta1__UserSubject(K8STemplatable):
     name: str
 
     def __init__(self, name: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
 
@@ -3221,7 +3221,7 @@ class io__k8s__api__flowcontrol__v1beta2__FlowDistinguisherMethod(K8STemplatable
     type: str
 
     def __init__(self, type: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if type is not None:
             self.type = type
 
@@ -3235,7 +3235,7 @@ class io__k8s__api__flowcontrol__v1beta2__GroupSubject(K8STemplatable):
     name: str
 
     def __init__(self, name: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
 
@@ -3252,7 +3252,7 @@ class io__k8s__api__flowcontrol__v1beta2__NonResourcePolicyRule(K8STemplatable):
     def __init__(
         self, nonResourceURLs: List[str] = None, verbs: List[str] = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if nonResourceURLs is not None:
             self.nonResourceURLs = nonResourceURLs
         if verbs is not None:
@@ -3270,7 +3270,7 @@ class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationReference(
     name: str
 
     def __init__(self, name: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
 
@@ -3292,7 +3292,7 @@ class io__k8s__api__flowcontrol__v1beta2__QueuingConfiguration(K8STemplatable):
         queues: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if handSize is not None:
             self.handSize = handSize
         if queueLengthLimit is not None:
@@ -3322,7 +3322,7 @@ class io__k8s__api__flowcontrol__v1beta2__ResourcePolicyRule(K8STemplatable):
         verbs: List[str] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiGroups is not None:
             self.apiGroups = apiGroups
         if clusterScope is not None:
@@ -3345,7 +3345,7 @@ class io__k8s__api__flowcontrol__v1beta2__ServiceAccountSubject(K8STemplatable):
     namespace: str
 
     def __init__(self, name: str = None, namespace: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if namespace is not None:
@@ -3361,7 +3361,7 @@ class io__k8s__api__flowcontrol__v1beta2__UserSubject(K8STemplatable):
     name: str
 
     def __init__(self, name: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
 
@@ -3376,7 +3376,7 @@ class io__k8s__api__networking__v1__IPBlock(K8STemplatable):
     k8s_except: List[str]
 
     def __init__(self, cidr: str = None, k8s_except: List[str] = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if cidr is not None:
             self.cidr = cidr
         if k8s_except is not None:
@@ -3404,7 +3404,7 @@ class io__k8s__api__networking__v1__IngressClassParametersReference(K8STemplatab
         scope: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiGroup is not None:
             self.apiGroup = apiGroup
         if kind is not None:
@@ -3432,7 +3432,7 @@ class io__k8s__api__networking__v1__IngressClassSpec(K8STemplatable):
         parameters: io__k8s__api__networking__v1__IngressClassParametersReference = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if controller is not None:
             self.controller = controller
         if parameters is not None:
@@ -3449,7 +3449,7 @@ class io__k8s__api__networking__v1__IngressTLS(K8STemplatable):
     secretName: str
 
     def __init__(self, hosts: List[str] = None, secretName: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if hosts is not None:
             self.hosts = hosts
         if secretName is not None:
@@ -3466,7 +3466,7 @@ class io__k8s__api__networking__v1__ServiceBackendPort(K8STemplatable):
     number: int
 
     def __init__(self, name: str = None, number: int = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if number is not None:
@@ -3482,7 +3482,7 @@ class io__k8s__api__node__v1__Overhead(K8STemplatable):
     podFixed: Any
 
     def __init__(self, podFixed: Any = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if podFixed is not None:
             self.podFixed = podFixed
 
@@ -3502,7 +3502,7 @@ class io__k8s__api__node__v1__Scheduling(K8STemplatable):
         tolerations: List[io__k8s__api__core__v1__Toleration] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if nodeSelector is not None:
             self.nodeSelector = nodeSelector
         if tolerations is not None:
@@ -3518,7 +3518,7 @@ class io__k8s__api__node__v1beta1__Overhead(K8STemplatable):
     podFixed: Any
 
     def __init__(self, podFixed: Any = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if podFixed is not None:
             self.podFixed = podFixed
 
@@ -3538,7 +3538,7 @@ class io__k8s__api__node__v1beta1__Scheduling(K8STemplatable):
         tolerations: List[io__k8s__api__core__v1__Toleration] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if nodeSelector is not None:
             self.nodeSelector = nodeSelector
         if tolerations is not None:
@@ -3554,7 +3554,7 @@ class io__k8s__api__policy__v1beta1__AllowedCSIDriver(K8STemplatable):
     name: str
 
     def __init__(self, name: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
 
@@ -3568,7 +3568,7 @@ class io__k8s__api__policy__v1beta1__AllowedFlexVolume(K8STemplatable):
     driver: str
 
     def __init__(self, driver: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if driver is not None:
             self.driver = driver
 
@@ -3583,7 +3583,7 @@ class io__k8s__api__policy__v1beta1__AllowedHostPath(K8STemplatable):
     readOnly: bool
 
     def __init__(self, pathPrefix: str = None, readOnly: bool = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if pathPrefix is not None:
             self.pathPrefix = pathPrefix
         if readOnly is not None:
@@ -3600,7 +3600,7 @@ class io__k8s__api__policy__v1beta1__HostPortRange(K8STemplatable):
     min: int
 
     def __init__(self, max: int = None, min: int = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if max is not None:
             self.max = max
         if min is not None:
@@ -3617,7 +3617,7 @@ class io__k8s__api__policy__v1beta1__IDRange(K8STemplatable):
     min: int
 
     def __init__(self, max: int = None, min: int = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if max is not None:
             self.max = max
         if min is not None:
@@ -3639,7 +3639,7 @@ class io__k8s__api__policy__v1beta1__RunAsGroupStrategyOptions(K8STemplatable):
         rule: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if ranges is not None:
             self.ranges = ranges
         if rule is not None:
@@ -3661,7 +3661,7 @@ class io__k8s__api__policy__v1beta1__RunAsUserStrategyOptions(K8STemplatable):
         rule: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if ranges is not None:
             self.ranges = ranges
         if rule is not None:
@@ -3683,7 +3683,7 @@ class io__k8s__api__policy__v1beta1__RuntimeClassStrategyOptions(K8STemplatable)
         defaultRuntimeClassName: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if allowedRuntimeClassNames is not None:
             self.allowedRuntimeClassNames = allowedRuntimeClassNames
         if defaultRuntimeClassName is not None:
@@ -3705,7 +3705,7 @@ class io__k8s__api__policy__v1beta1__SELinuxStrategyOptions(K8STemplatable):
         seLinuxOptions: io__k8s__api__core__v1__SELinuxOptions = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if rule is not None:
             self.rule = rule
         if seLinuxOptions is not None:
@@ -3727,7 +3727,7 @@ class io__k8s__api__policy__v1beta1__SupplementalGroupsStrategyOptions(K8STempla
         rule: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if ranges is not None:
             self.ranges = ranges
         if rule is not None:
@@ -3761,7 +3761,7 @@ class io__k8s__api__rbac__v1__PolicyRule(K8STemplatable):
         verbs: List[str] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiGroups is not None:
             self.apiGroups = apiGroups
         if nonResourceURLs is not None:
@@ -3787,7 +3787,7 @@ class io__k8s__api__rbac__v1__RoleRef(K8STemplatable):
     def __init__(
         self, apiGroup: str = None, kind: str = None, name: str = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiGroup is not None:
             self.apiGroup = apiGroup
         if kind is not None:
@@ -3815,7 +3815,7 @@ class io__k8s__api__rbac__v1__Subject(K8STemplatable):
         namespace: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiGroup is not None:
             self.apiGroup = apiGroup
         if kind is not None:
@@ -3836,7 +3836,7 @@ class io__k8s__api__storage__v1__TokenRequest(K8STemplatable):
     expirationSeconds: int
 
     def __init__(self, audience: str = None, expirationSeconds: int = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if audience is not None:
             self.audience = audience
         if expirationSeconds is not None:
@@ -3852,7 +3852,7 @@ class io__k8s__api__storage__v1__VolumeNodeResources(K8STemplatable):
     count: int
 
     def __init__(self, count: int = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if count is not None:
             self.count = count
 
@@ -3894,7 +3894,7 @@ class io__k8s__apimachinery__pkg__api__resource__Quantity(K8STemplatable):
     required_props: List[str] = []
 
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__APIResource(K8STemplatable):
@@ -3939,7 +3939,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__APIResource(K8STemplatable):
         version: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if categories is not None:
             self.categories = categories
         if group is not None:
@@ -3980,7 +3980,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__APIResourceList(K8STemplatable
         resources: List[io__k8s__apimachinery__pkg__apis__meta__v1__APIResource] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if groupVersion is not None:
             self.groupVersion = groupVersion
         if resources is not None:
@@ -3998,7 +3998,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__FieldsV1(K8STemplatable):
     required_props: List[str] = []
 
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__GroupVersionForDiscovery(
@@ -4013,7 +4013,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__GroupVersionForDiscovery(
     version: str
 
     def __init__(self, groupVersion: str = None, version: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if groupVersion is not None:
             self.groupVersion = groupVersion
         if version is not None:
@@ -4035,7 +4035,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelectorRequirement(
     def __init__(
         self, key: str = None, operator: str = None, values: List[str] = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if key is not None:
             self.key = key
         if operator is not None:
@@ -4068,7 +4068,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta(K8STemplatable):
         selfLink: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if k8s_continue is not None:
             self.k8s_continue = k8s_continue
         if remainingItemCount is not None:
@@ -4086,7 +4086,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime(K8STemplatable):
     required_props: List[str] = []
 
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__OwnerReference(K8STemplatable):
@@ -4119,7 +4119,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__OwnerReference(K8STemplatable)
         uid: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiVersion is not None:
             self.apiVersion = apiVersion
         if blockOwnerDeletion is not None:
@@ -4141,7 +4141,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__Patch(K8STemplatable):
     required_props: List[str] = []
 
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__Preconditions(K8STemplatable):
@@ -4154,7 +4154,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__Preconditions(K8STemplatable):
     uid: str
 
     def __init__(self, resourceVersion: str = None, uid: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if resourceVersion is not None:
             self.resourceVersion = resourceVersion
         if uid is not None:
@@ -4173,7 +4173,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__ServerAddressByClientCIDR(
     serverAddress: str
 
     def __init__(self, clientCIDR: str = None, serverAddress: str = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if clientCIDR is not None:
             self.clientCIDR = clientCIDR
         if serverAddress is not None:
@@ -4193,7 +4193,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__StatusCause(K8STemplatable):
     def __init__(
         self, field: str = None, message: str = None, reason: str = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if field is not None:
             self.field = field
         if message is not None:
@@ -4225,7 +4225,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__StatusDetails(K8STemplatable):
         uid: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if causes is not None:
             self.causes = causes
         if group is not None:
@@ -4247,7 +4247,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__Time(K8STemplatable):
     required_props: List[str] = []
 
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
 
 
 class io__k8s__apimachinery__pkg__runtime__RawExtension(K8STemplatable):
@@ -4284,7 +4284,7 @@ class io__k8s__apimachinery__pkg__runtime__RawExtension(K8STemplatable):
     required_props: List[str] = []
 
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
 
 
 class io__k8s__apimachinery__pkg__util__intstr__IntOrString(K8STemplatable):
@@ -4294,7 +4294,7 @@ class io__k8s__apimachinery__pkg__util__intstr__IntOrString(K8STemplatable):
     required_props: List[str] = []
 
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
 
 
 class io__k8s__apimachinery__pkg__version__Info(K8STemplatable):
@@ -4346,7 +4346,7 @@ class io__k8s__apimachinery__pkg__version__Info(K8STemplatable):
         platform: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if buildDate is not None:
             self.buildDate = buildDate
         if compiler is not None:
@@ -4390,7 +4390,7 @@ class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceCondit
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastTransitionTime is not None:
             self.lastTransitionTime = lastTransitionTime
         if message is not None:
@@ -4422,7 +4422,7 @@ class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceStatus
         ] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if conditions is not None:
             self.conditions = conditions
 
@@ -4442,7 +4442,7 @@ class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__ServiceReference
     def __init__(
         self, name: str = None, namespace: str = None, port: int = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if namespace is not None:
@@ -4483,7 +4483,7 @@ class io__k8s__api__apiserverinternal__v1alpha1__StorageVersionCondition(
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastTransitionTime is not None:
             self.lastTransitionTime = lastTransitionTime
         if message is not None:
@@ -4521,7 +4521,7 @@ class io__k8s__api__apiserverinternal__v1alpha1__StorageVersionStatus(K8STemplat
         ] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if commonEncodingVersion is not None:
             self.commonEncodingVersion = commonEncodingVersion
         if conditions is not None:
@@ -4551,7 +4551,7 @@ class io__k8s__api__apps__v1__DaemonSetCondition(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastTransitionTime is not None:
             self.lastTransitionTime = lastTransitionTime
         if message is not None:
@@ -4611,7 +4611,7 @@ class io__k8s__api__apps__v1__DaemonSetStatus(K8STemplatable):
         updatedNumberScheduled: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if collisionCount is not None:
             self.collisionCount = collisionCount
         if conditions is not None:
@@ -4664,7 +4664,7 @@ class io__k8s__api__apps__v1__DeploymentCondition(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastTransitionTime is not None:
             self.lastTransitionTime = lastTransitionTime
         if lastUpdateTime is not None:
@@ -4715,7 +4715,7 @@ class io__k8s__api__apps__v1__DeploymentStatus(K8STemplatable):
         updatedReplicas: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if availableReplicas is not None:
             self.availableReplicas = availableReplicas
         if collisionCount is not None:
@@ -4755,7 +4755,7 @@ class io__k8s__api__apps__v1__ReplicaSetCondition(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastTransitionTime is not None:
             self.lastTransitionTime = lastTransitionTime
         if message is not None:
@@ -4798,7 +4798,7 @@ class io__k8s__api__apps__v1__ReplicaSetStatus(K8STemplatable):
         replicas: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if availableReplicas is not None:
             self.availableReplicas = availableReplicas
         if conditions is not None:
@@ -4828,7 +4828,7 @@ class io__k8s__api__apps__v1__RollingUpdateDaemonSet(K8STemplatable):
         maxUnavailable: io__k8s__apimachinery__pkg__util__intstr__IntOrString = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if maxSurge is not None:
             self.maxSurge = maxSurge
         if maxUnavailable is not None:
@@ -4850,7 +4850,7 @@ class io__k8s__api__apps__v1__RollingUpdateDeployment(K8STemplatable):
         maxUnavailable: io__k8s__apimachinery__pkg__util__intstr__IntOrString = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if maxSurge is not None:
             self.maxSurge = maxSurge
         if maxUnavailable is not None:
@@ -4878,7 +4878,7 @@ class io__k8s__api__apps__v1__StatefulSetCondition(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastTransitionTime is not None:
             self.lastTransitionTime = lastTransitionTime
         if message is not None:
@@ -4933,7 +4933,7 @@ class io__k8s__api__apps__v1__StatefulSetStatus(K8STemplatable):
         updatedReplicas: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if availableReplicas is not None:
             self.availableReplicas = availableReplicas
         if collisionCount is not None:
@@ -4971,7 +4971,7 @@ class io__k8s__api__authentication__v1__TokenRequestStatus(K8STemplatable):
         token: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if expirationTimestamp is not None:
             self.expirationTimestamp = expirationTimestamp
         if token is not None:
@@ -4997,7 +4997,7 @@ class io__k8s__api__authentication__v1__TokenReviewStatus(K8STemplatable):
         user: io__k8s__api__authentication__v1__UserInfo = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if audiences is not None:
             self.audiences = audiences
         if authenticated is not None:
@@ -5035,7 +5035,7 @@ class io__k8s__api__autoscaling__v1__HorizontalPodAutoscalerStatus(K8STemplatabl
         observedGeneration: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if currentCPUUtilizationPercentage is not None:
             self.currentCPUUtilizationPercentage = currentCPUUtilizationPercentage
         if currentReplicas is not None:
@@ -5069,7 +5069,7 @@ class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerCondition(K8STemplat
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastTransitionTime is not None:
             self.lastTransitionTime = lastTransitionTime
         if message is not None:
@@ -5101,7 +5101,7 @@ class io__k8s__api__autoscaling__v2__MetricTarget(K8STemplatable):
         value: io__k8s__apimachinery__pkg__api__resource__Quantity = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if averageUtilization is not None:
             self.averageUtilization = averageUtilization
         if averageValue is not None:
@@ -5129,7 +5129,7 @@ class io__k8s__api__autoscaling__v2__MetricValueStatus(K8STemplatable):
         value: io__k8s__apimachinery__pkg__api__resource__Quantity = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if averageUtilization is not None:
             self.averageUtilization = averageUtilization
         if averageValue is not None:
@@ -5153,7 +5153,7 @@ class io__k8s__api__autoscaling__v2__ResourceMetricSource(K8STemplatable):
         target: io__k8s__api__autoscaling__v2__MetricTarget = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if target is not None:
@@ -5175,7 +5175,7 @@ class io__k8s__api__autoscaling__v2__ResourceMetricStatus(K8STemplatable):
         name: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if current is not None:
             self.current = current
         if name is not None:
@@ -5206,7 +5206,7 @@ class io__k8s__api__autoscaling__v2beta1__ContainerResourceMetricSource(K8STempl
         targetAverageValue: io__k8s__apimachinery__pkg__api__resource__Quantity = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if container is not None:
             self.container = container
         if name is not None:
@@ -5241,7 +5241,7 @@ class io__k8s__api__autoscaling__v2beta1__ContainerResourceMetricStatus(K8STempl
         name: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if container is not None:
             self.container = container
         if currentAverageUtilization is not None:
@@ -5275,7 +5275,7 @@ class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerCondition(
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastTransitionTime is not None:
             self.lastTransitionTime = lastTransitionTime
         if message is not None:
@@ -5305,7 +5305,7 @@ class io__k8s__api__autoscaling__v2beta1__ResourceMetricSource(K8STemplatable):
         targetAverageValue: io__k8s__apimachinery__pkg__api__resource__Quantity = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if targetAverageUtilization is not None:
@@ -5331,7 +5331,7 @@ class io__k8s__api__autoscaling__v2beta1__ResourceMetricStatus(K8STemplatable):
         name: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if currentAverageUtilization is not None:
             self.currentAverageUtilization = currentAverageUtilization
         if currentAverageValue is not None:
@@ -5363,7 +5363,7 @@ class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerCondition(
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastTransitionTime is not None:
             self.lastTransitionTime = lastTransitionTime
         if message is not None:
@@ -5395,7 +5395,7 @@ class io__k8s__api__autoscaling__v2beta2__MetricTarget(K8STemplatable):
         value: io__k8s__apimachinery__pkg__api__resource__Quantity = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if averageUtilization is not None:
             self.averageUtilization = averageUtilization
         if averageValue is not None:
@@ -5423,7 +5423,7 @@ class io__k8s__api__autoscaling__v2beta2__MetricValueStatus(K8STemplatable):
         value: io__k8s__apimachinery__pkg__api__resource__Quantity = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if averageUtilization is not None:
             self.averageUtilization = averageUtilization
         if averageValue is not None:
@@ -5447,7 +5447,7 @@ class io__k8s__api__autoscaling__v2beta2__ResourceMetricSource(K8STemplatable):
         target: io__k8s__api__autoscaling__v2beta2__MetricTarget = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if target is not None:
@@ -5469,7 +5469,7 @@ class io__k8s__api__autoscaling__v2beta2__ResourceMetricStatus(K8STemplatable):
         name: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if current is not None:
             self.current = current
         if name is not None:
@@ -5493,7 +5493,7 @@ class io__k8s__api__batch__v1__CronJobStatus(K8STemplatable):
         lastSuccessfulTime: io__k8s__apimachinery__pkg__apis__meta__v1__Time = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if active is not None:
             self.active = active
         if lastScheduleTime is not None:
@@ -5532,7 +5532,7 @@ class io__k8s__api__batch__v1__JobCondition(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastProbeTime is not None:
             self.lastProbeTime = lastProbeTime
         if lastTransitionTime is not None:
@@ -5586,7 +5586,7 @@ class io__k8s__api__batch__v1__JobStatus(K8STemplatable):
         uncountedTerminatedPods: io__k8s__api__batch__v1__UncountedTerminatedPods = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if active is not None:
             self.active = active
         if completedIndexes is not None:
@@ -5624,7 +5624,7 @@ class io__k8s__api__batch__v1beta1__CronJobStatus(K8STemplatable):
         lastSuccessfulTime: io__k8s__apimachinery__pkg__apis__meta__v1__Time = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if active is not None:
             self.active = active
         if lastScheduleTime is not None:
@@ -5665,7 +5665,7 @@ class io__k8s__api__certificates__v1__CertificateSigningRequestCondition(
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastTransitionTime is not None:
             self.lastTransitionTime = lastTransitionTime
         if lastUpdateTime is not None:
@@ -5697,7 +5697,7 @@ class io__k8s__api__certificates__v1__CertificateSigningRequestStatus(K8STemplat
         ] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if certificate is not None:
             self.certificate = certificate
         if conditions is not None:
@@ -5731,7 +5731,7 @@ class io__k8s__api__coordination__v1__LeaseSpec(K8STemplatable):
         renewTime: io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if acquireTime is not None:
             self.acquireTime = acquireTime
         if holderIdentity is not None:
@@ -5783,7 +5783,7 @@ class io__k8s__api__core__v1__CSIPersistentVolumeSource(K8STemplatable):
         volumeHandle: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if controllerExpandSecretRef is not None:
             self.controllerExpandSecretRef = controllerExpandSecretRef
         if controllerPublishSecretRef is not None:
@@ -5831,7 +5831,7 @@ class io__k8s__api__core__v1__CSIVolumeSource(K8STemplatable):
         volumeAttributes: Any = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if driver is not None:
             self.driver = driver
         if fsType is not None:
@@ -5874,7 +5874,7 @@ class io__k8s__api__core__v1__CephFSPersistentVolumeSource(K8STemplatable):
         user: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if monitors is not None:
             self.monitors = monitors
         if path is not None:
@@ -5919,7 +5919,7 @@ class io__k8s__api__core__v1__CephFSVolumeSource(K8STemplatable):
         user: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if monitors is not None:
             self.monitors = monitors
         if path is not None:
@@ -5953,7 +5953,7 @@ class io__k8s__api__core__v1__CinderPersistentVolumeSource(K8STemplatable):
         volumeID: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if fsType is not None:
             self.fsType = fsType
         if readOnly is not None:
@@ -5983,7 +5983,7 @@ class io__k8s__api__core__v1__CinderVolumeSource(K8STemplatable):
         volumeID: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if fsType is not None:
             self.fsType = fsType
         if readOnly is not None:
@@ -6013,7 +6013,7 @@ class io__k8s__api__core__v1__ConfigMapProjection(K8STemplatable):
         optional: bool = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if name is not None:
@@ -6043,7 +6043,7 @@ class io__k8s__api__core__v1__ConfigMapVolumeSource(K8STemplatable):
         optional: bool = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if defaultMode is not None:
             self.defaultMode = defaultMode
         if items is not None:
@@ -6067,7 +6067,7 @@ class io__k8s__api__core__v1__ContainerStateRunning(K8STemplatable):
         startedAt: io__k8s__apimachinery__pkg__apis__meta__v1__Time = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if startedAt is not None:
             self.startedAt = startedAt
 
@@ -6105,7 +6105,7 @@ class io__k8s__api__core__v1__ContainerStateTerminated(K8STemplatable):
         startedAt: io__k8s__apimachinery__pkg__apis__meta__v1__Time = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if containerID is not None:
             self.containerID = containerID
         if exitCode is not None:
@@ -6137,7 +6137,7 @@ class io__k8s__api__core__v1__EmptyDirVolumeSource(K8STemplatable):
         sizeLimit: io__k8s__apimachinery__pkg__api__resource__Quantity = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if medium is not None:
             self.medium = medium
         if sizeLimit is not None:
@@ -6163,7 +6163,7 @@ class io__k8s__api__core__v1__EndpointAddress(K8STemplatable):
         targetRef: io__k8s__api__core__v1__ObjectReference = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if hostname is not None:
             self.hostname = hostname
         if ip is not None:
@@ -6198,7 +6198,7 @@ class io__k8s__api__core__v1__EndpointSubset(K8STemplatable):
         ports: List[io__k8s__api__core__v1__EndpointPort] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if addresses is not None:
             self.addresses = addresses
         if notReadyAddresses is not None:
@@ -6224,7 +6224,7 @@ class io__k8s__api__core__v1__EnvFromSource(K8STemplatable):
         secretRef: io__k8s__api__core__v1__SecretEnvSource = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if configMapRef is not None:
             self.configMapRef = configMapRef
         if prefix is not None:
@@ -6248,7 +6248,7 @@ class io__k8s__api__core__v1__EventSeries(K8STemplatable):
         lastObservedTime: io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if count is not None:
             self.count = count
         if lastObservedTime is not None:
@@ -6276,7 +6276,7 @@ class io__k8s__api__core__v1__FlexPersistentVolumeSource(K8STemplatable):
         secretRef: io__k8s__api__core__v1__SecretReference = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if driver is not None:
             self.driver = driver
         if fsType is not None:
@@ -6310,7 +6310,7 @@ class io__k8s__api__core__v1__FlexVolumeSource(K8STemplatable):
         secretRef: io__k8s__api__core__v1__LocalObjectReference = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if driver is not None:
             self.driver = driver
         if fsType is not None:
@@ -6344,7 +6344,7 @@ class io__k8s__api__core__v1__HTTPGetAction(K8STemplatable):
         scheme: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if host is not None:
             self.host = host
         if httpHeaders is not None:
@@ -6402,7 +6402,7 @@ class io__k8s__api__core__v1__ISCSIPersistentVolumeSource(K8STemplatable):
         targetPortal: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if chapAuthDiscovery is not None:
             self.chapAuthDiscovery = chapAuthDiscovery
         if chapAuthSession is not None:
@@ -6472,7 +6472,7 @@ class io__k8s__api__core__v1__ISCSIVolumeSource(K8STemplatable):
         targetPortal: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if chapAuthDiscovery is not None:
             self.chapAuthDiscovery = chapAuthDiscovery
         if chapAuthSession is not None:
@@ -6514,7 +6514,7 @@ class io__k8s__api__core__v1__LoadBalancerIngress(K8STemplatable):
         ports: List[io__k8s__api__core__v1__PortStatus] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if hostname is not None:
             self.hostname = hostname
         if ip is not None:
@@ -6536,7 +6536,7 @@ class io__k8s__api__core__v1__LoadBalancerStatus(K8STemplatable):
         ingress: List[io__k8s__api__core__v1__LoadBalancerIngress] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if ingress is not None:
             self.ingress = ingress
 
@@ -6562,7 +6562,7 @@ class io__k8s__api__core__v1__NamespaceCondition(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastTransitionTime is not None:
             self.lastTransitionTime = lastTransitionTime
         if message is not None:
@@ -6590,7 +6590,7 @@ class io__k8s__api__core__v1__NamespaceStatus(K8STemplatable):
         phase: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if conditions is not None:
             self.conditions = conditions
         if phase is not None:
@@ -6627,7 +6627,7 @@ class io__k8s__api__core__v1__NodeCondition(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastHeartbeatTime is not None:
             self.lastHeartbeatTime = lastHeartbeatTime
         if lastTransitionTime is not None:
@@ -6655,7 +6655,7 @@ class io__k8s__api__core__v1__NodeSelector(K8STemplatable):
         nodeSelectorTerms: List[io__k8s__api__core__v1__NodeSelectorTerm] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if nodeSelectorTerms is not None:
             self.nodeSelectorTerms = nodeSelectorTerms
 
@@ -6705,7 +6705,7 @@ class io__k8s__api__core__v1__NodeStatus(K8STemplatable):
         volumesInUse: List[str] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if addresses is not None:
             self.addresses = addresses
         if allocatable is not None:
@@ -6760,7 +6760,7 @@ class io__k8s__api__core__v1__PersistentVolumeClaimCondition(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastProbeTime is not None:
             self.lastProbeTime = lastProbeTime
         if lastTransitionTime is not None:
@@ -6805,7 +6805,7 @@ class io__k8s__api__core__v1__PersistentVolumeClaimStatus(K8STemplatable):
         resizeStatus: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if accessModes is not None:
             self.accessModes = accessModes
         if allocatedResources is not None:
@@ -6850,7 +6850,7 @@ class io__k8s__api__core__v1__PodCondition(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastProbeTime is not None:
             self.lastProbeTime = lastProbeTime
         if lastTransitionTime is not None:
@@ -6882,7 +6882,7 @@ class io__k8s__api__core__v1__PodDNSConfig(K8STemplatable):
         searches: List[str] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if nameservers is not None:
             self.nameservers = nameservers
         if options is not None:
@@ -6933,7 +6933,7 @@ class io__k8s__api__core__v1__PodSecurityContext(K8STemplatable):
         windowsOptions: io__k8s__api__core__v1__WindowsSecurityContextOptions = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if fsGroup is not None:
             self.fsGroup = fsGroup
         if fsGroupChangePolicy is not None:
@@ -6992,7 +6992,7 @@ class io__k8s__api__core__v1__RBDPersistentVolumeSource(K8STemplatable):
         user: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if fsType is not None:
             self.fsType = fsType
         if image is not None:
@@ -7032,7 +7032,7 @@ class io__k8s__api__core__v1__ReplicationControllerCondition(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastTransitionTime is not None:
             self.lastTransitionTime = lastTransitionTime
         if message is not None:
@@ -7075,7 +7075,7 @@ class io__k8s__api__core__v1__ReplicationControllerStatus(K8STemplatable):
         replicas: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if availableReplicas is not None:
             self.availableReplicas = availableReplicas
         if conditions is not None:
@@ -7107,7 +7107,7 @@ class io__k8s__api__core__v1__ResourceFieldSelector(K8STemplatable):
         resource: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if containerName is not None:
             self.containerName = containerName
         if divisor is not None:
@@ -7158,7 +7158,7 @@ class io__k8s__api__core__v1__ScaleIOPersistentVolumeSource(K8STemplatable):
         volumeName: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if fsType is not None:
             self.fsType = fsType
         if gateway is not None:
@@ -7196,7 +7196,7 @@ class io__k8s__api__core__v1__ScopeSelector(K8STemplatable):
         ] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if matchExpressions is not None:
             self.matchExpressions = matchExpressions
 
@@ -7246,7 +7246,7 @@ class io__k8s__api__core__v1__SecurityContext(K8STemplatable):
         windowsOptions: io__k8s__api__core__v1__WindowsSecurityContextOptions = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if allowPrivilegeEscalation is not None:
             self.allowPrivilegeEscalation = allowPrivilegeEscalation
         if capabilities is not None:
@@ -7301,7 +7301,7 @@ class io__k8s__api__core__v1__ServicePort(K8STemplatable):
         targetPort: io__k8s__apimachinery__pkg__util__intstr__IntOrString = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if appProtocol is not None:
             self.appProtocol = appProtocol
         if name is not None:
@@ -7385,7 +7385,7 @@ class io__k8s__api__core__v1__ServiceSpec(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if allocateLoadBalancerNodePorts is not None:
             self.allocateLoadBalancerNodePorts = allocateLoadBalancerNodePorts
         if clusterIP is not None:
@@ -7441,7 +7441,7 @@ class io__k8s__api__core__v1__TCPSocketAction(K8STemplatable):
         port: io__k8s__apimachinery__pkg__util__intstr__IntOrString = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if host is not None:
             self.host = host
         if port is not None:
@@ -7467,7 +7467,7 @@ class io__k8s__api__core__v1__Taint(K8STemplatable):
         value: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if effect is not None:
             self.effect = effect
         if key is not None:
@@ -7487,7 +7487,7 @@ class io__k8s__api__core__v1__VolumeNodeAffinity(K8STemplatable):
     required: io__k8s__api__core__v1__NodeSelector
 
     def __init__(self, required: io__k8s__api__core__v1__NodeSelector = None, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
         if required is not None:
             self.required = required
 
@@ -7503,7 +7503,7 @@ class io__k8s__api__discovery__v1__EndpointHints(K8STemplatable):
     def __init__(
         self, forZones: List[io__k8s__api__discovery__v1__ForZone] = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if forZones is not None:
             self.forZones = forZones
 
@@ -7519,7 +7519,7 @@ class io__k8s__api__discovery__v1beta1__EndpointHints(K8STemplatable):
     def __init__(
         self, forZones: List[io__k8s__api__discovery__v1beta1__ForZone] = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if forZones is not None:
             self.forZones = forZones
 
@@ -7539,7 +7539,7 @@ class io__k8s__api__events__v1__EventSeries(K8STemplatable):
         lastObservedTime: io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if count is not None:
             self.count = count
         if lastObservedTime is not None:
@@ -7561,7 +7561,7 @@ class io__k8s__api__events__v1beta1__EventSeries(K8STemplatable):
         lastObservedTime: io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if count is not None:
             self.count = count
         if lastObservedTime is not None:
@@ -7589,7 +7589,7 @@ class io__k8s__api__flowcontrol__v1beta1__FlowSchemaCondition(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastTransitionTime is not None:
             self.lastTransitionTime = lastTransitionTime
         if message is not None:
@@ -7617,7 +7617,7 @@ class io__k8s__api__flowcontrol__v1beta1__FlowSchemaStatus(K8STemplatable):
         ] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if conditions is not None:
             self.conditions = conditions
 
@@ -7637,7 +7637,7 @@ class io__k8s__api__flowcontrol__v1beta1__LimitResponse(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if queuing is not None:
             self.queuing = queuing
         if type is not None:
@@ -7663,7 +7663,7 @@ class io__k8s__api__flowcontrol__v1beta1__LimitedPriorityLevelConfiguration(
         limitResponse: io__k8s__api__flowcontrol__v1beta1__LimitResponse = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if assuredConcurrencyShares is not None:
             self.assuredConcurrencyShares = assuredConcurrencyShares
         if limitResponse is not None:
@@ -7693,7 +7693,7 @@ class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationCondition(
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastTransitionTime is not None:
             self.lastTransitionTime = lastTransitionTime
         if message is not None:
@@ -7723,7 +7723,7 @@ class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationSpec(
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if limited is not None:
             self.limited = limited
         if type is not None:
@@ -7749,7 +7749,7 @@ class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationStatus(
         ] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if conditions is not None:
             self.conditions = conditions
 
@@ -7773,7 +7773,7 @@ class io__k8s__api__flowcontrol__v1beta1__Subject(K8STemplatable):
         user: io__k8s__api__flowcontrol__v1beta1__UserSubject = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if group is not None:
             self.group = group
         if kind is not None:
@@ -7805,7 +7805,7 @@ class io__k8s__api__flowcontrol__v1beta2__FlowSchemaCondition(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastTransitionTime is not None:
             self.lastTransitionTime = lastTransitionTime
         if message is not None:
@@ -7833,7 +7833,7 @@ class io__k8s__api__flowcontrol__v1beta2__FlowSchemaStatus(K8STemplatable):
         ] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if conditions is not None:
             self.conditions = conditions
 
@@ -7853,7 +7853,7 @@ class io__k8s__api__flowcontrol__v1beta2__LimitResponse(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if queuing is not None:
             self.queuing = queuing
         if type is not None:
@@ -7879,7 +7879,7 @@ class io__k8s__api__flowcontrol__v1beta2__LimitedPriorityLevelConfiguration(
         limitResponse: io__k8s__api__flowcontrol__v1beta2__LimitResponse = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if assuredConcurrencyShares is not None:
             self.assuredConcurrencyShares = assuredConcurrencyShares
         if limitResponse is not None:
@@ -7909,7 +7909,7 @@ class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationCondition(
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastTransitionTime is not None:
             self.lastTransitionTime = lastTransitionTime
         if message is not None:
@@ -7939,7 +7939,7 @@ class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationSpec(
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if limited is not None:
             self.limited = limited
         if type is not None:
@@ -7965,7 +7965,7 @@ class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationStatus(
         ] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if conditions is not None:
             self.conditions = conditions
 
@@ -7989,7 +7989,7 @@ class io__k8s__api__flowcontrol__v1beta2__Subject(K8STemplatable):
         user: io__k8s__api__flowcontrol__v1beta2__UserSubject = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if group is not None:
             self.group = group
         if kind is not None:
@@ -8015,7 +8015,7 @@ class io__k8s__api__networking__v1__IngressServiceBackend(K8STemplatable):
         port: io__k8s__api__networking__v1__ServiceBackendPort = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if port is not None:
@@ -8033,7 +8033,7 @@ class io__k8s__api__networking__v1__IngressStatus(K8STemplatable):
     def __init__(
         self, loadBalancer: io__k8s__api__core__v1__LoadBalancerStatus = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if loadBalancer is not None:
             self.loadBalancer = loadBalancer
 
@@ -8055,7 +8055,7 @@ class io__k8s__api__networking__v1__NetworkPolicyPort(K8STemplatable):
         protocol: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if endPort is not None:
             self.endPort = endPort
         if port is not None:
@@ -8079,7 +8079,7 @@ class io__k8s__api__policy__v1beta1__FSGroupStrategyOptions(K8STemplatable):
         rule: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if ranges is not None:
             self.ranges = ranges
         if rule is not None:
@@ -8177,7 +8177,7 @@ class io__k8s__api__policy__v1beta1__PodSecurityPolicySpec(K8STemplatable):
         volumes: List[str] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if allowPrivilegeEscalation is not None:
             self.allowPrivilegeEscalation = allowPrivilegeEscalation
         if allowedCSIDrivers is not None:
@@ -8261,7 +8261,7 @@ class io__k8s__api__storage__v1__CSIDriverSpec(K8STemplatable):
         volumeLifecycleModes: List[str] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if attachRequired is not None:
             self.attachRequired = attachRequired
         if fsGroupPolicy is not None:
@@ -8297,7 +8297,7 @@ class io__k8s__api__storage__v1__CSINodeDriver(K8STemplatable):
         topologyKeys: List[str] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if allocatable is not None:
             self.allocatable = allocatable
         if name is not None:
@@ -8319,7 +8319,7 @@ class io__k8s__api__storage__v1__CSINodeSpec(K8STemplatable):
     def __init__(
         self, drivers: List[io__k8s__api__storage__v1__CSINodeDriver] = None, **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if drivers is not None:
             self.drivers = drivers
 
@@ -8339,7 +8339,7 @@ class io__k8s__api__storage__v1__VolumeError(K8STemplatable):
         time: io__k8s__apimachinery__pkg__apis__meta__v1__Time = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if message is not None:
             self.message = message
         if time is not None:
@@ -8381,7 +8381,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__APIGroup(K8STemplatable):
         ] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if preferredVersion is not None:
@@ -8408,7 +8408,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__APIGroupList(K8STemplatable):
         groups: List[io__k8s__apimachinery__pkg__apis__meta__v1__APIGroup] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if groups is not None:
             self.groups = groups
 
@@ -8435,7 +8435,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__APIVersions(K8STemplatable):
         versions: List[str] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if serverAddressByClientCIDRs is not None:
             self.serverAddressByClientCIDRs = serverAddressByClientCIDRs
         if versions is not None:
@@ -8478,7 +8478,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__Condition(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if lastTransitionTime is not None:
             self.lastTransitionTime = lastTransitionTime
         if message is not None:
@@ -8525,7 +8525,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__DeleteOptions(K8STemplatable):
         propagationPolicy: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if dryRun is not None:
             self.dryRun = dryRun
         if gracePeriodSeconds is not None:
@@ -8557,7 +8557,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector(K8STemplatable):
         matchLabels: Any = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if matchExpressions is not None:
             self.matchExpressions = matchExpressions
         if matchLabels is not None:
@@ -8597,7 +8597,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__ManagedFieldsEntry(K8STemplata
         time: io__k8s__apimachinery__pkg__apis__meta__v1__Time = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if apiVersion is not None:
             self.apiVersion = apiVersion
         if fieldsType is not None:
@@ -8678,7 +8678,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta(K8STemplatable):
         uid: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if annotations is not None:
             self.annotations = annotations
         if clusterName is not None:
@@ -8748,7 +8748,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__Status(K8STemplatable):
         status: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if code is not None:
             self.code = code
         if details is not None:
@@ -8781,7 +8781,7 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__WatchEvent(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if object is not None:
             self.object = object
         if type is not None:
@@ -8823,7 +8823,7 @@ class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceSpec(
         versionPriority: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if caBundle is not None:
             self.caBundle = caBundle
         if group is not None:
@@ -8890,7 +8890,7 @@ class io__k8s__api__admissionregistration__v1__MutatingWebhook(K8STemplatable):
         timeoutSeconds: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if admissionReviewVersions is not None:
             self.admissionReviewVersions = admissionReviewVersions
         if clientConfig is not None:
@@ -8935,7 +8935,7 @@ class io__k8s__api__admissionregistration__v1__MutatingWebhookConfiguration(
         webhooks: List[io__k8s__api__admissionregistration__v1__MutatingWebhook] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if webhooks is not None:
@@ -8964,7 +8964,7 @@ class io__k8s__api__admissionregistration__v1__MutatingWebhookConfigurationList(
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -9018,7 +9018,7 @@ class io__k8s__api__admissionregistration__v1__ValidatingWebhook(K8STemplatable)
         timeoutSeconds: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if admissionReviewVersions is not None:
             self.admissionReviewVersions = admissionReviewVersions
         if clientConfig is not None:
@@ -9063,7 +9063,7 @@ class io__k8s__api__admissionregistration__v1__ValidatingWebhookConfiguration(
         ] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if webhooks is not None:
@@ -9092,7 +9092,7 @@ class io__k8s__api__admissionregistration__v1__ValidatingWebhookConfigurationLis
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -9119,7 +9119,7 @@ class io__k8s__api__apiserverinternal__v1alpha1__StorageVersion(K8STemplatable):
         status: io__k8s__api__apiserverinternal__v1alpha1__StorageVersionStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -9146,7 +9146,7 @@ class io__k8s__api__apiserverinternal__v1alpha1__StorageVersionList(K8STemplatab
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -9173,7 +9173,7 @@ class io__k8s__api__apps__v1__ControllerRevision(K8STemplatable):
         revision: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if data is not None:
             self.data = data
         if metadata is not None:
@@ -9200,7 +9200,7 @@ class io__k8s__api__apps__v1__ControllerRevisionList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -9222,7 +9222,7 @@ class io__k8s__api__apps__v1__DaemonSetUpdateStrategy(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if rollingUpdate is not None:
             self.rollingUpdate = rollingUpdate
         if type is not None:
@@ -9244,7 +9244,7 @@ class io__k8s__api__apps__v1__DeploymentStrategy(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if rollingUpdate is not None:
             self.rollingUpdate = rollingUpdate
         if type is not None:
@@ -9271,7 +9271,7 @@ class io__k8s__api__authentication__v1__TokenRequest(K8STemplatable):
         status: io__k8s__api__authentication__v1__TokenRequestStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -9300,7 +9300,7 @@ class io__k8s__api__authentication__v1__TokenReview(K8STemplatable):
         status: io__k8s__api__authentication__v1__TokenReviewStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -9329,7 +9329,7 @@ class io__k8s__api__authorization__v1__LocalSubjectAccessReview(K8STemplatable):
         status: io__k8s__api__authorization__v1__SubjectAccessReviewStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -9358,7 +9358,7 @@ class io__k8s__api__authorization__v1__SelfSubjectAccessReview(K8STemplatable):
         status: io__k8s__api__authorization__v1__SubjectAccessReviewStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -9387,7 +9387,7 @@ class io__k8s__api__authorization__v1__SelfSubjectRulesReview(K8STemplatable):
         status: io__k8s__api__authorization__v1__SubjectRulesReviewStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -9416,7 +9416,7 @@ class io__k8s__api__authorization__v1__SubjectAccessReview(K8STemplatable):
         status: io__k8s__api__authorization__v1__SubjectAccessReviewStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -9445,7 +9445,7 @@ class io__k8s__api__autoscaling__v1__HorizontalPodAutoscaler(K8STemplatable):
         status: io__k8s__api__autoscaling__v1__HorizontalPodAutoscalerStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -9472,7 +9472,7 @@ class io__k8s__api__autoscaling__v1__HorizontalPodAutoscalerList(K8STemplatable)
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -9499,7 +9499,7 @@ class io__k8s__api__autoscaling__v1__Scale(K8STemplatable):
         status: io__k8s__api__autoscaling__v1__ScaleStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -9525,7 +9525,7 @@ class io__k8s__api__autoscaling__v2__ContainerResourceMetricSource(K8STemplatabl
         target: io__k8s__api__autoscaling__v2__MetricTarget = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if container is not None:
             self.container = container
         if name is not None:
@@ -9551,7 +9551,7 @@ class io__k8s__api__autoscaling__v2__ContainerResourceMetricStatus(K8STemplatabl
         name: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if container is not None:
             self.container = container
         if current is not None:
@@ -9575,7 +9575,7 @@ class io__k8s__api__autoscaling__v2__MetricIdentifier(K8STemplatable):
         selector: io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if selector is not None:
@@ -9599,7 +9599,7 @@ class io__k8s__api__autoscaling__v2__ObjectMetricSource(K8STemplatable):
         target: io__k8s__api__autoscaling__v2__MetricTarget = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if describedObject is not None:
             self.describedObject = describedObject
         if metric is not None:
@@ -9625,7 +9625,7 @@ class io__k8s__api__autoscaling__v2__ObjectMetricStatus(K8STemplatable):
         metric: io__k8s__api__autoscaling__v2__MetricIdentifier = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if current is not None:
             self.current = current
         if describedObject is not None:
@@ -9649,7 +9649,7 @@ class io__k8s__api__autoscaling__v2__PodsMetricSource(K8STemplatable):
         target: io__k8s__api__autoscaling__v2__MetricTarget = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metric is not None:
             self.metric = metric
         if target is not None:
@@ -9671,7 +9671,7 @@ class io__k8s__api__autoscaling__v2__PodsMetricStatus(K8STemplatable):
         metric: io__k8s__api__autoscaling__v2__MetricIdentifier = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if current is not None:
             self.current = current
         if metric is not None:
@@ -9702,7 +9702,7 @@ class io__k8s__api__autoscaling__v2beta1__ExternalMetricSource(K8STemplatable):
         targetValue: io__k8s__apimachinery__pkg__api__resource__Quantity = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metricName is not None:
             self.metricName = metricName
         if metricSelector is not None:
@@ -9737,7 +9737,7 @@ class io__k8s__api__autoscaling__v2beta1__ExternalMetricStatus(K8STemplatable):
         metricSelector: io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if currentAverageValue is not None:
             self.currentAverageValue = currentAverageValue
         if currentValue is not None:
@@ -9775,7 +9775,7 @@ class io__k8s__api__autoscaling__v2beta1__ObjectMetricSource(K8STemplatable):
         targetValue: io__k8s__apimachinery__pkg__api__resource__Quantity = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if averageValue is not None:
             self.averageValue = averageValue
         if metricName is not None:
@@ -9815,7 +9815,7 @@ class io__k8s__api__autoscaling__v2beta1__ObjectMetricStatus(K8STemplatable):
         target: io__k8s__api__autoscaling__v2beta1__CrossVersionObjectReference = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if averageValue is not None:
             self.averageValue = averageValue
         if currentValue is not None:
@@ -9845,7 +9845,7 @@ class io__k8s__api__autoscaling__v2beta1__PodsMetricSource(K8STemplatable):
         targetAverageValue: io__k8s__apimachinery__pkg__api__resource__Quantity = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metricName is not None:
             self.metricName = metricName
         if selector is not None:
@@ -9871,7 +9871,7 @@ class io__k8s__api__autoscaling__v2beta1__PodsMetricStatus(K8STemplatable):
         selector: io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if currentAverageValue is not None:
             self.currentAverageValue = currentAverageValue
         if metricName is not None:
@@ -9897,7 +9897,7 @@ class io__k8s__api__autoscaling__v2beta2__ContainerResourceMetricSource(K8STempl
         target: io__k8s__api__autoscaling__v2beta2__MetricTarget = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if container is not None:
             self.container = container
         if name is not None:
@@ -9923,7 +9923,7 @@ class io__k8s__api__autoscaling__v2beta2__ContainerResourceMetricStatus(K8STempl
         name: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if container is not None:
             self.container = container
         if current is not None:
@@ -9947,7 +9947,7 @@ class io__k8s__api__autoscaling__v2beta2__MetricIdentifier(K8STemplatable):
         selector: io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if selector is not None:
@@ -9971,7 +9971,7 @@ class io__k8s__api__autoscaling__v2beta2__ObjectMetricSource(K8STemplatable):
         target: io__k8s__api__autoscaling__v2beta2__MetricTarget = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if describedObject is not None:
             self.describedObject = describedObject
         if metric is not None:
@@ -9997,7 +9997,7 @@ class io__k8s__api__autoscaling__v2beta2__ObjectMetricStatus(K8STemplatable):
         metric: io__k8s__api__autoscaling__v2beta2__MetricIdentifier = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if current is not None:
             self.current = current
         if describedObject is not None:
@@ -10021,7 +10021,7 @@ class io__k8s__api__autoscaling__v2beta2__PodsMetricSource(K8STemplatable):
         target: io__k8s__api__autoscaling__v2beta2__MetricTarget = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metric is not None:
             self.metric = metric
         if target is not None:
@@ -10043,7 +10043,7 @@ class io__k8s__api__autoscaling__v2beta2__PodsMetricStatus(K8STemplatable):
         metric: io__k8s__api__autoscaling__v2beta2__MetricIdentifier = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if current is not None:
             self.current = current
         if metric is not None:
@@ -10076,7 +10076,7 @@ class io__k8s__api__certificates__v1__CertificateSigningRequest(K8STemplatable):
         status: io__k8s__api__certificates__v1__CertificateSigningRequestStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -10103,7 +10103,7 @@ class io__k8s__api__certificates__v1__CertificateSigningRequestList(K8STemplatab
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -10128,7 +10128,7 @@ class io__k8s__api__coordination__v1__Lease(K8STemplatable):
         spec: io__k8s__api__coordination__v1__LeaseSpec = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -10153,7 +10153,7 @@ class io__k8s__api__coordination__v1__LeaseList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -10178,7 +10178,7 @@ class io__k8s__api__core__v1__Binding(K8STemplatable):
         target: io__k8s__api__core__v1__ObjectReference = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if target is not None:
@@ -10203,7 +10203,7 @@ class io__k8s__api__core__v1__ComponentStatus(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if conditions is not None:
             self.conditions = conditions
         if metadata is not None:
@@ -10228,7 +10228,7 @@ class io__k8s__api__core__v1__ComponentStatusList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -10264,7 +10264,7 @@ class io__k8s__api__core__v1__ConfigMap(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if binaryData is not None:
             self.binaryData = binaryData
         if data is not None:
@@ -10293,7 +10293,7 @@ class io__k8s__api__core__v1__ConfigMapList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -10317,7 +10317,7 @@ class io__k8s__api__core__v1__ContainerState(K8STemplatable):
         waiting: io__k8s__api__core__v1__ContainerStateWaiting = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if running is not None:
             self.running = running
         if terminated is not None:
@@ -10365,7 +10365,7 @@ class io__k8s__api__core__v1__ContainerStatus(K8STemplatable):
         state: io__k8s__api__core__v1__ContainerState = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if containerID is not None:
             self.containerID = containerID
         if image is not None:
@@ -10405,7 +10405,7 @@ class io__k8s__api__core__v1__DownwardAPIVolumeFile(K8STemplatable):
         resourceFieldRef: io__k8s__api__core__v1__ResourceFieldSelector = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if fieldRef is not None:
             self.fieldRef = fieldRef
         if mode is not None:
@@ -10431,7 +10431,7 @@ class io__k8s__api__core__v1__DownwardAPIVolumeSource(K8STemplatable):
         items: List[io__k8s__api__core__v1__DownwardAPIVolumeFile] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if defaultMode is not None:
             self.defaultMode = defaultMode
         if items is not None:
@@ -10467,7 +10467,7 @@ class io__k8s__api__core__v1__Endpoints(K8STemplatable):
         subsets: List[io__k8s__api__core__v1__EndpointSubset] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if subsets is not None:
@@ -10492,7 +10492,7 @@ class io__k8s__api__core__v1__EndpointsList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -10523,7 +10523,7 @@ class io__k8s__api__core__v1__EnvVarSource(K8STemplatable):
         secretKeyRef: io__k8s__api__core__v1__SecretKeySelector = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if configMapKeyRef is not None:
             self.configMapKeyRef = configMapKeyRef
         if fieldRef is not None:
@@ -10596,7 +10596,7 @@ class io__k8s__api__core__v1__Event(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if action is not None:
             self.action = action
         if count is not None:
@@ -10647,7 +10647,7 @@ class io__k8s__api__core__v1__EventList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -10671,7 +10671,7 @@ class io__k8s__api__core__v1__LifecycleHandler(K8STemplatable):
         tcpSocket: io__k8s__api__core__v1__TCPSocketAction = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if exec is not None:
             self.exec = exec
         if httpGet is not None:
@@ -10698,7 +10698,7 @@ class io__k8s__api__core__v1__LimitRange(K8STemplatable):
         spec: io__k8s__api__core__v1__LimitRangeSpec = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -10723,7 +10723,7 @@ class io__k8s__api__core__v1__LimitRangeList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -10750,7 +10750,7 @@ class io__k8s__api__core__v1__Namespace(K8STemplatable):
         status: io__k8s__api__core__v1__NamespaceStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -10777,7 +10777,7 @@ class io__k8s__api__core__v1__NamespaceList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -10806,7 +10806,7 @@ class io__k8s__api__core__v1__NodeAffinity(K8STemplatable):
         requiredDuringSchedulingIgnoredDuringExecution: io__k8s__api__core__v1__NodeSelector = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if preferredDuringSchedulingIgnoredDuringExecution is not None:
             self.preferredDuringSchedulingIgnoredDuringExecution = (
                 preferredDuringSchedulingIgnoredDuringExecution
@@ -10850,7 +10850,7 @@ class io__k8s__api__core__v1__NodeSpec(K8STemplatable):
         unschedulable: bool = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if configSource is not None:
             self.configSource = configSource
         if externalID is not None:
@@ -10903,7 +10903,7 @@ class io__k8s__api__core__v1__PersistentVolumeClaimSpec(K8STemplatable):
         volumeName: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if accessModes is not None:
             self.accessModes = accessModes
         if dataSource is not None:
@@ -10937,7 +10937,7 @@ class io__k8s__api__core__v1__PersistentVolumeClaimTemplate(K8STemplatable):
         spec: io__k8s__api__core__v1__PersistentVolumeClaimSpec = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -11046,7 +11046,7 @@ class io__k8s__api__core__v1__PersistentVolumeSpec(K8STemplatable):
         vsphereVolume: io__k8s__api__core__v1__VsphereVirtualDiskVolumeSource = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if accessModes is not None:
             self.accessModes = accessModes
         if awsElasticBlockStore is not None:
@@ -11133,7 +11133,7 @@ class io__k8s__api__core__v1__PodAffinityTerm(K8STemplatable):
         topologyKey: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if labelSelector is not None:
             self.labelSelector = labelSelector
         if namespaceSelector is not None:
@@ -11197,7 +11197,7 @@ class io__k8s__api__core__v1__PodStatus(K8STemplatable):
         startTime: io__k8s__apimachinery__pkg__apis__meta__v1__Time = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if conditions is not None:
             self.conditions = conditions
         if containerStatuses is not None:
@@ -11268,7 +11268,7 @@ class io__k8s__api__core__v1__Probe(K8STemplatable):
         timeoutSeconds: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if exec is not None:
             self.exec = exec
         if failureThreshold is not None:
@@ -11308,7 +11308,7 @@ class io__k8s__api__core__v1__ResourceQuotaSpec(K8STemplatable):
         scopes: List[str] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if hard is not None:
             self.hard = hard
         if scopeSelector is not None:
@@ -11349,7 +11349,7 @@ class io__k8s__api__core__v1__Secret(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if data is not None:
             self.data = data
         if immutable is not None:
@@ -11380,7 +11380,7 @@ class io__k8s__api__core__v1__SecretList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -11416,7 +11416,7 @@ class io__k8s__api__core__v1__ServiceAccount(K8STemplatable):
         secrets: List[io__k8s__api__core__v1__ObjectReference] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if automountServiceAccountToken is not None:
             self.automountServiceAccountToken = automountServiceAccountToken
         if imagePullSecrets is not None:
@@ -11445,7 +11445,7 @@ class io__k8s__api__core__v1__ServiceAccountList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -11467,7 +11467,7 @@ class io__k8s__api__core__v1__ServiceStatus(K8STemplatable):
         loadBalancer: io__k8s__api__core__v1__LoadBalancerStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if conditions is not None:
             self.conditions = conditions
         if loadBalancer is not None:
@@ -11501,7 +11501,7 @@ class io__k8s__api__core__v1__TopologySpreadConstraint(K8STemplatable):
         whenUnsatisfiable: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if labelSelector is not None:
             self.labelSelector = labelSelector
         if maxSkew is not None:
@@ -11529,7 +11529,7 @@ class io__k8s__api__core__v1__WeightedPodAffinityTerm(K8STemplatable):
         weight: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if podAffinityTerm is not None:
             self.podAffinityTerm = podAffinityTerm
         if weight is not None:
@@ -11572,7 +11572,7 @@ class io__k8s__api__discovery__v1__Endpoint(K8STemplatable):
         zone: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if addresses is not None:
             self.addresses = addresses
         if conditions is not None:
@@ -11620,7 +11620,7 @@ class io__k8s__api__discovery__v1__EndpointSlice(K8STemplatable):
         ports: List[io__k8s__api__discovery__v1__EndpointPort] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if addressType is not None:
             self.addressType = addressType
         if endpoints is not None:
@@ -11649,7 +11649,7 @@ class io__k8s__api__discovery__v1__EndpointSliceList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -11689,7 +11689,7 @@ class io__k8s__api__discovery__v1beta1__Endpoint(K8STemplatable):
         topology: Any = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if addresses is not None:
             self.addresses = addresses
         if conditions is not None:
@@ -11735,7 +11735,7 @@ class io__k8s__api__discovery__v1beta1__EndpointSlice(K8STemplatable):
         ports: List[io__k8s__api__discovery__v1beta1__EndpointPort] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if addressType is not None:
             self.addressType = addressType
         if endpoints is not None:
@@ -11764,7 +11764,7 @@ class io__k8s__api__discovery__v1beta1__EndpointSliceList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -11833,7 +11833,7 @@ class io__k8s__api__events__v1__Event(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if action is not None:
             self.action = action
         if deprecatedCount is not None:
@@ -11884,7 +11884,7 @@ class io__k8s__api__events__v1__EventList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -11953,7 +11953,7 @@ class io__k8s__api__events__v1beta1__Event(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if action is not None:
             self.action = action
         if deprecatedCount is not None:
@@ -12004,7 +12004,7 @@ class io__k8s__api__events__v1beta1__EventList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -12032,7 +12032,7 @@ class io__k8s__api__flowcontrol__v1beta1__PolicyRulesWithSubjects(K8STemplatable
         subjects: List[io__k8s__api__flowcontrol__v1beta1__Subject] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if nonResourceRules is not None:
             self.nonResourceRules = nonResourceRules
         if resourceRules is not None:
@@ -12061,7 +12061,7 @@ class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfiguration(K8STemplata
         status: io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -12092,7 +12092,7 @@ class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationList(
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -12120,7 +12120,7 @@ class io__k8s__api__flowcontrol__v1beta2__PolicyRulesWithSubjects(K8STemplatable
         subjects: List[io__k8s__api__flowcontrol__v1beta2__Subject] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if nonResourceRules is not None:
             self.nonResourceRules = nonResourceRules
         if resourceRules is not None:
@@ -12149,7 +12149,7 @@ class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfiguration(K8STemplata
         status: io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -12180,7 +12180,7 @@ class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationList(
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -12202,7 +12202,7 @@ class io__k8s__api__networking__v1__IngressBackend(K8STemplatable):
         service: io__k8s__api__networking__v1__IngressServiceBackend = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if resource is not None:
             self.resource = resource
         if service is not None:
@@ -12227,7 +12227,7 @@ class io__k8s__api__networking__v1__IngressClass(K8STemplatable):
         spec: io__k8s__api__networking__v1__IngressClassSpec = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -12252,7 +12252,7 @@ class io__k8s__api__networking__v1__IngressClassList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -12276,7 +12276,7 @@ class io__k8s__api__networking__v1__NetworkPolicyPeer(K8STemplatable):
         podSelector: io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if ipBlock is not None:
             self.ipBlock = ipBlock
         if namespaceSelector is not None:
@@ -12314,7 +12314,7 @@ class io__k8s__api__node__v1__RuntimeClass(K8STemplatable):
         scheduling: io__k8s__api__node__v1__Scheduling = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if handler is not None:
             self.handler = handler
         if metadata is not None:
@@ -12343,7 +12343,7 @@ class io__k8s__api__node__v1__RuntimeClassList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -12379,7 +12379,7 @@ class io__k8s__api__node__v1beta1__RuntimeClass(K8STemplatable):
         scheduling: io__k8s__api__node__v1beta1__Scheduling = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if handler is not None:
             self.handler = handler
         if metadata is not None:
@@ -12408,7 +12408,7 @@ class io__k8s__api__node__v1beta1__RuntimeClassList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -12433,7 +12433,7 @@ class io__k8s__api__policy__v1__Eviction(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if deleteOptions is not None:
             self.deleteOptions = deleteOptions
         if metadata is not None:
@@ -12457,7 +12457,7 @@ class io__k8s__api__policy__v1__PodDisruptionBudgetSpec(K8STemplatable):
         selector: io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if maxUnavailable is not None:
             self.maxUnavailable = maxUnavailable
         if minAvailable is not None:
@@ -12504,7 +12504,7 @@ class io__k8s__api__policy__v1__PodDisruptionBudgetStatus(K8STemplatable):
         observedGeneration: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if conditions is not None:
             self.conditions = conditions
         if currentHealthy is not None:
@@ -12538,7 +12538,7 @@ class io__k8s__api__policy__v1beta1__PodDisruptionBudgetSpec(K8STemplatable):
         selector: io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if maxUnavailable is not None:
             self.maxUnavailable = maxUnavailable
         if minAvailable is not None:
@@ -12585,7 +12585,7 @@ class io__k8s__api__policy__v1beta1__PodDisruptionBudgetStatus(K8STemplatable):
         observedGeneration: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if conditions is not None:
             self.conditions = conditions
         if currentHealthy is not None:
@@ -12620,7 +12620,7 @@ class io__k8s__api__policy__v1beta1__PodSecurityPolicy(K8STemplatable):
         spec: io__k8s__api__policy__v1beta1__PodSecurityPolicySpec = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -12645,7 +12645,7 @@ class io__k8s__api__policy__v1beta1__PodSecurityPolicyList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -12669,7 +12669,7 @@ class io__k8s__api__rbac__v1__AggregationRule(K8STemplatable):
         ] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if clusterRoleSelectors is not None:
             self.clusterRoleSelectors = clusterRoleSelectors
 
@@ -12694,7 +12694,7 @@ class io__k8s__api__rbac__v1__ClusterRole(K8STemplatable):
         rules: List[io__k8s__api__rbac__v1__PolicyRule] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if aggregationRule is not None:
             self.aggregationRule = aggregationRule
         if metadata is not None:
@@ -12723,7 +12723,7 @@ class io__k8s__api__rbac__v1__ClusterRoleBinding(K8STemplatable):
         subjects: List[io__k8s__api__rbac__v1__Subject] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if roleRef is not None:
@@ -12750,7 +12750,7 @@ class io__k8s__api__rbac__v1__ClusterRoleBindingList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -12775,7 +12775,7 @@ class io__k8s__api__rbac__v1__ClusterRoleList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -12800,7 +12800,7 @@ class io__k8s__api__rbac__v1__Role(K8STemplatable):
         rules: List[io__k8s__api__rbac__v1__PolicyRule] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if rules is not None:
@@ -12827,7 +12827,7 @@ class io__k8s__api__rbac__v1__RoleBinding(K8STemplatable):
         subjects: List[io__k8s__api__rbac__v1__Subject] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if roleRef is not None:
@@ -12854,7 +12854,7 @@ class io__k8s__api__rbac__v1__RoleBindingList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -12879,7 +12879,7 @@ class io__k8s__api__rbac__v1__RoleList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -12918,7 +12918,7 @@ class io__k8s__api__scheduling__v1__PriorityClass(K8STemplatable):
         value: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if description is not None:
             self.description = description
         if globalDefault is not None:
@@ -12949,7 +12949,7 @@ class io__k8s__api__scheduling__v1__PriorityClassList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -12974,7 +12974,7 @@ class io__k8s__api__storage__v1__CSIDriver(K8STemplatable):
         spec: io__k8s__api__storage__v1__CSIDriverSpec = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -12999,7 +12999,7 @@ class io__k8s__api__storage__v1__CSIDriverList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -13024,7 +13024,7 @@ class io__k8s__api__storage__v1__CSINode(K8STemplatable):
         spec: io__k8s__api__storage__v1__CSINodeSpec = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -13049,7 +13049,7 @@ class io__k8s__api__storage__v1__CSINodeList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -13096,7 +13096,7 @@ class io__k8s__api__storage__v1__CSIStorageCapacity(K8STemplatable):
         storageClassName: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if capacity is not None:
             self.capacity = capacity
         if maximumVolumeSize is not None:
@@ -13127,7 +13127,7 @@ class io__k8s__api__storage__v1__CSIStorageCapacityList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -13177,7 +13177,7 @@ class io__k8s__api__storage__v1__StorageClass(K8STemplatable):
         volumeBindingMode: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if allowVolumeExpansion is not None:
             self.allowVolumeExpansion = allowVolumeExpansion
         if allowedTopologies is not None:
@@ -13214,7 +13214,7 @@ class io__k8s__api__storage__v1__StorageClassList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -13236,7 +13236,7 @@ class io__k8s__api__storage__v1__VolumeAttachmentSource(K8STemplatable):
         persistentVolumeName: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if inlineVolumeSpec is not None:
             self.inlineVolumeSpec = inlineVolumeSpec
         if persistentVolumeName is not None:
@@ -13260,7 +13260,7 @@ class io__k8s__api__storage__v1__VolumeAttachmentSpec(K8STemplatable):
         source: io__k8s__api__storage__v1__VolumeAttachmentSource = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if attacher is not None:
             self.attacher = attacher
         if nodeName is not None:
@@ -13288,7 +13288,7 @@ class io__k8s__api__storage__v1__VolumeAttachmentStatus(K8STemplatable):
         detachError: io__k8s__api__storage__v1__VolumeError = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if attachError is not None:
             self.attachError = attachError
         if attached is not None:
@@ -13339,7 +13339,7 @@ class io__k8s__api__storage__v1alpha1__CSIStorageCapacity(K8STemplatable):
         storageClassName: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if capacity is not None:
             self.capacity = capacity
         if maximumVolumeSize is not None:
@@ -13370,7 +13370,7 @@ class io__k8s__api__storage__v1alpha1__CSIStorageCapacityList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -13417,7 +13417,7 @@ class io__k8s__api__storage__v1beta1__CSIStorageCapacity(K8STemplatable):
         storageClassName: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if capacity is not None:
             self.capacity = capacity
         if maximumVolumeSize is not None:
@@ -13448,7 +13448,7 @@ class io__k8s__api__storage__v1beta1__CSIStorageCapacityList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -13477,7 +13477,7 @@ class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIService(
         status: io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -13508,7 +13508,7 @@ class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceList(
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -13530,7 +13530,7 @@ class io__k8s__api__autoscaling__v2__ExternalMetricSource(K8STemplatable):
         target: io__k8s__api__autoscaling__v2__MetricTarget = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metric is not None:
             self.metric = metric
         if target is not None:
@@ -13552,7 +13552,7 @@ class io__k8s__api__autoscaling__v2__ExternalMetricStatus(K8STemplatable):
         metric: io__k8s__api__autoscaling__v2__MetricIdentifier = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if current is not None:
             self.current = current
         if metric is not None:
@@ -13589,7 +13589,7 @@ class io__k8s__api__autoscaling__v2__MetricSpec(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if containerResource is not None:
             self.containerResource = containerResource
         if external is not None:
@@ -13634,7 +13634,7 @@ class io__k8s__api__autoscaling__v2__MetricStatus(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if containerResource is not None:
             self.containerResource = containerResource
         if external is not None:
@@ -13679,7 +13679,7 @@ class io__k8s__api__autoscaling__v2beta1__MetricSpec(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if containerResource is not None:
             self.containerResource = containerResource
         if external is not None:
@@ -13724,7 +13724,7 @@ class io__k8s__api__autoscaling__v2beta1__MetricStatus(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if containerResource is not None:
             self.containerResource = containerResource
         if external is not None:
@@ -13754,7 +13754,7 @@ class io__k8s__api__autoscaling__v2beta2__ExternalMetricSource(K8STemplatable):
         target: io__k8s__api__autoscaling__v2beta2__MetricTarget = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metric is not None:
             self.metric = metric
         if target is not None:
@@ -13776,7 +13776,7 @@ class io__k8s__api__autoscaling__v2beta2__ExternalMetricStatus(K8STemplatable):
         metric: io__k8s__api__autoscaling__v2beta2__MetricIdentifier = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if current is not None:
             self.current = current
         if metric is not None:
@@ -13813,7 +13813,7 @@ class io__k8s__api__autoscaling__v2beta2__MetricSpec(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if containerResource is not None:
             self.containerResource = containerResource
         if external is not None:
@@ -13858,7 +13858,7 @@ class io__k8s__api__autoscaling__v2beta2__MetricStatus(K8STemplatable):
         type: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if containerResource is not None:
             self.containerResource = containerResource
         if external is not None:
@@ -13886,7 +13886,7 @@ class io__k8s__api__core__v1__DownwardAPIProjection(K8STemplatable):
         items: List[io__k8s__api__core__v1__DownwardAPIVolumeFile] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
 
@@ -13908,7 +13908,7 @@ class io__k8s__api__core__v1__EnvVar(K8STemplatable):
         valueFrom: io__k8s__api__core__v1__EnvVarSource = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if name is not None:
             self.name = name
         if value is not None:
@@ -13930,7 +13930,7 @@ class io__k8s__api__core__v1__EphemeralVolumeSource(K8STemplatable):
         volumeClaimTemplate: io__k8s__api__core__v1__PersistentVolumeClaimTemplate = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if volumeClaimTemplate is not None:
             self.volumeClaimTemplate = volumeClaimTemplate
 
@@ -13950,7 +13950,7 @@ class io__k8s__api__core__v1__Lifecycle(K8STemplatable):
         preStop: io__k8s__api__core__v1__LifecycleHandler = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if postStart is not None:
             self.postStart = postStart
         if preStop is not None:
@@ -13977,7 +13977,7 @@ class io__k8s__api__core__v1__Node(K8STemplatable):
         status: io__k8s__api__core__v1__NodeStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -14004,7 +14004,7 @@ class io__k8s__api__core__v1__NodeList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -14031,7 +14031,7 @@ class io__k8s__api__core__v1__PersistentVolume(K8STemplatable):
         status: io__k8s__api__core__v1__PersistentVolumeStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -14060,7 +14060,7 @@ class io__k8s__api__core__v1__PersistentVolumeClaim(K8STemplatable):
         status: io__k8s__api__core__v1__PersistentVolumeClaimStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -14087,7 +14087,7 @@ class io__k8s__api__core__v1__PersistentVolumeClaimList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -14112,7 +14112,7 @@ class io__k8s__api__core__v1__PersistentVolumeList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -14145,7 +14145,7 @@ class io__k8s__api__core__v1__PodAffinity(K8STemplatable):
         ] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if preferredDuringSchedulingIgnoredDuringExecution is not None:
             self.preferredDuringSchedulingIgnoredDuringExecution = (
                 preferredDuringSchedulingIgnoredDuringExecution
@@ -14182,7 +14182,7 @@ class io__k8s__api__core__v1__PodAntiAffinity(K8STemplatable):
         ] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if preferredDuringSchedulingIgnoredDuringExecution is not None:
             self.preferredDuringSchedulingIgnoredDuringExecution = (
                 preferredDuringSchedulingIgnoredDuringExecution
@@ -14213,7 +14213,7 @@ class io__k8s__api__core__v1__ResourceQuota(K8STemplatable):
         status: io__k8s__api__core__v1__ResourceQuotaStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -14240,7 +14240,7 @@ class io__k8s__api__core__v1__ResourceQuotaList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -14267,7 +14267,7 @@ class io__k8s__api__core__v1__Service(K8STemplatable):
         status: io__k8s__api__core__v1__ServiceStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -14294,7 +14294,7 @@ class io__k8s__api__core__v1__ServiceList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -14320,7 +14320,7 @@ class io__k8s__api__core__v1__VolumeProjection(K8STemplatable):
         serviceAccountToken: io__k8s__api__core__v1__ServiceAccountTokenProjection = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if configMap is not None:
             self.configMap = configMap
         if downwardAPI is not None:
@@ -14355,7 +14355,7 @@ class io__k8s__api__flowcontrol__v1beta1__FlowSchemaSpec(K8STemplatable):
         rules: List[io__k8s__api__flowcontrol__v1beta1__PolicyRulesWithSubjects] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if distinguisherMethod is not None:
             self.distinguisherMethod = distinguisherMethod
         if matchingPrecedence is not None:
@@ -14390,7 +14390,7 @@ class io__k8s__api__flowcontrol__v1beta2__FlowSchemaSpec(K8STemplatable):
         rules: List[io__k8s__api__flowcontrol__v1beta2__PolicyRulesWithSubjects] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if distinguisherMethod is not None:
             self.distinguisherMethod = distinguisherMethod
         if matchingPrecedence is not None:
@@ -14418,7 +14418,7 @@ class io__k8s__api__networking__v1__HTTPIngressPath(K8STemplatable):
         pathType: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if backend is not None:
             self.backend = backend
         if path is not None:
@@ -14440,7 +14440,7 @@ class io__k8s__api__networking__v1__HTTPIngressRuleValue(K8STemplatable):
         paths: List[io__k8s__api__networking__v1__HTTPIngressPath] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if paths is not None:
             self.paths = paths
 
@@ -14460,7 +14460,7 @@ class io__k8s__api__networking__v1__IngressRule(K8STemplatable):
         http: io__k8s__api__networking__v1__HTTPIngressRuleValue = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if host is not None:
             self.host = host
         if http is not None:
@@ -14486,7 +14486,7 @@ class io__k8s__api__networking__v1__IngressSpec(K8STemplatable):
         tls: List[io__k8s__api__networking__v1__IngressTLS] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if defaultBackend is not None:
             self.defaultBackend = defaultBackend
         if ingressClassName is not None:
@@ -14512,7 +14512,7 @@ class io__k8s__api__networking__v1__NetworkPolicyEgressRule(K8STemplatable):
         to: List[io__k8s__api__networking__v1__NetworkPolicyPeer] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if ports is not None:
             self.ports = ports
         if to is not None:
@@ -14534,7 +14534,7 @@ class io__k8s__api__networking__v1__NetworkPolicyIngressRule(K8STemplatable):
         ports: List[io__k8s__api__networking__v1__NetworkPolicyPort] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if k8s_from is not None:
             self.k8s_from = k8s_from
         if ports is not None:
@@ -14560,7 +14560,7 @@ class io__k8s__api__networking__v1__NetworkPolicySpec(K8STemplatable):
         policyTypes: List[str] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if egress is not None:
             self.egress = egress
         if ingress is not None:
@@ -14591,7 +14591,7 @@ class io__k8s__api__policy__v1__PodDisruptionBudget(K8STemplatable):
         status: io__k8s__api__policy__v1__PodDisruptionBudgetStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -14618,7 +14618,7 @@ class io__k8s__api__policy__v1__PodDisruptionBudgetList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -14645,7 +14645,7 @@ class io__k8s__api__policy__v1beta1__PodDisruptionBudget(K8STemplatable):
         status: io__k8s__api__policy__v1beta1__PodDisruptionBudgetStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -14672,7 +14672,7 @@ class io__k8s__api__policy__v1beta1__PodDisruptionBudgetList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -14701,7 +14701,7 @@ class io__k8s__api__storage__v1__VolumeAttachment(K8STemplatable):
         status: io__k8s__api__storage__v1__VolumeAttachmentStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -14728,7 +14728,7 @@ class io__k8s__api__storage__v1__VolumeAttachmentList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -14762,7 +14762,7 @@ class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerSpec(K8STemplatable)
         scaleTargetRef: io__k8s__api__autoscaling__v2__CrossVersionObjectReference = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if behavior is not None:
             self.behavior = behavior
         if maxReplicas is not None:
@@ -14807,7 +14807,7 @@ class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerStatus(K8STemplatabl
         observedGeneration: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if conditions is not None:
             self.conditions = conditions
         if currentMetrics is not None:
@@ -14841,7 +14841,7 @@ class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerSpec(K8STemplat
         scaleTargetRef: io__k8s__api__autoscaling__v2beta1__CrossVersionObjectReference = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if maxReplicas is not None:
             self.maxReplicas = maxReplicas
         if metrics is not None:
@@ -14886,7 +14886,7 @@ class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerStatus(K8STempl
         observedGeneration: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if conditions is not None:
             self.conditions = conditions
         if currentMetrics is not None:
@@ -14928,7 +14928,7 @@ class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerSpec(K8STemplat
         scaleTargetRef: io__k8s__api__autoscaling__v2beta2__CrossVersionObjectReference = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if behavior is not None:
             self.behavior = behavior
         if maxReplicas is not None:
@@ -14975,7 +14975,7 @@ class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerStatus(K8STempl
         observedGeneration: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if conditions is not None:
             self.conditions = conditions
         if currentMetrics is not None:
@@ -15007,7 +15007,7 @@ class io__k8s__api__core__v1__Affinity(K8STemplatable):
         podAntiAffinity: io__k8s__api__core__v1__PodAntiAffinity = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if nodeAffinity is not None:
             self.nodeAffinity = nodeAffinity
         if podAffinity is not None:
@@ -15094,7 +15094,7 @@ class io__k8s__api__core__v1__Container(K8STemplatable):
         workingDir: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if args is not None:
             self.args = args
         if command is not None:
@@ -15226,7 +15226,7 @@ class io__k8s__api__core__v1__EphemeralContainer(K8STemplatable):
         workingDir: str = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if args is not None:
             self.args = args
         if command is not None:
@@ -15290,7 +15290,7 @@ class io__k8s__api__core__v1__ProjectedVolumeSource(K8STemplatable):
         sources: List[io__k8s__api__core__v1__VolumeProjection] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if defaultMode is not None:
             self.defaultMode = defaultMode
         if sources is not None:
@@ -15399,7 +15399,7 @@ class io__k8s__api__core__v1__Volume(K8STemplatable):
         vsphereVolume: io__k8s__api__core__v1__VsphereVirtualDiskVolumeSource = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if awsElasticBlockStore is not None:
             self.awsElasticBlockStore = awsElasticBlockStore
         if azureDisk is not None:
@@ -15482,7 +15482,7 @@ class io__k8s__api__flowcontrol__v1beta1__FlowSchema(K8STemplatable):
         status: io__k8s__api__flowcontrol__v1beta1__FlowSchemaStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -15509,7 +15509,7 @@ class io__k8s__api__flowcontrol__v1beta1__FlowSchemaList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -15536,7 +15536,7 @@ class io__k8s__api__flowcontrol__v1beta2__FlowSchema(K8STemplatable):
         status: io__k8s__api__flowcontrol__v1beta2__FlowSchemaStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -15563,7 +15563,7 @@ class io__k8s__api__flowcontrol__v1beta2__FlowSchemaList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -15590,7 +15590,7 @@ class io__k8s__api__networking__v1__Ingress(K8STemplatable):
         status: io__k8s__api__networking__v1__IngressStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -15617,7 +15617,7 @@ class io__k8s__api__networking__v1__IngressList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -15642,7 +15642,7 @@ class io__k8s__api__networking__v1__NetworkPolicy(K8STemplatable):
         spec: io__k8s__api__networking__v1__NetworkPolicySpec = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -15667,7 +15667,7 @@ class io__k8s__api__networking__v1__NetworkPolicyList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -15694,7 +15694,7 @@ class io__k8s__api__autoscaling__v2__HorizontalPodAutoscaler(K8STemplatable):
         status: io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -15721,7 +15721,7 @@ class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerList(K8STemplatable)
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -15748,7 +15748,7 @@ class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscaler(K8STemplatable
         status: io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -15775,7 +15775,7 @@ class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerList(K8STemplat
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -15802,7 +15802,7 @@ class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscaler(K8STemplatable
         status: io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -15829,7 +15829,7 @@ class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerList(K8STemplat
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -15958,7 +15958,7 @@ class io__k8s__api__core__v1__PodSpec(K8STemplatable):
         volumes: List[io__k8s__api__core__v1__Volume] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if activeDeadlineSeconds is not None:
             self.activeDeadlineSeconds = activeDeadlineSeconds
         if affinity is not None:
@@ -16048,7 +16048,7 @@ class io__k8s__api__core__v1__PodTemplateSpec(K8STemplatable):
         spec: io__k8s__api__core__v1__PodSpec = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -16074,7 +16074,7 @@ class io__k8s__api__core__v1__ReplicationControllerSpec(K8STemplatable):
         template: io__k8s__api__core__v1__PodTemplateSpec = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if minReadySeconds is not None:
             self.minReadySeconds = minReadySeconds
         if replicas is not None:
@@ -16112,7 +16112,7 @@ class io__k8s__api__apps__v1__DaemonSetSpec(K8STemplatable):
         updateStrategy: io__k8s__api__apps__v1__DaemonSetUpdateStrategy = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if minReadySeconds is not None:
             self.minReadySeconds = minReadySeconds
         if revisionHistoryLimit is not None:
@@ -16161,7 +16161,7 @@ class io__k8s__api__apps__v1__DeploymentSpec(K8STemplatable):
         template: io__k8s__api__core__v1__PodTemplateSpec = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if minReadySeconds is not None:
             self.minReadySeconds = minReadySeconds
         if paused is not None:
@@ -16199,7 +16199,7 @@ class io__k8s__api__apps__v1__ReplicaSetSpec(K8STemplatable):
         template: io__k8s__api__core__v1__PodTemplateSpec = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if minReadySeconds is not None:
             self.minReadySeconds = minReadySeconds
         if replicas is not None:
@@ -16254,7 +16254,7 @@ class io__k8s__api__apps__v1__StatefulSetSpec(K8STemplatable):
         ] = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if minReadySeconds is not None:
             self.minReadySeconds = minReadySeconds
         if persistentVolumeClaimRetentionPolicy is not None:
@@ -16321,7 +16321,7 @@ class io__k8s__api__batch__v1__JobSpec(K8STemplatable):
         ttlSecondsAfterFinished: int = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if activeDeadlineSeconds is not None:
             self.activeDeadlineSeconds = activeDeadlineSeconds
         if backoffLimit is not None:
@@ -16359,7 +16359,7 @@ class io__k8s__api__batch__v1__JobTemplateSpec(K8STemplatable):
         spec: io__k8s__api__batch__v1__JobSpec = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -16381,7 +16381,7 @@ class io__k8s__api__batch__v1beta1__JobTemplateSpec(K8STemplatable):
         spec: io__k8s__api__batch__v1__JobSpec = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -16408,7 +16408,7 @@ class io__k8s__api__core__v1__Pod(K8STemplatable):
         status: io__k8s__api__core__v1__PodStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -16435,7 +16435,7 @@ class io__k8s__api__core__v1__PodList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -16460,7 +16460,7 @@ class io__k8s__api__core__v1__PodTemplate(K8STemplatable):
         template: io__k8s__api__core__v1__PodTemplateSpec = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if template is not None:
@@ -16485,7 +16485,7 @@ class io__k8s__api__core__v1__PodTemplateList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -16512,7 +16512,7 @@ class io__k8s__api__core__v1__ReplicationController(K8STemplatable):
         status: io__k8s__api__core__v1__ReplicationControllerStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -16539,7 +16539,7 @@ class io__k8s__api__core__v1__ReplicationControllerList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -16566,7 +16566,7 @@ class io__k8s__api__apps__v1__DaemonSet(K8STemplatable):
         status: io__k8s__api__apps__v1__DaemonSetStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -16593,7 +16593,7 @@ class io__k8s__api__apps__v1__DaemonSetList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -16620,7 +16620,7 @@ class io__k8s__api__apps__v1__Deployment(K8STemplatable):
         status: io__k8s__api__apps__v1__DeploymentStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -16647,7 +16647,7 @@ class io__k8s__api__apps__v1__DeploymentList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -16674,7 +16674,7 @@ class io__k8s__api__apps__v1__ReplicaSet(K8STemplatable):
         status: io__k8s__api__apps__v1__ReplicaSetStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -16701,7 +16701,7 @@ class io__k8s__api__apps__v1__ReplicaSetList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -16731,7 +16731,7 @@ class io__k8s__api__apps__v1__StatefulSet(K8STemplatable):
         status: io__k8s__api__apps__v1__StatefulSetStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -16758,7 +16758,7 @@ class io__k8s__api__apps__v1__StatefulSetList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -16798,7 +16798,7 @@ class io__k8s__api__batch__v1__CronJobSpec(K8STemplatable):
         suspend: bool = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if concurrencyPolicy is not None:
             self.concurrencyPolicy = concurrencyPolicy
         if failedJobsHistoryLimit is not None:
@@ -16835,7 +16835,7 @@ class io__k8s__api__batch__v1__Job(K8STemplatable):
         status: io__k8s__api__batch__v1__JobStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -16862,7 +16862,7 @@ class io__k8s__api__batch__v1__JobList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -16902,7 +16902,7 @@ class io__k8s__api__batch__v1beta1__CronJobSpec(K8STemplatable):
         suspend: bool = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if concurrencyPolicy is not None:
             self.concurrencyPolicy = concurrencyPolicy
         if failedJobsHistoryLimit is not None:
@@ -16939,7 +16939,7 @@ class io__k8s__api__batch__v1__CronJob(K8STemplatable):
         status: io__k8s__api__batch__v1__CronJobStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -16966,7 +16966,7 @@ class io__k8s__api__batch__v1__CronJobList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:
@@ -16993,7 +16993,7 @@ class io__k8s__api__batch__v1beta1__CronJob(K8STemplatable):
         status: io__k8s__api__batch__v1beta1__CronJobStatus = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if metadata is not None:
             self.metadata = metadata
         if spec is not None:
@@ -17020,7 +17020,7 @@ class io__k8s__api__batch__v1beta1__CronJobList(K8STemplatable):
         metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta = None,
         **kwargs
     ):
-        super().__init__(**kwargs)
+        super().__init__()
         if items is not None:
             self.items = items
         if metadata is not None:

@@ -169,7 +169,7 @@ def main():
 
         constructor = '''
     def __init__(self{kwargs}, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__()
 '''.format(**{'kwargs': kwargs})
 
         for param, _ in prop_params:
