@@ -97,7 +97,6 @@ def main():
         # (the "paths" map is much larger than "definitions")
         spec = json.load(f)['definitions']
 
-    # TODO(miselin): 'required' props
     # TODO(miselin): handle OneOf, AnyOf, AllOf etc
     classes = {}
     simplified_mappings = {}
@@ -118,8 +117,8 @@ def main():
         if 'x-kubernetes-group-version-kind' in spec:
             apiVersion, kind = getVersionAndKind(spec.get('x-kubernetes-group-version-kind')[0])
             apiBlock = '''
-    apiVersion = "{apiVersion}"
-    kind = "{kind}"
+    apiVersion: str = "{apiVersion}"
+    kind: str = "{kind}"
 '''.format(apiVersion=apiVersion, kind=kind)
 
             if kind in simplified_mappings:
@@ -135,6 +134,10 @@ def main():
         prop_params = []
         for prop, propspec in spec.get('properties', {}).items():
             if prop in ('anyOf', 'default', 'allOf', '$ref', '$schema', 'not'):
+                continue
+
+            if prop in ('apiVersion', 'kind') and apiBlock != '':
+                propkeys.append(prop)
                 continue
 
             annotation = createTypeAnnotation(propspec)
@@ -174,10 +177,10 @@ def main():
 
         classes[k] = (deps, '''
 class {classname}(K8STemplatable):
-    description = """{description}"""
+    """{description}"""
     {apiBlock}
-    props = [{propkeys}]
-    required_props = {required}
+    props: List[str] = [{propkeys}]
+    required_props: List[str] = {required}
 
 {props}
 
@@ -195,9 +198,13 @@ class {classname}(K8STemplatable):
     emitted_classes = set()
     with open(sys.argv[2], 'w', encoding='utf-8') as f:
         f.write('''"""AUTO-GENERATED FILE: DO NOT EDIT"""
-from typing import List, Any
+# pylint: skip-file
+# flake8: noqa
+
+from typing import Any, List
 
 from . import K8STemplatable
+
 ''')
 
         iters = 0

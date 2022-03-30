@@ -1,28 +1,27 @@
+"""Tests for basic templating functionality."""
 import unittest
 
 import templatizer
 
+# pylint: disable=C0116,R0201
+
 
 class Simple(templatizer.Templatable):
+    """A simple, non-dynamic property in a template."""
+
     prop = 12345
 
-
-class Imperative(templatizer.Templatable):
-
-    def prop(self):
-        return 12345
+    def generate(self):
+        return str(self.propval("prop"))
 
 
-class TestTemplatizer(unittest.TestCase):
+class TestSimpleTemplates(unittest.TestCase):
+    """Unit tests for non-imperative templating."""
 
     def test_simple_property(self):
         obj = Simple()
-        self.assertEqual(obj.propval('prop'), 12345)
-
-    def test_imperative_property(self):
-        obj = Imperative()
-        self.assertEqual(obj.propval('prop'), 12345)
+        self.assertEqual(obj.propval("prop"), 12345)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
