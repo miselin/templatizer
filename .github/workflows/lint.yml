@@ -1,0 +1,28 @@
+name: Lint Python Code
+
+on: [pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install pipenv
+      run: |
+        python -m pip install --upgrade pipenv wheel
+    - name: Build and install
+      run: |
+        pipenv install --deploy --dev
+        pipenv install .
+    - name: Scan for code quality
+      run: |
+        pipenv run pylint templatizer examples tests
+        pipenv run pycodestyle --max-line-length=100 --exclude=gen.py templatizer examples tests
+        pipenv run flake8 templatizer examples tests
+        pipenv run black --check templatizer examples tests
+        pipenv run mypy templatizer examples tests
+        pipenv run isort -rc templatizer examples tests -c --diff

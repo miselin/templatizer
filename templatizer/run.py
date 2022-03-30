@@ -1,17 +1,9 @@
+"""Functions for running the generator."""
+from typing import Iterable
 
-from typing import List
-
-from .emitter import Emitter
 from .templatable import Templatable
 
 
-def run(objects: List[Templatable], separator: str = '---'):
-    emitter = Emitter()
-    for o in objects:
-        emitter.emit(o)
-
-    documents = []
-    for emittable in emitter.get():
-        documents.append(emittable.generate())
-
-    return separator.join(documents)
+def run(objects: Iterable[Templatable], separator: str = "---"):
+    """Run the generator on the given objects, adding a separator for each."""
+    return separator.join(obj.generate() for obj in objects)

@@ -1,29 +1,30 @@
+"""The base class and utilities for templateable objects."""
+from typing import Any
 
-from types import FunctionType
-
-class _ValueClass(object):
-    pass
-
-
-# Global NoValue can be used to omit a value (because a function that does not return any value returns None)
-NoValue = _ValueClass()
+# Global NoValue can be used to omit a value
+# (because a function that does not return any value returns None)
+# To check, you can use `foo is NoValue`
+NoValue = object()
 
 
-class Templatable(object):
+class Templatable:
     """An object that is able to be converted into a template."""
 
-    def generate(self):
-        raise NotImplementedError('generate() must be implemented')
+    def generate(self) -> str:
+        """generate generates a template from the Templatable."""
+        raise NotImplementedError("generate() must be implemented")
 
-    def propval(self, k):
+    def propval(self, k: str) -> Any:
+        """propval retrieves the property value for the given key."""
         try:
-            v = getattr(self, k)
+            val = getattr(self, k)
         except AttributeError:
-            v = NoValue
+            val = NoValue
 
-        if v is NoValue:
-            return v
-        elif callable(v):
-            return v()
-        else:
-            return v
+        if val is NoValue:
+            return val
+
+        if callable(val):
+            return val()
+
+        return val
