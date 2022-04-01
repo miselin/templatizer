@@ -17,12 +17,11 @@ jobs:
     - name: Build and install
       run: |
         pipenv install --deploy --dev
-        pipenv install .
     - name: Scan for code quality
       run: |
-        pipenv run pylint templatizer examples tests
-        pipenv run pycodestyle --max-line-length=100 --exclude=gen.py templatizer examples tests
-        pipenv run flake8 templatizer examples tests
-        pipenv run black --check templatizer examples tests
-        pipenv run mypy templatizer examples tests
-        pipenv run isort -rc templatizer examples tests -c --diff
+        pipenv run python -m pylint templatizer examples tests
+        pipenv run python -m pycodestyle --max-line-length=100 --exclude=gen.py templatizer examples tests
+        pipenv run python -m flake8 templatizer examples tests
+        pipenv run python -m black --check templatizer examples tests
+        pipenv run python -m mypy templatizer examples tests
+        pipenv run python -m isort -rc templatizer examples tests -c --diff
