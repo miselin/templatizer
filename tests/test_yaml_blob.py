@@ -7,11 +7,12 @@ from templatizer.yamlblob import YamlBlob
 
 
 class YamlBlobWithNewlines(YamlBlob):
+    """Defines a YamlBlob class that should generate YAML blocks."""
 
     def data(self):
         return {
-            'a': 'b',
-            'blob': 'foo\nbar\nbaz',
+            "a": "b",
+            "blob": "foo\nbar\nbaz",
         }
 
 
@@ -20,12 +21,15 @@ class TestImperativeTemplates(unittest.TestCase):
 
     def test_imperative_property(self):
         obj = YamlBlobWithNewlines()
-        self.assertEqual(obj.generate(), '''a: b
+        self.assertEqual(
+            obj.generate(),
+            """a: b
 blob: |-
   foo
   bar
   baz
-''')
+""",
+        )
 
 
 if __name__ == "__main__":

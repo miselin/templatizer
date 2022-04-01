@@ -2,11 +2,10 @@
 import unittest
 
 import yaml
+from utils import Simple
 
 import templatizer
 import templatizer.k8s
-
-from utils import Simple
 
 # pylint: disable=C0116,R0201
 
@@ -23,11 +22,13 @@ class SimpleK8STemplate(templatizer.k8s.K8STemplatable):
     def version(self):
         return "v1"
 
+
 class InvalidK8STemplate(templatizer.k8s.K8STemplatable):
     """A simple Kubernetes template that is missing a required prop."""
 
     props = ["name"]
     required_props = ["name"]
+
 
 class K8STemplateWithYAML(templatizer.k8s.K8STemplatable):
     """A simple Kubernetes template that is missing a required prop."""
@@ -36,6 +37,7 @@ class K8STemplateWithYAML(templatizer.k8s.K8STemplatable):
 
     def blob(self):
         return Simple()
+
 
 class K8STemplateWithLists(templatizer.k8s.K8STemplatable):
     """A simple Kubernetes template that is missing a required prop."""
