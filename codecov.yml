@@ -1,0 +1,3 @@
+ignore:
+  # Don't worry about coverage on the generated K8S class file
+  - "templatizer/k8s/gen.py"
