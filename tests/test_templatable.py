@@ -1,18 +1,9 @@
 """Tests for basic templating functionality."""
 import unittest
 
-import templatizer
+from utils import Simple
 
 # pylint: disable=C0116,R0201
-
-
-class Simple(templatizer.Templatable):
-    """A simple, non-dynamic property in a template."""
-
-    prop = 12345
-
-    def generate(self):
-        return str(self.propval("prop"))
 
 
 class TestSimpleTemplates(unittest.TestCase):
