@@ -128,6 +128,8 @@ def main():
             kind = orig_k.split('.')[-1]
             simplified_mappings[kind] = k
 
+        required = spec.get('required', [])
+
         props = []
         propkeys = []
         deps = []
@@ -148,32 +150,42 @@ def main():
                 # can't currently emit classes that reference themselves
                 continue
 
+            precedence = 0
+            if prop not in required:
+                precedence = 1
+
             if proptype:
+                if prop not in required:
+                    proptype = 'Optional[%s] = None' % (proptype,)
+
                 params = (fixKeyword(prop), proptype)
                 props.append('    %s: %s' % params)
-                prop_params.append((params[0], '%s: %s = None' % params))
+                prop_params.append((precedence, params[0], '%s: %s' % params))
             else:
                 fixed = fixKeyword(prop)
                 props.append('    %s: Any' % (fixed,))
-                prop_params.append((fixed, '%s: Any = None' % (fixed,)))
+                prop_params.append((precedence, fixed, '%s: Any = None' % (fixed,)))
 
             propkeys.append(fixKeyword(prop))
             deps.extend(propclasses)
 
-        required = spec.get('required', [])
-
         if prop_params:
-            kwargs = ', ' + ', '.join(x[1] for x in prop_params)
+            prop_params = sorted(prop_params)
+            kwargs = ', ' + ', '.join(x[2] for x in prop_params)
         else:
             kwargs = ''
 
-        constructor = '''
-    def __init__(self{kwargs}, **kwargs):
+        if prop_params:
+            constructor = '''
+    def __init__(self{kwargs}):
         super().__init__()
 '''.format(**{'kwargs': kwargs})
 
-        for param, _ in prop_params:
-            constructor += '        if {prop} is not None:\n            self.{prop} = {prop}\n'.format(prop=param)
+            for _, param, _ in prop_params:
+                constructor += '        if {prop} is not None:\n            self.{prop} = {prop}\n'.format(
+                    prop=param)
+        else:
+            constructor = ''
 
         classes[k] = (deps, '''
 class {classname}(K8STemplatable):
@@ -186,14 +198,14 @@ class {classname}(K8STemplatable):
 
 {constructor}
 '''.format(**{
-    'classname': k,
-    'description': spec.get('description'),
-    'apiBlock': apiBlock,
-    'props': '\n'.join(props),
-    'propkeys': ', '.join(['"%s"' % (prop,) for prop in propkeys]),
-    'required': '%r' % (required,),
-    'constructor': constructor,
-}))
+            'classname': k,
+            'description': spec.get('description'),
+            'apiBlock': apiBlock,
+            'props': '\n'.join(props),
+            'propkeys': ', '.join(['"%s"' % (prop,) for prop in propkeys]),
+            'required': '%r' % (required,),
+            'constructor': constructor,
+        }))
 
     emitted_classes = set()
     with open(sys.argv[2], 'w', encoding='utf-8') as f:
@@ -201,7 +213,7 @@ class {classname}(K8STemplatable):
 # pylint: skip-file
 # flake8: noqa
 
-from typing import Any, List
+from typing import Any, List, Optional
 
 from . import K8STemplatable
 
@@ -217,7 +229,7 @@ from . import K8STemplatable
                     f.write(pycode)
                     del classes[k]
                     emitted_classes.add(k)
-                #else:
+                # else:
                 #    # print('class %s missing deps %s' % ())
 
         if iters >= 10000:
@@ -231,8 +243,6 @@ from . import K8STemplatable
 
         for kind, klass in simplified_mappings.items():
             f.write('%s = %s\n' % (kind, klass))
-
-
 
 
 if __name__ == '__main__':
