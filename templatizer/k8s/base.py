@@ -21,9 +21,18 @@ def fix_value(val: Any) -> Any:
 class K8STemplatable(Templatable):
     """K8STemplatable is the base class for all Kubernetes template objects."""
 
-    description: Optional[str] = None
-    apiVersion: Optional[str] = None
-    kind: Optional[str] = None
+    @property
+    def description(self) -> Optional[str]:  # pylint: disable=C0116
+        return None
+
+    @property
+    def apiVersion(self) -> Optional[str]:  # pylint: disable=C0103,C0116
+        return None
+
+    @property
+    def kind(self) -> Optional[str]:  # pylint: disable=C0116
+        return None
+
     required_props: List[str] = []
 
     def generate(self) -> Any:

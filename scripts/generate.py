@@ -156,14 +156,23 @@ def main():
 
             if proptype:
                 if prop not in required:
-                    proptype = 'Optional[%s] = None' % (proptype,)
+                    proptype = 'Optional[%s]' % (proptype,)
+                    default = ' = None'
+                else:
+                    default = ''
 
-                params = (fixKeyword(prop), proptype)
-                props.append('    %s: %s' % params)
-                prop_params.append((precedence, params[0], '%s: %s' % params))
+                body = 'return None'
+                if prop in required:
+                    body = f'raise NotImplementedError("property {prop} must be set in subclasses")'
+
+                kw = fixKeyword(prop)
+                props.append(
+                    f'    @property\n    def {kw}(self) -> {proptype}:\n        return self._{kw}')
+                prop_params.append((precedence, kw, f'{kw}: {proptype}{default}'))
             else:
                 fixed = fixKeyword(prop)
-                props.append('    %s: Any' % (fixed,))
+                props.append(
+                    f'    @property\n    def {fixed}(self) -> Any:\n        return self._{fixed}')
                 prop_params.append((precedence, fixed, '%s: Any = None' % (fixed,)))
 
             propkeys.append(fixKeyword(prop))
@@ -182,7 +191,7 @@ def main():
 '''.format(**{'kwargs': kwargs})
 
             for _, param, _ in prop_params:
-                constructor += '        if {prop} is not None:\n            self.{prop} = {prop}\n'.format(
+                constructor += '        if {prop} is not None:\n            self._{prop} = {prop}\n'.format(
                     prop=param)
         else:
             constructor = ''

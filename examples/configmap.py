@@ -1,4 +1,6 @@
 """ConfigMap generation example with dynamic content."""
+from typing import Any
+
 import templatizer
 from templatizer import YamlBlob, k8s
 
@@ -8,14 +10,14 @@ from templatizer import YamlBlob, k8s
 class MonitoringConfig(YamlBlob):
     """MonitoringConfig defines a Grafana agent monitoring configuration."""
 
-    def __init__(self, cluster, job_name, pod_regex, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self, cluster: str, job_name: str, pod_regex: str):
+        super().__init__()
 
         self.cluster = cluster
         self.job_name = job_name
         self.pod_regex = pod_regex
 
-    def data(self):
+    def data(self) -> Any:
         """data returns the generated configuration for encoding as YAML."""
         return {
             "server": {
@@ -79,19 +81,21 @@ class MonitoringConfig(YamlBlob):
 class AgentConfig(k8s.ConfigMap):
     """AgentConfig defines configuration for a specific agent."""
 
-    def __init__(self, name, cfg, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self, name: str, cfg: MonitoringConfig):
+        super().__init__()
         self._name = name
         self._cfg = cfg
 
-    def metadata(self):
+    @property
+    def metadata(self) -> k8s.ObjectMeta:
         """Returns metadat for the ConfigMap"""
         return k8s.ObjectMeta(
             name=self._name,
             namespace="monitoring",
         )
 
-    def data(self):
+    @property
+    def data(self) -> Any:
         """Returns data to be included in the ConfigMap"""
         return {
             "agent.yaml": self._cfg.generate(),
