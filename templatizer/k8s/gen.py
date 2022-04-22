@@ -13,11 +13,25 @@ class io__k8s__api__admissionregistration__v1__RuleWithOperations(K8STemplatable
     props: List[str] = ["apiGroups", "apiVersions", "operations", "resources", "scope"]
     required_props: List[str] = []
 
-    apiGroups: Optional[List[str]] = None
-    apiVersions: Optional[List[str]] = None
-    operations: Optional[List[str]] = None
-    resources: Optional[List[str]] = None
-    scope: Optional[str] = None
+    @property
+    def apiGroups(self) -> Optional[List[str]]:
+        return self._apiGroups
+
+    @property
+    def apiVersions(self) -> Optional[List[str]]:
+        return self._apiVersions
+
+    @property
+    def operations(self) -> Optional[List[str]]:
+        return self._operations
+
+    @property
+    def resources(self) -> Optional[List[str]]:
+        return self._resources
+
+    @property
+    def scope(self) -> Optional[str]:
+        return self._scope
 
     def __init__(
         self,
@@ -29,15 +43,15 @@ class io__k8s__api__admissionregistration__v1__RuleWithOperations(K8STemplatable
     ):
         super().__init__()
         if apiGroups is not None:
-            self.apiGroups = apiGroups
+            self._apiGroups = apiGroups
         if apiVersions is not None:
-            self.apiVersions = apiVersions
+            self._apiVersions = apiVersions
         if operations is not None:
-            self.operations = operations
+            self._operations = operations
         if resources is not None:
-            self.resources = resources
+            self._resources = resources
         if scope is not None:
-            self.scope = scope
+            self._scope = scope
 
 
 class io__k8s__api__admissionregistration__v1__ServiceReference(K8STemplatable):
@@ -46,10 +60,21 @@ class io__k8s__api__admissionregistration__v1__ServiceReference(K8STemplatable):
     props: List[str] = ["name", "namespace", "path", "port"]
     required_props: List[str] = ["namespace", "name"]
 
-    name: str
-    namespace: str
-    path: Optional[str] = None
-    port: Optional[int] = None
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def namespace(self) -> str:
+        return self._namespace
+
+    @property
+    def path(self) -> Optional[str]:
+        return self._path
+
+    @property
+    def port(self) -> Optional[int]:
+        return self._port
 
     def __init__(
         self,
@@ -60,13 +85,13 @@ class io__k8s__api__admissionregistration__v1__ServiceReference(K8STemplatable):
     ):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if namespace is not None:
-            self.namespace = namespace
+            self._namespace = namespace
         if path is not None:
-            self.path = path
+            self._path = path
         if port is not None:
-            self.port = port
+            self._port = port
 
 
 class io__k8s__api__admissionregistration__v1__WebhookClientConfig(K8STemplatable):
@@ -75,9 +100,19 @@ class io__k8s__api__admissionregistration__v1__WebhookClientConfig(K8STemplatabl
     props: List[str] = ["caBundle", "service", "url"]
     required_props: List[str] = []
 
-    caBundle: Optional[str] = None
-    service: Optional[io__k8s__api__admissionregistration__v1__ServiceReference] = None
-    url: Optional[str] = None
+    @property
+    def caBundle(self) -> Optional[str]:
+        return self._caBundle
+
+    @property
+    def service(
+        self,
+    ) -> Optional[io__k8s__api__admissionregistration__v1__ServiceReference]:
+        return self._service
+
+    @property
+    def url(self) -> Optional[str]:
+        return self._url
 
     def __init__(
         self,
@@ -89,11 +124,11 @@ class io__k8s__api__admissionregistration__v1__WebhookClientConfig(K8STemplatabl
     ):
         super().__init__()
         if caBundle is not None:
-            self.caBundle = caBundle
+            self._caBundle = caBundle
         if service is not None:
-            self.service = service
+            self._service = service
         if url is not None:
-            self.url = url
+            self._url = url
 
 
 class io__k8s__api__apiserverinternal__v1alpha1__ServerStorageVersion(K8STemplatable):
@@ -102,9 +137,17 @@ class io__k8s__api__apiserverinternal__v1alpha1__ServerStorageVersion(K8STemplat
     props: List[str] = ["apiServerID", "decodableVersions", "encodingVersion"]
     required_props: List[str] = []
 
-    apiServerID: Optional[str] = None
-    decodableVersions: Optional[List[str]] = None
-    encodingVersion: Optional[str] = None
+    @property
+    def apiServerID(self) -> Optional[str]:
+        return self._apiServerID
+
+    @property
+    def decodableVersions(self) -> Optional[List[str]]:
+        return self._decodableVersions
+
+    @property
+    def encodingVersion(self) -> Optional[str]:
+        return self._encodingVersion
 
     def __init__(
         self,
@@ -114,11 +157,11 @@ class io__k8s__api__apiserverinternal__v1alpha1__ServerStorageVersion(K8STemplat
     ):
         super().__init__()
         if apiServerID is not None:
-            self.apiServerID = apiServerID
+            self._apiServerID = apiServerID
         if decodableVersions is not None:
-            self.decodableVersions = decodableVersions
+            self._decodableVersions = decodableVersions
         if encodingVersion is not None:
-            self.encodingVersion = encodingVersion
+            self._encodingVersion = encodingVersion
 
 
 class io__k8s__api__apiserverinternal__v1alpha1__StorageVersionSpec(K8STemplatable):
@@ -136,17 +179,22 @@ class io__k8s__api__apps__v1__StatefulSetPersistentVolumeClaimRetentionPolicy(
     props: List[str] = ["whenDeleted", "whenScaled"]
     required_props: List[str] = []
 
-    whenDeleted: Optional[str] = None
-    whenScaled: Optional[str] = None
+    @property
+    def whenDeleted(self) -> Optional[str]:
+        return self._whenDeleted
+
+    @property
+    def whenScaled(self) -> Optional[str]:
+        return self._whenScaled
 
     def __init__(
         self, whenDeleted: Optional[str] = None, whenScaled: Optional[str] = None
     ):
         super().__init__()
         if whenDeleted is not None:
-            self.whenDeleted = whenDeleted
+            self._whenDeleted = whenDeleted
         if whenScaled is not None:
-            self.whenScaled = whenScaled
+            self._whenScaled = whenScaled
 
 
 class io__k8s__api__authentication__v1__BoundObjectReference(K8STemplatable):
@@ -155,10 +203,21 @@ class io__k8s__api__authentication__v1__BoundObjectReference(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "name", "uid"]
     required_props: List[str] = []
 
-    apiVersion: Optional[str] = None
-    kind: Optional[str] = None
-    name: Optional[str] = None
-    uid: Optional[str] = None
+    @property
+    def apiVersion(self) -> Optional[str]:
+        return self._apiVersion
+
+    @property
+    def kind(self) -> Optional[str]:
+        return self._kind
+
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def uid(self) -> Optional[str]:
+        return self._uid
 
     def __init__(
         self,
@@ -169,13 +228,13 @@ class io__k8s__api__authentication__v1__BoundObjectReference(K8STemplatable):
     ):
         super().__init__()
         if apiVersion is not None:
-            self.apiVersion = apiVersion
+            self._apiVersion = apiVersion
         if kind is not None:
-            self.kind = kind
+            self._kind = kind
         if name is not None:
-            self.name = name
+            self._name = name
         if uid is not None:
-            self.uid = uid
+            self._uid = uid
 
 
 class io__k8s__api__authentication__v1__TokenRequestSpec(K8STemplatable):
@@ -184,11 +243,19 @@ class io__k8s__api__authentication__v1__TokenRequestSpec(K8STemplatable):
     props: List[str] = ["audiences", "boundObjectRef", "expirationSeconds"]
     required_props: List[str] = ["audiences"]
 
-    audiences: List[str]
-    boundObjectRef: Optional[
-        io__k8s__api__authentication__v1__BoundObjectReference
-    ] = None
-    expirationSeconds: Optional[int] = None
+    @property
+    def audiences(self) -> List[str]:
+        return self._audiences
+
+    @property
+    def boundObjectRef(
+        self,
+    ) -> Optional[io__k8s__api__authentication__v1__BoundObjectReference]:
+        return self._boundObjectRef
+
+    @property
+    def expirationSeconds(self) -> Optional[int]:
+        return self._expirationSeconds
 
     def __init__(
         self,
@@ -200,11 +267,11 @@ class io__k8s__api__authentication__v1__TokenRequestSpec(K8STemplatable):
     ):
         super().__init__()
         if audiences is not None:
-            self.audiences = audiences
+            self._audiences = audiences
         if boundObjectRef is not None:
-            self.boundObjectRef = boundObjectRef
+            self._boundObjectRef = boundObjectRef
         if expirationSeconds is not None:
-            self.expirationSeconds = expirationSeconds
+            self._expirationSeconds = expirationSeconds
 
 
 class io__k8s__api__authentication__v1__TokenReviewSpec(K8STemplatable):
@@ -213,17 +280,22 @@ class io__k8s__api__authentication__v1__TokenReviewSpec(K8STemplatable):
     props: List[str] = ["audiences", "token"]
     required_props: List[str] = []
 
-    audiences: Optional[List[str]] = None
-    token: Optional[str] = None
+    @property
+    def audiences(self) -> Optional[List[str]]:
+        return self._audiences
+
+    @property
+    def token(self) -> Optional[str]:
+        return self._token
 
     def __init__(
         self, audiences: Optional[List[str]] = None, token: Optional[str] = None
     ):
         super().__init__()
         if audiences is not None:
-            self.audiences = audiences
+            self._audiences = audiences
         if token is not None:
-            self.token = token
+            self._token = token
 
 
 class io__k8s__api__authentication__v1__UserInfo(K8STemplatable):
@@ -232,10 +304,21 @@ class io__k8s__api__authentication__v1__UserInfo(K8STemplatable):
     props: List[str] = ["extra", "groups", "uid", "username"]
     required_props: List[str] = []
 
-    extra: Any
-    groups: Optional[List[str]] = None
-    uid: Optional[str] = None
-    username: Optional[str] = None
+    @property
+    def extra(self) -> Any:
+        return self._extra
+
+    @property
+    def groups(self) -> Optional[List[str]]:
+        return self._groups
+
+    @property
+    def uid(self) -> Optional[str]:
+        return self._uid
+
+    @property
+    def username(self) -> Optional[str]:
+        return self._username
 
     def __init__(
         self,
@@ -246,13 +329,13 @@ class io__k8s__api__authentication__v1__UserInfo(K8STemplatable):
     ):
         super().__init__()
         if extra is not None:
-            self.extra = extra
+            self._extra = extra
         if groups is not None:
-            self.groups = groups
+            self._groups = groups
         if uid is not None:
-            self.uid = uid
+            self._uid = uid
         if username is not None:
-            self.username = username
+            self._username = username
 
 
 class io__k8s__api__authorization__v1__NonResourceAttributes(K8STemplatable):
@@ -261,15 +344,20 @@ class io__k8s__api__authorization__v1__NonResourceAttributes(K8STemplatable):
     props: List[str] = ["path", "verb"]
     required_props: List[str] = []
 
-    path: Optional[str] = None
-    verb: Optional[str] = None
+    @property
+    def path(self) -> Optional[str]:
+        return self._path
+
+    @property
+    def verb(self) -> Optional[str]:
+        return self._verb
 
     def __init__(self, path: Optional[str] = None, verb: Optional[str] = None):
         super().__init__()
         if path is not None:
-            self.path = path
+            self._path = path
         if verb is not None:
-            self.verb = verb
+            self._verb = verb
 
 
 class io__k8s__api__authorization__v1__NonResourceRule(K8STemplatable):
@@ -278,15 +366,20 @@ class io__k8s__api__authorization__v1__NonResourceRule(K8STemplatable):
     props: List[str] = ["nonResourceURLs", "verbs"]
     required_props: List[str] = ["verbs"]
 
-    nonResourceURLs: Optional[List[str]] = None
-    verbs: List[str]
+    @property
+    def nonResourceURLs(self) -> Optional[List[str]]:
+        return self._nonResourceURLs
+
+    @property
+    def verbs(self) -> List[str]:
+        return self._verbs
 
     def __init__(self, verbs: List[str], nonResourceURLs: Optional[List[str]] = None):
         super().__init__()
         if verbs is not None:
-            self.verbs = verbs
+            self._verbs = verbs
         if nonResourceURLs is not None:
-            self.nonResourceURLs = nonResourceURLs
+            self._nonResourceURLs = nonResourceURLs
 
 
 class io__k8s__api__authorization__v1__ResourceAttributes(K8STemplatable):
@@ -303,13 +396,33 @@ class io__k8s__api__authorization__v1__ResourceAttributes(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    group: Optional[str] = None
-    name: Optional[str] = None
-    namespace: Optional[str] = None
-    resource: Optional[str] = None
-    subresource: Optional[str] = None
-    verb: Optional[str] = None
-    version: Optional[str] = None
+    @property
+    def group(self) -> Optional[str]:
+        return self._group
+
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def namespace(self) -> Optional[str]:
+        return self._namespace
+
+    @property
+    def resource(self) -> Optional[str]:
+        return self._resource
+
+    @property
+    def subresource(self) -> Optional[str]:
+        return self._subresource
+
+    @property
+    def verb(self) -> Optional[str]:
+        return self._verb
+
+    @property
+    def version(self) -> Optional[str]:
+        return self._version
 
     def __init__(
         self,
@@ -323,19 +436,19 @@ class io__k8s__api__authorization__v1__ResourceAttributes(K8STemplatable):
     ):
         super().__init__()
         if group is not None:
-            self.group = group
+            self._group = group
         if name is not None:
-            self.name = name
+            self._name = name
         if namespace is not None:
-            self.namespace = namespace
+            self._namespace = namespace
         if resource is not None:
-            self.resource = resource
+            self._resource = resource
         if subresource is not None:
-            self.subresource = subresource
+            self._subresource = subresource
         if verb is not None:
-            self.verb = verb
+            self._verb = verb
         if version is not None:
-            self.version = version
+            self._version = version
 
 
 class io__k8s__api__authorization__v1__ResourceRule(K8STemplatable):
@@ -344,10 +457,21 @@ class io__k8s__api__authorization__v1__ResourceRule(K8STemplatable):
     props: List[str] = ["apiGroups", "resourceNames", "resources", "verbs"]
     required_props: List[str] = ["verbs"]
 
-    apiGroups: Optional[List[str]] = None
-    resourceNames: Optional[List[str]] = None
-    resources: Optional[List[str]] = None
-    verbs: List[str]
+    @property
+    def apiGroups(self) -> Optional[List[str]]:
+        return self._apiGroups
+
+    @property
+    def resourceNames(self) -> Optional[List[str]]:
+        return self._resourceNames
+
+    @property
+    def resources(self) -> Optional[List[str]]:
+        return self._resources
+
+    @property
+    def verbs(self) -> List[str]:
+        return self._verbs
 
     def __init__(
         self,
@@ -358,13 +482,13 @@ class io__k8s__api__authorization__v1__ResourceRule(K8STemplatable):
     ):
         super().__init__()
         if verbs is not None:
-            self.verbs = verbs
+            self._verbs = verbs
         if apiGroups is not None:
-            self.apiGroups = apiGroups
+            self._apiGroups = apiGroups
         if resourceNames is not None:
-            self.resourceNames = resourceNames
+            self._resourceNames = resourceNames
         if resources is not None:
-            self.resources = resources
+            self._resources = resources
 
 
 class io__k8s__api__authorization__v1__SelfSubjectAccessReviewSpec(K8STemplatable):
@@ -373,12 +497,17 @@ class io__k8s__api__authorization__v1__SelfSubjectAccessReviewSpec(K8STemplatabl
     props: List[str] = ["nonResourceAttributes", "resourceAttributes"]
     required_props: List[str] = []
 
-    nonResourceAttributes: Optional[
-        io__k8s__api__authorization__v1__NonResourceAttributes
-    ] = None
-    resourceAttributes: Optional[
-        io__k8s__api__authorization__v1__ResourceAttributes
-    ] = None
+    @property
+    def nonResourceAttributes(
+        self,
+    ) -> Optional[io__k8s__api__authorization__v1__NonResourceAttributes]:
+        return self._nonResourceAttributes
+
+    @property
+    def resourceAttributes(
+        self,
+    ) -> Optional[io__k8s__api__authorization__v1__ResourceAttributes]:
+        return self._resourceAttributes
 
     def __init__(
         self,
@@ -391,9 +520,9 @@ class io__k8s__api__authorization__v1__SelfSubjectAccessReviewSpec(K8STemplatabl
     ):
         super().__init__()
         if nonResourceAttributes is not None:
-            self.nonResourceAttributes = nonResourceAttributes
+            self._nonResourceAttributes = nonResourceAttributes
         if resourceAttributes is not None:
-            self.resourceAttributes = resourceAttributes
+            self._resourceAttributes = resourceAttributes
 
 
 class io__k8s__api__authorization__v1__SelfSubjectRulesReviewSpec(K8STemplatable):
@@ -402,12 +531,14 @@ class io__k8s__api__authorization__v1__SelfSubjectRulesReviewSpec(K8STemplatable
     props: List[str] = ["namespace"]
     required_props: List[str] = []
 
-    namespace: Optional[str] = None
+    @property
+    def namespace(self) -> Optional[str]:
+        return self._namespace
 
     def __init__(self, namespace: Optional[str] = None):
         super().__init__()
         if namespace is not None:
-            self.namespace = namespace
+            self._namespace = namespace
 
 
 class io__k8s__api__authorization__v1__SubjectAccessReviewSpec(K8STemplatable):
@@ -423,16 +554,33 @@ class io__k8s__api__authorization__v1__SubjectAccessReviewSpec(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    extra: Any
-    groups: Optional[List[str]] = None
-    nonResourceAttributes: Optional[
-        io__k8s__api__authorization__v1__NonResourceAttributes
-    ] = None
-    resourceAttributes: Optional[
-        io__k8s__api__authorization__v1__ResourceAttributes
-    ] = None
-    uid: Optional[str] = None
-    user: Optional[str] = None
+    @property
+    def extra(self) -> Any:
+        return self._extra
+
+    @property
+    def groups(self) -> Optional[List[str]]:
+        return self._groups
+
+    @property
+    def nonResourceAttributes(
+        self,
+    ) -> Optional[io__k8s__api__authorization__v1__NonResourceAttributes]:
+        return self._nonResourceAttributes
+
+    @property
+    def resourceAttributes(
+        self,
+    ) -> Optional[io__k8s__api__authorization__v1__ResourceAttributes]:
+        return self._resourceAttributes
+
+    @property
+    def uid(self) -> Optional[str]:
+        return self._uid
+
+    @property
+    def user(self) -> Optional[str]:
+        return self._user
 
     def __init__(
         self,
@@ -449,17 +597,17 @@ class io__k8s__api__authorization__v1__SubjectAccessReviewSpec(K8STemplatable):
     ):
         super().__init__()
         if extra is not None:
-            self.extra = extra
+            self._extra = extra
         if groups is not None:
-            self.groups = groups
+            self._groups = groups
         if nonResourceAttributes is not None:
-            self.nonResourceAttributes = nonResourceAttributes
+            self._nonResourceAttributes = nonResourceAttributes
         if resourceAttributes is not None:
-            self.resourceAttributes = resourceAttributes
+            self._resourceAttributes = resourceAttributes
         if uid is not None:
-            self.uid = uid
+            self._uid = uid
         if user is not None:
-            self.user = user
+            self._user = user
 
 
 class io__k8s__api__authorization__v1__SubjectAccessReviewStatus(K8STemplatable):
@@ -468,10 +616,21 @@ class io__k8s__api__authorization__v1__SubjectAccessReviewStatus(K8STemplatable)
     props: List[str] = ["allowed", "denied", "evaluationError", "reason"]
     required_props: List[str] = ["allowed"]
 
-    allowed: bool
-    denied: Optional[bool] = None
-    evaluationError: Optional[str] = None
-    reason: Optional[str] = None
+    @property
+    def allowed(self) -> bool:
+        return self._allowed
+
+    @property
+    def denied(self) -> Optional[bool]:
+        return self._denied
+
+    @property
+    def evaluationError(self) -> Optional[str]:
+        return self._evaluationError
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
 
     def __init__(
         self,
@@ -482,13 +641,13 @@ class io__k8s__api__authorization__v1__SubjectAccessReviewStatus(K8STemplatable)
     ):
         super().__init__()
         if allowed is not None:
-            self.allowed = allowed
+            self._allowed = allowed
         if denied is not None:
-            self.denied = denied
+            self._denied = denied
         if evaluationError is not None:
-            self.evaluationError = evaluationError
+            self._evaluationError = evaluationError
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__api__authorization__v1__SubjectRulesReviewStatus(K8STemplatable):
@@ -502,10 +661,23 @@ class io__k8s__api__authorization__v1__SubjectRulesReviewStatus(K8STemplatable):
     ]
     required_props: List[str] = ["resourceRules", "nonResourceRules", "incomplete"]
 
-    evaluationError: Optional[str] = None
-    incomplete: bool
-    nonResourceRules: List[io__k8s__api__authorization__v1__NonResourceRule]
-    resourceRules: List[io__k8s__api__authorization__v1__ResourceRule]
+    @property
+    def evaluationError(self) -> Optional[str]:
+        return self._evaluationError
+
+    @property
+    def incomplete(self) -> bool:
+        return self._incomplete
+
+    @property
+    def nonResourceRules(
+        self,
+    ) -> List[io__k8s__api__authorization__v1__NonResourceRule]:
+        return self._nonResourceRules
+
+    @property
+    def resourceRules(self) -> List[io__k8s__api__authorization__v1__ResourceRule]:
+        return self._resourceRules
 
     def __init__(
         self,
@@ -516,13 +688,13 @@ class io__k8s__api__authorization__v1__SubjectRulesReviewStatus(K8STemplatable):
     ):
         super().__init__()
         if incomplete is not None:
-            self.incomplete = incomplete
+            self._incomplete = incomplete
         if nonResourceRules is not None:
-            self.nonResourceRules = nonResourceRules
+            self._nonResourceRules = nonResourceRules
         if resourceRules is not None:
-            self.resourceRules = resourceRules
+            self._resourceRules = resourceRules
         if evaluationError is not None:
-            self.evaluationError = evaluationError
+            self._evaluationError = evaluationError
 
 
 class io__k8s__api__autoscaling__v1__CrossVersionObjectReference(K8STemplatable):
@@ -531,18 +703,26 @@ class io__k8s__api__autoscaling__v1__CrossVersionObjectReference(K8STemplatable)
     props: List[str] = ["apiVersion", "kind", "name"]
     required_props: List[str] = ["kind", "name"]
 
-    apiVersion: Optional[str] = None
-    kind: str
-    name: str
+    @property
+    def apiVersion(self) -> Optional[str]:
+        return self._apiVersion
+
+    @property
+    def kind(self) -> str:
+        return self._kind
+
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(self, kind: str, name: str, apiVersion: Optional[str] = None):
         super().__init__()
         if kind is not None:
-            self.kind = kind
+            self._kind = kind
         if name is not None:
-            self.name = name
+            self._name = name
         if apiVersion is not None:
-            self.apiVersion = apiVersion
+            self._apiVersion = apiVersion
 
 
 class io__k8s__api__autoscaling__v1__HorizontalPodAutoscalerSpec(K8STemplatable):
@@ -556,10 +736,23 @@ class io__k8s__api__autoscaling__v1__HorizontalPodAutoscalerSpec(K8STemplatable)
     ]
     required_props: List[str] = ["scaleTargetRef", "maxReplicas"]
 
-    maxReplicas: int
-    minReplicas: Optional[int] = None
-    scaleTargetRef: io__k8s__api__autoscaling__v1__CrossVersionObjectReference
-    targetCPUUtilizationPercentage: Optional[int] = None
+    @property
+    def maxReplicas(self) -> int:
+        return self._maxReplicas
+
+    @property
+    def minReplicas(self) -> Optional[int]:
+        return self._minReplicas
+
+    @property
+    def scaleTargetRef(
+        self,
+    ) -> io__k8s__api__autoscaling__v1__CrossVersionObjectReference:
+        return self._scaleTargetRef
+
+    @property
+    def targetCPUUtilizationPercentage(self) -> Optional[int]:
+        return self._targetCPUUtilizationPercentage
 
     def __init__(
         self,
@@ -570,13 +763,13 @@ class io__k8s__api__autoscaling__v1__HorizontalPodAutoscalerSpec(K8STemplatable)
     ):
         super().__init__()
         if maxReplicas is not None:
-            self.maxReplicas = maxReplicas
+            self._maxReplicas = maxReplicas
         if scaleTargetRef is not None:
-            self.scaleTargetRef = scaleTargetRef
+            self._scaleTargetRef = scaleTargetRef
         if minReplicas is not None:
-            self.minReplicas = minReplicas
+            self._minReplicas = minReplicas
         if targetCPUUtilizationPercentage is not None:
-            self.targetCPUUtilizationPercentage = targetCPUUtilizationPercentage
+            self._targetCPUUtilizationPercentage = targetCPUUtilizationPercentage
 
 
 class io__k8s__api__autoscaling__v1__ScaleSpec(K8STemplatable):
@@ -585,12 +778,14 @@ class io__k8s__api__autoscaling__v1__ScaleSpec(K8STemplatable):
     props: List[str] = ["replicas"]
     required_props: List[str] = []
 
-    replicas: Optional[int] = None
+    @property
+    def replicas(self) -> Optional[int]:
+        return self._replicas
 
     def __init__(self, replicas: Optional[int] = None):
         super().__init__()
         if replicas is not None:
-            self.replicas = replicas
+            self._replicas = replicas
 
 
 class io__k8s__api__autoscaling__v1__ScaleStatus(K8STemplatable):
@@ -599,15 +794,20 @@ class io__k8s__api__autoscaling__v1__ScaleStatus(K8STemplatable):
     props: List[str] = ["replicas", "selector"]
     required_props: List[str] = ["replicas"]
 
-    replicas: int
-    selector: Optional[str] = None
+    @property
+    def replicas(self) -> int:
+        return self._replicas
+
+    @property
+    def selector(self) -> Optional[str]:
+        return self._selector
 
     def __init__(self, replicas: int, selector: Optional[str] = None):
         super().__init__()
         if replicas is not None:
-            self.replicas = replicas
+            self._replicas = replicas
         if selector is not None:
-            self.selector = selector
+            self._selector = selector
 
 
 class io__k8s__api__autoscaling__v2__CrossVersionObjectReference(K8STemplatable):
@@ -616,18 +816,26 @@ class io__k8s__api__autoscaling__v2__CrossVersionObjectReference(K8STemplatable)
     props: List[str] = ["apiVersion", "kind", "name"]
     required_props: List[str] = ["kind", "name"]
 
-    apiVersion: Optional[str] = None
-    kind: str
-    name: str
+    @property
+    def apiVersion(self) -> Optional[str]:
+        return self._apiVersion
+
+    @property
+    def kind(self) -> str:
+        return self._kind
+
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(self, kind: str, name: str, apiVersion: Optional[str] = None):
         super().__init__()
         if kind is not None:
-            self.kind = kind
+            self._kind = kind
         if name is not None:
-            self.name = name
+            self._name = name
         if apiVersion is not None:
-            self.apiVersion = apiVersion
+            self._apiVersion = apiVersion
 
 
 class io__k8s__api__autoscaling__v2__HPAScalingPolicy(K8STemplatable):
@@ -636,18 +844,26 @@ class io__k8s__api__autoscaling__v2__HPAScalingPolicy(K8STemplatable):
     props: List[str] = ["periodSeconds", "type", "value"]
     required_props: List[str] = ["type", "value", "periodSeconds"]
 
-    periodSeconds: int
-    type: str
-    value: int
+    @property
+    def periodSeconds(self) -> int:
+        return self._periodSeconds
+
+    @property
+    def type(self) -> str:
+        return self._type
+
+    @property
+    def value(self) -> int:
+        return self._value
 
     def __init__(self, periodSeconds: int, type: str, value: int):
         super().__init__()
         if periodSeconds is not None:
-            self.periodSeconds = periodSeconds
+            self._periodSeconds = periodSeconds
         if type is not None:
-            self.type = type
+            self._type = type
         if value is not None:
-            self.value = value
+            self._value = value
 
 
 class io__k8s__api__autoscaling__v2__HPAScalingRules(K8STemplatable):
@@ -656,9 +872,19 @@ class io__k8s__api__autoscaling__v2__HPAScalingRules(K8STemplatable):
     props: List[str] = ["policies", "selectPolicy", "stabilizationWindowSeconds"]
     required_props: List[str] = []
 
-    policies: Optional[List[io__k8s__api__autoscaling__v2__HPAScalingPolicy]] = None
-    selectPolicy: Optional[str] = None
-    stabilizationWindowSeconds: Optional[int] = None
+    @property
+    def policies(
+        self,
+    ) -> Optional[List[io__k8s__api__autoscaling__v2__HPAScalingPolicy]]:
+        return self._policies
+
+    @property
+    def selectPolicy(self) -> Optional[str]:
+        return self._selectPolicy
+
+    @property
+    def stabilizationWindowSeconds(self) -> Optional[int]:
+        return self._stabilizationWindowSeconds
 
     def __init__(
         self,
@@ -670,11 +896,11 @@ class io__k8s__api__autoscaling__v2__HPAScalingRules(K8STemplatable):
     ):
         super().__init__()
         if policies is not None:
-            self.policies = policies
+            self._policies = policies
         if selectPolicy is not None:
-            self.selectPolicy = selectPolicy
+            self._selectPolicy = selectPolicy
         if stabilizationWindowSeconds is not None:
-            self.stabilizationWindowSeconds = stabilizationWindowSeconds
+            self._stabilizationWindowSeconds = stabilizationWindowSeconds
 
 
 class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerBehavior(K8STemplatable):
@@ -683,8 +909,13 @@ class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerBehavior(K8STemplata
     props: List[str] = ["scaleDown", "scaleUp"]
     required_props: List[str] = []
 
-    scaleDown: Optional[io__k8s__api__autoscaling__v2__HPAScalingRules] = None
-    scaleUp: Optional[io__k8s__api__autoscaling__v2__HPAScalingRules] = None
+    @property
+    def scaleDown(self) -> Optional[io__k8s__api__autoscaling__v2__HPAScalingRules]:
+        return self._scaleDown
+
+    @property
+    def scaleUp(self) -> Optional[io__k8s__api__autoscaling__v2__HPAScalingRules]:
+        return self._scaleUp
 
     def __init__(
         self,
@@ -693,9 +924,9 @@ class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerBehavior(K8STemplata
     ):
         super().__init__()
         if scaleDown is not None:
-            self.scaleDown = scaleDown
+            self._scaleDown = scaleDown
         if scaleUp is not None:
-            self.scaleUp = scaleUp
+            self._scaleUp = scaleUp
 
 
 class io__k8s__api__autoscaling__v2beta1__CrossVersionObjectReference(K8STemplatable):
@@ -704,18 +935,26 @@ class io__k8s__api__autoscaling__v2beta1__CrossVersionObjectReference(K8STemplat
     props: List[str] = ["apiVersion", "kind", "name"]
     required_props: List[str] = ["kind", "name"]
 
-    apiVersion: Optional[str] = None
-    kind: str
-    name: str
+    @property
+    def apiVersion(self) -> Optional[str]:
+        return self._apiVersion
+
+    @property
+    def kind(self) -> str:
+        return self._kind
+
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(self, kind: str, name: str, apiVersion: Optional[str] = None):
         super().__init__()
         if kind is not None:
-            self.kind = kind
+            self._kind = kind
         if name is not None:
-            self.name = name
+            self._name = name
         if apiVersion is not None:
-            self.apiVersion = apiVersion
+            self._apiVersion = apiVersion
 
 
 class io__k8s__api__autoscaling__v2beta2__CrossVersionObjectReference(K8STemplatable):
@@ -724,18 +963,26 @@ class io__k8s__api__autoscaling__v2beta2__CrossVersionObjectReference(K8STemplat
     props: List[str] = ["apiVersion", "kind", "name"]
     required_props: List[str] = ["kind", "name"]
 
-    apiVersion: Optional[str] = None
-    kind: str
-    name: str
+    @property
+    def apiVersion(self) -> Optional[str]:
+        return self._apiVersion
+
+    @property
+    def kind(self) -> str:
+        return self._kind
+
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(self, kind: str, name: str, apiVersion: Optional[str] = None):
         super().__init__()
         if kind is not None:
-            self.kind = kind
+            self._kind = kind
         if name is not None:
-            self.name = name
+            self._name = name
         if apiVersion is not None:
-            self.apiVersion = apiVersion
+            self._apiVersion = apiVersion
 
 
 class io__k8s__api__autoscaling__v2beta2__HPAScalingPolicy(K8STemplatable):
@@ -744,18 +991,26 @@ class io__k8s__api__autoscaling__v2beta2__HPAScalingPolicy(K8STemplatable):
     props: List[str] = ["periodSeconds", "type", "value"]
     required_props: List[str] = ["type", "value", "periodSeconds"]
 
-    periodSeconds: int
-    type: str
-    value: int
+    @property
+    def periodSeconds(self) -> int:
+        return self._periodSeconds
+
+    @property
+    def type(self) -> str:
+        return self._type
+
+    @property
+    def value(self) -> int:
+        return self._value
 
     def __init__(self, periodSeconds: int, type: str, value: int):
         super().__init__()
         if periodSeconds is not None:
-            self.periodSeconds = periodSeconds
+            self._periodSeconds = periodSeconds
         if type is not None:
-            self.type = type
+            self._type = type
         if value is not None:
-            self.value = value
+            self._value = value
 
 
 class io__k8s__api__autoscaling__v2beta2__HPAScalingRules(K8STemplatable):
@@ -764,11 +1019,19 @@ class io__k8s__api__autoscaling__v2beta2__HPAScalingRules(K8STemplatable):
     props: List[str] = ["policies", "selectPolicy", "stabilizationWindowSeconds"]
     required_props: List[str] = []
 
-    policies: Optional[
-        List[io__k8s__api__autoscaling__v2beta2__HPAScalingPolicy]
-    ] = None
-    selectPolicy: Optional[str] = None
-    stabilizationWindowSeconds: Optional[int] = None
+    @property
+    def policies(
+        self,
+    ) -> Optional[List[io__k8s__api__autoscaling__v2beta2__HPAScalingPolicy]]:
+        return self._policies
+
+    @property
+    def selectPolicy(self) -> Optional[str]:
+        return self._selectPolicy
+
+    @property
+    def stabilizationWindowSeconds(self) -> Optional[int]:
+        return self._stabilizationWindowSeconds
 
     def __init__(
         self,
@@ -780,11 +1043,11 @@ class io__k8s__api__autoscaling__v2beta2__HPAScalingRules(K8STemplatable):
     ):
         super().__init__()
         if policies is not None:
-            self.policies = policies
+            self._policies = policies
         if selectPolicy is not None:
-            self.selectPolicy = selectPolicy
+            self._selectPolicy = selectPolicy
         if stabilizationWindowSeconds is not None:
-            self.stabilizationWindowSeconds = stabilizationWindowSeconds
+            self._stabilizationWindowSeconds = stabilizationWindowSeconds
 
 
 class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerBehavior(
@@ -795,8 +1058,15 @@ class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerBehavior(
     props: List[str] = ["scaleDown", "scaleUp"]
     required_props: List[str] = []
 
-    scaleDown: Optional[io__k8s__api__autoscaling__v2beta2__HPAScalingRules] = None
-    scaleUp: Optional[io__k8s__api__autoscaling__v2beta2__HPAScalingRules] = None
+    @property
+    def scaleDown(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta2__HPAScalingRules]:
+        return self._scaleDown
+
+    @property
+    def scaleUp(self) -> Optional[io__k8s__api__autoscaling__v2beta2__HPAScalingRules]:
+        return self._scaleUp
 
     def __init__(
         self,
@@ -805,9 +1075,9 @@ class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerBehavior(
     ):
         super().__init__()
         if scaleDown is not None:
-            self.scaleDown = scaleDown
+            self._scaleDown = scaleDown
         if scaleUp is not None:
-            self.scaleUp = scaleUp
+            self._scaleUp = scaleUp
 
 
 class io__k8s__api__batch__v1__UncountedTerminatedPods(K8STemplatable):
@@ -816,17 +1086,22 @@ class io__k8s__api__batch__v1__UncountedTerminatedPods(K8STemplatable):
     props: List[str] = ["failed", "succeeded"]
     required_props: List[str] = []
 
-    failed: Optional[List[str]] = None
-    succeeded: Optional[List[str]] = None
+    @property
+    def failed(self) -> Optional[List[str]]:
+        return self._failed
+
+    @property
+    def succeeded(self) -> Optional[List[str]]:
+        return self._succeeded
 
     def __init__(
         self, failed: Optional[List[str]] = None, succeeded: Optional[List[str]] = None
     ):
         super().__init__()
         if failed is not None:
-            self.failed = failed
+            self._failed = failed
         if succeeded is not None:
-            self.succeeded = succeeded
+            self._succeeded = succeeded
 
 
 class io__k8s__api__certificates__v1__CertificateSigningRequestSpec(K8STemplatable):
@@ -844,14 +1119,37 @@ class io__k8s__api__certificates__v1__CertificateSigningRequestSpec(K8STemplatab
     ]
     required_props: List[str] = ["request", "signerName"]
 
-    expirationSeconds: Optional[int] = None
-    extra: Any
-    groups: Optional[List[str]] = None
-    request: str
-    signerName: str
-    uid: Optional[str] = None
-    usages: Optional[List[str]] = None
-    username: Optional[str] = None
+    @property
+    def expirationSeconds(self) -> Optional[int]:
+        return self._expirationSeconds
+
+    @property
+    def extra(self) -> Any:
+        return self._extra
+
+    @property
+    def groups(self) -> Optional[List[str]]:
+        return self._groups
+
+    @property
+    def request(self) -> str:
+        return self._request
+
+    @property
+    def signerName(self) -> str:
+        return self._signerName
+
+    @property
+    def uid(self) -> Optional[str]:
+        return self._uid
+
+    @property
+    def usages(self) -> Optional[List[str]]:
+        return self._usages
+
+    @property
+    def username(self) -> Optional[str]:
+        return self._username
 
     def __init__(
         self,
@@ -866,21 +1164,21 @@ class io__k8s__api__certificates__v1__CertificateSigningRequestSpec(K8STemplatab
     ):
         super().__init__()
         if request is not None:
-            self.request = request
+            self._request = request
         if signerName is not None:
-            self.signerName = signerName
+            self._signerName = signerName
         if expirationSeconds is not None:
-            self.expirationSeconds = expirationSeconds
+            self._expirationSeconds = expirationSeconds
         if extra is not None:
-            self.extra = extra
+            self._extra = extra
         if groups is not None:
-            self.groups = groups
+            self._groups = groups
         if uid is not None:
-            self.uid = uid
+            self._uid = uid
         if usages is not None:
-            self.usages = usages
+            self._usages = usages
         if username is not None:
-            self.username = username
+            self._username = username
 
 
 class io__k8s__api__core__v1__AWSElasticBlockStoreVolumeSource(K8STemplatable):
@@ -891,10 +1189,21 @@ class io__k8s__api__core__v1__AWSElasticBlockStoreVolumeSource(K8STemplatable):
     props: List[str] = ["fsType", "partition", "readOnly", "volumeID"]
     required_props: List[str] = ["volumeID"]
 
-    fsType: Optional[str] = None
-    partition: Optional[int] = None
-    readOnly: Optional[bool] = None
-    volumeID: str
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def partition(self) -> Optional[int]:
+        return self._partition
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def volumeID(self) -> str:
+        return self._volumeID
 
     def __init__(
         self,
@@ -905,13 +1214,13 @@ class io__k8s__api__core__v1__AWSElasticBlockStoreVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if volumeID is not None:
-            self.volumeID = volumeID
+            self._volumeID = volumeID
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if partition is not None:
-            self.partition = partition
+            self._partition = partition
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
 
 
 class io__k8s__api__core__v1__AttachedVolume(K8STemplatable):
@@ -920,15 +1229,20 @@ class io__k8s__api__core__v1__AttachedVolume(K8STemplatable):
     props: List[str] = ["devicePath", "name"]
     required_props: List[str] = ["name", "devicePath"]
 
-    devicePath: str
-    name: str
+    @property
+    def devicePath(self) -> str:
+        return self._devicePath
+
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(self, devicePath: str, name: str):
         super().__init__()
         if devicePath is not None:
-            self.devicePath = devicePath
+            self._devicePath = devicePath
         if name is not None:
-            self.name = name
+            self._name = name
 
 
 class io__k8s__api__core__v1__AzureDiskVolumeSource(K8STemplatable):
@@ -944,12 +1258,29 @@ class io__k8s__api__core__v1__AzureDiskVolumeSource(K8STemplatable):
     ]
     required_props: List[str] = ["diskName", "diskURI"]
 
-    cachingMode: Optional[str] = None
-    diskName: str
-    diskURI: str
-    fsType: Optional[str] = None
-    kind: Optional[str] = None
-    readOnly: Optional[bool] = None
+    @property
+    def cachingMode(self) -> Optional[str]:
+        return self._cachingMode
+
+    @property
+    def diskName(self) -> str:
+        return self._diskName
+
+    @property
+    def diskURI(self) -> str:
+        return self._diskURI
+
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def kind(self) -> Optional[str]:
+        return self._kind
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
 
     def __init__(
         self,
@@ -962,17 +1293,17 @@ class io__k8s__api__core__v1__AzureDiskVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if diskName is not None:
-            self.diskName = diskName
+            self._diskName = diskName
         if diskURI is not None:
-            self.diskURI = diskURI
+            self._diskURI = diskURI
         if cachingMode is not None:
-            self.cachingMode = cachingMode
+            self._cachingMode = cachingMode
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if kind is not None:
-            self.kind = kind
+            self._kind = kind
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
 
 
 class io__k8s__api__core__v1__AzureFilePersistentVolumeSource(K8STemplatable):
@@ -981,10 +1312,21 @@ class io__k8s__api__core__v1__AzureFilePersistentVolumeSource(K8STemplatable):
     props: List[str] = ["readOnly", "secretName", "secretNamespace", "shareName"]
     required_props: List[str] = ["secretName", "shareName"]
 
-    readOnly: Optional[bool] = None
-    secretName: str
-    secretNamespace: Optional[str] = None
-    shareName: str
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def secretName(self) -> str:
+        return self._secretName
+
+    @property
+    def secretNamespace(self) -> Optional[str]:
+        return self._secretNamespace
+
+    @property
+    def shareName(self) -> str:
+        return self._shareName
 
     def __init__(
         self,
@@ -995,13 +1337,13 @@ class io__k8s__api__core__v1__AzureFilePersistentVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if secretName is not None:
-            self.secretName = secretName
+            self._secretName = secretName
         if shareName is not None:
-            self.shareName = shareName
+            self._shareName = shareName
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if secretNamespace is not None:
-            self.secretNamespace = secretNamespace
+            self._secretNamespace = secretNamespace
 
 
 class io__k8s__api__core__v1__AzureFileVolumeSource(K8STemplatable):
@@ -1010,20 +1352,28 @@ class io__k8s__api__core__v1__AzureFileVolumeSource(K8STemplatable):
     props: List[str] = ["readOnly", "secretName", "shareName"]
     required_props: List[str] = ["secretName", "shareName"]
 
-    readOnly: Optional[bool] = None
-    secretName: str
-    shareName: str
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def secretName(self) -> str:
+        return self._secretName
+
+    @property
+    def shareName(self) -> str:
+        return self._shareName
 
     def __init__(
         self, secretName: str, shareName: str, readOnly: Optional[bool] = None
     ):
         super().__init__()
         if secretName is not None:
-            self.secretName = secretName
+            self._secretName = secretName
         if shareName is not None:
-            self.shareName = shareName
+            self._shareName = shareName
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
 
 
 class io__k8s__api__core__v1__Capabilities(K8STemplatable):
@@ -1032,17 +1382,22 @@ class io__k8s__api__core__v1__Capabilities(K8STemplatable):
     props: List[str] = ["add", "drop"]
     required_props: List[str] = []
 
-    add: Optional[List[str]] = None
-    drop: Optional[List[str]] = None
+    @property
+    def add(self) -> Optional[List[str]]:
+        return self._add
+
+    @property
+    def drop(self) -> Optional[List[str]]:
+        return self._drop
 
     def __init__(
         self, add: Optional[List[str]] = None, drop: Optional[List[str]] = None
     ):
         super().__init__()
         if add is not None:
-            self.add = add
+            self._add = add
         if drop is not None:
-            self.drop = drop
+            self._drop = drop
 
 
 class io__k8s__api__core__v1__ClientIPConfig(K8STemplatable):
@@ -1051,12 +1406,14 @@ class io__k8s__api__core__v1__ClientIPConfig(K8STemplatable):
     props: List[str] = ["timeoutSeconds"]
     required_props: List[str] = []
 
-    timeoutSeconds: Optional[int] = None
+    @property
+    def timeoutSeconds(self) -> Optional[int]:
+        return self._timeoutSeconds
 
     def __init__(self, timeoutSeconds: Optional[int] = None):
         super().__init__()
         if timeoutSeconds is not None:
-            self.timeoutSeconds = timeoutSeconds
+            self._timeoutSeconds = timeoutSeconds
 
 
 class io__k8s__api__core__v1__ComponentCondition(K8STemplatable):
@@ -1065,10 +1422,21 @@ class io__k8s__api__core__v1__ComponentCondition(K8STemplatable):
     props: List[str] = ["error", "message", "status", "type"]
     required_props: List[str] = ["type", "status"]
 
-    error: Optional[str] = None
-    message: Optional[str] = None
-    status: str
-    type: str
+    @property
+    def error(self) -> Optional[str]:
+        return self._error
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -1079,13 +1447,13 @@ class io__k8s__api__core__v1__ComponentCondition(K8STemplatable):
     ):
         super().__init__()
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
         if error is not None:
-            self.error = error
+            self._error = error
         if message is not None:
-            self.message = message
+            self._message = message
 
 
 class io__k8s__api__core__v1__ConfigMapEnvSource(K8STemplatable):
@@ -1096,15 +1464,20 @@ class io__k8s__api__core__v1__ConfigMapEnvSource(K8STemplatable):
     props: List[str] = ["name", "optional"]
     required_props: List[str] = []
 
-    name: Optional[str] = None
-    optional: Optional[bool] = None
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def optional(self) -> Optional[bool]:
+        return self._optional
 
     def __init__(self, name: Optional[str] = None, optional: Optional[bool] = None):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if optional is not None:
-            self.optional = optional
+            self._optional = optional
 
 
 class io__k8s__api__core__v1__ConfigMapKeySelector(K8STemplatable):
@@ -1113,20 +1486,28 @@ class io__k8s__api__core__v1__ConfigMapKeySelector(K8STemplatable):
     props: List[str] = ["key", "name", "optional"]
     required_props: List[str] = ["key"]
 
-    key: str
-    name: Optional[str] = None
-    optional: Optional[bool] = None
+    @property
+    def key(self) -> str:
+        return self._key
+
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def optional(self) -> Optional[bool]:
+        return self._optional
 
     def __init__(
         self, key: str, name: Optional[str] = None, optional: Optional[bool] = None
     ):
         super().__init__()
         if key is not None:
-            self.key = key
+            self._key = key
         if name is not None:
-            self.name = name
+            self._name = name
         if optional is not None:
-            self.optional = optional
+            self._optional = optional
 
 
 class io__k8s__api__core__v1__ConfigMapNodeConfigSource(K8STemplatable):
@@ -1141,11 +1522,25 @@ class io__k8s__api__core__v1__ConfigMapNodeConfigSource(K8STemplatable):
     ]
     required_props: List[str] = ["namespace", "name", "kubeletConfigKey"]
 
-    kubeletConfigKey: str
-    name: str
-    namespace: str
-    resourceVersion: Optional[str] = None
-    uid: Optional[str] = None
+    @property
+    def kubeletConfigKey(self) -> str:
+        return self._kubeletConfigKey
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def namespace(self) -> str:
+        return self._namespace
+
+    @property
+    def resourceVersion(self) -> Optional[str]:
+        return self._resourceVersion
+
+    @property
+    def uid(self) -> Optional[str]:
+        return self._uid
 
     def __init__(
         self,
@@ -1157,15 +1552,15 @@ class io__k8s__api__core__v1__ConfigMapNodeConfigSource(K8STemplatable):
     ):
         super().__init__()
         if kubeletConfigKey is not None:
-            self.kubeletConfigKey = kubeletConfigKey
+            self._kubeletConfigKey = kubeletConfigKey
         if name is not None:
-            self.name = name
+            self._name = name
         if namespace is not None:
-            self.namespace = namespace
+            self._namespace = namespace
         if resourceVersion is not None:
-            self.resourceVersion = resourceVersion
+            self._resourceVersion = resourceVersion
         if uid is not None:
-            self.uid = uid
+            self._uid = uid
 
 
 class io__k8s__api__core__v1__ContainerImage(K8STemplatable):
@@ -1174,17 +1569,22 @@ class io__k8s__api__core__v1__ContainerImage(K8STemplatable):
     props: List[str] = ["names", "sizeBytes"]
     required_props: List[str] = []
 
-    names: Optional[List[str]] = None
-    sizeBytes: Optional[int] = None
+    @property
+    def names(self) -> Optional[List[str]]:
+        return self._names
+
+    @property
+    def sizeBytes(self) -> Optional[int]:
+        return self._sizeBytes
 
     def __init__(
         self, names: Optional[List[str]] = None, sizeBytes: Optional[int] = None
     ):
         super().__init__()
         if names is not None:
-            self.names = names
+            self._names = names
         if sizeBytes is not None:
-            self.sizeBytes = sizeBytes
+            self._sizeBytes = sizeBytes
 
 
 class io__k8s__api__core__v1__ContainerPort(K8STemplatable):
@@ -1193,11 +1593,25 @@ class io__k8s__api__core__v1__ContainerPort(K8STemplatable):
     props: List[str] = ["containerPort", "hostIP", "hostPort", "name", "protocol"]
     required_props: List[str] = ["containerPort"]
 
-    containerPort: int
-    hostIP: Optional[str] = None
-    hostPort: Optional[int] = None
-    name: Optional[str] = None
-    protocol: Optional[str] = None
+    @property
+    def containerPort(self) -> int:
+        return self._containerPort
+
+    @property
+    def hostIP(self) -> Optional[str]:
+        return self._hostIP
+
+    @property
+    def hostPort(self) -> Optional[int]:
+        return self._hostPort
+
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def protocol(self) -> Optional[str]:
+        return self._protocol
 
     def __init__(
         self,
@@ -1209,15 +1623,15 @@ class io__k8s__api__core__v1__ContainerPort(K8STemplatable):
     ):
         super().__init__()
         if containerPort is not None:
-            self.containerPort = containerPort
+            self._containerPort = containerPort
         if hostIP is not None:
-            self.hostIP = hostIP
+            self._hostIP = hostIP
         if hostPort is not None:
-            self.hostPort = hostPort
+            self._hostPort = hostPort
         if name is not None:
-            self.name = name
+            self._name = name
         if protocol is not None:
-            self.protocol = protocol
+            self._protocol = protocol
 
 
 class io__k8s__api__core__v1__ContainerStateWaiting(K8STemplatable):
@@ -1226,15 +1640,20 @@ class io__k8s__api__core__v1__ContainerStateWaiting(K8STemplatable):
     props: List[str] = ["message", "reason"]
     required_props: List[str] = []
 
-    message: Optional[str] = None
-    reason: Optional[str] = None
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
 
     def __init__(self, message: Optional[str] = None, reason: Optional[str] = None):
         super().__init__()
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__api__core__v1__DaemonEndpoint(K8STemplatable):
@@ -1243,12 +1662,14 @@ class io__k8s__api__core__v1__DaemonEndpoint(K8STemplatable):
     props: List[str] = ["Port"]
     required_props: List[str] = ["Port"]
 
-    Port: int
+    @property
+    def Port(self) -> int:
+        return self._Port
 
     def __init__(self, Port: int):
         super().__init__()
         if Port is not None:
-            self.Port = Port
+            self._Port = Port
 
 
 class io__k8s__api__core__v1__EndpointPort(K8STemplatable):
@@ -1257,10 +1678,21 @@ class io__k8s__api__core__v1__EndpointPort(K8STemplatable):
     props: List[str] = ["appProtocol", "name", "port", "protocol"]
     required_props: List[str] = ["port"]
 
-    appProtocol: Optional[str] = None
-    name: Optional[str] = None
-    port: int
-    protocol: Optional[str] = None
+    @property
+    def appProtocol(self) -> Optional[str]:
+        return self._appProtocol
+
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def port(self) -> int:
+        return self._port
+
+    @property
+    def protocol(self) -> Optional[str]:
+        return self._protocol
 
     def __init__(
         self,
@@ -1271,13 +1703,13 @@ class io__k8s__api__core__v1__EndpointPort(K8STemplatable):
     ):
         super().__init__()
         if port is not None:
-            self.port = port
+            self._port = port
         if appProtocol is not None:
-            self.appProtocol = appProtocol
+            self._appProtocol = appProtocol
         if name is not None:
-            self.name = name
+            self._name = name
         if protocol is not None:
-            self.protocol = protocol
+            self._protocol = protocol
 
 
 class io__k8s__api__core__v1__EventSource(K8STemplatable):
@@ -1286,15 +1718,20 @@ class io__k8s__api__core__v1__EventSource(K8STemplatable):
     props: List[str] = ["component", "host"]
     required_props: List[str] = []
 
-    component: Optional[str] = None
-    host: Optional[str] = None
+    @property
+    def component(self) -> Optional[str]:
+        return self._component
+
+    @property
+    def host(self) -> Optional[str]:
+        return self._host
 
     def __init__(self, component: Optional[str] = None, host: Optional[str] = None):
         super().__init__()
         if component is not None:
-            self.component = component
+            self._component = component
         if host is not None:
-            self.host = host
+            self._host = host
 
 
 class io__k8s__api__core__v1__ExecAction(K8STemplatable):
@@ -1303,12 +1740,14 @@ class io__k8s__api__core__v1__ExecAction(K8STemplatable):
     props: List[str] = ["command"]
     required_props: List[str] = []
 
-    command: Optional[List[str]] = None
+    @property
+    def command(self) -> Optional[List[str]]:
+        return self._command
 
     def __init__(self, command: Optional[List[str]] = None):
         super().__init__()
         if command is not None:
-            self.command = command
+            self._command = command
 
 
 class io__k8s__api__core__v1__FCVolumeSource(K8STemplatable):
@@ -1317,11 +1756,25 @@ class io__k8s__api__core__v1__FCVolumeSource(K8STemplatable):
     props: List[str] = ["fsType", "lun", "readOnly", "targetWWNs", "wwids"]
     required_props: List[str] = []
 
-    fsType: Optional[str] = None
-    lun: Optional[int] = None
-    readOnly: Optional[bool] = None
-    targetWWNs: Optional[List[str]] = None
-    wwids: Optional[List[str]] = None
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def lun(self) -> Optional[int]:
+        return self._lun
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def targetWWNs(self) -> Optional[List[str]]:
+        return self._targetWWNs
+
+    @property
+    def wwids(self) -> Optional[List[str]]:
+        return self._wwids
 
     def __init__(
         self,
@@ -1333,15 +1786,15 @@ class io__k8s__api__core__v1__FCVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if lun is not None:
-            self.lun = lun
+            self._lun = lun
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if targetWWNs is not None:
-            self.targetWWNs = targetWWNs
+            self._targetWWNs = targetWWNs
         if wwids is not None:
-            self.wwids = wwids
+            self._wwids = wwids
 
 
 class io__k8s__api__core__v1__FlockerVolumeSource(K8STemplatable):
@@ -1350,17 +1803,22 @@ class io__k8s__api__core__v1__FlockerVolumeSource(K8STemplatable):
     props: List[str] = ["datasetName", "datasetUUID"]
     required_props: List[str] = []
 
-    datasetName: Optional[str] = None
-    datasetUUID: Optional[str] = None
+    @property
+    def datasetName(self) -> Optional[str]:
+        return self._datasetName
+
+    @property
+    def datasetUUID(self) -> Optional[str]:
+        return self._datasetUUID
 
     def __init__(
         self, datasetName: Optional[str] = None, datasetUUID: Optional[str] = None
     ):
         super().__init__()
         if datasetName is not None:
-            self.datasetName = datasetName
+            self._datasetName = datasetName
         if datasetUUID is not None:
-            self.datasetUUID = datasetUUID
+            self._datasetUUID = datasetUUID
 
 
 class io__k8s__api__core__v1__GCEPersistentDiskVolumeSource(K8STemplatable):
@@ -1371,10 +1829,21 @@ class io__k8s__api__core__v1__GCEPersistentDiskVolumeSource(K8STemplatable):
     props: List[str] = ["fsType", "partition", "pdName", "readOnly"]
     required_props: List[str] = ["pdName"]
 
-    fsType: Optional[str] = None
-    partition: Optional[int] = None
-    pdName: str
-    readOnly: Optional[bool] = None
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def partition(self) -> Optional[int]:
+        return self._partition
+
+    @property
+    def pdName(self) -> str:
+        return self._pdName
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
 
     def __init__(
         self,
@@ -1385,13 +1854,13 @@ class io__k8s__api__core__v1__GCEPersistentDiskVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if pdName is not None:
-            self.pdName = pdName
+            self._pdName = pdName
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if partition is not None:
-            self.partition = partition
+            self._partition = partition
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
 
 
 class io__k8s__api__core__v1__GRPCAction(K8STemplatable):
@@ -1400,15 +1869,20 @@ class io__k8s__api__core__v1__GRPCAction(K8STemplatable):
     props: List[str] = ["port", "service"]
     required_props: List[str] = ["port"]
 
-    port: int
-    service: Optional[str] = None
+    @property
+    def port(self) -> int:
+        return self._port
+
+    @property
+    def service(self) -> Optional[str]:
+        return self._service
 
     def __init__(self, port: int, service: Optional[str] = None):
         super().__init__()
         if port is not None:
-            self.port = port
+            self._port = port
         if service is not None:
-            self.service = service
+            self._service = service
 
 
 class io__k8s__api__core__v1__GitRepoVolumeSource(K8STemplatable):
@@ -1419,9 +1893,17 @@ class io__k8s__api__core__v1__GitRepoVolumeSource(K8STemplatable):
     props: List[str] = ["directory", "repository", "revision"]
     required_props: List[str] = ["repository"]
 
-    directory: Optional[str] = None
-    repository: str
-    revision: Optional[str] = None
+    @property
+    def directory(self) -> Optional[str]:
+        return self._directory
+
+    @property
+    def repository(self) -> str:
+        return self._repository
+
+    @property
+    def revision(self) -> Optional[str]:
+        return self._revision
 
     def __init__(
         self,
@@ -1431,11 +1913,11 @@ class io__k8s__api__core__v1__GitRepoVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if repository is not None:
-            self.repository = repository
+            self._repository = repository
         if directory is not None:
-            self.directory = directory
+            self._directory = directory
         if revision is not None:
-            self.revision = revision
+            self._revision = revision
 
 
 class io__k8s__api__core__v1__GlusterfsPersistentVolumeSource(K8STemplatable):
@@ -1444,10 +1926,21 @@ class io__k8s__api__core__v1__GlusterfsPersistentVolumeSource(K8STemplatable):
     props: List[str] = ["endpoints", "endpointsNamespace", "path", "readOnly"]
     required_props: List[str] = ["endpoints", "path"]
 
-    endpoints: str
-    endpointsNamespace: Optional[str] = None
-    path: str
-    readOnly: Optional[bool] = None
+    @property
+    def endpoints(self) -> str:
+        return self._endpoints
+
+    @property
+    def endpointsNamespace(self) -> Optional[str]:
+        return self._endpointsNamespace
+
+    @property
+    def path(self) -> str:
+        return self._path
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
 
     def __init__(
         self,
@@ -1458,13 +1951,13 @@ class io__k8s__api__core__v1__GlusterfsPersistentVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if endpoints is not None:
-            self.endpoints = endpoints
+            self._endpoints = endpoints
         if path is not None:
-            self.path = path
+            self._path = path
         if endpointsNamespace is not None:
-            self.endpointsNamespace = endpointsNamespace
+            self._endpointsNamespace = endpointsNamespace
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
 
 
 class io__k8s__api__core__v1__GlusterfsVolumeSource(K8STemplatable):
@@ -1473,18 +1966,26 @@ class io__k8s__api__core__v1__GlusterfsVolumeSource(K8STemplatable):
     props: List[str] = ["endpoints", "path", "readOnly"]
     required_props: List[str] = ["endpoints", "path"]
 
-    endpoints: str
-    path: str
-    readOnly: Optional[bool] = None
+    @property
+    def endpoints(self) -> str:
+        return self._endpoints
+
+    @property
+    def path(self) -> str:
+        return self._path
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
 
     def __init__(self, endpoints: str, path: str, readOnly: Optional[bool] = None):
         super().__init__()
         if endpoints is not None:
-            self.endpoints = endpoints
+            self._endpoints = endpoints
         if path is not None:
-            self.path = path
+            self._path = path
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
 
 
 class io__k8s__api__core__v1__HTTPHeader(K8STemplatable):
@@ -1493,15 +1994,20 @@ class io__k8s__api__core__v1__HTTPHeader(K8STemplatable):
     props: List[str] = ["name", "value"]
     required_props: List[str] = ["name", "value"]
 
-    name: str
-    value: str
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def value(self) -> str:
+        return self._value
 
     def __init__(self, name: str, value: str):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if value is not None:
-            self.value = value
+            self._value = value
 
 
 class io__k8s__api__core__v1__HostAlias(K8STemplatable):
@@ -1510,15 +2016,20 @@ class io__k8s__api__core__v1__HostAlias(K8STemplatable):
     props: List[str] = ["hostnames", "ip"]
     required_props: List[str] = []
 
-    hostnames: Optional[List[str]] = None
-    ip: Optional[str] = None
+    @property
+    def hostnames(self) -> Optional[List[str]]:
+        return self._hostnames
+
+    @property
+    def ip(self) -> Optional[str]:
+        return self._ip
 
     def __init__(self, hostnames: Optional[List[str]] = None, ip: Optional[str] = None):
         super().__init__()
         if hostnames is not None:
-            self.hostnames = hostnames
+            self._hostnames = hostnames
         if ip is not None:
-            self.ip = ip
+            self._ip = ip
 
 
 class io__k8s__api__core__v1__HostPathVolumeSource(K8STemplatable):
@@ -1527,15 +2038,20 @@ class io__k8s__api__core__v1__HostPathVolumeSource(K8STemplatable):
     props: List[str] = ["path", "type"]
     required_props: List[str] = ["path"]
 
-    path: str
-    type: Optional[str] = None
+    @property
+    def path(self) -> str:
+        return self._path
+
+    @property
+    def type(self) -> Optional[str]:
+        return self._type
 
     def __init__(self, path: str, type: Optional[str] = None):
         super().__init__()
         if path is not None:
-            self.path = path
+            self._path = path
         if type is not None:
-            self.type = type
+            self._type = type
 
 
 class io__k8s__api__core__v1__KeyToPath(K8STemplatable):
@@ -1544,18 +2060,26 @@ class io__k8s__api__core__v1__KeyToPath(K8STemplatable):
     props: List[str] = ["key", "mode", "path"]
     required_props: List[str] = ["key", "path"]
 
-    key: str
-    mode: Optional[int] = None
-    path: str
+    @property
+    def key(self) -> str:
+        return self._key
+
+    @property
+    def mode(self) -> Optional[int]:
+        return self._mode
+
+    @property
+    def path(self) -> str:
+        return self._path
 
     def __init__(self, key: str, path: str, mode: Optional[int] = None):
         super().__init__()
         if key is not None:
-            self.key = key
+            self._key = key
         if path is not None:
-            self.path = path
+            self._path = path
         if mode is not None:
-            self.mode = mode
+            self._mode = mode
 
 
 class io__k8s__api__core__v1__LimitRangeItem(K8STemplatable):
@@ -1564,11 +2088,25 @@ class io__k8s__api__core__v1__LimitRangeItem(K8STemplatable):
     props: List[str] = ["defaultRequest", "max", "maxLimitRequestRatio", "min", "type"]
     required_props: List[str] = ["type"]
 
-    defaultRequest: Any
-    max: Any
-    maxLimitRequestRatio: Any
-    min: Any
-    type: str
+    @property
+    def defaultRequest(self) -> Any:
+        return self._defaultRequest
+
+    @property
+    def max(self) -> Any:
+        return self._max
+
+    @property
+    def maxLimitRequestRatio(self) -> Any:
+        return self._maxLimitRequestRatio
+
+    @property
+    def min(self) -> Any:
+        return self._min
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -1580,15 +2118,15 @@ class io__k8s__api__core__v1__LimitRangeItem(K8STemplatable):
     ):
         super().__init__()
         if type is not None:
-            self.type = type
+            self._type = type
         if defaultRequest is not None:
-            self.defaultRequest = defaultRequest
+            self._defaultRequest = defaultRequest
         if max is not None:
-            self.max = max
+            self._max = max
         if maxLimitRequestRatio is not None:
-            self.maxLimitRequestRatio = maxLimitRequestRatio
+            self._maxLimitRequestRatio = maxLimitRequestRatio
         if min is not None:
-            self.min = min
+            self._min = min
 
 
 class io__k8s__api__core__v1__LimitRangeSpec(K8STemplatable):
@@ -1597,12 +2135,14 @@ class io__k8s__api__core__v1__LimitRangeSpec(K8STemplatable):
     props: List[str] = ["limits"]
     required_props: List[str] = ["limits"]
 
-    limits: List[io__k8s__api__core__v1__LimitRangeItem]
+    @property
+    def limits(self) -> List[io__k8s__api__core__v1__LimitRangeItem]:
+        return self._limits
 
     def __init__(self, limits: List[io__k8s__api__core__v1__LimitRangeItem]):
         super().__init__()
         if limits is not None:
-            self.limits = limits
+            self._limits = limits
 
 
 class io__k8s__api__core__v1__LocalObjectReference(K8STemplatable):
@@ -1611,12 +2151,14 @@ class io__k8s__api__core__v1__LocalObjectReference(K8STemplatable):
     props: List[str] = ["name"]
     required_props: List[str] = []
 
-    name: Optional[str] = None
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
 
     def __init__(self, name: Optional[str] = None):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
 
 
 class io__k8s__api__core__v1__LocalVolumeSource(K8STemplatable):
@@ -1625,15 +2167,20 @@ class io__k8s__api__core__v1__LocalVolumeSource(K8STemplatable):
     props: List[str] = ["fsType", "path"]
     required_props: List[str] = ["path"]
 
-    fsType: Optional[str] = None
-    path: str
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def path(self) -> str:
+        return self._path
 
     def __init__(self, path: str, fsType: Optional[str] = None):
         super().__init__()
         if path is not None:
-            self.path = path
+            self._path = path
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
 
 
 class io__k8s__api__core__v1__NFSVolumeSource(K8STemplatable):
@@ -1642,18 +2189,26 @@ class io__k8s__api__core__v1__NFSVolumeSource(K8STemplatable):
     props: List[str] = ["path", "readOnly", "server"]
     required_props: List[str] = ["server", "path"]
 
-    path: str
-    readOnly: Optional[bool] = None
-    server: str
+    @property
+    def path(self) -> str:
+        return self._path
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def server(self) -> str:
+        return self._server
 
     def __init__(self, path: str, server: str, readOnly: Optional[bool] = None):
         super().__init__()
         if path is not None:
-            self.path = path
+            self._path = path
         if server is not None:
-            self.server = server
+            self._server = server
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
 
 
 class io__k8s__api__core__v1__NamespaceSpec(K8STemplatable):
@@ -1662,12 +2217,14 @@ class io__k8s__api__core__v1__NamespaceSpec(K8STemplatable):
     props: List[str] = ["finalizers"]
     required_props: List[str] = []
 
-    finalizers: Optional[List[str]] = None
+    @property
+    def finalizers(self) -> Optional[List[str]]:
+        return self._finalizers
 
     def __init__(self, finalizers: Optional[List[str]] = None):
         super().__init__()
         if finalizers is not None:
-            self.finalizers = finalizers
+            self._finalizers = finalizers
 
 
 class io__k8s__api__core__v1__NodeAddress(K8STemplatable):
@@ -1676,15 +2233,20 @@ class io__k8s__api__core__v1__NodeAddress(K8STemplatable):
     props: List[str] = ["address", "type"]
     required_props: List[str] = ["type", "address"]
 
-    address: str
-    type: str
+    @property
+    def address(self) -> str:
+        return self._address
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(self, address: str, type: str):
         super().__init__()
         if address is not None:
-            self.address = address
+            self._address = address
         if type is not None:
-            self.type = type
+            self._type = type
 
 
 class io__k8s__api__core__v1__NodeConfigSource(K8STemplatable):
@@ -1693,7 +2255,9 @@ class io__k8s__api__core__v1__NodeConfigSource(K8STemplatable):
     props: List[str] = ["configMap"]
     required_props: List[str] = []
 
-    configMap: Optional[io__k8s__api__core__v1__ConfigMapNodeConfigSource] = None
+    @property
+    def configMap(self) -> Optional[io__k8s__api__core__v1__ConfigMapNodeConfigSource]:
+        return self._configMap
 
     def __init__(
         self,
@@ -1701,7 +2265,7 @@ class io__k8s__api__core__v1__NodeConfigSource(K8STemplatable):
     ):
         super().__init__()
         if configMap is not None:
-            self.configMap = configMap
+            self._configMap = configMap
 
 
 class io__k8s__api__core__v1__NodeConfigStatus(K8STemplatable):
@@ -1710,10 +2274,21 @@ class io__k8s__api__core__v1__NodeConfigStatus(K8STemplatable):
     props: List[str] = ["active", "assigned", "error", "lastKnownGood"]
     required_props: List[str] = []
 
-    active: Optional[io__k8s__api__core__v1__NodeConfigSource] = None
-    assigned: Optional[io__k8s__api__core__v1__NodeConfigSource] = None
-    error: Optional[str] = None
-    lastKnownGood: Optional[io__k8s__api__core__v1__NodeConfigSource] = None
+    @property
+    def active(self) -> Optional[io__k8s__api__core__v1__NodeConfigSource]:
+        return self._active
+
+    @property
+    def assigned(self) -> Optional[io__k8s__api__core__v1__NodeConfigSource]:
+        return self._assigned
+
+    @property
+    def error(self) -> Optional[str]:
+        return self._error
+
+    @property
+    def lastKnownGood(self) -> Optional[io__k8s__api__core__v1__NodeConfigSource]:
+        return self._lastKnownGood
 
     def __init__(
         self,
@@ -1724,13 +2299,13 @@ class io__k8s__api__core__v1__NodeConfigStatus(K8STemplatable):
     ):
         super().__init__()
         if active is not None:
-            self.active = active
+            self._active = active
         if assigned is not None:
-            self.assigned = assigned
+            self._assigned = assigned
         if error is not None:
-            self.error = error
+            self._error = error
         if lastKnownGood is not None:
-            self.lastKnownGood = lastKnownGood
+            self._lastKnownGood = lastKnownGood
 
 
 class io__k8s__api__core__v1__NodeDaemonEndpoints(K8STemplatable):
@@ -1739,14 +2314,16 @@ class io__k8s__api__core__v1__NodeDaemonEndpoints(K8STemplatable):
     props: List[str] = ["kubeletEndpoint"]
     required_props: List[str] = []
 
-    kubeletEndpoint: Optional[io__k8s__api__core__v1__DaemonEndpoint] = None
+    @property
+    def kubeletEndpoint(self) -> Optional[io__k8s__api__core__v1__DaemonEndpoint]:
+        return self._kubeletEndpoint
 
     def __init__(
         self, kubeletEndpoint: Optional[io__k8s__api__core__v1__DaemonEndpoint] = None
     ):
         super().__init__()
         if kubeletEndpoint is not None:
-            self.kubeletEndpoint = kubeletEndpoint
+            self._kubeletEndpoint = kubeletEndpoint
 
 
 class io__k8s__api__core__v1__NodeSelectorRequirement(K8STemplatable):
@@ -1755,18 +2332,26 @@ class io__k8s__api__core__v1__NodeSelectorRequirement(K8STemplatable):
     props: List[str] = ["key", "operator", "values"]
     required_props: List[str] = ["key", "operator"]
 
-    key: str
-    operator: str
-    values: Optional[List[str]] = None
+    @property
+    def key(self) -> str:
+        return self._key
+
+    @property
+    def operator(self) -> str:
+        return self._operator
+
+    @property
+    def values(self) -> Optional[List[str]]:
+        return self._values
 
     def __init__(self, key: str, operator: str, values: Optional[List[str]] = None):
         super().__init__()
         if key is not None:
-            self.key = key
+            self._key = key
         if operator is not None:
-            self.operator = operator
+            self._operator = operator
         if values is not None:
-            self.values = values
+            self._values = values
 
 
 class io__k8s__api__core__v1__NodeSelectorTerm(K8STemplatable):
@@ -1775,10 +2360,17 @@ class io__k8s__api__core__v1__NodeSelectorTerm(K8STemplatable):
     props: List[str] = ["matchExpressions", "matchFields"]
     required_props: List[str] = []
 
-    matchExpressions: Optional[
-        List[io__k8s__api__core__v1__NodeSelectorRequirement]
-    ] = None
-    matchFields: Optional[List[io__k8s__api__core__v1__NodeSelectorRequirement]] = None
+    @property
+    def matchExpressions(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__NodeSelectorRequirement]]:
+        return self._matchExpressions
+
+    @property
+    def matchFields(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__NodeSelectorRequirement]]:
+        return self._matchFields
 
     def __init__(
         self,
@@ -1791,9 +2383,9 @@ class io__k8s__api__core__v1__NodeSelectorTerm(K8STemplatable):
     ):
         super().__init__()
         if matchExpressions is not None:
-            self.matchExpressions = matchExpressions
+            self._matchExpressions = matchExpressions
         if matchFields is not None:
-            self.matchFields = matchFields
+            self._matchFields = matchFields
 
 
 class io__k8s__api__core__v1__NodeSystemInfo(K8STemplatable):
@@ -1824,16 +2416,45 @@ class io__k8s__api__core__v1__NodeSystemInfo(K8STemplatable):
         "architecture",
     ]
 
-    architecture: str
-    bootID: str
-    containerRuntimeVersion: str
-    kernelVersion: str
-    kubeProxyVersion: str
-    kubeletVersion: str
-    machineID: str
-    operatingSystem: str
-    osImage: str
-    systemUUID: str
+    @property
+    def architecture(self) -> str:
+        return self._architecture
+
+    @property
+    def bootID(self) -> str:
+        return self._bootID
+
+    @property
+    def containerRuntimeVersion(self) -> str:
+        return self._containerRuntimeVersion
+
+    @property
+    def kernelVersion(self) -> str:
+        return self._kernelVersion
+
+    @property
+    def kubeProxyVersion(self) -> str:
+        return self._kubeProxyVersion
+
+    @property
+    def kubeletVersion(self) -> str:
+        return self._kubeletVersion
+
+    @property
+    def machineID(self) -> str:
+        return self._machineID
+
+    @property
+    def operatingSystem(self) -> str:
+        return self._operatingSystem
+
+    @property
+    def osImage(self) -> str:
+        return self._osImage
+
+    @property
+    def systemUUID(self) -> str:
+        return self._systemUUID
 
     def __init__(
         self,
@@ -1850,25 +2471,25 @@ class io__k8s__api__core__v1__NodeSystemInfo(K8STemplatable):
     ):
         super().__init__()
         if architecture is not None:
-            self.architecture = architecture
+            self._architecture = architecture
         if bootID is not None:
-            self.bootID = bootID
+            self._bootID = bootID
         if containerRuntimeVersion is not None:
-            self.containerRuntimeVersion = containerRuntimeVersion
+            self._containerRuntimeVersion = containerRuntimeVersion
         if kernelVersion is not None:
-            self.kernelVersion = kernelVersion
+            self._kernelVersion = kernelVersion
         if kubeProxyVersion is not None:
-            self.kubeProxyVersion = kubeProxyVersion
+            self._kubeProxyVersion = kubeProxyVersion
         if kubeletVersion is not None:
-            self.kubeletVersion = kubeletVersion
+            self._kubeletVersion = kubeletVersion
         if machineID is not None:
-            self.machineID = machineID
+            self._machineID = machineID
         if operatingSystem is not None:
-            self.operatingSystem = operatingSystem
+            self._operatingSystem = operatingSystem
         if osImage is not None:
-            self.osImage = osImage
+            self._osImage = osImage
         if systemUUID is not None:
-            self.systemUUID = systemUUID
+            self._systemUUID = systemUUID
 
 
 class io__k8s__api__core__v1__ObjectFieldSelector(K8STemplatable):
@@ -1877,15 +2498,20 @@ class io__k8s__api__core__v1__ObjectFieldSelector(K8STemplatable):
     props: List[str] = ["apiVersion", "fieldPath"]
     required_props: List[str] = ["fieldPath"]
 
-    apiVersion: Optional[str] = None
-    fieldPath: str
+    @property
+    def apiVersion(self) -> Optional[str]:
+        return self._apiVersion
+
+    @property
+    def fieldPath(self) -> str:
+        return self._fieldPath
 
     def __init__(self, fieldPath: str, apiVersion: Optional[str] = None):
         super().__init__()
         if fieldPath is not None:
-            self.fieldPath = fieldPath
+            self._fieldPath = fieldPath
         if apiVersion is not None:
-            self.apiVersion = apiVersion
+            self._apiVersion = apiVersion
 
 
 class io__k8s__api__core__v1__ObjectReference(K8STemplatable):
@@ -1902,13 +2528,33 @@ class io__k8s__api__core__v1__ObjectReference(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    apiVersion: Optional[str] = None
-    fieldPath: Optional[str] = None
-    kind: Optional[str] = None
-    name: Optional[str] = None
-    namespace: Optional[str] = None
-    resourceVersion: Optional[str] = None
-    uid: Optional[str] = None
+    @property
+    def apiVersion(self) -> Optional[str]:
+        return self._apiVersion
+
+    @property
+    def fieldPath(self) -> Optional[str]:
+        return self._fieldPath
+
+    @property
+    def kind(self) -> Optional[str]:
+        return self._kind
+
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def namespace(self) -> Optional[str]:
+        return self._namespace
+
+    @property
+    def resourceVersion(self) -> Optional[str]:
+        return self._resourceVersion
+
+    @property
+    def uid(self) -> Optional[str]:
+        return self._uid
 
     def __init__(
         self,
@@ -1922,19 +2568,19 @@ class io__k8s__api__core__v1__ObjectReference(K8STemplatable):
     ):
         super().__init__()
         if apiVersion is not None:
-            self.apiVersion = apiVersion
+            self._apiVersion = apiVersion
         if fieldPath is not None:
-            self.fieldPath = fieldPath
+            self._fieldPath = fieldPath
         if kind is not None:
-            self.kind = kind
+            self._kind = kind
         if name is not None:
-            self.name = name
+            self._name = name
         if namespace is not None:
-            self.namespace = namespace
+            self._namespace = namespace
         if resourceVersion is not None:
-            self.resourceVersion = resourceVersion
+            self._resourceVersion = resourceVersion
         if uid is not None:
-            self.uid = uid
+            self._uid = uid
 
 
 class io__k8s__api__core__v1__PersistentVolumeClaimVolumeSource(K8STemplatable):
@@ -1943,15 +2589,20 @@ class io__k8s__api__core__v1__PersistentVolumeClaimVolumeSource(K8STemplatable):
     props: List[str] = ["claimName", "readOnly"]
     required_props: List[str] = ["claimName"]
 
-    claimName: str
-    readOnly: Optional[bool] = None
+    @property
+    def claimName(self) -> str:
+        return self._claimName
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
 
     def __init__(self, claimName: str, readOnly: Optional[bool] = None):
         super().__init__()
         if claimName is not None:
-            self.claimName = claimName
+            self._claimName = claimName
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
 
 
 class io__k8s__api__core__v1__PersistentVolumeStatus(K8STemplatable):
@@ -1960,9 +2611,17 @@ class io__k8s__api__core__v1__PersistentVolumeStatus(K8STemplatable):
     props: List[str] = ["message", "phase", "reason"]
     required_props: List[str] = []
 
-    message: Optional[str] = None
-    phase: Optional[str] = None
-    reason: Optional[str] = None
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def phase(self) -> Optional[str]:
+        return self._phase
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
 
     def __init__(
         self,
@@ -1972,11 +2631,11 @@ class io__k8s__api__core__v1__PersistentVolumeStatus(K8STemplatable):
     ):
         super().__init__()
         if message is not None:
-            self.message = message
+            self._message = message
         if phase is not None:
-            self.phase = phase
+            self._phase = phase
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__api__core__v1__PhotonPersistentDiskVolumeSource(K8STemplatable):
@@ -1985,15 +2644,20 @@ class io__k8s__api__core__v1__PhotonPersistentDiskVolumeSource(K8STemplatable):
     props: List[str] = ["fsType", "pdID"]
     required_props: List[str] = ["pdID"]
 
-    fsType: Optional[str] = None
-    pdID: str
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def pdID(self) -> str:
+        return self._pdID
 
     def __init__(self, pdID: str, fsType: Optional[str] = None):
         super().__init__()
         if pdID is not None:
-            self.pdID = pdID
+            self._pdID = pdID
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
 
 
 class io__k8s__api__core__v1__PodDNSConfigOption(K8STemplatable):
@@ -2002,15 +2666,20 @@ class io__k8s__api__core__v1__PodDNSConfigOption(K8STemplatable):
     props: List[str] = ["name", "value"]
     required_props: List[str] = []
 
-    name: Optional[str] = None
-    value: Optional[str] = None
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def value(self) -> Optional[str]:
+        return self._value
 
     def __init__(self, name: Optional[str] = None, value: Optional[str] = None):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if value is not None:
-            self.value = value
+            self._value = value
 
 
 class io__k8s__api__core__v1__PodIP(K8STemplatable):
@@ -2020,12 +2689,14 @@ class io__k8s__api__core__v1__PodIP(K8STemplatable):
     props: List[str] = ["ip"]
     required_props: List[str] = []
 
-    ip: Optional[str] = None
+    @property
+    def ip(self) -> Optional[str]:
+        return self._ip
 
     def __init__(self, ip: Optional[str] = None):
         super().__init__()
         if ip is not None:
-            self.ip = ip
+            self._ip = ip
 
 
 class io__k8s__api__core__v1__PodOS(K8STemplatable):
@@ -2034,12 +2705,14 @@ class io__k8s__api__core__v1__PodOS(K8STemplatable):
     props: List[str] = ["name"]
     required_props: List[str] = ["name"]
 
-    name: str
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(self, name: str):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
 
 
 class io__k8s__api__core__v1__PodReadinessGate(K8STemplatable):
@@ -2048,12 +2721,14 @@ class io__k8s__api__core__v1__PodReadinessGate(K8STemplatable):
     props: List[str] = ["conditionType"]
     required_props: List[str] = ["conditionType"]
 
-    conditionType: str
+    @property
+    def conditionType(self) -> str:
+        return self._conditionType
 
     def __init__(self, conditionType: str):
         super().__init__()
         if conditionType is not None:
-            self.conditionType = conditionType
+            self._conditionType = conditionType
 
 
 class io__k8s__api__core__v1__PortStatus(K8STemplatable):
@@ -2062,18 +2737,26 @@ class io__k8s__api__core__v1__PortStatus(K8STemplatable):
     props: List[str] = ["error", "port", "protocol"]
     required_props: List[str] = ["port", "protocol"]
 
-    error: Optional[str] = None
-    port: int
-    protocol: str
+    @property
+    def error(self) -> Optional[str]:
+        return self._error
+
+    @property
+    def port(self) -> int:
+        return self._port
+
+    @property
+    def protocol(self) -> str:
+        return self._protocol
 
     def __init__(self, port: int, protocol: str, error: Optional[str] = None):
         super().__init__()
         if port is not None:
-            self.port = port
+            self._port = port
         if protocol is not None:
-            self.protocol = protocol
+            self._protocol = protocol
         if error is not None:
-            self.error = error
+            self._error = error
 
 
 class io__k8s__api__core__v1__PortworxVolumeSource(K8STemplatable):
@@ -2082,9 +2765,17 @@ class io__k8s__api__core__v1__PortworxVolumeSource(K8STemplatable):
     props: List[str] = ["fsType", "readOnly", "volumeID"]
     required_props: List[str] = ["volumeID"]
 
-    fsType: Optional[str] = None
-    readOnly: Optional[bool] = None
-    volumeID: str
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def volumeID(self) -> str:
+        return self._volumeID
 
     def __init__(
         self,
@@ -2094,11 +2785,11 @@ class io__k8s__api__core__v1__PortworxVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if volumeID is not None:
-            self.volumeID = volumeID
+            self._volumeID = volumeID
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
 
 
 class io__k8s__api__core__v1__PreferredSchedulingTerm(K8STemplatable):
@@ -2107,17 +2798,22 @@ class io__k8s__api__core__v1__PreferredSchedulingTerm(K8STemplatable):
     props: List[str] = ["preference", "weight"]
     required_props: List[str] = ["weight", "preference"]
 
-    preference: io__k8s__api__core__v1__NodeSelectorTerm
-    weight: int
+    @property
+    def preference(self) -> io__k8s__api__core__v1__NodeSelectorTerm:
+        return self._preference
+
+    @property
+    def weight(self) -> int:
+        return self._weight
 
     def __init__(
         self, preference: io__k8s__api__core__v1__NodeSelectorTerm, weight: int
     ):
         super().__init__()
         if preference is not None:
-            self.preference = preference
+            self._preference = preference
         if weight is not None:
-            self.weight = weight
+            self._weight = weight
 
 
 class io__k8s__api__core__v1__QuobyteVolumeSource(K8STemplatable):
@@ -2126,12 +2822,29 @@ class io__k8s__api__core__v1__QuobyteVolumeSource(K8STemplatable):
     props: List[str] = ["group", "readOnly", "registry", "tenant", "user", "volume"]
     required_props: List[str] = ["registry", "volume"]
 
-    group: Optional[str] = None
-    readOnly: Optional[bool] = None
-    registry: str
-    tenant: Optional[str] = None
-    user: Optional[str] = None
-    volume: str
+    @property
+    def group(self) -> Optional[str]:
+        return self._group
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def registry(self) -> str:
+        return self._registry
+
+    @property
+    def tenant(self) -> Optional[str]:
+        return self._tenant
+
+    @property
+    def user(self) -> Optional[str]:
+        return self._user
+
+    @property
+    def volume(self) -> str:
+        return self._volume
 
     def __init__(
         self,
@@ -2144,17 +2857,17 @@ class io__k8s__api__core__v1__QuobyteVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if registry is not None:
-            self.registry = registry
+            self._registry = registry
         if volume is not None:
-            self.volume = volume
+            self._volume = volume
         if group is not None:
-            self.group = group
+            self._group = group
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if tenant is not None:
-            self.tenant = tenant
+            self._tenant = tenant
         if user is not None:
-            self.user = user
+            self._user = user
 
 
 class io__k8s__api__core__v1__RBDVolumeSource(K8STemplatable):
@@ -2172,14 +2885,37 @@ class io__k8s__api__core__v1__RBDVolumeSource(K8STemplatable):
     ]
     required_props: List[str] = ["monitors", "image"]
 
-    fsType: Optional[str] = None
-    image: str
-    keyring: Optional[str] = None
-    monitors: List[str]
-    pool: Optional[str] = None
-    readOnly: Optional[bool] = None
-    secretRef: Optional[io__k8s__api__core__v1__LocalObjectReference] = None
-    user: Optional[str] = None
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def image(self) -> str:
+        return self._image
+
+    @property
+    def keyring(self) -> Optional[str]:
+        return self._keyring
+
+    @property
+    def monitors(self) -> List[str]:
+        return self._monitors
+
+    @property
+    def pool(self) -> Optional[str]:
+        return self._pool
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def secretRef(self) -> Optional[io__k8s__api__core__v1__LocalObjectReference]:
+        return self._secretRef
+
+    @property
+    def user(self) -> Optional[str]:
+        return self._user
 
     def __init__(
         self,
@@ -2194,21 +2930,21 @@ class io__k8s__api__core__v1__RBDVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if image is not None:
-            self.image = image
+            self._image = image
         if monitors is not None:
-            self.monitors = monitors
+            self._monitors = monitors
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if keyring is not None:
-            self.keyring = keyring
+            self._keyring = keyring
         if pool is not None:
-            self.pool = pool
+            self._pool = pool
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if secretRef is not None:
-            self.secretRef = secretRef
+            self._secretRef = secretRef
         if user is not None:
-            self.user = user
+            self._user = user
 
 
 class io__k8s__api__core__v1__ResourceQuotaStatus(K8STemplatable):
@@ -2217,15 +2953,20 @@ class io__k8s__api__core__v1__ResourceQuotaStatus(K8STemplatable):
     props: List[str] = ["hard", "used"]
     required_props: List[str] = []
 
-    hard: Any
-    used: Any
+    @property
+    def hard(self) -> Any:
+        return self._hard
+
+    @property
+    def used(self) -> Any:
+        return self._used
 
     def __init__(self, hard: Any = None, used: Any = None):
         super().__init__()
         if hard is not None:
-            self.hard = hard
+            self._hard = hard
         if used is not None:
-            self.used = used
+            self._used = used
 
 
 class io__k8s__api__core__v1__ResourceRequirements(K8STemplatable):
@@ -2234,15 +2975,20 @@ class io__k8s__api__core__v1__ResourceRequirements(K8STemplatable):
     props: List[str] = ["limits", "requests"]
     required_props: List[str] = []
 
-    limits: Any
-    requests: Any
+    @property
+    def limits(self) -> Any:
+        return self._limits
+
+    @property
+    def requests(self) -> Any:
+        return self._requests
 
     def __init__(self, limits: Any = None, requests: Any = None):
         super().__init__()
         if limits is not None:
-            self.limits = limits
+            self._limits = limits
         if requests is not None:
-            self.requests = requests
+            self._requests = requests
 
 
 class io__k8s__api__core__v1__SELinuxOptions(K8STemplatable):
@@ -2251,10 +2997,21 @@ class io__k8s__api__core__v1__SELinuxOptions(K8STemplatable):
     props: List[str] = ["level", "role", "type", "user"]
     required_props: List[str] = []
 
-    level: Optional[str] = None
-    role: Optional[str] = None
-    type: Optional[str] = None
-    user: Optional[str] = None
+    @property
+    def level(self) -> Optional[str]:
+        return self._level
+
+    @property
+    def role(self) -> Optional[str]:
+        return self._role
+
+    @property
+    def type(self) -> Optional[str]:
+        return self._type
+
+    @property
+    def user(self) -> Optional[str]:
+        return self._user
 
     def __init__(
         self,
@@ -2265,13 +3022,13 @@ class io__k8s__api__core__v1__SELinuxOptions(K8STemplatable):
     ):
         super().__init__()
         if level is not None:
-            self.level = level
+            self._level = level
         if role is not None:
-            self.role = role
+            self._role = role
         if type is not None:
-            self.type = type
+            self._type = type
         if user is not None:
-            self.user = user
+            self._user = user
 
 
 class io__k8s__api__core__v1__ScaleIOVolumeSource(K8STemplatable):
@@ -2291,16 +3048,45 @@ class io__k8s__api__core__v1__ScaleIOVolumeSource(K8STemplatable):
     ]
     required_props: List[str] = ["gateway", "system", "secretRef"]
 
-    fsType: Optional[str] = None
-    gateway: str
-    protectionDomain: Optional[str] = None
-    readOnly: Optional[bool] = None
-    secretRef: io__k8s__api__core__v1__LocalObjectReference
-    sslEnabled: Optional[bool] = None
-    storageMode: Optional[str] = None
-    storagePool: Optional[str] = None
-    system: str
-    volumeName: Optional[str] = None
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def gateway(self) -> str:
+        return self._gateway
+
+    @property
+    def protectionDomain(self) -> Optional[str]:
+        return self._protectionDomain
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def secretRef(self) -> io__k8s__api__core__v1__LocalObjectReference:
+        return self._secretRef
+
+    @property
+    def sslEnabled(self) -> Optional[bool]:
+        return self._sslEnabled
+
+    @property
+    def storageMode(self) -> Optional[str]:
+        return self._storageMode
+
+    @property
+    def storagePool(self) -> Optional[str]:
+        return self._storagePool
+
+    @property
+    def system(self) -> str:
+        return self._system
+
+    @property
+    def volumeName(self) -> Optional[str]:
+        return self._volumeName
 
     def __init__(
         self,
@@ -2317,25 +3103,25 @@ class io__k8s__api__core__v1__ScaleIOVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if gateway is not None:
-            self.gateway = gateway
+            self._gateway = gateway
         if secretRef is not None:
-            self.secretRef = secretRef
+            self._secretRef = secretRef
         if system is not None:
-            self.system = system
+            self._system = system
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if protectionDomain is not None:
-            self.protectionDomain = protectionDomain
+            self._protectionDomain = protectionDomain
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if sslEnabled is not None:
-            self.sslEnabled = sslEnabled
+            self._sslEnabled = sslEnabled
         if storageMode is not None:
-            self.storageMode = storageMode
+            self._storageMode = storageMode
         if storagePool is not None:
-            self.storagePool = storagePool
+            self._storagePool = storagePool
         if volumeName is not None:
-            self.volumeName = volumeName
+            self._volumeName = volumeName
 
 
 class io__k8s__api__core__v1__ScopedResourceSelectorRequirement(K8STemplatable):
@@ -2344,20 +3130,28 @@ class io__k8s__api__core__v1__ScopedResourceSelectorRequirement(K8STemplatable):
     props: List[str] = ["operator", "scopeName", "values"]
     required_props: List[str] = ["scopeName", "operator"]
 
-    operator: str
-    scopeName: str
-    values: Optional[List[str]] = None
+    @property
+    def operator(self) -> str:
+        return self._operator
+
+    @property
+    def scopeName(self) -> str:
+        return self._scopeName
+
+    @property
+    def values(self) -> Optional[List[str]]:
+        return self._values
 
     def __init__(
         self, operator: str, scopeName: str, values: Optional[List[str]] = None
     ):
         super().__init__()
         if operator is not None:
-            self.operator = operator
+            self._operator = operator
         if scopeName is not None:
-            self.scopeName = scopeName
+            self._scopeName = scopeName
         if values is not None:
-            self.values = values
+            self._values = values
 
 
 class io__k8s__api__core__v1__SeccompProfile(K8STemplatable):
@@ -2366,15 +3160,20 @@ class io__k8s__api__core__v1__SeccompProfile(K8STemplatable):
     props: List[str] = ["localhostProfile", "type"]
     required_props: List[str] = ["type"]
 
-    localhostProfile: Optional[str] = None
-    type: str
+    @property
+    def localhostProfile(self) -> Optional[str]:
+        return self._localhostProfile
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(self, type: str, localhostProfile: Optional[str] = None):
         super().__init__()
         if type is not None:
-            self.type = type
+            self._type = type
         if localhostProfile is not None:
-            self.localhostProfile = localhostProfile
+            self._localhostProfile = localhostProfile
 
 
 class io__k8s__api__core__v1__SecretEnvSource(K8STemplatable):
@@ -2385,15 +3184,20 @@ class io__k8s__api__core__v1__SecretEnvSource(K8STemplatable):
     props: List[str] = ["name", "optional"]
     required_props: List[str] = []
 
-    name: Optional[str] = None
-    optional: Optional[bool] = None
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def optional(self) -> Optional[bool]:
+        return self._optional
 
     def __init__(self, name: Optional[str] = None, optional: Optional[bool] = None):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if optional is not None:
-            self.optional = optional
+            self._optional = optional
 
 
 class io__k8s__api__core__v1__SecretKeySelector(K8STemplatable):
@@ -2402,20 +3206,28 @@ class io__k8s__api__core__v1__SecretKeySelector(K8STemplatable):
     props: List[str] = ["key", "name", "optional"]
     required_props: List[str] = ["key"]
 
-    key: str
-    name: Optional[str] = None
-    optional: Optional[bool] = None
+    @property
+    def key(self) -> str:
+        return self._key
+
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def optional(self) -> Optional[bool]:
+        return self._optional
 
     def __init__(
         self, key: str, name: Optional[str] = None, optional: Optional[bool] = None
     ):
         super().__init__()
         if key is not None:
-            self.key = key
+            self._key = key
         if name is not None:
-            self.name = name
+            self._name = name
         if optional is not None:
-            self.optional = optional
+            self._optional = optional
 
 
 class io__k8s__api__core__v1__SecretProjection(K8STemplatable):
@@ -2426,9 +3238,17 @@ class io__k8s__api__core__v1__SecretProjection(K8STemplatable):
     props: List[str] = ["items", "name", "optional"]
     required_props: List[str] = []
 
-    items: Optional[List[io__k8s__api__core__v1__KeyToPath]] = None
-    name: Optional[str] = None
-    optional: Optional[bool] = None
+    @property
+    def items(self) -> Optional[List[io__k8s__api__core__v1__KeyToPath]]:
+        return self._items
+
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def optional(self) -> Optional[bool]:
+        return self._optional
 
     def __init__(
         self,
@@ -2438,11 +3258,11 @@ class io__k8s__api__core__v1__SecretProjection(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if name is not None:
-            self.name = name
+            self._name = name
         if optional is not None:
-            self.optional = optional
+            self._optional = optional
 
 
 class io__k8s__api__core__v1__SecretReference(K8STemplatable):
@@ -2451,15 +3271,20 @@ class io__k8s__api__core__v1__SecretReference(K8STemplatable):
     props: List[str] = ["name", "namespace"]
     required_props: List[str] = []
 
-    name: Optional[str] = None
-    namespace: Optional[str] = None
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def namespace(self) -> Optional[str]:
+        return self._namespace
 
     def __init__(self, name: Optional[str] = None, namespace: Optional[str] = None):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if namespace is not None:
-            self.namespace = namespace
+            self._namespace = namespace
 
 
 class io__k8s__api__core__v1__SecretVolumeSource(K8STemplatable):
@@ -2470,10 +3295,21 @@ class io__k8s__api__core__v1__SecretVolumeSource(K8STemplatable):
     props: List[str] = ["defaultMode", "items", "optional", "secretName"]
     required_props: List[str] = []
 
-    defaultMode: Optional[int] = None
-    items: Optional[List[io__k8s__api__core__v1__KeyToPath]] = None
-    optional: Optional[bool] = None
-    secretName: Optional[str] = None
+    @property
+    def defaultMode(self) -> Optional[int]:
+        return self._defaultMode
+
+    @property
+    def items(self) -> Optional[List[io__k8s__api__core__v1__KeyToPath]]:
+        return self._items
+
+    @property
+    def optional(self) -> Optional[bool]:
+        return self._optional
+
+    @property
+    def secretName(self) -> Optional[str]:
+        return self._secretName
 
     def __init__(
         self,
@@ -2484,13 +3320,13 @@ class io__k8s__api__core__v1__SecretVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if defaultMode is not None:
-            self.defaultMode = defaultMode
+            self._defaultMode = defaultMode
         if items is not None:
-            self.items = items
+            self._items = items
         if optional is not None:
-            self.optional = optional
+            self._optional = optional
         if secretName is not None:
-            self.secretName = secretName
+            self._secretName = secretName
 
 
 class io__k8s__api__core__v1__ServiceAccountTokenProjection(K8STemplatable):
@@ -2499,9 +3335,17 @@ class io__k8s__api__core__v1__ServiceAccountTokenProjection(K8STemplatable):
     props: List[str] = ["audience", "expirationSeconds", "path"]
     required_props: List[str] = ["path"]
 
-    audience: Optional[str] = None
-    expirationSeconds: Optional[int] = None
-    path: str
+    @property
+    def audience(self) -> Optional[str]:
+        return self._audience
+
+    @property
+    def expirationSeconds(self) -> Optional[int]:
+        return self._expirationSeconds
+
+    @property
+    def path(self) -> str:
+        return self._path
 
     def __init__(
         self,
@@ -2511,11 +3355,11 @@ class io__k8s__api__core__v1__ServiceAccountTokenProjection(K8STemplatable):
     ):
         super().__init__()
         if path is not None:
-            self.path = path
+            self._path = path
         if audience is not None:
-            self.audience = audience
+            self._audience = audience
         if expirationSeconds is not None:
-            self.expirationSeconds = expirationSeconds
+            self._expirationSeconds = expirationSeconds
 
 
 class io__k8s__api__core__v1__SessionAffinityConfig(K8STemplatable):
@@ -2524,14 +3368,16 @@ class io__k8s__api__core__v1__SessionAffinityConfig(K8STemplatable):
     props: List[str] = ["clientIP"]
     required_props: List[str] = []
 
-    clientIP: Optional[io__k8s__api__core__v1__ClientIPConfig] = None
+    @property
+    def clientIP(self) -> Optional[io__k8s__api__core__v1__ClientIPConfig]:
+        return self._clientIP
 
     def __init__(
         self, clientIP: Optional[io__k8s__api__core__v1__ClientIPConfig] = None
     ):
         super().__init__()
         if clientIP is not None:
-            self.clientIP = clientIP
+            self._clientIP = clientIP
 
 
 class io__k8s__api__core__v1__StorageOSPersistentVolumeSource(K8STemplatable):
@@ -2546,11 +3392,25 @@ class io__k8s__api__core__v1__StorageOSPersistentVolumeSource(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    fsType: Optional[str] = None
-    readOnly: Optional[bool] = None
-    secretRef: Optional[io__k8s__api__core__v1__ObjectReference] = None
-    volumeName: Optional[str] = None
-    volumeNamespace: Optional[str] = None
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def secretRef(self) -> Optional[io__k8s__api__core__v1__ObjectReference]:
+        return self._secretRef
+
+    @property
+    def volumeName(self) -> Optional[str]:
+        return self._volumeName
+
+    @property
+    def volumeNamespace(self) -> Optional[str]:
+        return self._volumeNamespace
 
     def __init__(
         self,
@@ -2562,15 +3422,15 @@ class io__k8s__api__core__v1__StorageOSPersistentVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if secretRef is not None:
-            self.secretRef = secretRef
+            self._secretRef = secretRef
         if volumeName is not None:
-            self.volumeName = volumeName
+            self._volumeName = volumeName
         if volumeNamespace is not None:
-            self.volumeNamespace = volumeNamespace
+            self._volumeNamespace = volumeNamespace
 
 
 class io__k8s__api__core__v1__StorageOSVolumeSource(K8STemplatable):
@@ -2585,11 +3445,25 @@ class io__k8s__api__core__v1__StorageOSVolumeSource(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    fsType: Optional[str] = None
-    readOnly: Optional[bool] = None
-    secretRef: Optional[io__k8s__api__core__v1__LocalObjectReference] = None
-    volumeName: Optional[str] = None
-    volumeNamespace: Optional[str] = None
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def secretRef(self) -> Optional[io__k8s__api__core__v1__LocalObjectReference]:
+        return self._secretRef
+
+    @property
+    def volumeName(self) -> Optional[str]:
+        return self._volumeName
+
+    @property
+    def volumeNamespace(self) -> Optional[str]:
+        return self._volumeNamespace
 
     def __init__(
         self,
@@ -2601,15 +3475,15 @@ class io__k8s__api__core__v1__StorageOSVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if secretRef is not None:
-            self.secretRef = secretRef
+            self._secretRef = secretRef
         if volumeName is not None:
-            self.volumeName = volumeName
+            self._volumeName = volumeName
         if volumeNamespace is not None:
-            self.volumeNamespace = volumeNamespace
+            self._volumeNamespace = volumeNamespace
 
 
 class io__k8s__api__core__v1__Sysctl(K8STemplatable):
@@ -2618,15 +3492,20 @@ class io__k8s__api__core__v1__Sysctl(K8STemplatable):
     props: List[str] = ["name", "value"]
     required_props: List[str] = ["name", "value"]
 
-    name: str
-    value: str
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def value(self) -> str:
+        return self._value
 
     def __init__(self, name: str, value: str):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if value is not None:
-            self.value = value
+            self._value = value
 
 
 class io__k8s__api__core__v1__Toleration(K8STemplatable):
@@ -2635,11 +3514,25 @@ class io__k8s__api__core__v1__Toleration(K8STemplatable):
     props: List[str] = ["effect", "key", "operator", "tolerationSeconds", "value"]
     required_props: List[str] = []
 
-    effect: Optional[str] = None
-    key: Optional[str] = None
-    operator: Optional[str] = None
-    tolerationSeconds: Optional[int] = None
-    value: Optional[str] = None
+    @property
+    def effect(self) -> Optional[str]:
+        return self._effect
+
+    @property
+    def key(self) -> Optional[str]:
+        return self._key
+
+    @property
+    def operator(self) -> Optional[str]:
+        return self._operator
+
+    @property
+    def tolerationSeconds(self) -> Optional[int]:
+        return self._tolerationSeconds
+
+    @property
+    def value(self) -> Optional[str]:
+        return self._value
 
     def __init__(
         self,
@@ -2651,15 +3544,15 @@ class io__k8s__api__core__v1__Toleration(K8STemplatable):
     ):
         super().__init__()
         if effect is not None:
-            self.effect = effect
+            self._effect = effect
         if key is not None:
-            self.key = key
+            self._key = key
         if operator is not None:
-            self.operator = operator
+            self._operator = operator
         if tolerationSeconds is not None:
-            self.tolerationSeconds = tolerationSeconds
+            self._tolerationSeconds = tolerationSeconds
         if value is not None:
-            self.value = value
+            self._value = value
 
 
 class io__k8s__api__core__v1__TopologySelectorLabelRequirement(K8STemplatable):
@@ -2668,15 +3561,20 @@ class io__k8s__api__core__v1__TopologySelectorLabelRequirement(K8STemplatable):
     props: List[str] = ["key", "values"]
     required_props: List[str] = ["key", "values"]
 
-    key: str
-    values: List[str]
+    @property
+    def key(self) -> str:
+        return self._key
+
+    @property
+    def values(self) -> List[str]:
+        return self._values
 
     def __init__(self, key: str, values: List[str]):
         super().__init__()
         if key is not None:
-            self.key = key
+            self._key = key
         if values is not None:
-            self.values = values
+            self._values = values
 
 
 class io__k8s__api__core__v1__TopologySelectorTerm(K8STemplatable):
@@ -2685,9 +3583,11 @@ class io__k8s__api__core__v1__TopologySelectorTerm(K8STemplatable):
     props: List[str] = ["matchLabelExpressions"]
     required_props: List[str] = []
 
-    matchLabelExpressions: Optional[
-        List[io__k8s__api__core__v1__TopologySelectorLabelRequirement]
-    ] = None
+    @property
+    def matchLabelExpressions(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__TopologySelectorLabelRequirement]]:
+        return self._matchLabelExpressions
 
     def __init__(
         self,
@@ -2697,7 +3597,7 @@ class io__k8s__api__core__v1__TopologySelectorTerm(K8STemplatable):
     ):
         super().__init__()
         if matchLabelExpressions is not None:
-            self.matchLabelExpressions = matchLabelExpressions
+            self._matchLabelExpressions = matchLabelExpressions
 
 
 class io__k8s__api__core__v1__TypedLocalObjectReference(K8STemplatable):
@@ -2706,18 +3606,26 @@ class io__k8s__api__core__v1__TypedLocalObjectReference(K8STemplatable):
     props: List[str] = ["apiGroup", "kind", "name"]
     required_props: List[str] = ["kind", "name"]
 
-    apiGroup: Optional[str] = None
-    kind: str
-    name: str
+    @property
+    def apiGroup(self) -> Optional[str]:
+        return self._apiGroup
+
+    @property
+    def kind(self) -> str:
+        return self._kind
+
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(self, kind: str, name: str, apiGroup: Optional[str] = None):
         super().__init__()
         if kind is not None:
-            self.kind = kind
+            self._kind = kind
         if name is not None:
-            self.name = name
+            self._name = name
         if apiGroup is not None:
-            self.apiGroup = apiGroup
+            self._apiGroup = apiGroup
 
 
 class io__k8s__api__core__v1__VolumeDevice(K8STemplatable):
@@ -2726,15 +3634,20 @@ class io__k8s__api__core__v1__VolumeDevice(K8STemplatable):
     props: List[str] = ["devicePath", "name"]
     required_props: List[str] = ["name", "devicePath"]
 
-    devicePath: str
-    name: str
+    @property
+    def devicePath(self) -> str:
+        return self._devicePath
+
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(self, devicePath: str, name: str):
         super().__init__()
         if devicePath is not None:
-            self.devicePath = devicePath
+            self._devicePath = devicePath
         if name is not None:
-            self.name = name
+            self._name = name
 
 
 class io__k8s__api__core__v1__VolumeMount(K8STemplatable):
@@ -2750,12 +3663,29 @@ class io__k8s__api__core__v1__VolumeMount(K8STemplatable):
     ]
     required_props: List[str] = ["name", "mountPath"]
 
-    mountPath: str
-    mountPropagation: Optional[str] = None
-    name: str
-    readOnly: Optional[bool] = None
-    subPath: Optional[str] = None
-    subPathExpr: Optional[str] = None
+    @property
+    def mountPath(self) -> str:
+        return self._mountPath
+
+    @property
+    def mountPropagation(self) -> Optional[str]:
+        return self._mountPropagation
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def subPath(self) -> Optional[str]:
+        return self._subPath
+
+    @property
+    def subPathExpr(self) -> Optional[str]:
+        return self._subPathExpr
 
     def __init__(
         self,
@@ -2768,17 +3698,17 @@ class io__k8s__api__core__v1__VolumeMount(K8STemplatable):
     ):
         super().__init__()
         if mountPath is not None:
-            self.mountPath = mountPath
+            self._mountPath = mountPath
         if name is not None:
-            self.name = name
+            self._name = name
         if mountPropagation is not None:
-            self.mountPropagation = mountPropagation
+            self._mountPropagation = mountPropagation
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if subPath is not None:
-            self.subPath = subPath
+            self._subPath = subPath
         if subPathExpr is not None:
-            self.subPathExpr = subPathExpr
+            self._subPathExpr = subPathExpr
 
 
 class io__k8s__api__core__v1__VsphereVirtualDiskVolumeSource(K8STemplatable):
@@ -2787,10 +3717,21 @@ class io__k8s__api__core__v1__VsphereVirtualDiskVolumeSource(K8STemplatable):
     props: List[str] = ["fsType", "storagePolicyID", "storagePolicyName", "volumePath"]
     required_props: List[str] = ["volumePath"]
 
-    fsType: Optional[str] = None
-    storagePolicyID: Optional[str] = None
-    storagePolicyName: Optional[str] = None
-    volumePath: str
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def storagePolicyID(self) -> Optional[str]:
+        return self._storagePolicyID
+
+    @property
+    def storagePolicyName(self) -> Optional[str]:
+        return self._storagePolicyName
+
+    @property
+    def volumePath(self) -> str:
+        return self._volumePath
 
     def __init__(
         self,
@@ -2801,13 +3742,13 @@ class io__k8s__api__core__v1__VsphereVirtualDiskVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if volumePath is not None:
-            self.volumePath = volumePath
+            self._volumePath = volumePath
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if storagePolicyID is not None:
-            self.storagePolicyID = storagePolicyID
+            self._storagePolicyID = storagePolicyID
         if storagePolicyName is not None:
-            self.storagePolicyName = storagePolicyName
+            self._storagePolicyName = storagePolicyName
 
 
 class io__k8s__api__core__v1__WindowsSecurityContextOptions(K8STemplatable):
@@ -2821,10 +3762,21 @@ class io__k8s__api__core__v1__WindowsSecurityContextOptions(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    gmsaCredentialSpec: Optional[str] = None
-    gmsaCredentialSpecName: Optional[str] = None
-    hostProcess: Optional[bool] = None
-    runAsUserName: Optional[str] = None
+    @property
+    def gmsaCredentialSpec(self) -> Optional[str]:
+        return self._gmsaCredentialSpec
+
+    @property
+    def gmsaCredentialSpecName(self) -> Optional[str]:
+        return self._gmsaCredentialSpecName
+
+    @property
+    def hostProcess(self) -> Optional[bool]:
+        return self._hostProcess
+
+    @property
+    def runAsUserName(self) -> Optional[str]:
+        return self._runAsUserName
 
     def __init__(
         self,
@@ -2835,13 +3787,13 @@ class io__k8s__api__core__v1__WindowsSecurityContextOptions(K8STemplatable):
     ):
         super().__init__()
         if gmsaCredentialSpec is not None:
-            self.gmsaCredentialSpec = gmsaCredentialSpec
+            self._gmsaCredentialSpec = gmsaCredentialSpec
         if gmsaCredentialSpecName is not None:
-            self.gmsaCredentialSpecName = gmsaCredentialSpecName
+            self._gmsaCredentialSpecName = gmsaCredentialSpecName
         if hostProcess is not None:
-            self.hostProcess = hostProcess
+            self._hostProcess = hostProcess
         if runAsUserName is not None:
-            self.runAsUserName = runAsUserName
+            self._runAsUserName = runAsUserName
 
 
 class io__k8s__api__discovery__v1__EndpointConditions(K8STemplatable):
@@ -2850,9 +3802,17 @@ class io__k8s__api__discovery__v1__EndpointConditions(K8STemplatable):
     props: List[str] = ["ready", "serving", "terminating"]
     required_props: List[str] = []
 
-    ready: Optional[bool] = None
-    serving: Optional[bool] = None
-    terminating: Optional[bool] = None
+    @property
+    def ready(self) -> Optional[bool]:
+        return self._ready
+
+    @property
+    def serving(self) -> Optional[bool]:
+        return self._serving
+
+    @property
+    def terminating(self) -> Optional[bool]:
+        return self._terminating
 
     def __init__(
         self,
@@ -2862,11 +3822,11 @@ class io__k8s__api__discovery__v1__EndpointConditions(K8STemplatable):
     ):
         super().__init__()
         if ready is not None:
-            self.ready = ready
+            self._ready = ready
         if serving is not None:
-            self.serving = serving
+            self._serving = serving
         if terminating is not None:
-            self.terminating = terminating
+            self._terminating = terminating
 
 
 class io__k8s__api__discovery__v1__EndpointPort(K8STemplatable):
@@ -2875,10 +3835,21 @@ class io__k8s__api__discovery__v1__EndpointPort(K8STemplatable):
     props: List[str] = ["appProtocol", "name", "port", "protocol"]
     required_props: List[str] = []
 
-    appProtocol: Optional[str] = None
-    name: Optional[str] = None
-    port: Optional[int] = None
-    protocol: Optional[str] = None
+    @property
+    def appProtocol(self) -> Optional[str]:
+        return self._appProtocol
+
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def port(self) -> Optional[int]:
+        return self._port
+
+    @property
+    def protocol(self) -> Optional[str]:
+        return self._protocol
 
     def __init__(
         self,
@@ -2889,13 +3860,13 @@ class io__k8s__api__discovery__v1__EndpointPort(K8STemplatable):
     ):
         super().__init__()
         if appProtocol is not None:
-            self.appProtocol = appProtocol
+            self._appProtocol = appProtocol
         if name is not None:
-            self.name = name
+            self._name = name
         if port is not None:
-            self.port = port
+            self._port = port
         if protocol is not None:
-            self.protocol = protocol
+            self._protocol = protocol
 
 
 class io__k8s__api__discovery__v1__ForZone(K8STemplatable):
@@ -2904,12 +3875,14 @@ class io__k8s__api__discovery__v1__ForZone(K8STemplatable):
     props: List[str] = ["name"]
     required_props: List[str] = ["name"]
 
-    name: str
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(self, name: str):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
 
 
 class io__k8s__api__discovery__v1beta1__EndpointConditions(K8STemplatable):
@@ -2918,9 +3891,17 @@ class io__k8s__api__discovery__v1beta1__EndpointConditions(K8STemplatable):
     props: List[str] = ["ready", "serving", "terminating"]
     required_props: List[str] = []
 
-    ready: Optional[bool] = None
-    serving: Optional[bool] = None
-    terminating: Optional[bool] = None
+    @property
+    def ready(self) -> Optional[bool]:
+        return self._ready
+
+    @property
+    def serving(self) -> Optional[bool]:
+        return self._serving
+
+    @property
+    def terminating(self) -> Optional[bool]:
+        return self._terminating
 
     def __init__(
         self,
@@ -2930,11 +3911,11 @@ class io__k8s__api__discovery__v1beta1__EndpointConditions(K8STemplatable):
     ):
         super().__init__()
         if ready is not None:
-            self.ready = ready
+            self._ready = ready
         if serving is not None:
-            self.serving = serving
+            self._serving = serving
         if terminating is not None:
-            self.terminating = terminating
+            self._terminating = terminating
 
 
 class io__k8s__api__discovery__v1beta1__EndpointPort(K8STemplatable):
@@ -2943,10 +3924,21 @@ class io__k8s__api__discovery__v1beta1__EndpointPort(K8STemplatable):
     props: List[str] = ["appProtocol", "name", "port", "protocol"]
     required_props: List[str] = []
 
-    appProtocol: Optional[str] = None
-    name: Optional[str] = None
-    port: Optional[int] = None
-    protocol: Optional[str] = None
+    @property
+    def appProtocol(self) -> Optional[str]:
+        return self._appProtocol
+
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def port(self) -> Optional[int]:
+        return self._port
+
+    @property
+    def protocol(self) -> Optional[str]:
+        return self._protocol
 
     def __init__(
         self,
@@ -2957,13 +3949,13 @@ class io__k8s__api__discovery__v1beta1__EndpointPort(K8STemplatable):
     ):
         super().__init__()
         if appProtocol is not None:
-            self.appProtocol = appProtocol
+            self._appProtocol = appProtocol
         if name is not None:
-            self.name = name
+            self._name = name
         if port is not None:
-            self.port = port
+            self._port = port
         if protocol is not None:
-            self.protocol = protocol
+            self._protocol = protocol
 
 
 class io__k8s__api__discovery__v1beta1__ForZone(K8STemplatable):
@@ -2972,12 +3964,14 @@ class io__k8s__api__discovery__v1beta1__ForZone(K8STemplatable):
     props: List[str] = ["name"]
     required_props: List[str] = ["name"]
 
-    name: str
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(self, name: str):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
 
 
 class io__k8s__api__flowcontrol__v1beta1__FlowDistinguisherMethod(K8STemplatable):
@@ -2986,12 +3980,14 @@ class io__k8s__api__flowcontrol__v1beta1__FlowDistinguisherMethod(K8STemplatable
     props: List[str] = ["type"]
     required_props: List[str] = ["type"]
 
-    type: str
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(self, type: str):
         super().__init__()
         if type is not None:
-            self.type = type
+            self._type = type
 
 
 class io__k8s__api__flowcontrol__v1beta1__GroupSubject(K8STemplatable):
@@ -3000,12 +3996,14 @@ class io__k8s__api__flowcontrol__v1beta1__GroupSubject(K8STemplatable):
     props: List[str] = ["name"]
     required_props: List[str] = ["name"]
 
-    name: str
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(self, name: str):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
 
 
 class io__k8s__api__flowcontrol__v1beta1__NonResourcePolicyRule(K8STemplatable):
@@ -3014,15 +4012,20 @@ class io__k8s__api__flowcontrol__v1beta1__NonResourcePolicyRule(K8STemplatable):
     props: List[str] = ["nonResourceURLs", "verbs"]
     required_props: List[str] = ["verbs", "nonResourceURLs"]
 
-    nonResourceURLs: List[str]
-    verbs: List[str]
+    @property
+    def nonResourceURLs(self) -> List[str]:
+        return self._nonResourceURLs
+
+    @property
+    def verbs(self) -> List[str]:
+        return self._verbs
 
     def __init__(self, nonResourceURLs: List[str], verbs: List[str]):
         super().__init__()
         if nonResourceURLs is not None:
-            self.nonResourceURLs = nonResourceURLs
+            self._nonResourceURLs = nonResourceURLs
         if verbs is not None:
-            self.verbs = verbs
+            self._verbs = verbs
 
 
 class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationReference(
@@ -3033,12 +4036,14 @@ class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationReference(
     props: List[str] = ["name"]
     required_props: List[str] = ["name"]
 
-    name: str
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(self, name: str):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
 
 
 class io__k8s__api__flowcontrol__v1beta1__QueuingConfiguration(K8STemplatable):
@@ -3047,9 +4052,17 @@ class io__k8s__api__flowcontrol__v1beta1__QueuingConfiguration(K8STemplatable):
     props: List[str] = ["handSize", "queueLengthLimit", "queues"]
     required_props: List[str] = []
 
-    handSize: Optional[int] = None
-    queueLengthLimit: Optional[int] = None
-    queues: Optional[int] = None
+    @property
+    def handSize(self) -> Optional[int]:
+        return self._handSize
+
+    @property
+    def queueLengthLimit(self) -> Optional[int]:
+        return self._queueLengthLimit
+
+    @property
+    def queues(self) -> Optional[int]:
+        return self._queues
 
     def __init__(
         self,
@@ -3059,11 +4072,11 @@ class io__k8s__api__flowcontrol__v1beta1__QueuingConfiguration(K8STemplatable):
     ):
         super().__init__()
         if handSize is not None:
-            self.handSize = handSize
+            self._handSize = handSize
         if queueLengthLimit is not None:
-            self.queueLengthLimit = queueLengthLimit
+            self._queueLengthLimit = queueLengthLimit
         if queues is not None:
-            self.queues = queues
+            self._queues = queues
 
 
 class io__k8s__api__flowcontrol__v1beta1__ResourcePolicyRule(K8STemplatable):
@@ -3072,11 +4085,25 @@ class io__k8s__api__flowcontrol__v1beta1__ResourcePolicyRule(K8STemplatable):
     props: List[str] = ["apiGroups", "clusterScope", "namespaces", "resources", "verbs"]
     required_props: List[str] = ["verbs", "apiGroups", "resources"]
 
-    apiGroups: List[str]
-    clusterScope: Optional[bool] = None
-    namespaces: Optional[List[str]] = None
-    resources: List[str]
-    verbs: List[str]
+    @property
+    def apiGroups(self) -> List[str]:
+        return self._apiGroups
+
+    @property
+    def clusterScope(self) -> Optional[bool]:
+        return self._clusterScope
+
+    @property
+    def namespaces(self) -> Optional[List[str]]:
+        return self._namespaces
+
+    @property
+    def resources(self) -> List[str]:
+        return self._resources
+
+    @property
+    def verbs(self) -> List[str]:
+        return self._verbs
 
     def __init__(
         self,
@@ -3088,15 +4115,15 @@ class io__k8s__api__flowcontrol__v1beta1__ResourcePolicyRule(K8STemplatable):
     ):
         super().__init__()
         if apiGroups is not None:
-            self.apiGroups = apiGroups
+            self._apiGroups = apiGroups
         if resources is not None:
-            self.resources = resources
+            self._resources = resources
         if verbs is not None:
-            self.verbs = verbs
+            self._verbs = verbs
         if clusterScope is not None:
-            self.clusterScope = clusterScope
+            self._clusterScope = clusterScope
         if namespaces is not None:
-            self.namespaces = namespaces
+            self._namespaces = namespaces
 
 
 class io__k8s__api__flowcontrol__v1beta1__ServiceAccountSubject(K8STemplatable):
@@ -3105,15 +4132,20 @@ class io__k8s__api__flowcontrol__v1beta1__ServiceAccountSubject(K8STemplatable):
     props: List[str] = ["name", "namespace"]
     required_props: List[str] = ["namespace", "name"]
 
-    name: str
-    namespace: str
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def namespace(self) -> str:
+        return self._namespace
 
     def __init__(self, name: str, namespace: str):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if namespace is not None:
-            self.namespace = namespace
+            self._namespace = namespace
 
 
 class io__k8s__api__flowcontrol__v1beta1__UserSubject(K8STemplatable):
@@ -3122,12 +4154,14 @@ class io__k8s__api__flowcontrol__v1beta1__UserSubject(K8STemplatable):
     props: List[str] = ["name"]
     required_props: List[str] = ["name"]
 
-    name: str
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(self, name: str):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
 
 
 class io__k8s__api__flowcontrol__v1beta2__FlowDistinguisherMethod(K8STemplatable):
@@ -3136,12 +4170,14 @@ class io__k8s__api__flowcontrol__v1beta2__FlowDistinguisherMethod(K8STemplatable
     props: List[str] = ["type"]
     required_props: List[str] = ["type"]
 
-    type: str
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(self, type: str):
         super().__init__()
         if type is not None:
-            self.type = type
+            self._type = type
 
 
 class io__k8s__api__flowcontrol__v1beta2__GroupSubject(K8STemplatable):
@@ -3150,12 +4186,14 @@ class io__k8s__api__flowcontrol__v1beta2__GroupSubject(K8STemplatable):
     props: List[str] = ["name"]
     required_props: List[str] = ["name"]
 
-    name: str
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(self, name: str):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
 
 
 class io__k8s__api__flowcontrol__v1beta2__NonResourcePolicyRule(K8STemplatable):
@@ -3164,15 +4202,20 @@ class io__k8s__api__flowcontrol__v1beta2__NonResourcePolicyRule(K8STemplatable):
     props: List[str] = ["nonResourceURLs", "verbs"]
     required_props: List[str] = ["verbs", "nonResourceURLs"]
 
-    nonResourceURLs: List[str]
-    verbs: List[str]
+    @property
+    def nonResourceURLs(self) -> List[str]:
+        return self._nonResourceURLs
+
+    @property
+    def verbs(self) -> List[str]:
+        return self._verbs
 
     def __init__(self, nonResourceURLs: List[str], verbs: List[str]):
         super().__init__()
         if nonResourceURLs is not None:
-            self.nonResourceURLs = nonResourceURLs
+            self._nonResourceURLs = nonResourceURLs
         if verbs is not None:
-            self.verbs = verbs
+            self._verbs = verbs
 
 
 class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationReference(
@@ -3183,12 +4226,14 @@ class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationReference(
     props: List[str] = ["name"]
     required_props: List[str] = ["name"]
 
-    name: str
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(self, name: str):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
 
 
 class io__k8s__api__flowcontrol__v1beta2__QueuingConfiguration(K8STemplatable):
@@ -3197,9 +4242,17 @@ class io__k8s__api__flowcontrol__v1beta2__QueuingConfiguration(K8STemplatable):
     props: List[str] = ["handSize", "queueLengthLimit", "queues"]
     required_props: List[str] = []
 
-    handSize: Optional[int] = None
-    queueLengthLimit: Optional[int] = None
-    queues: Optional[int] = None
+    @property
+    def handSize(self) -> Optional[int]:
+        return self._handSize
+
+    @property
+    def queueLengthLimit(self) -> Optional[int]:
+        return self._queueLengthLimit
+
+    @property
+    def queues(self) -> Optional[int]:
+        return self._queues
 
     def __init__(
         self,
@@ -3209,11 +4262,11 @@ class io__k8s__api__flowcontrol__v1beta2__QueuingConfiguration(K8STemplatable):
     ):
         super().__init__()
         if handSize is not None:
-            self.handSize = handSize
+            self._handSize = handSize
         if queueLengthLimit is not None:
-            self.queueLengthLimit = queueLengthLimit
+            self._queueLengthLimit = queueLengthLimit
         if queues is not None:
-            self.queues = queues
+            self._queues = queues
 
 
 class io__k8s__api__flowcontrol__v1beta2__ResourcePolicyRule(K8STemplatable):
@@ -3222,11 +4275,25 @@ class io__k8s__api__flowcontrol__v1beta2__ResourcePolicyRule(K8STemplatable):
     props: List[str] = ["apiGroups", "clusterScope", "namespaces", "resources", "verbs"]
     required_props: List[str] = ["verbs", "apiGroups", "resources"]
 
-    apiGroups: List[str]
-    clusterScope: Optional[bool] = None
-    namespaces: Optional[List[str]] = None
-    resources: List[str]
-    verbs: List[str]
+    @property
+    def apiGroups(self) -> List[str]:
+        return self._apiGroups
+
+    @property
+    def clusterScope(self) -> Optional[bool]:
+        return self._clusterScope
+
+    @property
+    def namespaces(self) -> Optional[List[str]]:
+        return self._namespaces
+
+    @property
+    def resources(self) -> List[str]:
+        return self._resources
+
+    @property
+    def verbs(self) -> List[str]:
+        return self._verbs
 
     def __init__(
         self,
@@ -3238,15 +4305,15 @@ class io__k8s__api__flowcontrol__v1beta2__ResourcePolicyRule(K8STemplatable):
     ):
         super().__init__()
         if apiGroups is not None:
-            self.apiGroups = apiGroups
+            self._apiGroups = apiGroups
         if resources is not None:
-            self.resources = resources
+            self._resources = resources
         if verbs is not None:
-            self.verbs = verbs
+            self._verbs = verbs
         if clusterScope is not None:
-            self.clusterScope = clusterScope
+            self._clusterScope = clusterScope
         if namespaces is not None:
-            self.namespaces = namespaces
+            self._namespaces = namespaces
 
 
 class io__k8s__api__flowcontrol__v1beta2__ServiceAccountSubject(K8STemplatable):
@@ -3255,15 +4322,20 @@ class io__k8s__api__flowcontrol__v1beta2__ServiceAccountSubject(K8STemplatable):
     props: List[str] = ["name", "namespace"]
     required_props: List[str] = ["namespace", "name"]
 
-    name: str
-    namespace: str
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def namespace(self) -> str:
+        return self._namespace
 
     def __init__(self, name: str, namespace: str):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if namespace is not None:
-            self.namespace = namespace
+            self._namespace = namespace
 
 
 class io__k8s__api__flowcontrol__v1beta2__UserSubject(K8STemplatable):
@@ -3272,12 +4344,14 @@ class io__k8s__api__flowcontrol__v1beta2__UserSubject(K8STemplatable):
     props: List[str] = ["name"]
     required_props: List[str] = ["name"]
 
-    name: str
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(self, name: str):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
 
 
 class io__k8s__api__networking__v1__IPBlock(K8STemplatable):
@@ -3286,15 +4360,20 @@ class io__k8s__api__networking__v1__IPBlock(K8STemplatable):
     props: List[str] = ["cidr", "k8s_except"]
     required_props: List[str] = ["cidr"]
 
-    cidr: str
-    k8s_except: Optional[List[str]] = None
+    @property
+    def cidr(self) -> str:
+        return self._cidr
+
+    @property
+    def k8s_except(self) -> Optional[List[str]]:
+        return self._k8s_except
 
     def __init__(self, cidr: str, k8s_except: Optional[List[str]] = None):
         super().__init__()
         if cidr is not None:
-            self.cidr = cidr
+            self._cidr = cidr
         if k8s_except is not None:
-            self.k8s_except = k8s_except
+            self._k8s_except = k8s_except
 
 
 class io__k8s__api__networking__v1__IngressClassParametersReference(K8STemplatable):
@@ -3303,11 +4382,25 @@ class io__k8s__api__networking__v1__IngressClassParametersReference(K8STemplatab
     props: List[str] = ["apiGroup", "kind", "name", "namespace", "scope"]
     required_props: List[str] = ["kind", "name"]
 
-    apiGroup: Optional[str] = None
-    kind: str
-    name: str
-    namespace: Optional[str] = None
-    scope: Optional[str] = None
+    @property
+    def apiGroup(self) -> Optional[str]:
+        return self._apiGroup
+
+    @property
+    def kind(self) -> str:
+        return self._kind
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def namespace(self) -> Optional[str]:
+        return self._namespace
+
+    @property
+    def scope(self) -> Optional[str]:
+        return self._scope
 
     def __init__(
         self,
@@ -3319,15 +4412,15 @@ class io__k8s__api__networking__v1__IngressClassParametersReference(K8STemplatab
     ):
         super().__init__()
         if kind is not None:
-            self.kind = kind
+            self._kind = kind
         if name is not None:
-            self.name = name
+            self._name = name
         if apiGroup is not None:
-            self.apiGroup = apiGroup
+            self._apiGroup = apiGroup
         if namespace is not None:
-            self.namespace = namespace
+            self._namespace = namespace
         if scope is not None:
-            self.scope = scope
+            self._scope = scope
 
 
 class io__k8s__api__networking__v1__IngressClassSpec(K8STemplatable):
@@ -3336,10 +4429,15 @@ class io__k8s__api__networking__v1__IngressClassSpec(K8STemplatable):
     props: List[str] = ["controller", "parameters"]
     required_props: List[str] = []
 
-    controller: Optional[str] = None
-    parameters: Optional[
-        io__k8s__api__networking__v1__IngressClassParametersReference
-    ] = None
+    @property
+    def controller(self) -> Optional[str]:
+        return self._controller
+
+    @property
+    def parameters(
+        self,
+    ) -> Optional[io__k8s__api__networking__v1__IngressClassParametersReference]:
+        return self._parameters
 
     def __init__(
         self,
@@ -3350,9 +4448,9 @@ class io__k8s__api__networking__v1__IngressClassSpec(K8STemplatable):
     ):
         super().__init__()
         if controller is not None:
-            self.controller = controller
+            self._controller = controller
         if parameters is not None:
-            self.parameters = parameters
+            self._parameters = parameters
 
 
 class io__k8s__api__networking__v1__IngressTLS(K8STemplatable):
@@ -3361,17 +4459,22 @@ class io__k8s__api__networking__v1__IngressTLS(K8STemplatable):
     props: List[str] = ["hosts", "secretName"]
     required_props: List[str] = []
 
-    hosts: Optional[List[str]] = None
-    secretName: Optional[str] = None
+    @property
+    def hosts(self) -> Optional[List[str]]:
+        return self._hosts
+
+    @property
+    def secretName(self) -> Optional[str]:
+        return self._secretName
 
     def __init__(
         self, hosts: Optional[List[str]] = None, secretName: Optional[str] = None
     ):
         super().__init__()
         if hosts is not None:
-            self.hosts = hosts
+            self._hosts = hosts
         if secretName is not None:
-            self.secretName = secretName
+            self._secretName = secretName
 
 
 class io__k8s__api__networking__v1__ServiceBackendPort(K8STemplatable):
@@ -3380,15 +4483,20 @@ class io__k8s__api__networking__v1__ServiceBackendPort(K8STemplatable):
     props: List[str] = ["name", "number"]
     required_props: List[str] = []
 
-    name: Optional[str] = None
-    number: Optional[int] = None
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def number(self) -> Optional[int]:
+        return self._number
 
     def __init__(self, name: Optional[str] = None, number: Optional[int] = None):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if number is not None:
-            self.number = number
+            self._number = number
 
 
 class io__k8s__api__node__v1__Overhead(K8STemplatable):
@@ -3397,12 +4505,14 @@ class io__k8s__api__node__v1__Overhead(K8STemplatable):
     props: List[str] = ["podFixed"]
     required_props: List[str] = []
 
-    podFixed: Any
+    @property
+    def podFixed(self) -> Any:
+        return self._podFixed
 
     def __init__(self, podFixed: Any = None):
         super().__init__()
         if podFixed is not None:
-            self.podFixed = podFixed
+            self._podFixed = podFixed
 
 
 class io__k8s__api__node__v1__Scheduling(K8STemplatable):
@@ -3411,8 +4521,13 @@ class io__k8s__api__node__v1__Scheduling(K8STemplatable):
     props: List[str] = ["nodeSelector", "tolerations"]
     required_props: List[str] = []
 
-    nodeSelector: Any
-    tolerations: Optional[List[io__k8s__api__core__v1__Toleration]] = None
+    @property
+    def nodeSelector(self) -> Any:
+        return self._nodeSelector
+
+    @property
+    def tolerations(self) -> Optional[List[io__k8s__api__core__v1__Toleration]]:
+        return self._tolerations
 
     def __init__(
         self,
@@ -3421,9 +4536,9 @@ class io__k8s__api__node__v1__Scheduling(K8STemplatable):
     ):
         super().__init__()
         if nodeSelector is not None:
-            self.nodeSelector = nodeSelector
+            self._nodeSelector = nodeSelector
         if tolerations is not None:
-            self.tolerations = tolerations
+            self._tolerations = tolerations
 
 
 class io__k8s__api__node__v1beta1__Overhead(K8STemplatable):
@@ -3432,12 +4547,14 @@ class io__k8s__api__node__v1beta1__Overhead(K8STemplatable):
     props: List[str] = ["podFixed"]
     required_props: List[str] = []
 
-    podFixed: Any
+    @property
+    def podFixed(self) -> Any:
+        return self._podFixed
 
     def __init__(self, podFixed: Any = None):
         super().__init__()
         if podFixed is not None:
-            self.podFixed = podFixed
+            self._podFixed = podFixed
 
 
 class io__k8s__api__node__v1beta1__Scheduling(K8STemplatable):
@@ -3446,8 +4563,13 @@ class io__k8s__api__node__v1beta1__Scheduling(K8STemplatable):
     props: List[str] = ["nodeSelector", "tolerations"]
     required_props: List[str] = []
 
-    nodeSelector: Any
-    tolerations: Optional[List[io__k8s__api__core__v1__Toleration]] = None
+    @property
+    def nodeSelector(self) -> Any:
+        return self._nodeSelector
+
+    @property
+    def tolerations(self) -> Optional[List[io__k8s__api__core__v1__Toleration]]:
+        return self._tolerations
 
     def __init__(
         self,
@@ -3456,9 +4578,9 @@ class io__k8s__api__node__v1beta1__Scheduling(K8STemplatable):
     ):
         super().__init__()
         if nodeSelector is not None:
-            self.nodeSelector = nodeSelector
+            self._nodeSelector = nodeSelector
         if tolerations is not None:
-            self.tolerations = tolerations
+            self._tolerations = tolerations
 
 
 class io__k8s__api__policy__v1beta1__AllowedCSIDriver(K8STemplatable):
@@ -3467,12 +4589,14 @@ class io__k8s__api__policy__v1beta1__AllowedCSIDriver(K8STemplatable):
     props: List[str] = ["name"]
     required_props: List[str] = ["name"]
 
-    name: str
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(self, name: str):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
 
 
 class io__k8s__api__policy__v1beta1__AllowedFlexVolume(K8STemplatable):
@@ -3481,12 +4605,14 @@ class io__k8s__api__policy__v1beta1__AllowedFlexVolume(K8STemplatable):
     props: List[str] = ["driver"]
     required_props: List[str] = ["driver"]
 
-    driver: str
+    @property
+    def driver(self) -> str:
+        return self._driver
 
     def __init__(self, driver: str):
         super().__init__()
         if driver is not None:
-            self.driver = driver
+            self._driver = driver
 
 
 class io__k8s__api__policy__v1beta1__AllowedHostPath(K8STemplatable):
@@ -3495,17 +4621,22 @@ class io__k8s__api__policy__v1beta1__AllowedHostPath(K8STemplatable):
     props: List[str] = ["pathPrefix", "readOnly"]
     required_props: List[str] = []
 
-    pathPrefix: Optional[str] = None
-    readOnly: Optional[bool] = None
+    @property
+    def pathPrefix(self) -> Optional[str]:
+        return self._pathPrefix
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
 
     def __init__(
         self, pathPrefix: Optional[str] = None, readOnly: Optional[bool] = None
     ):
         super().__init__()
         if pathPrefix is not None:
-            self.pathPrefix = pathPrefix
+            self._pathPrefix = pathPrefix
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
 
 
 class io__k8s__api__policy__v1beta1__HostPortRange(K8STemplatable):
@@ -3514,15 +4645,20 @@ class io__k8s__api__policy__v1beta1__HostPortRange(K8STemplatable):
     props: List[str] = ["max", "min"]
     required_props: List[str] = ["min", "max"]
 
-    max: int
-    min: int
+    @property
+    def max(self) -> int:
+        return self._max
+
+    @property
+    def min(self) -> int:
+        return self._min
 
     def __init__(self, max: int, min: int):
         super().__init__()
         if max is not None:
-            self.max = max
+            self._max = max
         if min is not None:
-            self.min = min
+            self._min = min
 
 
 class io__k8s__api__policy__v1beta1__IDRange(K8STemplatable):
@@ -3531,15 +4667,20 @@ class io__k8s__api__policy__v1beta1__IDRange(K8STemplatable):
     props: List[str] = ["max", "min"]
     required_props: List[str] = ["min", "max"]
 
-    max: int
-    min: int
+    @property
+    def max(self) -> int:
+        return self._max
+
+    @property
+    def min(self) -> int:
+        return self._min
 
     def __init__(self, max: int, min: int):
         super().__init__()
         if max is not None:
-            self.max = max
+            self._max = max
         if min is not None:
-            self.min = min
+            self._min = min
 
 
 class io__k8s__api__policy__v1beta1__RunAsGroupStrategyOptions(K8STemplatable):
@@ -3548,8 +4689,13 @@ class io__k8s__api__policy__v1beta1__RunAsGroupStrategyOptions(K8STemplatable):
     props: List[str] = ["ranges", "rule"]
     required_props: List[str] = ["rule"]
 
-    ranges: Optional[List[io__k8s__api__policy__v1beta1__IDRange]] = None
-    rule: str
+    @property
+    def ranges(self) -> Optional[List[io__k8s__api__policy__v1beta1__IDRange]]:
+        return self._ranges
+
+    @property
+    def rule(self) -> str:
+        return self._rule
 
     def __init__(
         self,
@@ -3558,9 +4704,9 @@ class io__k8s__api__policy__v1beta1__RunAsGroupStrategyOptions(K8STemplatable):
     ):
         super().__init__()
         if rule is not None:
-            self.rule = rule
+            self._rule = rule
         if ranges is not None:
-            self.ranges = ranges
+            self._ranges = ranges
 
 
 class io__k8s__api__policy__v1beta1__RunAsUserStrategyOptions(K8STemplatable):
@@ -3569,8 +4715,13 @@ class io__k8s__api__policy__v1beta1__RunAsUserStrategyOptions(K8STemplatable):
     props: List[str] = ["ranges", "rule"]
     required_props: List[str] = ["rule"]
 
-    ranges: Optional[List[io__k8s__api__policy__v1beta1__IDRange]] = None
-    rule: str
+    @property
+    def ranges(self) -> Optional[List[io__k8s__api__policy__v1beta1__IDRange]]:
+        return self._ranges
+
+    @property
+    def rule(self) -> str:
+        return self._rule
 
     def __init__(
         self,
@@ -3579,9 +4730,9 @@ class io__k8s__api__policy__v1beta1__RunAsUserStrategyOptions(K8STemplatable):
     ):
         super().__init__()
         if rule is not None:
-            self.rule = rule
+            self._rule = rule
         if ranges is not None:
-            self.ranges = ranges
+            self._ranges = ranges
 
 
 class io__k8s__api__policy__v1beta1__RuntimeClassStrategyOptions(K8STemplatable):
@@ -3590,8 +4741,13 @@ class io__k8s__api__policy__v1beta1__RuntimeClassStrategyOptions(K8STemplatable)
     props: List[str] = ["allowedRuntimeClassNames", "defaultRuntimeClassName"]
     required_props: List[str] = ["allowedRuntimeClassNames"]
 
-    allowedRuntimeClassNames: List[str]
-    defaultRuntimeClassName: Optional[str] = None
+    @property
+    def allowedRuntimeClassNames(self) -> List[str]:
+        return self._allowedRuntimeClassNames
+
+    @property
+    def defaultRuntimeClassName(self) -> Optional[str]:
+        return self._defaultRuntimeClassName
 
     def __init__(
         self,
@@ -3600,9 +4756,9 @@ class io__k8s__api__policy__v1beta1__RuntimeClassStrategyOptions(K8STemplatable)
     ):
         super().__init__()
         if allowedRuntimeClassNames is not None:
-            self.allowedRuntimeClassNames = allowedRuntimeClassNames
+            self._allowedRuntimeClassNames = allowedRuntimeClassNames
         if defaultRuntimeClassName is not None:
-            self.defaultRuntimeClassName = defaultRuntimeClassName
+            self._defaultRuntimeClassName = defaultRuntimeClassName
 
 
 class io__k8s__api__policy__v1beta1__SELinuxStrategyOptions(K8STemplatable):
@@ -3611,8 +4767,13 @@ class io__k8s__api__policy__v1beta1__SELinuxStrategyOptions(K8STemplatable):
     props: List[str] = ["rule", "seLinuxOptions"]
     required_props: List[str] = ["rule"]
 
-    rule: str
-    seLinuxOptions: Optional[io__k8s__api__core__v1__SELinuxOptions] = None
+    @property
+    def rule(self) -> str:
+        return self._rule
+
+    @property
+    def seLinuxOptions(self) -> Optional[io__k8s__api__core__v1__SELinuxOptions]:
+        return self._seLinuxOptions
 
     def __init__(
         self,
@@ -3621,9 +4782,9 @@ class io__k8s__api__policy__v1beta1__SELinuxStrategyOptions(K8STemplatable):
     ):
         super().__init__()
         if rule is not None:
-            self.rule = rule
+            self._rule = rule
         if seLinuxOptions is not None:
-            self.seLinuxOptions = seLinuxOptions
+            self._seLinuxOptions = seLinuxOptions
 
 
 class io__k8s__api__policy__v1beta1__SupplementalGroupsStrategyOptions(K8STemplatable):
@@ -3632,8 +4793,13 @@ class io__k8s__api__policy__v1beta1__SupplementalGroupsStrategyOptions(K8STempla
     props: List[str] = ["ranges", "rule"]
     required_props: List[str] = []
 
-    ranges: Optional[List[io__k8s__api__policy__v1beta1__IDRange]] = None
-    rule: Optional[str] = None
+    @property
+    def ranges(self) -> Optional[List[io__k8s__api__policy__v1beta1__IDRange]]:
+        return self._ranges
+
+    @property
+    def rule(self) -> Optional[str]:
+        return self._rule
 
     def __init__(
         self,
@@ -3642,9 +4808,9 @@ class io__k8s__api__policy__v1beta1__SupplementalGroupsStrategyOptions(K8STempla
     ):
         super().__init__()
         if ranges is not None:
-            self.ranges = ranges
+            self._ranges = ranges
         if rule is not None:
-            self.rule = rule
+            self._rule = rule
 
 
 class io__k8s__api__rbac__v1__PolicyRule(K8STemplatable):
@@ -3659,11 +4825,25 @@ class io__k8s__api__rbac__v1__PolicyRule(K8STemplatable):
     ]
     required_props: List[str] = ["verbs"]
 
-    apiGroups: Optional[List[str]] = None
-    nonResourceURLs: Optional[List[str]] = None
-    resourceNames: Optional[List[str]] = None
-    resources: Optional[List[str]] = None
-    verbs: List[str]
+    @property
+    def apiGroups(self) -> Optional[List[str]]:
+        return self._apiGroups
+
+    @property
+    def nonResourceURLs(self) -> Optional[List[str]]:
+        return self._nonResourceURLs
+
+    @property
+    def resourceNames(self) -> Optional[List[str]]:
+        return self._resourceNames
+
+    @property
+    def resources(self) -> Optional[List[str]]:
+        return self._resources
+
+    @property
+    def verbs(self) -> List[str]:
+        return self._verbs
 
     def __init__(
         self,
@@ -3675,15 +4855,15 @@ class io__k8s__api__rbac__v1__PolicyRule(K8STemplatable):
     ):
         super().__init__()
         if verbs is not None:
-            self.verbs = verbs
+            self._verbs = verbs
         if apiGroups is not None:
-            self.apiGroups = apiGroups
+            self._apiGroups = apiGroups
         if nonResourceURLs is not None:
-            self.nonResourceURLs = nonResourceURLs
+            self._nonResourceURLs = nonResourceURLs
         if resourceNames is not None:
-            self.resourceNames = resourceNames
+            self._resourceNames = resourceNames
         if resources is not None:
-            self.resources = resources
+            self._resources = resources
 
 
 class io__k8s__api__rbac__v1__RoleRef(K8STemplatable):
@@ -3692,18 +4872,26 @@ class io__k8s__api__rbac__v1__RoleRef(K8STemplatable):
     props: List[str] = ["apiGroup", "kind", "name"]
     required_props: List[str] = ["apiGroup", "kind", "name"]
 
-    apiGroup: str
-    kind: str
-    name: str
+    @property
+    def apiGroup(self) -> str:
+        return self._apiGroup
+
+    @property
+    def kind(self) -> str:
+        return self._kind
+
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(self, apiGroup: str, kind: str, name: str):
         super().__init__()
         if apiGroup is not None:
-            self.apiGroup = apiGroup
+            self._apiGroup = apiGroup
         if kind is not None:
-            self.kind = kind
+            self._kind = kind
         if name is not None:
-            self.name = name
+            self._name = name
 
 
 class io__k8s__api__rbac__v1__Subject(K8STemplatable):
@@ -3712,10 +4900,21 @@ class io__k8s__api__rbac__v1__Subject(K8STemplatable):
     props: List[str] = ["apiGroup", "kind", "name", "namespace"]
     required_props: List[str] = ["kind", "name"]
 
-    apiGroup: Optional[str] = None
-    kind: str
-    name: str
-    namespace: Optional[str] = None
+    @property
+    def apiGroup(self) -> Optional[str]:
+        return self._apiGroup
+
+    @property
+    def kind(self) -> str:
+        return self._kind
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def namespace(self) -> Optional[str]:
+        return self._namespace
 
     def __init__(
         self,
@@ -3726,13 +4925,13 @@ class io__k8s__api__rbac__v1__Subject(K8STemplatable):
     ):
         super().__init__()
         if kind is not None:
-            self.kind = kind
+            self._kind = kind
         if name is not None:
-            self.name = name
+            self._name = name
         if apiGroup is not None:
-            self.apiGroup = apiGroup
+            self._apiGroup = apiGroup
         if namespace is not None:
-            self.namespace = namespace
+            self._namespace = namespace
 
 
 class io__k8s__api__storage__v1__TokenRequest(K8STemplatable):
@@ -3741,15 +4940,20 @@ class io__k8s__api__storage__v1__TokenRequest(K8STemplatable):
     props: List[str] = ["audience", "expirationSeconds"]
     required_props: List[str] = ["audience"]
 
-    audience: str
-    expirationSeconds: Optional[int] = None
+    @property
+    def audience(self) -> str:
+        return self._audience
+
+    @property
+    def expirationSeconds(self) -> Optional[int]:
+        return self._expirationSeconds
 
     def __init__(self, audience: str, expirationSeconds: Optional[int] = None):
         super().__init__()
         if audience is not None:
-            self.audience = audience
+            self._audience = audience
         if expirationSeconds is not None:
-            self.expirationSeconds = expirationSeconds
+            self._expirationSeconds = expirationSeconds
 
 
 class io__k8s__api__storage__v1__VolumeNodeResources(K8STemplatable):
@@ -3758,12 +4962,14 @@ class io__k8s__api__storage__v1__VolumeNodeResources(K8STemplatable):
     props: List[str] = ["count"]
     required_props: List[str] = []
 
-    count: Optional[int] = None
+    @property
+    def count(self) -> Optional[int]:
+        return self._count
 
     def __init__(self, count: Optional[int] = None):
         super().__init__()
         if count is not None:
-            self.count = count
+            self._count = count
 
 
 class io__k8s__apimachinery__pkg__api__resource__Quantity(K8STemplatable):
@@ -3820,16 +5026,45 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__APIResource(K8STemplatable):
     ]
     required_props: List[str] = ["name", "singularName", "namespaced", "kind", "verbs"]
 
-    categories: Optional[List[str]] = None
-    group: Optional[str] = None
-    kind: str
-    name: str
-    namespaced: bool
-    shortNames: Optional[List[str]] = None
-    singularName: str
-    storageVersionHash: Optional[str] = None
-    verbs: List[str]
-    version: Optional[str] = None
+    @property
+    def categories(self) -> Optional[List[str]]:
+        return self._categories
+
+    @property
+    def group(self) -> Optional[str]:
+        return self._group
+
+    @property
+    def kind(self) -> str:
+        return self._kind
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def namespaced(self) -> bool:
+        return self._namespaced
+
+    @property
+    def shortNames(self) -> Optional[List[str]]:
+        return self._shortNames
+
+    @property
+    def singularName(self) -> str:
+        return self._singularName
+
+    @property
+    def storageVersionHash(self) -> Optional[str]:
+        return self._storageVersionHash
+
+    @property
+    def verbs(self) -> List[str]:
+        return self._verbs
+
+    @property
+    def version(self) -> Optional[str]:
+        return self._version
 
     def __init__(
         self,
@@ -3846,25 +5081,25 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__APIResource(K8STemplatable):
     ):
         super().__init__()
         if kind is not None:
-            self.kind = kind
+            self._kind = kind
         if name is not None:
-            self.name = name
+            self._name = name
         if namespaced is not None:
-            self.namespaced = namespaced
+            self._namespaced = namespaced
         if singularName is not None:
-            self.singularName = singularName
+            self._singularName = singularName
         if verbs is not None:
-            self.verbs = verbs
+            self._verbs = verbs
         if categories is not None:
-            self.categories = categories
+            self._categories = categories
         if group is not None:
-            self.group = group
+            self._group = group
         if shortNames is not None:
-            self.shortNames = shortNames
+            self._shortNames = shortNames
         if storageVersionHash is not None:
-            self.storageVersionHash = storageVersionHash
+            self._storageVersionHash = storageVersionHash
         if version is not None:
-            self.version = version
+            self._version = version
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__APIResourceList(K8STemplatable):
@@ -3876,8 +5111,15 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__APIResourceList(K8STemplatable
     props: List[str] = ["apiVersion", "groupVersion", "kind", "resources"]
     required_props: List[str] = ["groupVersion", "resources"]
 
-    groupVersion: str
-    resources: List[io__k8s__apimachinery__pkg__apis__meta__v1__APIResource]
+    @property
+    def groupVersion(self) -> str:
+        return self._groupVersion
+
+    @property
+    def resources(
+        self,
+    ) -> List[io__k8s__apimachinery__pkg__apis__meta__v1__APIResource]:
+        return self._resources
 
     def __init__(
         self,
@@ -3886,9 +5128,9 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__APIResourceList(K8STemplatable
     ):
         super().__init__()
         if groupVersion is not None:
-            self.groupVersion = groupVersion
+            self._groupVersion = groupVersion
         if resources is not None:
-            self.resources = resources
+            self._resources = resources
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__FieldsV1(K8STemplatable):
@@ -3910,15 +5152,20 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__GroupVersionForDiscovery(
     props: List[str] = ["groupVersion", "version"]
     required_props: List[str] = ["groupVersion", "version"]
 
-    groupVersion: str
-    version: str
+    @property
+    def groupVersion(self) -> str:
+        return self._groupVersion
+
+    @property
+    def version(self) -> str:
+        return self._version
 
     def __init__(self, groupVersion: str, version: str):
         super().__init__()
         if groupVersion is not None:
-            self.groupVersion = groupVersion
+            self._groupVersion = groupVersion
         if version is not None:
-            self.version = version
+            self._version = version
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelectorRequirement(
@@ -3929,18 +5176,26 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelectorRequirement(
     props: List[str] = ["key", "operator", "values"]
     required_props: List[str] = ["key", "operator"]
 
-    key: str
-    operator: str
-    values: Optional[List[str]] = None
+    @property
+    def key(self) -> str:
+        return self._key
+
+    @property
+    def operator(self) -> str:
+        return self._operator
+
+    @property
+    def values(self) -> Optional[List[str]]:
+        return self._values
 
     def __init__(self, key: str, operator: str, values: Optional[List[str]] = None):
         super().__init__()
         if key is not None:
-            self.key = key
+            self._key = key
         if operator is not None:
-            self.operator = operator
+            self._operator = operator
         if values is not None:
-            self.values = values
+            self._values = values
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta(K8STemplatable):
@@ -3954,10 +5209,21 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    k8s_continue: Optional[str] = None
-    remainingItemCount: Optional[int] = None
-    resourceVersion: Optional[str] = None
-    selfLink: Optional[str] = None
+    @property
+    def k8s_continue(self) -> Optional[str]:
+        return self._k8s_continue
+
+    @property
+    def remainingItemCount(self) -> Optional[int]:
+        return self._remainingItemCount
+
+    @property
+    def resourceVersion(self) -> Optional[str]:
+        return self._resourceVersion
+
+    @property
+    def selfLink(self) -> Optional[str]:
+        return self._selfLink
 
     def __init__(
         self,
@@ -3968,13 +5234,13 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta(K8STemplatable):
     ):
         super().__init__()
         if k8s_continue is not None:
-            self.k8s_continue = k8s_continue
+            self._k8s_continue = k8s_continue
         if remainingItemCount is not None:
-            self.remainingItemCount = remainingItemCount
+            self._remainingItemCount = remainingItemCount
         if resourceVersion is not None:
-            self.resourceVersion = resourceVersion
+            self._resourceVersion = resourceVersion
         if selfLink is not None:
-            self.selfLink = selfLink
+            self._selfLink = selfLink
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime(K8STemplatable):
@@ -3997,12 +5263,29 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__OwnerReference(K8STemplatable)
     ]
     required_props: List[str] = ["apiVersion", "kind", "name", "uid"]
 
-    apiVersion: str
-    blockOwnerDeletion: Optional[bool] = None
-    controller: Optional[bool] = None
-    kind: str
-    name: str
-    uid: str
+    @property
+    def apiVersion(self) -> str:
+        return self._apiVersion
+
+    @property
+    def blockOwnerDeletion(self) -> Optional[bool]:
+        return self._blockOwnerDeletion
+
+    @property
+    def controller(self) -> Optional[bool]:
+        return self._controller
+
+    @property
+    def kind(self) -> str:
+        return self._kind
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def uid(self) -> str:
+        return self._uid
 
     def __init__(
         self,
@@ -4015,17 +5298,17 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__OwnerReference(K8STemplatable)
     ):
         super().__init__()
         if apiVersion is not None:
-            self.apiVersion = apiVersion
+            self._apiVersion = apiVersion
         if kind is not None:
-            self.kind = kind
+            self._kind = kind
         if name is not None:
-            self.name = name
+            self._name = name
         if uid is not None:
-            self.uid = uid
+            self._uid = uid
         if blockOwnerDeletion is not None:
-            self.blockOwnerDeletion = blockOwnerDeletion
+            self._blockOwnerDeletion = blockOwnerDeletion
         if controller is not None:
-            self.controller = controller
+            self._controller = controller
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__Patch(K8STemplatable):
@@ -4041,17 +5324,22 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__Preconditions(K8STemplatable):
     props: List[str] = ["resourceVersion", "uid"]
     required_props: List[str] = []
 
-    resourceVersion: Optional[str] = None
-    uid: Optional[str] = None
+    @property
+    def resourceVersion(self) -> Optional[str]:
+        return self._resourceVersion
+
+    @property
+    def uid(self) -> Optional[str]:
+        return self._uid
 
     def __init__(
         self, resourceVersion: Optional[str] = None, uid: Optional[str] = None
     ):
         super().__init__()
         if resourceVersion is not None:
-            self.resourceVersion = resourceVersion
+            self._resourceVersion = resourceVersion
         if uid is not None:
-            self.uid = uid
+            self._uid = uid
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__ServerAddressByClientCIDR(
@@ -4062,15 +5350,20 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__ServerAddressByClientCIDR(
     props: List[str] = ["clientCIDR", "serverAddress"]
     required_props: List[str] = ["clientCIDR", "serverAddress"]
 
-    clientCIDR: str
-    serverAddress: str
+    @property
+    def clientCIDR(self) -> str:
+        return self._clientCIDR
+
+    @property
+    def serverAddress(self) -> str:
+        return self._serverAddress
 
     def __init__(self, clientCIDR: str, serverAddress: str):
         super().__init__()
         if clientCIDR is not None:
-            self.clientCIDR = clientCIDR
+            self._clientCIDR = clientCIDR
         if serverAddress is not None:
-            self.serverAddress = serverAddress
+            self._serverAddress = serverAddress
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__StatusCause(K8STemplatable):
@@ -4079,9 +5372,17 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__StatusCause(K8STemplatable):
     props: List[str] = ["field", "message", "reason"]
     required_props: List[str] = []
 
-    field: Optional[str] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
+    @property
+    def field(self) -> Optional[str]:
+        return self._field
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
 
     def __init__(
         self,
@@ -4091,11 +5392,11 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__StatusCause(K8STemplatable):
     ):
         super().__init__()
         if field is not None:
-            self.field = field
+            self._field = field
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__StatusDetails(K8STemplatable):
@@ -4104,14 +5405,31 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__StatusDetails(K8STemplatable):
     props: List[str] = ["causes", "group", "kind", "name", "retryAfterSeconds", "uid"]
     required_props: List[str] = []
 
-    causes: Optional[
-        List[io__k8s__apimachinery__pkg__apis__meta__v1__StatusCause]
-    ] = None
-    group: Optional[str] = None
-    kind: Optional[str] = None
-    name: Optional[str] = None
-    retryAfterSeconds: Optional[int] = None
-    uid: Optional[str] = None
+    @property
+    def causes(
+        self,
+    ) -> Optional[List[io__k8s__apimachinery__pkg__apis__meta__v1__StatusCause]]:
+        return self._causes
+
+    @property
+    def group(self) -> Optional[str]:
+        return self._group
+
+    @property
+    def kind(self) -> Optional[str]:
+        return self._kind
+
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def retryAfterSeconds(self) -> Optional[int]:
+        return self._retryAfterSeconds
+
+    @property
+    def uid(self) -> Optional[str]:
+        return self._uid
 
     def __init__(
         self,
@@ -4126,17 +5444,17 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__StatusDetails(K8STemplatable):
     ):
         super().__init__()
         if causes is not None:
-            self.causes = causes
+            self._causes = causes
         if group is not None:
-            self.group = group
+            self._group = group
         if kind is not None:
-            self.kind = kind
+            self._kind = kind
         if name is not None:
-            self.name = name
+            self._name = name
         if retryAfterSeconds is not None:
-            self.retryAfterSeconds = retryAfterSeconds
+            self._retryAfterSeconds = retryAfterSeconds
         if uid is not None:
-            self.uid = uid
+            self._uid = uid
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__Time(K8STemplatable):
@@ -4213,15 +5531,41 @@ class io__k8s__apimachinery__pkg__version__Info(K8STemplatable):
         "platform",
     ]
 
-    buildDate: str
-    compiler: str
-    gitCommit: str
-    gitTreeState: str
-    gitVersion: str
-    goVersion: str
-    major: str
-    minor: str
-    platform: str
+    @property
+    def buildDate(self) -> str:
+        return self._buildDate
+
+    @property
+    def compiler(self) -> str:
+        return self._compiler
+
+    @property
+    def gitCommit(self) -> str:
+        return self._gitCommit
+
+    @property
+    def gitTreeState(self) -> str:
+        return self._gitTreeState
+
+    @property
+    def gitVersion(self) -> str:
+        return self._gitVersion
+
+    @property
+    def goVersion(self) -> str:
+        return self._goVersion
+
+    @property
+    def major(self) -> str:
+        return self._major
+
+    @property
+    def minor(self) -> str:
+        return self._minor
+
+    @property
+    def platform(self) -> str:
+        return self._platform
 
     def __init__(
         self,
@@ -4237,23 +5581,23 @@ class io__k8s__apimachinery__pkg__version__Info(K8STemplatable):
     ):
         super().__init__()
         if buildDate is not None:
-            self.buildDate = buildDate
+            self._buildDate = buildDate
         if compiler is not None:
-            self.compiler = compiler
+            self._compiler = compiler
         if gitCommit is not None:
-            self.gitCommit = gitCommit
+            self._gitCommit = gitCommit
         if gitTreeState is not None:
-            self.gitTreeState = gitTreeState
+            self._gitTreeState = gitTreeState
         if gitVersion is not None:
-            self.gitVersion = gitVersion
+            self._gitVersion = gitVersion
         if goVersion is not None:
-            self.goVersion = goVersion
+            self._goVersion = goVersion
         if major is not None:
-            self.major = major
+            self._major = major
         if minor is not None:
-            self.minor = minor
+            self._minor = minor
         if platform is not None:
-            self.platform = platform
+            self._platform = platform
 
 
 class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceCondition(
@@ -4264,13 +5608,27 @@ class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceCondit
     props: List[str] = ["lastTransitionTime", "message", "reason", "status", "type"]
     required_props: List[str] = ["type", "status"]
 
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: str
-    type: str
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -4284,15 +5642,15 @@ class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceCondit
     ):
         super().__init__()
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceStatus(
@@ -4303,11 +5661,15 @@ class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceStatus
     props: List[str] = ["conditions"]
     required_props: List[str] = []
 
-    conditions: Optional[
+    @property
+    def conditions(
+        self,
+    ) -> Optional[
         List[
             io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceCondition
         ]
-    ] = None
+    ]:
+        return self._conditions
 
     def __init__(
         self,
@@ -4319,7 +5681,7 @@ class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceStatus
     ):
         super().__init__()
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
 
 
 class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__ServiceReference(
@@ -4330,9 +5692,17 @@ class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__ServiceReference
     props: List[str] = ["name", "namespace", "port"]
     required_props: List[str] = []
 
-    name: Optional[str] = None
-    namespace: Optional[str] = None
-    port: Optional[int] = None
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def namespace(self) -> Optional[str]:
+        return self._namespace
+
+    @property
+    def port(self) -> Optional[int]:
+        return self._port
 
     def __init__(
         self,
@@ -4342,11 +5712,11 @@ class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__ServiceReference
     ):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if namespace is not None:
-            self.namespace = namespace
+            self._namespace = namespace
         if port is not None:
-            self.port = port
+            self._port = port
 
 
 class io__k8s__api__apiserverinternal__v1alpha1__StorageVersionCondition(
@@ -4364,14 +5734,31 @@ class io__k8s__api__apiserverinternal__v1alpha1__StorageVersionCondition(
     ]
     required_props: List[str] = ["type", "status", "reason"]
 
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    message: Optional[str] = None
-    observedGeneration: Optional[int] = None
-    reason: str
-    status: str
-    type: str
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def observedGeneration(self) -> Optional[int]:
+        return self._observedGeneration
+
+    @property
+    def reason(self) -> str:
+        return self._reason
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -4386,17 +5773,17 @@ class io__k8s__api__apiserverinternal__v1alpha1__StorageVersionCondition(
     ):
         super().__init__()
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if observedGeneration is not None:
-            self.observedGeneration = observedGeneration
+            self._observedGeneration = observedGeneration
 
 
 class io__k8s__api__apiserverinternal__v1alpha1__StorageVersionStatus(K8STemplatable):
@@ -4405,13 +5792,25 @@ class io__k8s__api__apiserverinternal__v1alpha1__StorageVersionStatus(K8STemplat
     props: List[str] = ["commonEncodingVersion", "conditions", "storageVersions"]
     required_props: List[str] = []
 
-    commonEncodingVersion: Optional[str] = None
-    conditions: Optional[
+    @property
+    def commonEncodingVersion(self) -> Optional[str]:
+        return self._commonEncodingVersion
+
+    @property
+    def conditions(
+        self,
+    ) -> Optional[
         List[io__k8s__api__apiserverinternal__v1alpha1__StorageVersionCondition]
-    ] = None
-    storageVersions: Optional[
+    ]:
+        return self._conditions
+
+    @property
+    def storageVersions(
+        self,
+    ) -> Optional[
         List[io__k8s__api__apiserverinternal__v1alpha1__ServerStorageVersion]
-    ] = None
+    ]:
+        return self._storageVersions
 
     def __init__(
         self,
@@ -4425,11 +5824,11 @@ class io__k8s__api__apiserverinternal__v1alpha1__StorageVersionStatus(K8STemplat
     ):
         super().__init__()
         if commonEncodingVersion is not None:
-            self.commonEncodingVersion = commonEncodingVersion
+            self._commonEncodingVersion = commonEncodingVersion
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if storageVersions is not None:
-            self.storageVersions = storageVersions
+            self._storageVersions = storageVersions
 
 
 class io__k8s__api__apps__v1__DaemonSetCondition(K8STemplatable):
@@ -4438,13 +5837,27 @@ class io__k8s__api__apps__v1__DaemonSetCondition(K8STemplatable):
     props: List[str] = ["lastTransitionTime", "message", "reason", "status", "type"]
     required_props: List[str] = ["type", "status"]
 
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: str
-    type: str
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -4458,15 +5871,15 @@ class io__k8s__api__apps__v1__DaemonSetCondition(K8STemplatable):
     ):
         super().__init__()
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__api__apps__v1__DaemonSetStatus(K8STemplatable):
@@ -4491,16 +5904,45 @@ class io__k8s__api__apps__v1__DaemonSetStatus(K8STemplatable):
         "numberReady",
     ]
 
-    collisionCount: Optional[int] = None
-    conditions: Optional[List[io__k8s__api__apps__v1__DaemonSetCondition]] = None
-    currentNumberScheduled: int
-    desiredNumberScheduled: int
-    numberAvailable: Optional[int] = None
-    numberMisscheduled: int
-    numberReady: int
-    numberUnavailable: Optional[int] = None
-    observedGeneration: Optional[int] = None
-    updatedNumberScheduled: Optional[int] = None
+    @property
+    def collisionCount(self) -> Optional[int]:
+        return self._collisionCount
+
+    @property
+    def conditions(self) -> Optional[List[io__k8s__api__apps__v1__DaemonSetCondition]]:
+        return self._conditions
+
+    @property
+    def currentNumberScheduled(self) -> int:
+        return self._currentNumberScheduled
+
+    @property
+    def desiredNumberScheduled(self) -> int:
+        return self._desiredNumberScheduled
+
+    @property
+    def numberAvailable(self) -> Optional[int]:
+        return self._numberAvailable
+
+    @property
+    def numberMisscheduled(self) -> int:
+        return self._numberMisscheduled
+
+    @property
+    def numberReady(self) -> int:
+        return self._numberReady
+
+    @property
+    def numberUnavailable(self) -> Optional[int]:
+        return self._numberUnavailable
+
+    @property
+    def observedGeneration(self) -> Optional[int]:
+        return self._observedGeneration
+
+    @property
+    def updatedNumberScheduled(self) -> Optional[int]:
+        return self._updatedNumberScheduled
 
     def __init__(
         self,
@@ -4517,25 +5959,25 @@ class io__k8s__api__apps__v1__DaemonSetStatus(K8STemplatable):
     ):
         super().__init__()
         if currentNumberScheduled is not None:
-            self.currentNumberScheduled = currentNumberScheduled
+            self._currentNumberScheduled = currentNumberScheduled
         if desiredNumberScheduled is not None:
-            self.desiredNumberScheduled = desiredNumberScheduled
+            self._desiredNumberScheduled = desiredNumberScheduled
         if numberMisscheduled is not None:
-            self.numberMisscheduled = numberMisscheduled
+            self._numberMisscheduled = numberMisscheduled
         if numberReady is not None:
-            self.numberReady = numberReady
+            self._numberReady = numberReady
         if collisionCount is not None:
-            self.collisionCount = collisionCount
+            self._collisionCount = collisionCount
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if numberAvailable is not None:
-            self.numberAvailable = numberAvailable
+            self._numberAvailable = numberAvailable
         if numberUnavailable is not None:
-            self.numberUnavailable = numberUnavailable
+            self._numberUnavailable = numberUnavailable
         if observedGeneration is not None:
-            self.observedGeneration = observedGeneration
+            self._observedGeneration = observedGeneration
         if updatedNumberScheduled is not None:
-            self.updatedNumberScheduled = updatedNumberScheduled
+            self._updatedNumberScheduled = updatedNumberScheduled
 
 
 class io__k8s__api__apps__v1__DeploymentCondition(K8STemplatable):
@@ -4551,14 +5993,33 @@ class io__k8s__api__apps__v1__DeploymentCondition(K8STemplatable):
     ]
     required_props: List[str] = ["type", "status"]
 
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    lastUpdateTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: str
-    type: str
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def lastUpdateTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastUpdateTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -4575,17 +6036,17 @@ class io__k8s__api__apps__v1__DeploymentCondition(K8STemplatable):
     ):
         super().__init__()
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if lastUpdateTime is not None:
-            self.lastUpdateTime = lastUpdateTime
+            self._lastUpdateTime = lastUpdateTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__api__apps__v1__DeploymentStatus(K8STemplatable):
@@ -4603,14 +6064,37 @@ class io__k8s__api__apps__v1__DeploymentStatus(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    availableReplicas: Optional[int] = None
-    collisionCount: Optional[int] = None
-    conditions: Optional[List[io__k8s__api__apps__v1__DeploymentCondition]] = None
-    observedGeneration: Optional[int] = None
-    readyReplicas: Optional[int] = None
-    replicas: Optional[int] = None
-    unavailableReplicas: Optional[int] = None
-    updatedReplicas: Optional[int] = None
+    @property
+    def availableReplicas(self) -> Optional[int]:
+        return self._availableReplicas
+
+    @property
+    def collisionCount(self) -> Optional[int]:
+        return self._collisionCount
+
+    @property
+    def conditions(self) -> Optional[List[io__k8s__api__apps__v1__DeploymentCondition]]:
+        return self._conditions
+
+    @property
+    def observedGeneration(self) -> Optional[int]:
+        return self._observedGeneration
+
+    @property
+    def readyReplicas(self) -> Optional[int]:
+        return self._readyReplicas
+
+    @property
+    def replicas(self) -> Optional[int]:
+        return self._replicas
+
+    @property
+    def unavailableReplicas(self) -> Optional[int]:
+        return self._unavailableReplicas
+
+    @property
+    def updatedReplicas(self) -> Optional[int]:
+        return self._updatedReplicas
 
     def __init__(
         self,
@@ -4625,21 +6109,21 @@ class io__k8s__api__apps__v1__DeploymentStatus(K8STemplatable):
     ):
         super().__init__()
         if availableReplicas is not None:
-            self.availableReplicas = availableReplicas
+            self._availableReplicas = availableReplicas
         if collisionCount is not None:
-            self.collisionCount = collisionCount
+            self._collisionCount = collisionCount
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if observedGeneration is not None:
-            self.observedGeneration = observedGeneration
+            self._observedGeneration = observedGeneration
         if readyReplicas is not None:
-            self.readyReplicas = readyReplicas
+            self._readyReplicas = readyReplicas
         if replicas is not None:
-            self.replicas = replicas
+            self._replicas = replicas
         if unavailableReplicas is not None:
-            self.unavailableReplicas = unavailableReplicas
+            self._unavailableReplicas = unavailableReplicas
         if updatedReplicas is not None:
-            self.updatedReplicas = updatedReplicas
+            self._updatedReplicas = updatedReplicas
 
 
 class io__k8s__api__apps__v1__ReplicaSetCondition(K8STemplatable):
@@ -4648,13 +6132,27 @@ class io__k8s__api__apps__v1__ReplicaSetCondition(K8STemplatable):
     props: List[str] = ["lastTransitionTime", "message", "reason", "status", "type"]
     required_props: List[str] = ["type", "status"]
 
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: str
-    type: str
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -4668,15 +6166,15 @@ class io__k8s__api__apps__v1__ReplicaSetCondition(K8STemplatable):
     ):
         super().__init__()
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__api__apps__v1__ReplicaSetStatus(K8STemplatable):
@@ -4692,12 +6190,29 @@ class io__k8s__api__apps__v1__ReplicaSetStatus(K8STemplatable):
     ]
     required_props: List[str] = ["replicas"]
 
-    availableReplicas: Optional[int] = None
-    conditions: Optional[List[io__k8s__api__apps__v1__ReplicaSetCondition]] = None
-    fullyLabeledReplicas: Optional[int] = None
-    observedGeneration: Optional[int] = None
-    readyReplicas: Optional[int] = None
-    replicas: int
+    @property
+    def availableReplicas(self) -> Optional[int]:
+        return self._availableReplicas
+
+    @property
+    def conditions(self) -> Optional[List[io__k8s__api__apps__v1__ReplicaSetCondition]]:
+        return self._conditions
+
+    @property
+    def fullyLabeledReplicas(self) -> Optional[int]:
+        return self._fullyLabeledReplicas
+
+    @property
+    def observedGeneration(self) -> Optional[int]:
+        return self._observedGeneration
+
+    @property
+    def readyReplicas(self) -> Optional[int]:
+        return self._readyReplicas
+
+    @property
+    def replicas(self) -> int:
+        return self._replicas
 
     def __init__(
         self,
@@ -4710,17 +6225,17 @@ class io__k8s__api__apps__v1__ReplicaSetStatus(K8STemplatable):
     ):
         super().__init__()
         if replicas is not None:
-            self.replicas = replicas
+            self._replicas = replicas
         if availableReplicas is not None:
-            self.availableReplicas = availableReplicas
+            self._availableReplicas = availableReplicas
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if fullyLabeledReplicas is not None:
-            self.fullyLabeledReplicas = fullyLabeledReplicas
+            self._fullyLabeledReplicas = fullyLabeledReplicas
         if observedGeneration is not None:
-            self.observedGeneration = observedGeneration
+            self._observedGeneration = observedGeneration
         if readyReplicas is not None:
-            self.readyReplicas = readyReplicas
+            self._readyReplicas = readyReplicas
 
 
 class io__k8s__api__apps__v1__RollingUpdateDaemonSet(K8STemplatable):
@@ -4729,10 +6244,17 @@ class io__k8s__api__apps__v1__RollingUpdateDaemonSet(K8STemplatable):
     props: List[str] = ["maxSurge", "maxUnavailable"]
     required_props: List[str] = []
 
-    maxSurge: Optional[io__k8s__apimachinery__pkg__util__intstr__IntOrString] = None
-    maxUnavailable: Optional[
-        io__k8s__apimachinery__pkg__util__intstr__IntOrString
-    ] = None
+    @property
+    def maxSurge(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__util__intstr__IntOrString]:
+        return self._maxSurge
+
+    @property
+    def maxUnavailable(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__util__intstr__IntOrString]:
+        return self._maxUnavailable
 
     def __init__(
         self,
@@ -4745,9 +6267,9 @@ class io__k8s__api__apps__v1__RollingUpdateDaemonSet(K8STemplatable):
     ):
         super().__init__()
         if maxSurge is not None:
-            self.maxSurge = maxSurge
+            self._maxSurge = maxSurge
         if maxUnavailable is not None:
-            self.maxUnavailable = maxUnavailable
+            self._maxUnavailable = maxUnavailable
 
 
 class io__k8s__api__apps__v1__RollingUpdateDeployment(K8STemplatable):
@@ -4756,10 +6278,17 @@ class io__k8s__api__apps__v1__RollingUpdateDeployment(K8STemplatable):
     props: List[str] = ["maxSurge", "maxUnavailable"]
     required_props: List[str] = []
 
-    maxSurge: Optional[io__k8s__apimachinery__pkg__util__intstr__IntOrString] = None
-    maxUnavailable: Optional[
-        io__k8s__apimachinery__pkg__util__intstr__IntOrString
-    ] = None
+    @property
+    def maxSurge(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__util__intstr__IntOrString]:
+        return self._maxSurge
+
+    @property
+    def maxUnavailable(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__util__intstr__IntOrString]:
+        return self._maxUnavailable
 
     def __init__(
         self,
@@ -4772,9 +6301,9 @@ class io__k8s__api__apps__v1__RollingUpdateDeployment(K8STemplatable):
     ):
         super().__init__()
         if maxSurge is not None:
-            self.maxSurge = maxSurge
+            self._maxSurge = maxSurge
         if maxUnavailable is not None:
-            self.maxUnavailable = maxUnavailable
+            self._maxUnavailable = maxUnavailable
 
 
 class io__k8s__api__apps__v1__RollingUpdateStatefulSetStrategy(K8STemplatable):
@@ -4783,10 +6312,15 @@ class io__k8s__api__apps__v1__RollingUpdateStatefulSetStrategy(K8STemplatable):
     props: List[str] = ["maxUnavailable", "partition"]
     required_props: List[str] = []
 
-    maxUnavailable: Optional[
-        io__k8s__apimachinery__pkg__util__intstr__IntOrString
-    ] = None
-    partition: Optional[int] = None
+    @property
+    def maxUnavailable(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__util__intstr__IntOrString]:
+        return self._maxUnavailable
+
+    @property
+    def partition(self) -> Optional[int]:
+        return self._partition
 
     def __init__(
         self,
@@ -4797,9 +6331,9 @@ class io__k8s__api__apps__v1__RollingUpdateStatefulSetStrategy(K8STemplatable):
     ):
         super().__init__()
         if maxUnavailable is not None:
-            self.maxUnavailable = maxUnavailable
+            self._maxUnavailable = maxUnavailable
         if partition is not None:
-            self.partition = partition
+            self._partition = partition
 
 
 class io__k8s__api__apps__v1__StatefulSetCondition(K8STemplatable):
@@ -4808,13 +6342,27 @@ class io__k8s__api__apps__v1__StatefulSetCondition(K8STemplatable):
     props: List[str] = ["lastTransitionTime", "message", "reason", "status", "type"]
     required_props: List[str] = ["type", "status"]
 
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: str
-    type: str
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -4828,15 +6376,15 @@ class io__k8s__api__apps__v1__StatefulSetCondition(K8STemplatable):
     ):
         super().__init__()
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__api__apps__v1__StatefulSetStatus(K8STemplatable):
@@ -4856,16 +6404,47 @@ class io__k8s__api__apps__v1__StatefulSetStatus(K8STemplatable):
     ]
     required_props: List[str] = ["replicas"]
 
-    availableReplicas: Optional[int] = None
-    collisionCount: Optional[int] = None
-    conditions: Optional[List[io__k8s__api__apps__v1__StatefulSetCondition]] = None
-    currentReplicas: Optional[int] = None
-    currentRevision: Optional[str] = None
-    observedGeneration: Optional[int] = None
-    readyReplicas: Optional[int] = None
-    replicas: int
-    updateRevision: Optional[str] = None
-    updatedReplicas: Optional[int] = None
+    @property
+    def availableReplicas(self) -> Optional[int]:
+        return self._availableReplicas
+
+    @property
+    def collisionCount(self) -> Optional[int]:
+        return self._collisionCount
+
+    @property
+    def conditions(
+        self,
+    ) -> Optional[List[io__k8s__api__apps__v1__StatefulSetCondition]]:
+        return self._conditions
+
+    @property
+    def currentReplicas(self) -> Optional[int]:
+        return self._currentReplicas
+
+    @property
+    def currentRevision(self) -> Optional[str]:
+        return self._currentRevision
+
+    @property
+    def observedGeneration(self) -> Optional[int]:
+        return self._observedGeneration
+
+    @property
+    def readyReplicas(self) -> Optional[int]:
+        return self._readyReplicas
+
+    @property
+    def replicas(self) -> int:
+        return self._replicas
+
+    @property
+    def updateRevision(self) -> Optional[str]:
+        return self._updateRevision
+
+    @property
+    def updatedReplicas(self) -> Optional[int]:
+        return self._updatedReplicas
 
     def __init__(
         self,
@@ -4882,25 +6461,25 @@ class io__k8s__api__apps__v1__StatefulSetStatus(K8STemplatable):
     ):
         super().__init__()
         if replicas is not None:
-            self.replicas = replicas
+            self._replicas = replicas
         if availableReplicas is not None:
-            self.availableReplicas = availableReplicas
+            self._availableReplicas = availableReplicas
         if collisionCount is not None:
-            self.collisionCount = collisionCount
+            self._collisionCount = collisionCount
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if currentReplicas is not None:
-            self.currentReplicas = currentReplicas
+            self._currentReplicas = currentReplicas
         if currentRevision is not None:
-            self.currentRevision = currentRevision
+            self._currentRevision = currentRevision
         if observedGeneration is not None:
-            self.observedGeneration = observedGeneration
+            self._observedGeneration = observedGeneration
         if readyReplicas is not None:
-            self.readyReplicas = readyReplicas
+            self._readyReplicas = readyReplicas
         if updateRevision is not None:
-            self.updateRevision = updateRevision
+            self._updateRevision = updateRevision
         if updatedReplicas is not None:
-            self.updatedReplicas = updatedReplicas
+            self._updatedReplicas = updatedReplicas
 
 
 class io__k8s__api__apps__v1__StatefulSetUpdateStrategy(K8STemplatable):
@@ -4909,10 +6488,15 @@ class io__k8s__api__apps__v1__StatefulSetUpdateStrategy(K8STemplatable):
     props: List[str] = ["rollingUpdate", "type"]
     required_props: List[str] = []
 
-    rollingUpdate: Optional[
-        io__k8s__api__apps__v1__RollingUpdateStatefulSetStrategy
-    ] = None
-    type: Optional[str] = None
+    @property
+    def rollingUpdate(
+        self,
+    ) -> Optional[io__k8s__api__apps__v1__RollingUpdateStatefulSetStrategy]:
+        return self._rollingUpdate
+
+    @property
+    def type(self) -> Optional[str]:
+        return self._type
 
     def __init__(
         self,
@@ -4923,9 +6507,9 @@ class io__k8s__api__apps__v1__StatefulSetUpdateStrategy(K8STemplatable):
     ):
         super().__init__()
         if rollingUpdate is not None:
-            self.rollingUpdate = rollingUpdate
+            self._rollingUpdate = rollingUpdate
         if type is not None:
-            self.type = type
+            self._type = type
 
 
 class io__k8s__api__authentication__v1__TokenRequestStatus(K8STemplatable):
@@ -4934,8 +6518,13 @@ class io__k8s__api__authentication__v1__TokenRequestStatus(K8STemplatable):
     props: List[str] = ["expirationTimestamp", "token"]
     required_props: List[str] = ["token", "expirationTimestamp"]
 
-    expirationTimestamp: io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    token: str
+    @property
+    def expirationTimestamp(self) -> io__k8s__apimachinery__pkg__apis__meta__v1__Time:
+        return self._expirationTimestamp
+
+    @property
+    def token(self) -> str:
+        return self._token
 
     def __init__(
         self,
@@ -4944,9 +6533,9 @@ class io__k8s__api__authentication__v1__TokenRequestStatus(K8STemplatable):
     ):
         super().__init__()
         if expirationTimestamp is not None:
-            self.expirationTimestamp = expirationTimestamp
+            self._expirationTimestamp = expirationTimestamp
         if token is not None:
-            self.token = token
+            self._token = token
 
 
 class io__k8s__api__authentication__v1__TokenReviewStatus(K8STemplatable):
@@ -4955,10 +6544,21 @@ class io__k8s__api__authentication__v1__TokenReviewStatus(K8STemplatable):
     props: List[str] = ["audiences", "authenticated", "error", "user"]
     required_props: List[str] = []
 
-    audiences: Optional[List[str]] = None
-    authenticated: Optional[bool] = None
-    error: Optional[str] = None
-    user: Optional[io__k8s__api__authentication__v1__UserInfo] = None
+    @property
+    def audiences(self) -> Optional[List[str]]:
+        return self._audiences
+
+    @property
+    def authenticated(self) -> Optional[bool]:
+        return self._authenticated
+
+    @property
+    def error(self) -> Optional[str]:
+        return self._error
+
+    @property
+    def user(self) -> Optional[io__k8s__api__authentication__v1__UserInfo]:
+        return self._user
 
     def __init__(
         self,
@@ -4969,13 +6569,13 @@ class io__k8s__api__authentication__v1__TokenReviewStatus(K8STemplatable):
     ):
         super().__init__()
         if audiences is not None:
-            self.audiences = audiences
+            self._audiences = audiences
         if authenticated is not None:
-            self.authenticated = authenticated
+            self._authenticated = authenticated
         if error is not None:
-            self.error = error
+            self._error = error
         if user is not None:
-            self.user = user
+            self._user = user
 
 
 class io__k8s__api__autoscaling__v1__HorizontalPodAutoscalerStatus(K8STemplatable):
@@ -4990,11 +6590,27 @@ class io__k8s__api__autoscaling__v1__HorizontalPodAutoscalerStatus(K8STemplatabl
     ]
     required_props: List[str] = ["currentReplicas", "desiredReplicas"]
 
-    currentCPUUtilizationPercentage: Optional[int] = None
-    currentReplicas: int
-    desiredReplicas: int
-    lastScaleTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    observedGeneration: Optional[int] = None
+    @property
+    def currentCPUUtilizationPercentage(self) -> Optional[int]:
+        return self._currentCPUUtilizationPercentage
+
+    @property
+    def currentReplicas(self) -> int:
+        return self._currentReplicas
+
+    @property
+    def desiredReplicas(self) -> int:
+        return self._desiredReplicas
+
+    @property
+    def lastScaleTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastScaleTime
+
+    @property
+    def observedGeneration(self) -> Optional[int]:
+        return self._observedGeneration
 
     def __init__(
         self,
@@ -5008,15 +6624,15 @@ class io__k8s__api__autoscaling__v1__HorizontalPodAutoscalerStatus(K8STemplatabl
     ):
         super().__init__()
         if currentReplicas is not None:
-            self.currentReplicas = currentReplicas
+            self._currentReplicas = currentReplicas
         if desiredReplicas is not None:
-            self.desiredReplicas = desiredReplicas
+            self._desiredReplicas = desiredReplicas
         if currentCPUUtilizationPercentage is not None:
-            self.currentCPUUtilizationPercentage = currentCPUUtilizationPercentage
+            self._currentCPUUtilizationPercentage = currentCPUUtilizationPercentage
         if lastScaleTime is not None:
-            self.lastScaleTime = lastScaleTime
+            self._lastScaleTime = lastScaleTime
         if observedGeneration is not None:
-            self.observedGeneration = observedGeneration
+            self._observedGeneration = observedGeneration
 
 
 class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerCondition(K8STemplatable):
@@ -5025,13 +6641,27 @@ class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerCondition(K8STemplat
     props: List[str] = ["lastTransitionTime", "message", "reason", "status", "type"]
     required_props: List[str] = ["type", "status"]
 
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: str
-    type: str
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -5045,15 +6675,15 @@ class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerCondition(K8STemplat
     ):
         super().__init__()
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__api__autoscaling__v2__MetricTarget(K8STemplatable):
@@ -5062,10 +6692,23 @@ class io__k8s__api__autoscaling__v2__MetricTarget(K8STemplatable):
     props: List[str] = ["averageUtilization", "averageValue", "type", "value"]
     required_props: List[str] = ["type"]
 
-    averageUtilization: Optional[int] = None
-    averageValue: Optional[io__k8s__apimachinery__pkg__api__resource__Quantity] = None
-    type: str
-    value: Optional[io__k8s__apimachinery__pkg__api__resource__Quantity] = None
+    @property
+    def averageUtilization(self) -> Optional[int]:
+        return self._averageUtilization
+
+    @property
+    def averageValue(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._averageValue
+
+    @property
+    def type(self) -> str:
+        return self._type
+
+    @property
+    def value(self) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._value
 
     def __init__(
         self,
@@ -5078,13 +6721,13 @@ class io__k8s__api__autoscaling__v2__MetricTarget(K8STemplatable):
     ):
         super().__init__()
         if type is not None:
-            self.type = type
+            self._type = type
         if averageUtilization is not None:
-            self.averageUtilization = averageUtilization
+            self._averageUtilization = averageUtilization
         if averageValue is not None:
-            self.averageValue = averageValue
+            self._averageValue = averageValue
         if value is not None:
-            self.value = value
+            self._value = value
 
 
 class io__k8s__api__autoscaling__v2__MetricValueStatus(K8STemplatable):
@@ -5093,9 +6736,19 @@ class io__k8s__api__autoscaling__v2__MetricValueStatus(K8STemplatable):
     props: List[str] = ["averageUtilization", "averageValue", "value"]
     required_props: List[str] = []
 
-    averageUtilization: Optional[int] = None
-    averageValue: Optional[io__k8s__apimachinery__pkg__api__resource__Quantity] = None
-    value: Optional[io__k8s__apimachinery__pkg__api__resource__Quantity] = None
+    @property
+    def averageUtilization(self) -> Optional[int]:
+        return self._averageUtilization
+
+    @property
+    def averageValue(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._averageValue
+
+    @property
+    def value(self) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._value
 
     def __init__(
         self,
@@ -5107,11 +6760,11 @@ class io__k8s__api__autoscaling__v2__MetricValueStatus(K8STemplatable):
     ):
         super().__init__()
         if averageUtilization is not None:
-            self.averageUtilization = averageUtilization
+            self._averageUtilization = averageUtilization
         if averageValue is not None:
-            self.averageValue = averageValue
+            self._averageValue = averageValue
         if value is not None:
-            self.value = value
+            self._value = value
 
 
 class io__k8s__api__autoscaling__v2__ResourceMetricSource(K8STemplatable):
@@ -5120,15 +6773,20 @@ class io__k8s__api__autoscaling__v2__ResourceMetricSource(K8STemplatable):
     props: List[str] = ["name", "target"]
     required_props: List[str] = ["name", "target"]
 
-    name: str
-    target: io__k8s__api__autoscaling__v2__MetricTarget
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def target(self) -> io__k8s__api__autoscaling__v2__MetricTarget:
+        return self._target
 
     def __init__(self, name: str, target: io__k8s__api__autoscaling__v2__MetricTarget):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if target is not None:
-            self.target = target
+            self._target = target
 
 
 class io__k8s__api__autoscaling__v2__ResourceMetricStatus(K8STemplatable):
@@ -5137,17 +6795,22 @@ class io__k8s__api__autoscaling__v2__ResourceMetricStatus(K8STemplatable):
     props: List[str] = ["current", "name"]
     required_props: List[str] = ["name", "current"]
 
-    current: io__k8s__api__autoscaling__v2__MetricValueStatus
-    name: str
+    @property
+    def current(self) -> io__k8s__api__autoscaling__v2__MetricValueStatus:
+        return self._current
+
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(
         self, current: io__k8s__api__autoscaling__v2__MetricValueStatus, name: str
     ):
         super().__init__()
         if current is not None:
-            self.current = current
+            self._current = current
         if name is not None:
-            self.name = name
+            self._name = name
 
 
 class io__k8s__api__autoscaling__v2beta1__ContainerResourceMetricSource(K8STemplatable):
@@ -5161,12 +6824,23 @@ class io__k8s__api__autoscaling__v2beta1__ContainerResourceMetricSource(K8STempl
     ]
     required_props: List[str] = ["name", "container"]
 
-    container: str
-    name: str
-    targetAverageUtilization: Optional[int] = None
-    targetAverageValue: Optional[
-        io__k8s__apimachinery__pkg__api__resource__Quantity
-    ] = None
+    @property
+    def container(self) -> str:
+        return self._container
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def targetAverageUtilization(self) -> Optional[int]:
+        return self._targetAverageUtilization
+
+    @property
+    def targetAverageValue(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._targetAverageValue
 
     def __init__(
         self,
@@ -5179,13 +6853,13 @@ class io__k8s__api__autoscaling__v2beta1__ContainerResourceMetricSource(K8STempl
     ):
         super().__init__()
         if container is not None:
-            self.container = container
+            self._container = container
         if name is not None:
-            self.name = name
+            self._name = name
         if targetAverageUtilization is not None:
-            self.targetAverageUtilization = targetAverageUtilization
+            self._targetAverageUtilization = targetAverageUtilization
         if targetAverageValue is not None:
-            self.targetAverageValue = targetAverageValue
+            self._targetAverageValue = targetAverageValue
 
 
 class io__k8s__api__autoscaling__v2beta1__ContainerResourceMetricStatus(K8STemplatable):
@@ -5199,10 +6873,23 @@ class io__k8s__api__autoscaling__v2beta1__ContainerResourceMetricStatus(K8STempl
     ]
     required_props: List[str] = ["name", "currentAverageValue", "container"]
 
-    container: str
-    currentAverageUtilization: Optional[int] = None
-    currentAverageValue: io__k8s__apimachinery__pkg__api__resource__Quantity
-    name: str
+    @property
+    def container(self) -> str:
+        return self._container
+
+    @property
+    def currentAverageUtilization(self) -> Optional[int]:
+        return self._currentAverageUtilization
+
+    @property
+    def currentAverageValue(
+        self,
+    ) -> io__k8s__apimachinery__pkg__api__resource__Quantity:
+        return self._currentAverageValue
+
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(
         self,
@@ -5213,13 +6900,13 @@ class io__k8s__api__autoscaling__v2beta1__ContainerResourceMetricStatus(K8STempl
     ):
         super().__init__()
         if container is not None:
-            self.container = container
+            self._container = container
         if currentAverageValue is not None:
-            self.currentAverageValue = currentAverageValue
+            self._currentAverageValue = currentAverageValue
         if name is not None:
-            self.name = name
+            self._name = name
         if currentAverageUtilization is not None:
-            self.currentAverageUtilization = currentAverageUtilization
+            self._currentAverageUtilization = currentAverageUtilization
 
 
 class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerCondition(
@@ -5230,13 +6917,27 @@ class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerCondition(
     props: List[str] = ["lastTransitionTime", "message", "reason", "status", "type"]
     required_props: List[str] = ["type", "status"]
 
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: str
-    type: str
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -5250,15 +6951,15 @@ class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerCondition(
     ):
         super().__init__()
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__api__autoscaling__v2beta1__ResourceMetricSource(K8STemplatable):
@@ -5267,11 +6968,19 @@ class io__k8s__api__autoscaling__v2beta1__ResourceMetricSource(K8STemplatable):
     props: List[str] = ["name", "targetAverageUtilization", "targetAverageValue"]
     required_props: List[str] = ["name"]
 
-    name: str
-    targetAverageUtilization: Optional[int] = None
-    targetAverageValue: Optional[
-        io__k8s__apimachinery__pkg__api__resource__Quantity
-    ] = None
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def targetAverageUtilization(self) -> Optional[int]:
+        return self._targetAverageUtilization
+
+    @property
+    def targetAverageValue(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._targetAverageValue
 
     def __init__(
         self,
@@ -5283,11 +6992,11 @@ class io__k8s__api__autoscaling__v2beta1__ResourceMetricSource(K8STemplatable):
     ):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if targetAverageUtilization is not None:
-            self.targetAverageUtilization = targetAverageUtilization
+            self._targetAverageUtilization = targetAverageUtilization
         if targetAverageValue is not None:
-            self.targetAverageValue = targetAverageValue
+            self._targetAverageValue = targetAverageValue
 
 
 class io__k8s__api__autoscaling__v2beta1__ResourceMetricStatus(K8STemplatable):
@@ -5296,9 +7005,19 @@ class io__k8s__api__autoscaling__v2beta1__ResourceMetricStatus(K8STemplatable):
     props: List[str] = ["currentAverageUtilization", "currentAverageValue", "name"]
     required_props: List[str] = ["name", "currentAverageValue"]
 
-    currentAverageUtilization: Optional[int] = None
-    currentAverageValue: io__k8s__apimachinery__pkg__api__resource__Quantity
-    name: str
+    @property
+    def currentAverageUtilization(self) -> Optional[int]:
+        return self._currentAverageUtilization
+
+    @property
+    def currentAverageValue(
+        self,
+    ) -> io__k8s__apimachinery__pkg__api__resource__Quantity:
+        return self._currentAverageValue
+
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(
         self,
@@ -5308,11 +7027,11 @@ class io__k8s__api__autoscaling__v2beta1__ResourceMetricStatus(K8STemplatable):
     ):
         super().__init__()
         if currentAverageValue is not None:
-            self.currentAverageValue = currentAverageValue
+            self._currentAverageValue = currentAverageValue
         if name is not None:
-            self.name = name
+            self._name = name
         if currentAverageUtilization is not None:
-            self.currentAverageUtilization = currentAverageUtilization
+            self._currentAverageUtilization = currentAverageUtilization
 
 
 class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerCondition(
@@ -5323,13 +7042,27 @@ class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerCondition(
     props: List[str] = ["lastTransitionTime", "message", "reason", "status", "type"]
     required_props: List[str] = ["type", "status"]
 
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: str
-    type: str
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -5343,15 +7076,15 @@ class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerCondition(
     ):
         super().__init__()
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__api__autoscaling__v2beta2__MetricTarget(K8STemplatable):
@@ -5360,10 +7093,23 @@ class io__k8s__api__autoscaling__v2beta2__MetricTarget(K8STemplatable):
     props: List[str] = ["averageUtilization", "averageValue", "type", "value"]
     required_props: List[str] = ["type"]
 
-    averageUtilization: Optional[int] = None
-    averageValue: Optional[io__k8s__apimachinery__pkg__api__resource__Quantity] = None
-    type: str
-    value: Optional[io__k8s__apimachinery__pkg__api__resource__Quantity] = None
+    @property
+    def averageUtilization(self) -> Optional[int]:
+        return self._averageUtilization
+
+    @property
+    def averageValue(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._averageValue
+
+    @property
+    def type(self) -> str:
+        return self._type
+
+    @property
+    def value(self) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._value
 
     def __init__(
         self,
@@ -5376,13 +7122,13 @@ class io__k8s__api__autoscaling__v2beta2__MetricTarget(K8STemplatable):
     ):
         super().__init__()
         if type is not None:
-            self.type = type
+            self._type = type
         if averageUtilization is not None:
-            self.averageUtilization = averageUtilization
+            self._averageUtilization = averageUtilization
         if averageValue is not None:
-            self.averageValue = averageValue
+            self._averageValue = averageValue
         if value is not None:
-            self.value = value
+            self._value = value
 
 
 class io__k8s__api__autoscaling__v2beta2__MetricValueStatus(K8STemplatable):
@@ -5391,9 +7137,19 @@ class io__k8s__api__autoscaling__v2beta2__MetricValueStatus(K8STemplatable):
     props: List[str] = ["averageUtilization", "averageValue", "value"]
     required_props: List[str] = []
 
-    averageUtilization: Optional[int] = None
-    averageValue: Optional[io__k8s__apimachinery__pkg__api__resource__Quantity] = None
-    value: Optional[io__k8s__apimachinery__pkg__api__resource__Quantity] = None
+    @property
+    def averageUtilization(self) -> Optional[int]:
+        return self._averageUtilization
+
+    @property
+    def averageValue(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._averageValue
+
+    @property
+    def value(self) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._value
 
     def __init__(
         self,
@@ -5405,11 +7161,11 @@ class io__k8s__api__autoscaling__v2beta2__MetricValueStatus(K8STemplatable):
     ):
         super().__init__()
         if averageUtilization is not None:
-            self.averageUtilization = averageUtilization
+            self._averageUtilization = averageUtilization
         if averageValue is not None:
-            self.averageValue = averageValue
+            self._averageValue = averageValue
         if value is not None:
-            self.value = value
+            self._value = value
 
 
 class io__k8s__api__autoscaling__v2beta2__ResourceMetricSource(K8STemplatable):
@@ -5418,17 +7174,22 @@ class io__k8s__api__autoscaling__v2beta2__ResourceMetricSource(K8STemplatable):
     props: List[str] = ["name", "target"]
     required_props: List[str] = ["name", "target"]
 
-    name: str
-    target: io__k8s__api__autoscaling__v2beta2__MetricTarget
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def target(self) -> io__k8s__api__autoscaling__v2beta2__MetricTarget:
+        return self._target
 
     def __init__(
         self, name: str, target: io__k8s__api__autoscaling__v2beta2__MetricTarget
     ):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if target is not None:
-            self.target = target
+            self._target = target
 
 
 class io__k8s__api__autoscaling__v2beta2__ResourceMetricStatus(K8STemplatable):
@@ -5437,17 +7198,22 @@ class io__k8s__api__autoscaling__v2beta2__ResourceMetricStatus(K8STemplatable):
     props: List[str] = ["current", "name"]
     required_props: List[str] = ["name", "current"]
 
-    current: io__k8s__api__autoscaling__v2beta2__MetricValueStatus
-    name: str
+    @property
+    def current(self) -> io__k8s__api__autoscaling__v2beta2__MetricValueStatus:
+        return self._current
+
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(
         self, current: io__k8s__api__autoscaling__v2beta2__MetricValueStatus, name: str
     ):
         super().__init__()
         if current is not None:
-            self.current = current
+            self._current = current
         if name is not None:
-            self.name = name
+            self._name = name
 
 
 class io__k8s__api__batch__v1__CronJobStatus(K8STemplatable):
@@ -5456,11 +7222,21 @@ class io__k8s__api__batch__v1__CronJobStatus(K8STemplatable):
     props: List[str] = ["active", "lastScheduleTime", "lastSuccessfulTime"]
     required_props: List[str] = []
 
-    active: Optional[List[io__k8s__api__core__v1__ObjectReference]] = None
-    lastScheduleTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    lastSuccessfulTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
+    @property
+    def active(self) -> Optional[List[io__k8s__api__core__v1__ObjectReference]]:
+        return self._active
+
+    @property
+    def lastScheduleTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastScheduleTime
+
+    @property
+    def lastSuccessfulTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastSuccessfulTime
 
     def __init__(
         self,
@@ -5474,11 +7250,11 @@ class io__k8s__api__batch__v1__CronJobStatus(K8STemplatable):
     ):
         super().__init__()
         if active is not None:
-            self.active = active
+            self._active = active
         if lastScheduleTime is not None:
-            self.lastScheduleTime = lastScheduleTime
+            self._lastScheduleTime = lastScheduleTime
         if lastSuccessfulTime is not None:
-            self.lastSuccessfulTime = lastSuccessfulTime
+            self._lastSuccessfulTime = lastSuccessfulTime
 
 
 class io__k8s__api__batch__v1__JobCondition(K8STemplatable):
@@ -5494,14 +7270,33 @@ class io__k8s__api__batch__v1__JobCondition(K8STemplatable):
     ]
     required_props: List[str] = ["type", "status"]
 
-    lastProbeTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: str
-    type: str
+    @property
+    def lastProbeTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastProbeTime
+
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -5518,17 +7313,17 @@ class io__k8s__api__batch__v1__JobCondition(K8STemplatable):
     ):
         super().__init__()
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
         if lastProbeTime is not None:
-            self.lastProbeTime = lastProbeTime
+            self._lastProbeTime = lastProbeTime
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__api__batch__v1__JobStatus(K8STemplatable):
@@ -5547,17 +7342,45 @@ class io__k8s__api__batch__v1__JobStatus(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    active: Optional[int] = None
-    completedIndexes: Optional[str] = None
-    completionTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    conditions: Optional[List[io__k8s__api__batch__v1__JobCondition]] = None
-    failed: Optional[int] = None
-    ready: Optional[int] = None
-    startTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    succeeded: Optional[int] = None
-    uncountedTerminatedPods: Optional[
-        io__k8s__api__batch__v1__UncountedTerminatedPods
-    ] = None
+    @property
+    def active(self) -> Optional[int]:
+        return self._active
+
+    @property
+    def completedIndexes(self) -> Optional[str]:
+        return self._completedIndexes
+
+    @property
+    def completionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._completionTime
+
+    @property
+    def conditions(self) -> Optional[List[io__k8s__api__batch__v1__JobCondition]]:
+        return self._conditions
+
+    @property
+    def failed(self) -> Optional[int]:
+        return self._failed
+
+    @property
+    def ready(self) -> Optional[int]:
+        return self._ready
+
+    @property
+    def startTime(self) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._startTime
+
+    @property
+    def succeeded(self) -> Optional[int]:
+        return self._succeeded
+
+    @property
+    def uncountedTerminatedPods(
+        self,
+    ) -> Optional[io__k8s__api__batch__v1__UncountedTerminatedPods]:
+        return self._uncountedTerminatedPods
 
     def __init__(
         self,
@@ -5577,23 +7400,23 @@ class io__k8s__api__batch__v1__JobStatus(K8STemplatable):
     ):
         super().__init__()
         if active is not None:
-            self.active = active
+            self._active = active
         if completedIndexes is not None:
-            self.completedIndexes = completedIndexes
+            self._completedIndexes = completedIndexes
         if completionTime is not None:
-            self.completionTime = completionTime
+            self._completionTime = completionTime
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if failed is not None:
-            self.failed = failed
+            self._failed = failed
         if ready is not None:
-            self.ready = ready
+            self._ready = ready
         if startTime is not None:
-            self.startTime = startTime
+            self._startTime = startTime
         if succeeded is not None:
-            self.succeeded = succeeded
+            self._succeeded = succeeded
         if uncountedTerminatedPods is not None:
-            self.uncountedTerminatedPods = uncountedTerminatedPods
+            self._uncountedTerminatedPods = uncountedTerminatedPods
 
 
 class io__k8s__api__batch__v1beta1__CronJobStatus(K8STemplatable):
@@ -5602,11 +7425,21 @@ class io__k8s__api__batch__v1beta1__CronJobStatus(K8STemplatable):
     props: List[str] = ["active", "lastScheduleTime", "lastSuccessfulTime"]
     required_props: List[str] = []
 
-    active: Optional[List[io__k8s__api__core__v1__ObjectReference]] = None
-    lastScheduleTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    lastSuccessfulTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
+    @property
+    def active(self) -> Optional[List[io__k8s__api__core__v1__ObjectReference]]:
+        return self._active
+
+    @property
+    def lastScheduleTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastScheduleTime
+
+    @property
+    def lastSuccessfulTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastSuccessfulTime
 
     def __init__(
         self,
@@ -5620,11 +7453,11 @@ class io__k8s__api__batch__v1beta1__CronJobStatus(K8STemplatable):
     ):
         super().__init__()
         if active is not None:
-            self.active = active
+            self._active = active
         if lastScheduleTime is not None:
-            self.lastScheduleTime = lastScheduleTime
+            self._lastScheduleTime = lastScheduleTime
         if lastSuccessfulTime is not None:
-            self.lastSuccessfulTime = lastSuccessfulTime
+            self._lastSuccessfulTime = lastSuccessfulTime
 
 
 class io__k8s__api__certificates__v1__CertificateSigningRequestCondition(
@@ -5642,14 +7475,33 @@ class io__k8s__api__certificates__v1__CertificateSigningRequestCondition(
     ]
     required_props: List[str] = ["type", "status"]
 
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    lastUpdateTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: str
-    type: str
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def lastUpdateTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastUpdateTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -5666,17 +7518,17 @@ class io__k8s__api__certificates__v1__CertificateSigningRequestCondition(
     ):
         super().__init__()
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if lastUpdateTime is not None:
-            self.lastUpdateTime = lastUpdateTime
+            self._lastUpdateTime = lastUpdateTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__api__certificates__v1__CertificateSigningRequestStatus(K8STemplatable):
@@ -5685,10 +7537,17 @@ class io__k8s__api__certificates__v1__CertificateSigningRequestStatus(K8STemplat
     props: List[str] = ["certificate", "conditions"]
     required_props: List[str] = []
 
-    certificate: Optional[str] = None
-    conditions: Optional[
+    @property
+    def certificate(self) -> Optional[str]:
+        return self._certificate
+
+    @property
+    def conditions(
+        self,
+    ) -> Optional[
         List[io__k8s__api__certificates__v1__CertificateSigningRequestCondition]
-    ] = None
+    ]:
+        return self._conditions
 
     def __init__(
         self,
@@ -5699,9 +7558,9 @@ class io__k8s__api__certificates__v1__CertificateSigningRequestStatus(K8STemplat
     ):
         super().__init__()
         if certificate is not None:
-            self.certificate = certificate
+            self._certificate = certificate
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
 
 
 class io__k8s__api__coordination__v1__LeaseSpec(K8STemplatable):
@@ -5716,11 +7575,29 @@ class io__k8s__api__coordination__v1__LeaseSpec(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    acquireTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime] = None
-    holderIdentity: Optional[str] = None
-    leaseDurationSeconds: Optional[int] = None
-    leaseTransitions: Optional[int] = None
-    renewTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime] = None
+    @property
+    def acquireTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime]:
+        return self._acquireTime
+
+    @property
+    def holderIdentity(self) -> Optional[str]:
+        return self._holderIdentity
+
+    @property
+    def leaseDurationSeconds(self) -> Optional[int]:
+        return self._leaseDurationSeconds
+
+    @property
+    def leaseTransitions(self) -> Optional[int]:
+        return self._leaseTransitions
+
+    @property
+    def renewTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime]:
+        return self._renewTime
 
     def __init__(
         self,
@@ -5736,15 +7613,15 @@ class io__k8s__api__coordination__v1__LeaseSpec(K8STemplatable):
     ):
         super().__init__()
         if acquireTime is not None:
-            self.acquireTime = acquireTime
+            self._acquireTime = acquireTime
         if holderIdentity is not None:
-            self.holderIdentity = holderIdentity
+            self._holderIdentity = holderIdentity
         if leaseDurationSeconds is not None:
-            self.leaseDurationSeconds = leaseDurationSeconds
+            self._leaseDurationSeconds = leaseDurationSeconds
         if leaseTransitions is not None:
-            self.leaseTransitions = leaseTransitions
+            self._leaseTransitions = leaseTransitions
         if renewTime is not None:
-            self.renewTime = renewTime
+            self._renewTime = renewTime
 
 
 class io__k8s__api__core__v1__CSIPersistentVolumeSource(K8STemplatable):
@@ -5763,15 +7640,45 @@ class io__k8s__api__core__v1__CSIPersistentVolumeSource(K8STemplatable):
     ]
     required_props: List[str] = ["driver", "volumeHandle"]
 
-    controllerExpandSecretRef: Optional[io__k8s__api__core__v1__SecretReference] = None
-    controllerPublishSecretRef: Optional[io__k8s__api__core__v1__SecretReference] = None
-    driver: str
-    fsType: Optional[str] = None
-    nodePublishSecretRef: Optional[io__k8s__api__core__v1__SecretReference] = None
-    nodeStageSecretRef: Optional[io__k8s__api__core__v1__SecretReference] = None
-    readOnly: Optional[bool] = None
-    volumeAttributes: Any
-    volumeHandle: str
+    @property
+    def controllerExpandSecretRef(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__SecretReference]:
+        return self._controllerExpandSecretRef
+
+    @property
+    def controllerPublishSecretRef(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__SecretReference]:
+        return self._controllerPublishSecretRef
+
+    @property
+    def driver(self) -> str:
+        return self._driver
+
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def nodePublishSecretRef(self) -> Optional[io__k8s__api__core__v1__SecretReference]:
+        return self._nodePublishSecretRef
+
+    @property
+    def nodeStageSecretRef(self) -> Optional[io__k8s__api__core__v1__SecretReference]:
+        return self._nodeStageSecretRef
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def volumeAttributes(self) -> Any:
+        return self._volumeAttributes
+
+    @property
+    def volumeHandle(self) -> str:
+        return self._volumeHandle
 
     def __init__(
         self,
@@ -5791,23 +7698,23 @@ class io__k8s__api__core__v1__CSIPersistentVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if driver is not None:
-            self.driver = driver
+            self._driver = driver
         if volumeHandle is not None:
-            self.volumeHandle = volumeHandle
+            self._volumeHandle = volumeHandle
         if controllerExpandSecretRef is not None:
-            self.controllerExpandSecretRef = controllerExpandSecretRef
+            self._controllerExpandSecretRef = controllerExpandSecretRef
         if controllerPublishSecretRef is not None:
-            self.controllerPublishSecretRef = controllerPublishSecretRef
+            self._controllerPublishSecretRef = controllerPublishSecretRef
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if nodePublishSecretRef is not None:
-            self.nodePublishSecretRef = nodePublishSecretRef
+            self._nodePublishSecretRef = nodePublishSecretRef
         if nodeStageSecretRef is not None:
-            self.nodeStageSecretRef = nodeStageSecretRef
+            self._nodeStageSecretRef = nodeStageSecretRef
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if volumeAttributes is not None:
-            self.volumeAttributes = volumeAttributes
+            self._volumeAttributes = volumeAttributes
 
 
 class io__k8s__api__core__v1__CSIVolumeSource(K8STemplatable):
@@ -5822,11 +7729,27 @@ class io__k8s__api__core__v1__CSIVolumeSource(K8STemplatable):
     ]
     required_props: List[str] = ["driver"]
 
-    driver: str
-    fsType: Optional[str] = None
-    nodePublishSecretRef: Optional[io__k8s__api__core__v1__LocalObjectReference] = None
-    readOnly: Optional[bool] = None
-    volumeAttributes: Any
+    @property
+    def driver(self) -> str:
+        return self._driver
+
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def nodePublishSecretRef(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__LocalObjectReference]:
+        return self._nodePublishSecretRef
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def volumeAttributes(self) -> Any:
+        return self._volumeAttributes
 
     def __init__(
         self,
@@ -5840,15 +7763,15 @@ class io__k8s__api__core__v1__CSIVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if driver is not None:
-            self.driver = driver
+            self._driver = driver
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if nodePublishSecretRef is not None:
-            self.nodePublishSecretRef = nodePublishSecretRef
+            self._nodePublishSecretRef = nodePublishSecretRef
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if volumeAttributes is not None:
-            self.volumeAttributes = volumeAttributes
+            self._volumeAttributes = volumeAttributes
 
 
 class io__k8s__api__core__v1__CephFSPersistentVolumeSource(K8STemplatable):
@@ -5864,12 +7787,29 @@ class io__k8s__api__core__v1__CephFSPersistentVolumeSource(K8STemplatable):
     ]
     required_props: List[str] = ["monitors"]
 
-    monitors: List[str]
-    path: Optional[str] = None
-    readOnly: Optional[bool] = None
-    secretFile: Optional[str] = None
-    secretRef: Optional[io__k8s__api__core__v1__SecretReference] = None
-    user: Optional[str] = None
+    @property
+    def monitors(self) -> List[str]:
+        return self._monitors
+
+    @property
+    def path(self) -> Optional[str]:
+        return self._path
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def secretFile(self) -> Optional[str]:
+        return self._secretFile
+
+    @property
+    def secretRef(self) -> Optional[io__k8s__api__core__v1__SecretReference]:
+        return self._secretRef
+
+    @property
+    def user(self) -> Optional[str]:
+        return self._user
 
     def __init__(
         self,
@@ -5882,17 +7822,17 @@ class io__k8s__api__core__v1__CephFSPersistentVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if monitors is not None:
-            self.monitors = monitors
+            self._monitors = monitors
         if path is not None:
-            self.path = path
+            self._path = path
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if secretFile is not None:
-            self.secretFile = secretFile
+            self._secretFile = secretFile
         if secretRef is not None:
-            self.secretRef = secretRef
+            self._secretRef = secretRef
         if user is not None:
-            self.user = user
+            self._user = user
 
 
 class io__k8s__api__core__v1__CephFSVolumeSource(K8STemplatable):
@@ -5908,12 +7848,29 @@ class io__k8s__api__core__v1__CephFSVolumeSource(K8STemplatable):
     ]
     required_props: List[str] = ["monitors"]
 
-    monitors: List[str]
-    path: Optional[str] = None
-    readOnly: Optional[bool] = None
-    secretFile: Optional[str] = None
-    secretRef: Optional[io__k8s__api__core__v1__LocalObjectReference] = None
-    user: Optional[str] = None
+    @property
+    def monitors(self) -> List[str]:
+        return self._monitors
+
+    @property
+    def path(self) -> Optional[str]:
+        return self._path
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def secretFile(self) -> Optional[str]:
+        return self._secretFile
+
+    @property
+    def secretRef(self) -> Optional[io__k8s__api__core__v1__LocalObjectReference]:
+        return self._secretRef
+
+    @property
+    def user(self) -> Optional[str]:
+        return self._user
 
     def __init__(
         self,
@@ -5926,17 +7883,17 @@ class io__k8s__api__core__v1__CephFSVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if monitors is not None:
-            self.monitors = monitors
+            self._monitors = monitors
         if path is not None:
-            self.path = path
+            self._path = path
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if secretFile is not None:
-            self.secretFile = secretFile
+            self._secretFile = secretFile
         if secretRef is not None:
-            self.secretRef = secretRef
+            self._secretRef = secretRef
         if user is not None:
-            self.user = user
+            self._user = user
 
 
 class io__k8s__api__core__v1__CinderPersistentVolumeSource(K8STemplatable):
@@ -5945,10 +7902,21 @@ class io__k8s__api__core__v1__CinderPersistentVolumeSource(K8STemplatable):
     props: List[str] = ["fsType", "readOnly", "secretRef", "volumeID"]
     required_props: List[str] = ["volumeID"]
 
-    fsType: Optional[str] = None
-    readOnly: Optional[bool] = None
-    secretRef: Optional[io__k8s__api__core__v1__SecretReference] = None
-    volumeID: str
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def secretRef(self) -> Optional[io__k8s__api__core__v1__SecretReference]:
+        return self._secretRef
+
+    @property
+    def volumeID(self) -> str:
+        return self._volumeID
 
     def __init__(
         self,
@@ -5959,13 +7927,13 @@ class io__k8s__api__core__v1__CinderPersistentVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if volumeID is not None:
-            self.volumeID = volumeID
+            self._volumeID = volumeID
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if secretRef is not None:
-            self.secretRef = secretRef
+            self._secretRef = secretRef
 
 
 class io__k8s__api__core__v1__CinderVolumeSource(K8STemplatable):
@@ -5974,10 +7942,21 @@ class io__k8s__api__core__v1__CinderVolumeSource(K8STemplatable):
     props: List[str] = ["fsType", "readOnly", "secretRef", "volumeID"]
     required_props: List[str] = ["volumeID"]
 
-    fsType: Optional[str] = None
-    readOnly: Optional[bool] = None
-    secretRef: Optional[io__k8s__api__core__v1__LocalObjectReference] = None
-    volumeID: str
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def secretRef(self) -> Optional[io__k8s__api__core__v1__LocalObjectReference]:
+        return self._secretRef
+
+    @property
+    def volumeID(self) -> str:
+        return self._volumeID
 
     def __init__(
         self,
@@ -5988,13 +7967,13 @@ class io__k8s__api__core__v1__CinderVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if volumeID is not None:
-            self.volumeID = volumeID
+            self._volumeID = volumeID
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if secretRef is not None:
-            self.secretRef = secretRef
+            self._secretRef = secretRef
 
 
 class io__k8s__api__core__v1__ConfigMapProjection(K8STemplatable):
@@ -6005,9 +7984,17 @@ class io__k8s__api__core__v1__ConfigMapProjection(K8STemplatable):
     props: List[str] = ["items", "name", "optional"]
     required_props: List[str] = []
 
-    items: Optional[List[io__k8s__api__core__v1__KeyToPath]] = None
-    name: Optional[str] = None
-    optional: Optional[bool] = None
+    @property
+    def items(self) -> Optional[List[io__k8s__api__core__v1__KeyToPath]]:
+        return self._items
+
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def optional(self) -> Optional[bool]:
+        return self._optional
 
     def __init__(
         self,
@@ -6017,11 +8004,11 @@ class io__k8s__api__core__v1__ConfigMapProjection(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if name is not None:
-            self.name = name
+            self._name = name
         if optional is not None:
-            self.optional = optional
+            self._optional = optional
 
 
 class io__k8s__api__core__v1__ConfigMapVolumeSource(K8STemplatable):
@@ -6032,10 +8019,21 @@ class io__k8s__api__core__v1__ConfigMapVolumeSource(K8STemplatable):
     props: List[str] = ["defaultMode", "items", "name", "optional"]
     required_props: List[str] = []
 
-    defaultMode: Optional[int] = None
-    items: Optional[List[io__k8s__api__core__v1__KeyToPath]] = None
-    name: Optional[str] = None
-    optional: Optional[bool] = None
+    @property
+    def defaultMode(self) -> Optional[int]:
+        return self._defaultMode
+
+    @property
+    def items(self) -> Optional[List[io__k8s__api__core__v1__KeyToPath]]:
+        return self._items
+
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def optional(self) -> Optional[bool]:
+        return self._optional
 
     def __init__(
         self,
@@ -6046,13 +8044,13 @@ class io__k8s__api__core__v1__ConfigMapVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if defaultMode is not None:
-            self.defaultMode = defaultMode
+            self._defaultMode = defaultMode
         if items is not None:
-            self.items = items
+            self._items = items
         if name is not None:
-            self.name = name
+            self._name = name
         if optional is not None:
-            self.optional = optional
+            self._optional = optional
 
 
 class io__k8s__api__core__v1__ContainerStateRunning(K8STemplatable):
@@ -6061,7 +8059,9 @@ class io__k8s__api__core__v1__ContainerStateRunning(K8STemplatable):
     props: List[str] = ["startedAt"]
     required_props: List[str] = []
 
-    startedAt: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
+    @property
+    def startedAt(self) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._startedAt
 
     def __init__(
         self,
@@ -6069,7 +8069,7 @@ class io__k8s__api__core__v1__ContainerStateRunning(K8STemplatable):
     ):
         super().__init__()
         if startedAt is not None:
-            self.startedAt = startedAt
+            self._startedAt = startedAt
 
 
 class io__k8s__api__core__v1__ContainerStateTerminated(K8STemplatable):
@@ -6086,13 +8086,33 @@ class io__k8s__api__core__v1__ContainerStateTerminated(K8STemplatable):
     ]
     required_props: List[str] = ["exitCode"]
 
-    containerID: Optional[str] = None
-    exitCode: int
-    finishedAt: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    signal: Optional[int] = None
-    startedAt: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
+    @property
+    def containerID(self) -> Optional[str]:
+        return self._containerID
+
+    @property
+    def exitCode(self) -> int:
+        return self._exitCode
+
+    @property
+    def finishedAt(self) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._finishedAt
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def signal(self) -> Optional[int]:
+        return self._signal
+
+    @property
+    def startedAt(self) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._startedAt
 
     def __init__(
         self,
@@ -6106,19 +8126,19 @@ class io__k8s__api__core__v1__ContainerStateTerminated(K8STemplatable):
     ):
         super().__init__()
         if exitCode is not None:
-            self.exitCode = exitCode
+            self._exitCode = exitCode
         if containerID is not None:
-            self.containerID = containerID
+            self._containerID = containerID
         if finishedAt is not None:
-            self.finishedAt = finishedAt
+            self._finishedAt = finishedAt
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
         if signal is not None:
-            self.signal = signal
+            self._signal = signal
         if startedAt is not None:
-            self.startedAt = startedAt
+            self._startedAt = startedAt
 
 
 class io__k8s__api__core__v1__EmptyDirVolumeSource(K8STemplatable):
@@ -6127,8 +8147,15 @@ class io__k8s__api__core__v1__EmptyDirVolumeSource(K8STemplatable):
     props: List[str] = ["medium", "sizeLimit"]
     required_props: List[str] = []
 
-    medium: Optional[str] = None
-    sizeLimit: Optional[io__k8s__apimachinery__pkg__api__resource__Quantity] = None
+    @property
+    def medium(self) -> Optional[str]:
+        return self._medium
+
+    @property
+    def sizeLimit(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._sizeLimit
 
     def __init__(
         self,
@@ -6137,9 +8164,9 @@ class io__k8s__api__core__v1__EmptyDirVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if medium is not None:
-            self.medium = medium
+            self._medium = medium
         if sizeLimit is not None:
-            self.sizeLimit = sizeLimit
+            self._sizeLimit = sizeLimit
 
 
 class io__k8s__api__core__v1__EndpointAddress(K8STemplatable):
@@ -6148,10 +8175,21 @@ class io__k8s__api__core__v1__EndpointAddress(K8STemplatable):
     props: List[str] = ["hostname", "ip", "nodeName", "targetRef"]
     required_props: List[str] = ["ip"]
 
-    hostname: Optional[str] = None
-    ip: str
-    nodeName: Optional[str] = None
-    targetRef: Optional[io__k8s__api__core__v1__ObjectReference] = None
+    @property
+    def hostname(self) -> Optional[str]:
+        return self._hostname
+
+    @property
+    def ip(self) -> str:
+        return self._ip
+
+    @property
+    def nodeName(self) -> Optional[str]:
+        return self._nodeName
+
+    @property
+    def targetRef(self) -> Optional[io__k8s__api__core__v1__ObjectReference]:
+        return self._targetRef
 
     def __init__(
         self,
@@ -6162,13 +8200,13 @@ class io__k8s__api__core__v1__EndpointAddress(K8STemplatable):
     ):
         super().__init__()
         if ip is not None:
-            self.ip = ip
+            self._ip = ip
         if hostname is not None:
-            self.hostname = hostname
+            self._hostname = hostname
         if nodeName is not None:
-            self.nodeName = nodeName
+            self._nodeName = nodeName
         if targetRef is not None:
-            self.targetRef = targetRef
+            self._targetRef = targetRef
 
 
 class io__k8s__api__core__v1__EndpointSubset(K8STemplatable):
@@ -6184,9 +8222,19 @@ class io__k8s__api__core__v1__EndpointSubset(K8STemplatable):
     props: List[str] = ["addresses", "notReadyAddresses", "ports"]
     required_props: List[str] = []
 
-    addresses: Optional[List[io__k8s__api__core__v1__EndpointAddress]] = None
-    notReadyAddresses: Optional[List[io__k8s__api__core__v1__EndpointAddress]] = None
-    ports: Optional[List[io__k8s__api__core__v1__EndpointPort]] = None
+    @property
+    def addresses(self) -> Optional[List[io__k8s__api__core__v1__EndpointAddress]]:
+        return self._addresses
+
+    @property
+    def notReadyAddresses(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__EndpointAddress]]:
+        return self._notReadyAddresses
+
+    @property
+    def ports(self) -> Optional[List[io__k8s__api__core__v1__EndpointPort]]:
+        return self._ports
 
     def __init__(
         self,
@@ -6198,11 +8246,11 @@ class io__k8s__api__core__v1__EndpointSubset(K8STemplatable):
     ):
         super().__init__()
         if addresses is not None:
-            self.addresses = addresses
+            self._addresses = addresses
         if notReadyAddresses is not None:
-            self.notReadyAddresses = notReadyAddresses
+            self._notReadyAddresses = notReadyAddresses
         if ports is not None:
-            self.ports = ports
+            self._ports = ports
 
 
 class io__k8s__api__core__v1__EnvFromSource(K8STemplatable):
@@ -6211,9 +8259,17 @@ class io__k8s__api__core__v1__EnvFromSource(K8STemplatable):
     props: List[str] = ["configMapRef", "prefix", "secretRef"]
     required_props: List[str] = []
 
-    configMapRef: Optional[io__k8s__api__core__v1__ConfigMapEnvSource] = None
-    prefix: Optional[str] = None
-    secretRef: Optional[io__k8s__api__core__v1__SecretEnvSource] = None
+    @property
+    def configMapRef(self) -> Optional[io__k8s__api__core__v1__ConfigMapEnvSource]:
+        return self._configMapRef
+
+    @property
+    def prefix(self) -> Optional[str]:
+        return self._prefix
+
+    @property
+    def secretRef(self) -> Optional[io__k8s__api__core__v1__SecretEnvSource]:
+        return self._secretRef
 
     def __init__(
         self,
@@ -6223,11 +8279,11 @@ class io__k8s__api__core__v1__EnvFromSource(K8STemplatable):
     ):
         super().__init__()
         if configMapRef is not None:
-            self.configMapRef = configMapRef
+            self._configMapRef = configMapRef
         if prefix is not None:
-            self.prefix = prefix
+            self._prefix = prefix
         if secretRef is not None:
-            self.secretRef = secretRef
+            self._secretRef = secretRef
 
 
 class io__k8s__api__core__v1__EventSeries(K8STemplatable):
@@ -6236,10 +8292,15 @@ class io__k8s__api__core__v1__EventSeries(K8STemplatable):
     props: List[str] = ["count", "lastObservedTime"]
     required_props: List[str] = []
 
-    count: Optional[int] = None
-    lastObservedTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime
-    ] = None
+    @property
+    def count(self) -> Optional[int]:
+        return self._count
+
+    @property
+    def lastObservedTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime]:
+        return self._lastObservedTime
 
     def __init__(
         self,
@@ -6250,9 +8311,9 @@ class io__k8s__api__core__v1__EventSeries(K8STemplatable):
     ):
         super().__init__()
         if count is not None:
-            self.count = count
+            self._count = count
         if lastObservedTime is not None:
-            self.lastObservedTime = lastObservedTime
+            self._lastObservedTime = lastObservedTime
 
 
 class io__k8s__api__core__v1__FlexPersistentVolumeSource(K8STemplatable):
@@ -6261,11 +8322,25 @@ class io__k8s__api__core__v1__FlexPersistentVolumeSource(K8STemplatable):
     props: List[str] = ["driver", "fsType", "options", "readOnly", "secretRef"]
     required_props: List[str] = ["driver"]
 
-    driver: str
-    fsType: Optional[str] = None
-    options: Any
-    readOnly: Optional[bool] = None
-    secretRef: Optional[io__k8s__api__core__v1__SecretReference] = None
+    @property
+    def driver(self) -> str:
+        return self._driver
+
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def options(self) -> Any:
+        return self._options
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def secretRef(self) -> Optional[io__k8s__api__core__v1__SecretReference]:
+        return self._secretRef
 
     def __init__(
         self,
@@ -6277,15 +8352,15 @@ class io__k8s__api__core__v1__FlexPersistentVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if driver is not None:
-            self.driver = driver
+            self._driver = driver
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if options is not None:
-            self.options = options
+            self._options = options
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if secretRef is not None:
-            self.secretRef = secretRef
+            self._secretRef = secretRef
 
 
 class io__k8s__api__core__v1__FlexVolumeSource(K8STemplatable):
@@ -6294,11 +8369,25 @@ class io__k8s__api__core__v1__FlexVolumeSource(K8STemplatable):
     props: List[str] = ["driver", "fsType", "options", "readOnly", "secretRef"]
     required_props: List[str] = ["driver"]
 
-    driver: str
-    fsType: Optional[str] = None
-    options: Any
-    readOnly: Optional[bool] = None
-    secretRef: Optional[io__k8s__api__core__v1__LocalObjectReference] = None
+    @property
+    def driver(self) -> str:
+        return self._driver
+
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def options(self) -> Any:
+        return self._options
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def secretRef(self) -> Optional[io__k8s__api__core__v1__LocalObjectReference]:
+        return self._secretRef
 
     def __init__(
         self,
@@ -6310,15 +8399,15 @@ class io__k8s__api__core__v1__FlexVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if driver is not None:
-            self.driver = driver
+            self._driver = driver
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if options is not None:
-            self.options = options
+            self._options = options
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if secretRef is not None:
-            self.secretRef = secretRef
+            self._secretRef = secretRef
 
 
 class io__k8s__api__core__v1__HTTPGetAction(K8STemplatable):
@@ -6327,11 +8416,25 @@ class io__k8s__api__core__v1__HTTPGetAction(K8STemplatable):
     props: List[str] = ["host", "httpHeaders", "path", "port", "scheme"]
     required_props: List[str] = ["port"]
 
-    host: Optional[str] = None
-    httpHeaders: Optional[List[io__k8s__api__core__v1__HTTPHeader]] = None
-    path: Optional[str] = None
-    port: io__k8s__apimachinery__pkg__util__intstr__IntOrString
-    scheme: Optional[str] = None
+    @property
+    def host(self) -> Optional[str]:
+        return self._host
+
+    @property
+    def httpHeaders(self) -> Optional[List[io__k8s__api__core__v1__HTTPHeader]]:
+        return self._httpHeaders
+
+    @property
+    def path(self) -> Optional[str]:
+        return self._path
+
+    @property
+    def port(self) -> io__k8s__apimachinery__pkg__util__intstr__IntOrString:
+        return self._port
+
+    @property
+    def scheme(self) -> Optional[str]:
+        return self._scheme
 
     def __init__(
         self,
@@ -6343,15 +8446,15 @@ class io__k8s__api__core__v1__HTTPGetAction(K8STemplatable):
     ):
         super().__init__()
         if port is not None:
-            self.port = port
+            self._port = port
         if host is not None:
-            self.host = host
+            self._host = host
         if httpHeaders is not None:
-            self.httpHeaders = httpHeaders
+            self._httpHeaders = httpHeaders
         if path is not None:
-            self.path = path
+            self._path = path
         if scheme is not None:
-            self.scheme = scheme
+            self._scheme = scheme
 
 
 class io__k8s__api__core__v1__ISCSIPersistentVolumeSource(K8STemplatable):
@@ -6372,17 +8475,49 @@ class io__k8s__api__core__v1__ISCSIPersistentVolumeSource(K8STemplatable):
     ]
     required_props: List[str] = ["targetPortal", "iqn", "lun"]
 
-    chapAuthDiscovery: Optional[bool] = None
-    chapAuthSession: Optional[bool] = None
-    fsType: Optional[str] = None
-    initiatorName: Optional[str] = None
-    iqn: str
-    iscsiInterface: Optional[str] = None
-    lun: int
-    portals: Optional[List[str]] = None
-    readOnly: Optional[bool] = None
-    secretRef: Optional[io__k8s__api__core__v1__SecretReference] = None
-    targetPortal: str
+    @property
+    def chapAuthDiscovery(self) -> Optional[bool]:
+        return self._chapAuthDiscovery
+
+    @property
+    def chapAuthSession(self) -> Optional[bool]:
+        return self._chapAuthSession
+
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def initiatorName(self) -> Optional[str]:
+        return self._initiatorName
+
+    @property
+    def iqn(self) -> str:
+        return self._iqn
+
+    @property
+    def iscsiInterface(self) -> Optional[str]:
+        return self._iscsiInterface
+
+    @property
+    def lun(self) -> int:
+        return self._lun
+
+    @property
+    def portals(self) -> Optional[List[str]]:
+        return self._portals
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def secretRef(self) -> Optional[io__k8s__api__core__v1__SecretReference]:
+        return self._secretRef
+
+    @property
+    def targetPortal(self) -> str:
+        return self._targetPortal
 
     def __init__(
         self,
@@ -6400,27 +8535,27 @@ class io__k8s__api__core__v1__ISCSIPersistentVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if iqn is not None:
-            self.iqn = iqn
+            self._iqn = iqn
         if lun is not None:
-            self.lun = lun
+            self._lun = lun
         if targetPortal is not None:
-            self.targetPortal = targetPortal
+            self._targetPortal = targetPortal
         if chapAuthDiscovery is not None:
-            self.chapAuthDiscovery = chapAuthDiscovery
+            self._chapAuthDiscovery = chapAuthDiscovery
         if chapAuthSession is not None:
-            self.chapAuthSession = chapAuthSession
+            self._chapAuthSession = chapAuthSession
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if initiatorName is not None:
-            self.initiatorName = initiatorName
+            self._initiatorName = initiatorName
         if iscsiInterface is not None:
-            self.iscsiInterface = iscsiInterface
+            self._iscsiInterface = iscsiInterface
         if portals is not None:
-            self.portals = portals
+            self._portals = portals
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if secretRef is not None:
-            self.secretRef = secretRef
+            self._secretRef = secretRef
 
 
 class io__k8s__api__core__v1__ISCSIVolumeSource(K8STemplatable):
@@ -6441,17 +8576,49 @@ class io__k8s__api__core__v1__ISCSIVolumeSource(K8STemplatable):
     ]
     required_props: List[str] = ["targetPortal", "iqn", "lun"]
 
-    chapAuthDiscovery: Optional[bool] = None
-    chapAuthSession: Optional[bool] = None
-    fsType: Optional[str] = None
-    initiatorName: Optional[str] = None
-    iqn: str
-    iscsiInterface: Optional[str] = None
-    lun: int
-    portals: Optional[List[str]] = None
-    readOnly: Optional[bool] = None
-    secretRef: Optional[io__k8s__api__core__v1__LocalObjectReference] = None
-    targetPortal: str
+    @property
+    def chapAuthDiscovery(self) -> Optional[bool]:
+        return self._chapAuthDiscovery
+
+    @property
+    def chapAuthSession(self) -> Optional[bool]:
+        return self._chapAuthSession
+
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def initiatorName(self) -> Optional[str]:
+        return self._initiatorName
+
+    @property
+    def iqn(self) -> str:
+        return self._iqn
+
+    @property
+    def iscsiInterface(self) -> Optional[str]:
+        return self._iscsiInterface
+
+    @property
+    def lun(self) -> int:
+        return self._lun
+
+    @property
+    def portals(self) -> Optional[List[str]]:
+        return self._portals
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def secretRef(self) -> Optional[io__k8s__api__core__v1__LocalObjectReference]:
+        return self._secretRef
+
+    @property
+    def targetPortal(self) -> str:
+        return self._targetPortal
 
     def __init__(
         self,
@@ -6469,27 +8636,27 @@ class io__k8s__api__core__v1__ISCSIVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if iqn is not None:
-            self.iqn = iqn
+            self._iqn = iqn
         if lun is not None:
-            self.lun = lun
+            self._lun = lun
         if targetPortal is not None:
-            self.targetPortal = targetPortal
+            self._targetPortal = targetPortal
         if chapAuthDiscovery is not None:
-            self.chapAuthDiscovery = chapAuthDiscovery
+            self._chapAuthDiscovery = chapAuthDiscovery
         if chapAuthSession is not None:
-            self.chapAuthSession = chapAuthSession
+            self._chapAuthSession = chapAuthSession
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if initiatorName is not None:
-            self.initiatorName = initiatorName
+            self._initiatorName = initiatorName
         if iscsiInterface is not None:
-            self.iscsiInterface = iscsiInterface
+            self._iscsiInterface = iscsiInterface
         if portals is not None:
-            self.portals = portals
+            self._portals = portals
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if secretRef is not None:
-            self.secretRef = secretRef
+            self._secretRef = secretRef
 
 
 class io__k8s__api__core__v1__LoadBalancerIngress(K8STemplatable):
@@ -6498,9 +8665,17 @@ class io__k8s__api__core__v1__LoadBalancerIngress(K8STemplatable):
     props: List[str] = ["hostname", "ip", "ports"]
     required_props: List[str] = []
 
-    hostname: Optional[str] = None
-    ip: Optional[str] = None
-    ports: Optional[List[io__k8s__api__core__v1__PortStatus]] = None
+    @property
+    def hostname(self) -> Optional[str]:
+        return self._hostname
+
+    @property
+    def ip(self) -> Optional[str]:
+        return self._ip
+
+    @property
+    def ports(self) -> Optional[List[io__k8s__api__core__v1__PortStatus]]:
+        return self._ports
 
     def __init__(
         self,
@@ -6510,11 +8685,11 @@ class io__k8s__api__core__v1__LoadBalancerIngress(K8STemplatable):
     ):
         super().__init__()
         if hostname is not None:
-            self.hostname = hostname
+            self._hostname = hostname
         if ip is not None:
-            self.ip = ip
+            self._ip = ip
         if ports is not None:
-            self.ports = ports
+            self._ports = ports
 
 
 class io__k8s__api__core__v1__LoadBalancerStatus(K8STemplatable):
@@ -6523,7 +8698,9 @@ class io__k8s__api__core__v1__LoadBalancerStatus(K8STemplatable):
     props: List[str] = ["ingress"]
     required_props: List[str] = []
 
-    ingress: Optional[List[io__k8s__api__core__v1__LoadBalancerIngress]] = None
+    @property
+    def ingress(self) -> Optional[List[io__k8s__api__core__v1__LoadBalancerIngress]]:
+        return self._ingress
 
     def __init__(
         self,
@@ -6531,7 +8708,7 @@ class io__k8s__api__core__v1__LoadBalancerStatus(K8STemplatable):
     ):
         super().__init__()
         if ingress is not None:
-            self.ingress = ingress
+            self._ingress = ingress
 
 
 class io__k8s__api__core__v1__NamespaceCondition(K8STemplatable):
@@ -6540,13 +8717,27 @@ class io__k8s__api__core__v1__NamespaceCondition(K8STemplatable):
     props: List[str] = ["lastTransitionTime", "message", "reason", "status", "type"]
     required_props: List[str] = ["type", "status"]
 
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: str
-    type: str
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -6560,15 +8751,15 @@ class io__k8s__api__core__v1__NamespaceCondition(K8STemplatable):
     ):
         super().__init__()
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__api__core__v1__NamespaceStatus(K8STemplatable):
@@ -6577,8 +8768,13 @@ class io__k8s__api__core__v1__NamespaceStatus(K8STemplatable):
     props: List[str] = ["conditions", "phase"]
     required_props: List[str] = []
 
-    conditions: Optional[List[io__k8s__api__core__v1__NamespaceCondition]] = None
-    phase: Optional[str] = None
+    @property
+    def conditions(self) -> Optional[List[io__k8s__api__core__v1__NamespaceCondition]]:
+        return self._conditions
+
+    @property
+    def phase(self) -> Optional[str]:
+        return self._phase
 
     def __init__(
         self,
@@ -6587,9 +8783,9 @@ class io__k8s__api__core__v1__NamespaceStatus(K8STemplatable):
     ):
         super().__init__()
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if phase is not None:
-            self.phase = phase
+            self._phase = phase
 
 
 class io__k8s__api__core__v1__NodeCondition(K8STemplatable):
@@ -6605,14 +8801,33 @@ class io__k8s__api__core__v1__NodeCondition(K8STemplatable):
     ]
     required_props: List[str] = ["type", "status"]
 
-    lastHeartbeatTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: str
-    type: str
+    @property
+    def lastHeartbeatTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastHeartbeatTime
+
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -6629,17 +8844,17 @@ class io__k8s__api__core__v1__NodeCondition(K8STemplatable):
     ):
         super().__init__()
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
         if lastHeartbeatTime is not None:
-            self.lastHeartbeatTime = lastHeartbeatTime
+            self._lastHeartbeatTime = lastHeartbeatTime
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__api__core__v1__NodeSelector(K8STemplatable):
@@ -6648,14 +8863,16 @@ class io__k8s__api__core__v1__NodeSelector(K8STemplatable):
     props: List[str] = ["nodeSelectorTerms"]
     required_props: List[str] = ["nodeSelectorTerms"]
 
-    nodeSelectorTerms: List[io__k8s__api__core__v1__NodeSelectorTerm]
+    @property
+    def nodeSelectorTerms(self) -> List[io__k8s__api__core__v1__NodeSelectorTerm]:
+        return self._nodeSelectorTerms
 
     def __init__(
         self, nodeSelectorTerms: List[io__k8s__api__core__v1__NodeSelectorTerm]
     ):
         super().__init__()
         if nodeSelectorTerms is not None:
-            self.nodeSelectorTerms = nodeSelectorTerms
+            self._nodeSelectorTerms = nodeSelectorTerms
 
 
 class io__k8s__api__core__v1__NodeStatus(K8STemplatable):
@@ -6676,17 +8893,49 @@ class io__k8s__api__core__v1__NodeStatus(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    addresses: Optional[List[io__k8s__api__core__v1__NodeAddress]] = None
-    allocatable: Any
-    capacity: Any
-    conditions: Optional[List[io__k8s__api__core__v1__NodeCondition]] = None
-    config: Optional[io__k8s__api__core__v1__NodeConfigStatus] = None
-    daemonEndpoints: Optional[io__k8s__api__core__v1__NodeDaemonEndpoints] = None
-    images: Optional[List[io__k8s__api__core__v1__ContainerImage]] = None
-    nodeInfo: Optional[io__k8s__api__core__v1__NodeSystemInfo] = None
-    phase: Optional[str] = None
-    volumesAttached: Optional[List[io__k8s__api__core__v1__AttachedVolume]] = None
-    volumesInUse: Optional[List[str]] = None
+    @property
+    def addresses(self) -> Optional[List[io__k8s__api__core__v1__NodeAddress]]:
+        return self._addresses
+
+    @property
+    def allocatable(self) -> Any:
+        return self._allocatable
+
+    @property
+    def capacity(self) -> Any:
+        return self._capacity
+
+    @property
+    def conditions(self) -> Optional[List[io__k8s__api__core__v1__NodeCondition]]:
+        return self._conditions
+
+    @property
+    def config(self) -> Optional[io__k8s__api__core__v1__NodeConfigStatus]:
+        return self._config
+
+    @property
+    def daemonEndpoints(self) -> Optional[io__k8s__api__core__v1__NodeDaemonEndpoints]:
+        return self._daemonEndpoints
+
+    @property
+    def images(self) -> Optional[List[io__k8s__api__core__v1__ContainerImage]]:
+        return self._images
+
+    @property
+    def nodeInfo(self) -> Optional[io__k8s__api__core__v1__NodeSystemInfo]:
+        return self._nodeInfo
+
+    @property
+    def phase(self) -> Optional[str]:
+        return self._phase
+
+    @property
+    def volumesAttached(self) -> Optional[List[io__k8s__api__core__v1__AttachedVolume]]:
+        return self._volumesAttached
+
+    @property
+    def volumesInUse(self) -> Optional[List[str]]:
+        return self._volumesInUse
 
     def __init__(
         self,
@@ -6704,27 +8953,27 @@ class io__k8s__api__core__v1__NodeStatus(K8STemplatable):
     ):
         super().__init__()
         if addresses is not None:
-            self.addresses = addresses
+            self._addresses = addresses
         if allocatable is not None:
-            self.allocatable = allocatable
+            self._allocatable = allocatable
         if capacity is not None:
-            self.capacity = capacity
+            self._capacity = capacity
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if config is not None:
-            self.config = config
+            self._config = config
         if daemonEndpoints is not None:
-            self.daemonEndpoints = daemonEndpoints
+            self._daemonEndpoints = daemonEndpoints
         if images is not None:
-            self.images = images
+            self._images = images
         if nodeInfo is not None:
-            self.nodeInfo = nodeInfo
+            self._nodeInfo = nodeInfo
         if phase is not None:
-            self.phase = phase
+            self._phase = phase
         if volumesAttached is not None:
-            self.volumesAttached = volumesAttached
+            self._volumesAttached = volumesAttached
         if volumesInUse is not None:
-            self.volumesInUse = volumesInUse
+            self._volumesInUse = volumesInUse
 
 
 class io__k8s__api__core__v1__PersistentVolumeClaimCondition(K8STemplatable):
@@ -6740,14 +8989,33 @@ class io__k8s__api__core__v1__PersistentVolumeClaimCondition(K8STemplatable):
     ]
     required_props: List[str] = ["type", "status"]
 
-    lastProbeTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: str
-    type: str
+    @property
+    def lastProbeTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastProbeTime
+
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -6764,17 +9032,17 @@ class io__k8s__api__core__v1__PersistentVolumeClaimCondition(K8STemplatable):
     ):
         super().__init__()
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
         if lastProbeTime is not None:
-            self.lastProbeTime = lastProbeTime
+            self._lastProbeTime = lastProbeTime
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__api__core__v1__PersistentVolumeClaimStatus(K8STemplatable):
@@ -6790,14 +9058,31 @@ class io__k8s__api__core__v1__PersistentVolumeClaimStatus(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    accessModes: Optional[List[str]] = None
-    allocatedResources: Any
-    capacity: Any
-    conditions: Optional[
-        List[io__k8s__api__core__v1__PersistentVolumeClaimCondition]
-    ] = None
-    phase: Optional[str] = None
-    resizeStatus: Optional[str] = None
+    @property
+    def accessModes(self) -> Optional[List[str]]:
+        return self._accessModes
+
+    @property
+    def allocatedResources(self) -> Any:
+        return self._allocatedResources
+
+    @property
+    def capacity(self) -> Any:
+        return self._capacity
+
+    @property
+    def conditions(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__PersistentVolumeClaimCondition]]:
+        return self._conditions
+
+    @property
+    def phase(self) -> Optional[str]:
+        return self._phase
+
+    @property
+    def resizeStatus(self) -> Optional[str]:
+        return self._resizeStatus
 
     def __init__(
         self,
@@ -6812,17 +9097,17 @@ class io__k8s__api__core__v1__PersistentVolumeClaimStatus(K8STemplatable):
     ):
         super().__init__()
         if accessModes is not None:
-            self.accessModes = accessModes
+            self._accessModes = accessModes
         if allocatedResources is not None:
-            self.allocatedResources = allocatedResources
+            self._allocatedResources = allocatedResources
         if capacity is not None:
-            self.capacity = capacity
+            self._capacity = capacity
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if phase is not None:
-            self.phase = phase
+            self._phase = phase
         if resizeStatus is not None:
-            self.resizeStatus = resizeStatus
+            self._resizeStatus = resizeStatus
 
 
 class io__k8s__api__core__v1__PodCondition(K8STemplatable):
@@ -6838,14 +9123,33 @@ class io__k8s__api__core__v1__PodCondition(K8STemplatable):
     ]
     required_props: List[str] = ["type", "status"]
 
-    lastProbeTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: str
-    type: str
+    @property
+    def lastProbeTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastProbeTime
+
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -6862,17 +9166,17 @@ class io__k8s__api__core__v1__PodCondition(K8STemplatable):
     ):
         super().__init__()
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
         if lastProbeTime is not None:
-            self.lastProbeTime = lastProbeTime
+            self._lastProbeTime = lastProbeTime
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__api__core__v1__PodDNSConfig(K8STemplatable):
@@ -6881,9 +9185,17 @@ class io__k8s__api__core__v1__PodDNSConfig(K8STemplatable):
     props: List[str] = ["nameservers", "options", "searches"]
     required_props: List[str] = []
 
-    nameservers: Optional[List[str]] = None
-    options: Optional[List[io__k8s__api__core__v1__PodDNSConfigOption]] = None
-    searches: Optional[List[str]] = None
+    @property
+    def nameservers(self) -> Optional[List[str]]:
+        return self._nameservers
+
+    @property
+    def options(self) -> Optional[List[io__k8s__api__core__v1__PodDNSConfigOption]]:
+        return self._options
+
+    @property
+    def searches(self) -> Optional[List[str]]:
+        return self._searches
 
     def __init__(
         self,
@@ -6893,11 +9205,11 @@ class io__k8s__api__core__v1__PodDNSConfig(K8STemplatable):
     ):
         super().__init__()
         if nameservers is not None:
-            self.nameservers = nameservers
+            self._nameservers = nameservers
         if options is not None:
-            self.options = options
+            self._options = options
         if searches is not None:
-            self.searches = searches
+            self._searches = searches
 
 
 class io__k8s__api__core__v1__PodSecurityContext(K8STemplatable):
@@ -6917,18 +9229,47 @@ class io__k8s__api__core__v1__PodSecurityContext(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    fsGroup: Optional[int] = None
-    fsGroupChangePolicy: Optional[str] = None
-    runAsGroup: Optional[int] = None
-    runAsNonRoot: Optional[bool] = None
-    runAsUser: Optional[int] = None
-    seLinuxOptions: Optional[io__k8s__api__core__v1__SELinuxOptions] = None
-    seccompProfile: Optional[io__k8s__api__core__v1__SeccompProfile] = None
-    supplementalGroups: Optional[List[int]] = None
-    sysctls: Optional[List[io__k8s__api__core__v1__Sysctl]] = None
-    windowsOptions: Optional[
-        io__k8s__api__core__v1__WindowsSecurityContextOptions
-    ] = None
+    @property
+    def fsGroup(self) -> Optional[int]:
+        return self._fsGroup
+
+    @property
+    def fsGroupChangePolicy(self) -> Optional[str]:
+        return self._fsGroupChangePolicy
+
+    @property
+    def runAsGroup(self) -> Optional[int]:
+        return self._runAsGroup
+
+    @property
+    def runAsNonRoot(self) -> Optional[bool]:
+        return self._runAsNonRoot
+
+    @property
+    def runAsUser(self) -> Optional[int]:
+        return self._runAsUser
+
+    @property
+    def seLinuxOptions(self) -> Optional[io__k8s__api__core__v1__SELinuxOptions]:
+        return self._seLinuxOptions
+
+    @property
+    def seccompProfile(self) -> Optional[io__k8s__api__core__v1__SeccompProfile]:
+        return self._seccompProfile
+
+    @property
+    def supplementalGroups(self) -> Optional[List[int]]:
+        return self._supplementalGroups
+
+    @property
+    def sysctls(self) -> Optional[List[io__k8s__api__core__v1__Sysctl]]:
+        return self._sysctls
+
+    @property
+    def windowsOptions(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__WindowsSecurityContextOptions]:
+        return self._windowsOptions
 
     def __init__(
         self,
@@ -6947,25 +9288,25 @@ class io__k8s__api__core__v1__PodSecurityContext(K8STemplatable):
     ):
         super().__init__()
         if fsGroup is not None:
-            self.fsGroup = fsGroup
+            self._fsGroup = fsGroup
         if fsGroupChangePolicy is not None:
-            self.fsGroupChangePolicy = fsGroupChangePolicy
+            self._fsGroupChangePolicy = fsGroupChangePolicy
         if runAsGroup is not None:
-            self.runAsGroup = runAsGroup
+            self._runAsGroup = runAsGroup
         if runAsNonRoot is not None:
-            self.runAsNonRoot = runAsNonRoot
+            self._runAsNonRoot = runAsNonRoot
         if runAsUser is not None:
-            self.runAsUser = runAsUser
+            self._runAsUser = runAsUser
         if seLinuxOptions is not None:
-            self.seLinuxOptions = seLinuxOptions
+            self._seLinuxOptions = seLinuxOptions
         if seccompProfile is not None:
-            self.seccompProfile = seccompProfile
+            self._seccompProfile = seccompProfile
         if supplementalGroups is not None:
-            self.supplementalGroups = supplementalGroups
+            self._supplementalGroups = supplementalGroups
         if sysctls is not None:
-            self.sysctls = sysctls
+            self._sysctls = sysctls
         if windowsOptions is not None:
-            self.windowsOptions = windowsOptions
+            self._windowsOptions = windowsOptions
 
 
 class io__k8s__api__core__v1__RBDPersistentVolumeSource(K8STemplatable):
@@ -6983,14 +9324,37 @@ class io__k8s__api__core__v1__RBDPersistentVolumeSource(K8STemplatable):
     ]
     required_props: List[str] = ["monitors", "image"]
 
-    fsType: Optional[str] = None
-    image: str
-    keyring: Optional[str] = None
-    monitors: List[str]
-    pool: Optional[str] = None
-    readOnly: Optional[bool] = None
-    secretRef: Optional[io__k8s__api__core__v1__SecretReference] = None
-    user: Optional[str] = None
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def image(self) -> str:
+        return self._image
+
+    @property
+    def keyring(self) -> Optional[str]:
+        return self._keyring
+
+    @property
+    def monitors(self) -> List[str]:
+        return self._monitors
+
+    @property
+    def pool(self) -> Optional[str]:
+        return self._pool
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def secretRef(self) -> Optional[io__k8s__api__core__v1__SecretReference]:
+        return self._secretRef
+
+    @property
+    def user(self) -> Optional[str]:
+        return self._user
 
     def __init__(
         self,
@@ -7005,21 +9369,21 @@ class io__k8s__api__core__v1__RBDPersistentVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if image is not None:
-            self.image = image
+            self._image = image
         if monitors is not None:
-            self.monitors = monitors
+            self._monitors = monitors
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if keyring is not None:
-            self.keyring = keyring
+            self._keyring = keyring
         if pool is not None:
-            self.pool = pool
+            self._pool = pool
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if secretRef is not None:
-            self.secretRef = secretRef
+            self._secretRef = secretRef
         if user is not None:
-            self.user = user
+            self._user = user
 
 
 class io__k8s__api__core__v1__ReplicationControllerCondition(K8STemplatable):
@@ -7028,13 +9392,27 @@ class io__k8s__api__core__v1__ReplicationControllerCondition(K8STemplatable):
     props: List[str] = ["lastTransitionTime", "message", "reason", "status", "type"]
     required_props: List[str] = ["type", "status"]
 
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: str
-    type: str
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -7048,15 +9426,15 @@ class io__k8s__api__core__v1__ReplicationControllerCondition(K8STemplatable):
     ):
         super().__init__()
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
 
 
 class io__k8s__api__core__v1__ReplicationControllerStatus(K8STemplatable):
@@ -7072,14 +9450,31 @@ class io__k8s__api__core__v1__ReplicationControllerStatus(K8STemplatable):
     ]
     required_props: List[str] = ["replicas"]
 
-    availableReplicas: Optional[int] = None
-    conditions: Optional[
-        List[io__k8s__api__core__v1__ReplicationControllerCondition]
-    ] = None
-    fullyLabeledReplicas: Optional[int] = None
-    observedGeneration: Optional[int] = None
-    readyReplicas: Optional[int] = None
-    replicas: int
+    @property
+    def availableReplicas(self) -> Optional[int]:
+        return self._availableReplicas
+
+    @property
+    def conditions(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__ReplicationControllerCondition]]:
+        return self._conditions
+
+    @property
+    def fullyLabeledReplicas(self) -> Optional[int]:
+        return self._fullyLabeledReplicas
+
+    @property
+    def observedGeneration(self) -> Optional[int]:
+        return self._observedGeneration
+
+    @property
+    def readyReplicas(self) -> Optional[int]:
+        return self._readyReplicas
+
+    @property
+    def replicas(self) -> int:
+        return self._replicas
 
     def __init__(
         self,
@@ -7094,17 +9489,17 @@ class io__k8s__api__core__v1__ReplicationControllerStatus(K8STemplatable):
     ):
         super().__init__()
         if replicas is not None:
-            self.replicas = replicas
+            self._replicas = replicas
         if availableReplicas is not None:
-            self.availableReplicas = availableReplicas
+            self._availableReplicas = availableReplicas
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if fullyLabeledReplicas is not None:
-            self.fullyLabeledReplicas = fullyLabeledReplicas
+            self._fullyLabeledReplicas = fullyLabeledReplicas
         if observedGeneration is not None:
-            self.observedGeneration = observedGeneration
+            self._observedGeneration = observedGeneration
         if readyReplicas is not None:
-            self.readyReplicas = readyReplicas
+            self._readyReplicas = readyReplicas
 
 
 class io__k8s__api__core__v1__ResourceFieldSelector(K8STemplatable):
@@ -7113,9 +9508,17 @@ class io__k8s__api__core__v1__ResourceFieldSelector(K8STemplatable):
     props: List[str] = ["containerName", "divisor", "resource"]
     required_props: List[str] = ["resource"]
 
-    containerName: Optional[str] = None
-    divisor: Optional[io__k8s__apimachinery__pkg__api__resource__Quantity] = None
-    resource: str
+    @property
+    def containerName(self) -> Optional[str]:
+        return self._containerName
+
+    @property
+    def divisor(self) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._divisor
+
+    @property
+    def resource(self) -> str:
+        return self._resource
 
     def __init__(
         self,
@@ -7125,11 +9528,11 @@ class io__k8s__api__core__v1__ResourceFieldSelector(K8STemplatable):
     ):
         super().__init__()
         if resource is not None:
-            self.resource = resource
+            self._resource = resource
         if containerName is not None:
-            self.containerName = containerName
+            self._containerName = containerName
         if divisor is not None:
-            self.divisor = divisor
+            self._divisor = divisor
 
 
 class io__k8s__api__core__v1__ScaleIOPersistentVolumeSource(K8STemplatable):
@@ -7149,16 +9552,45 @@ class io__k8s__api__core__v1__ScaleIOPersistentVolumeSource(K8STemplatable):
     ]
     required_props: List[str] = ["gateway", "system", "secretRef"]
 
-    fsType: Optional[str] = None
-    gateway: str
-    protectionDomain: Optional[str] = None
-    readOnly: Optional[bool] = None
-    secretRef: io__k8s__api__core__v1__SecretReference
-    sslEnabled: Optional[bool] = None
-    storageMode: Optional[str] = None
-    storagePool: Optional[str] = None
-    system: str
-    volumeName: Optional[str] = None
+    @property
+    def fsType(self) -> Optional[str]:
+        return self._fsType
+
+    @property
+    def gateway(self) -> str:
+        return self._gateway
+
+    @property
+    def protectionDomain(self) -> Optional[str]:
+        return self._protectionDomain
+
+    @property
+    def readOnly(self) -> Optional[bool]:
+        return self._readOnly
+
+    @property
+    def secretRef(self) -> io__k8s__api__core__v1__SecretReference:
+        return self._secretRef
+
+    @property
+    def sslEnabled(self) -> Optional[bool]:
+        return self._sslEnabled
+
+    @property
+    def storageMode(self) -> Optional[str]:
+        return self._storageMode
+
+    @property
+    def storagePool(self) -> Optional[str]:
+        return self._storagePool
+
+    @property
+    def system(self) -> str:
+        return self._system
+
+    @property
+    def volumeName(self) -> Optional[str]:
+        return self._volumeName
 
     def __init__(
         self,
@@ -7175,25 +9607,25 @@ class io__k8s__api__core__v1__ScaleIOPersistentVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if gateway is not None:
-            self.gateway = gateway
+            self._gateway = gateway
         if secretRef is not None:
-            self.secretRef = secretRef
+            self._secretRef = secretRef
         if system is not None:
-            self.system = system
+            self._system = system
         if fsType is not None:
-            self.fsType = fsType
+            self._fsType = fsType
         if protectionDomain is not None:
-            self.protectionDomain = protectionDomain
+            self._protectionDomain = protectionDomain
         if readOnly is not None:
-            self.readOnly = readOnly
+            self._readOnly = readOnly
         if sslEnabled is not None:
-            self.sslEnabled = sslEnabled
+            self._sslEnabled = sslEnabled
         if storageMode is not None:
-            self.storageMode = storageMode
+            self._storageMode = storageMode
         if storagePool is not None:
-            self.storagePool = storagePool
+            self._storagePool = storagePool
         if volumeName is not None:
-            self.volumeName = volumeName
+            self._volumeName = volumeName
 
 
 class io__k8s__api__core__v1__ScopeSelector(K8STemplatable):
@@ -7202,9 +9634,11 @@ class io__k8s__api__core__v1__ScopeSelector(K8STemplatable):
     props: List[str] = ["matchExpressions"]
     required_props: List[str] = []
 
-    matchExpressions: Optional[
-        List[io__k8s__api__core__v1__ScopedResourceSelectorRequirement]
-    ] = None
+    @property
+    def matchExpressions(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__ScopedResourceSelectorRequirement]]:
+        return self._matchExpressions
 
     def __init__(
         self,
@@ -7214,7 +9648,7 @@ class io__k8s__api__core__v1__ScopeSelector(K8STemplatable):
     ):
         super().__init__()
         if matchExpressions is not None:
-            self.matchExpressions = matchExpressions
+            self._matchExpressions = matchExpressions
 
 
 class io__k8s__api__core__v1__SecurityContext(K8STemplatable):
@@ -7235,19 +9669,51 @@ class io__k8s__api__core__v1__SecurityContext(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    allowPrivilegeEscalation: Optional[bool] = None
-    capabilities: Optional[io__k8s__api__core__v1__Capabilities] = None
-    privileged: Optional[bool] = None
-    procMount: Optional[str] = None
-    readOnlyRootFilesystem: Optional[bool] = None
-    runAsGroup: Optional[int] = None
-    runAsNonRoot: Optional[bool] = None
-    runAsUser: Optional[int] = None
-    seLinuxOptions: Optional[io__k8s__api__core__v1__SELinuxOptions] = None
-    seccompProfile: Optional[io__k8s__api__core__v1__SeccompProfile] = None
-    windowsOptions: Optional[
-        io__k8s__api__core__v1__WindowsSecurityContextOptions
-    ] = None
+    @property
+    def allowPrivilegeEscalation(self) -> Optional[bool]:
+        return self._allowPrivilegeEscalation
+
+    @property
+    def capabilities(self) -> Optional[io__k8s__api__core__v1__Capabilities]:
+        return self._capabilities
+
+    @property
+    def privileged(self) -> Optional[bool]:
+        return self._privileged
+
+    @property
+    def procMount(self) -> Optional[str]:
+        return self._procMount
+
+    @property
+    def readOnlyRootFilesystem(self) -> Optional[bool]:
+        return self._readOnlyRootFilesystem
+
+    @property
+    def runAsGroup(self) -> Optional[int]:
+        return self._runAsGroup
+
+    @property
+    def runAsNonRoot(self) -> Optional[bool]:
+        return self._runAsNonRoot
+
+    @property
+    def runAsUser(self) -> Optional[int]:
+        return self._runAsUser
+
+    @property
+    def seLinuxOptions(self) -> Optional[io__k8s__api__core__v1__SELinuxOptions]:
+        return self._seLinuxOptions
+
+    @property
+    def seccompProfile(self) -> Optional[io__k8s__api__core__v1__SeccompProfile]:
+        return self._seccompProfile
+
+    @property
+    def windowsOptions(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__WindowsSecurityContextOptions]:
+        return self._windowsOptions
 
     def __init__(
         self,
@@ -7267,27 +9733,27 @@ class io__k8s__api__core__v1__SecurityContext(K8STemplatable):
     ):
         super().__init__()
         if allowPrivilegeEscalation is not None:
-            self.allowPrivilegeEscalation = allowPrivilegeEscalation
+            self._allowPrivilegeEscalation = allowPrivilegeEscalation
         if capabilities is not None:
-            self.capabilities = capabilities
+            self._capabilities = capabilities
         if privileged is not None:
-            self.privileged = privileged
+            self._privileged = privileged
         if procMount is not None:
-            self.procMount = procMount
+            self._procMount = procMount
         if readOnlyRootFilesystem is not None:
-            self.readOnlyRootFilesystem = readOnlyRootFilesystem
+            self._readOnlyRootFilesystem = readOnlyRootFilesystem
         if runAsGroup is not None:
-            self.runAsGroup = runAsGroup
+            self._runAsGroup = runAsGroup
         if runAsNonRoot is not None:
-            self.runAsNonRoot = runAsNonRoot
+            self._runAsNonRoot = runAsNonRoot
         if runAsUser is not None:
-            self.runAsUser = runAsUser
+            self._runAsUser = runAsUser
         if seLinuxOptions is not None:
-            self.seLinuxOptions = seLinuxOptions
+            self._seLinuxOptions = seLinuxOptions
         if seccompProfile is not None:
-            self.seccompProfile = seccompProfile
+            self._seccompProfile = seccompProfile
         if windowsOptions is not None:
-            self.windowsOptions = windowsOptions
+            self._windowsOptions = windowsOptions
 
 
 class io__k8s__api__core__v1__ServicePort(K8STemplatable):
@@ -7303,12 +9769,31 @@ class io__k8s__api__core__v1__ServicePort(K8STemplatable):
     ]
     required_props: List[str] = ["port"]
 
-    appProtocol: Optional[str] = None
-    name: Optional[str] = None
-    nodePort: Optional[int] = None
-    port: int
-    protocol: Optional[str] = None
-    targetPort: Optional[io__k8s__apimachinery__pkg__util__intstr__IntOrString] = None
+    @property
+    def appProtocol(self) -> Optional[str]:
+        return self._appProtocol
+
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def nodePort(self) -> Optional[int]:
+        return self._nodePort
+
+    @property
+    def port(self) -> int:
+        return self._port
+
+    @property
+    def protocol(self) -> Optional[str]:
+        return self._protocol
+
+    @property
+    def targetPort(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__util__intstr__IntOrString]:
+        return self._targetPort
 
     def __init__(
         self,
@@ -7323,17 +9808,17 @@ class io__k8s__api__core__v1__ServicePort(K8STemplatable):
     ):
         super().__init__()
         if port is not None:
-            self.port = port
+            self._port = port
         if appProtocol is not None:
-            self.appProtocol = appProtocol
+            self._appProtocol = appProtocol
         if name is not None:
-            self.name = name
+            self._name = name
         if nodePort is not None:
-            self.nodePort = nodePort
+            self._nodePort = nodePort
         if protocol is not None:
-            self.protocol = protocol
+            self._protocol = protocol
         if targetPort is not None:
-            self.targetPort = targetPort
+            self._targetPort = targetPort
 
 
 class io__k8s__api__core__v1__ServiceSpec(K8STemplatable):
@@ -7362,27 +9847,83 @@ class io__k8s__api__core__v1__ServiceSpec(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    allocateLoadBalancerNodePorts: Optional[bool] = None
-    clusterIP: Optional[str] = None
-    clusterIPs: Optional[List[str]] = None
-    externalIPs: Optional[List[str]] = None
-    externalName: Optional[str] = None
-    externalTrafficPolicy: Optional[str] = None
-    healthCheckNodePort: Optional[int] = None
-    internalTrafficPolicy: Optional[str] = None
-    ipFamilies: Optional[List[str]] = None
-    ipFamilyPolicy: Optional[str] = None
-    loadBalancerClass: Optional[str] = None
-    loadBalancerIP: Optional[str] = None
-    loadBalancerSourceRanges: Optional[List[str]] = None
-    ports: Optional[List[io__k8s__api__core__v1__ServicePort]] = None
-    publishNotReadyAddresses: Optional[bool] = None
-    selector: Any
-    sessionAffinity: Optional[str] = None
-    sessionAffinityConfig: Optional[
-        io__k8s__api__core__v1__SessionAffinityConfig
-    ] = None
-    type: Optional[str] = None
+    @property
+    def allocateLoadBalancerNodePorts(self) -> Optional[bool]:
+        return self._allocateLoadBalancerNodePorts
+
+    @property
+    def clusterIP(self) -> Optional[str]:
+        return self._clusterIP
+
+    @property
+    def clusterIPs(self) -> Optional[List[str]]:
+        return self._clusterIPs
+
+    @property
+    def externalIPs(self) -> Optional[List[str]]:
+        return self._externalIPs
+
+    @property
+    def externalName(self) -> Optional[str]:
+        return self._externalName
+
+    @property
+    def externalTrafficPolicy(self) -> Optional[str]:
+        return self._externalTrafficPolicy
+
+    @property
+    def healthCheckNodePort(self) -> Optional[int]:
+        return self._healthCheckNodePort
+
+    @property
+    def internalTrafficPolicy(self) -> Optional[str]:
+        return self._internalTrafficPolicy
+
+    @property
+    def ipFamilies(self) -> Optional[List[str]]:
+        return self._ipFamilies
+
+    @property
+    def ipFamilyPolicy(self) -> Optional[str]:
+        return self._ipFamilyPolicy
+
+    @property
+    def loadBalancerClass(self) -> Optional[str]:
+        return self._loadBalancerClass
+
+    @property
+    def loadBalancerIP(self) -> Optional[str]:
+        return self._loadBalancerIP
+
+    @property
+    def loadBalancerSourceRanges(self) -> Optional[List[str]]:
+        return self._loadBalancerSourceRanges
+
+    @property
+    def ports(self) -> Optional[List[io__k8s__api__core__v1__ServicePort]]:
+        return self._ports
+
+    @property
+    def publishNotReadyAddresses(self) -> Optional[bool]:
+        return self._publishNotReadyAddresses
+
+    @property
+    def selector(self) -> Any:
+        return self._selector
+
+    @property
+    def sessionAffinity(self) -> Optional[str]:
+        return self._sessionAffinity
+
+    @property
+    def sessionAffinityConfig(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__SessionAffinityConfig]:
+        return self._sessionAffinityConfig
+
+    @property
+    def type(self) -> Optional[str]:
+        return self._type
 
     def __init__(
         self,
@@ -7410,43 +9951,43 @@ class io__k8s__api__core__v1__ServiceSpec(K8STemplatable):
     ):
         super().__init__()
         if allocateLoadBalancerNodePorts is not None:
-            self.allocateLoadBalancerNodePorts = allocateLoadBalancerNodePorts
+            self._allocateLoadBalancerNodePorts = allocateLoadBalancerNodePorts
         if clusterIP is not None:
-            self.clusterIP = clusterIP
+            self._clusterIP = clusterIP
         if clusterIPs is not None:
-            self.clusterIPs = clusterIPs
+            self._clusterIPs = clusterIPs
         if externalIPs is not None:
-            self.externalIPs = externalIPs
+            self._externalIPs = externalIPs
         if externalName is not None:
-            self.externalName = externalName
+            self._externalName = externalName
         if externalTrafficPolicy is not None:
-            self.externalTrafficPolicy = externalTrafficPolicy
+            self._externalTrafficPolicy = externalTrafficPolicy
         if healthCheckNodePort is not None:
-            self.healthCheckNodePort = healthCheckNodePort
+            self._healthCheckNodePort = healthCheckNodePort
         if internalTrafficPolicy is not None:
-            self.internalTrafficPolicy = internalTrafficPolicy
+            self._internalTrafficPolicy = internalTrafficPolicy
         if ipFamilies is not None:
-            self.ipFamilies = ipFamilies
+            self._ipFamilies = ipFamilies
         if ipFamilyPolicy is not None:
-            self.ipFamilyPolicy = ipFamilyPolicy
+            self._ipFamilyPolicy = ipFamilyPolicy
         if loadBalancerClass is not None:
-            self.loadBalancerClass = loadBalancerClass
+            self._loadBalancerClass = loadBalancerClass
         if loadBalancerIP is not None:
-            self.loadBalancerIP = loadBalancerIP
+            self._loadBalancerIP = loadBalancerIP
         if loadBalancerSourceRanges is not None:
-            self.loadBalancerSourceRanges = loadBalancerSourceRanges
+            self._loadBalancerSourceRanges = loadBalancerSourceRanges
         if ports is not None:
-            self.ports = ports
+            self._ports = ports
         if publishNotReadyAddresses is not None:
-            self.publishNotReadyAddresses = publishNotReadyAddresses
+            self._publishNotReadyAddresses = publishNotReadyAddresses
         if selector is not None:
-            self.selector = selector
+            self._selector = selector
         if sessionAffinity is not None:
-            self.sessionAffinity = sessionAffinity
+            self._sessionAffinity = sessionAffinity
         if sessionAffinityConfig is not None:
-            self.sessionAffinityConfig = sessionAffinityConfig
+            self._sessionAffinityConfig = sessionAffinityConfig
         if type is not None:
-            self.type = type
+            self._type = type
 
 
 class io__k8s__api__core__v1__TCPSocketAction(K8STemplatable):
@@ -7455,8 +9996,13 @@ class io__k8s__api__core__v1__TCPSocketAction(K8STemplatable):
     props: List[str] = ["host", "port"]
     required_props: List[str] = ["port"]
 
-    host: Optional[str] = None
-    port: io__k8s__apimachinery__pkg__util__intstr__IntOrString
+    @property
+    def host(self) -> Optional[str]:
+        return self._host
+
+    @property
+    def port(self) -> io__k8s__apimachinery__pkg__util__intstr__IntOrString:
+        return self._port
 
     def __init__(
         self,
@@ -7465,9 +10011,9 @@ class io__k8s__api__core__v1__TCPSocketAction(K8STemplatable):
     ):
         super().__init__()
         if port is not None:
-            self.port = port
+            self._port = port
         if host is not None:
-            self.host = host
+            self._host = host
 
 
 class io__k8s__api__core__v1__Taint(K8STemplatable):
@@ -7476,10 +10022,21 @@ class io__k8s__api__core__v1__Taint(K8STemplatable):
     props: List[str] = ["effect", "key", "timeAdded", "value"]
     required_props: List[str] = ["key", "effect"]
 
-    effect: str
-    key: str
-    timeAdded: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    value: Optional[str] = None
+    @property
+    def effect(self) -> str:
+        return self._effect
+
+    @property
+    def key(self) -> str:
+        return self._key
+
+    @property
+    def timeAdded(self) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._timeAdded
+
+    @property
+    def value(self) -> Optional[str]:
+        return self._value
 
     def __init__(
         self,
@@ -7490,13 +10047,13 @@ class io__k8s__api__core__v1__Taint(K8STemplatable):
     ):
         super().__init__()
         if effect is not None:
-            self.effect = effect
+            self._effect = effect
         if key is not None:
-            self.key = key
+            self._key = key
         if timeAdded is not None:
-            self.timeAdded = timeAdded
+            self._timeAdded = timeAdded
         if value is not None:
-            self.value = value
+            self._value = value
 
 
 class io__k8s__api__core__v1__VolumeNodeAffinity(K8STemplatable):
@@ -7505,12 +10062,14 @@ class io__k8s__api__core__v1__VolumeNodeAffinity(K8STemplatable):
     props: List[str] = ["required"]
     required_props: List[str] = []
 
-    required: Optional[io__k8s__api__core__v1__NodeSelector] = None
+    @property
+    def required(self) -> Optional[io__k8s__api__core__v1__NodeSelector]:
+        return self._required
 
     def __init__(self, required: Optional[io__k8s__api__core__v1__NodeSelector] = None):
         super().__init__()
         if required is not None:
-            self.required = required
+            self._required = required
 
 
 class io__k8s__api__discovery__v1__EndpointHints(K8STemplatable):
@@ -7519,14 +10078,16 @@ class io__k8s__api__discovery__v1__EndpointHints(K8STemplatable):
     props: List[str] = ["forZones"]
     required_props: List[str] = []
 
-    forZones: Optional[List[io__k8s__api__discovery__v1__ForZone]] = None
+    @property
+    def forZones(self) -> Optional[List[io__k8s__api__discovery__v1__ForZone]]:
+        return self._forZones
 
     def __init__(
         self, forZones: Optional[List[io__k8s__api__discovery__v1__ForZone]] = None
     ):
         super().__init__()
         if forZones is not None:
-            self.forZones = forZones
+            self._forZones = forZones
 
 
 class io__k8s__api__discovery__v1beta1__EndpointHints(K8STemplatable):
@@ -7535,14 +10096,16 @@ class io__k8s__api__discovery__v1beta1__EndpointHints(K8STemplatable):
     props: List[str] = ["forZones"]
     required_props: List[str] = []
 
-    forZones: Optional[List[io__k8s__api__discovery__v1beta1__ForZone]] = None
+    @property
+    def forZones(self) -> Optional[List[io__k8s__api__discovery__v1beta1__ForZone]]:
+        return self._forZones
 
     def __init__(
         self, forZones: Optional[List[io__k8s__api__discovery__v1beta1__ForZone]] = None
     ):
         super().__init__()
         if forZones is not None:
-            self.forZones = forZones
+            self._forZones = forZones
 
 
 class io__k8s__api__events__v1__EventSeries(K8STemplatable):
@@ -7551,8 +10114,13 @@ class io__k8s__api__events__v1__EventSeries(K8STemplatable):
     props: List[str] = ["count", "lastObservedTime"]
     required_props: List[str] = ["count", "lastObservedTime"]
 
-    count: int
-    lastObservedTime: io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime
+    @property
+    def count(self) -> int:
+        return self._count
+
+    @property
+    def lastObservedTime(self) -> io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime:
+        return self._lastObservedTime
 
     def __init__(
         self,
@@ -7561,9 +10129,9 @@ class io__k8s__api__events__v1__EventSeries(K8STemplatable):
     ):
         super().__init__()
         if count is not None:
-            self.count = count
+            self._count = count
         if lastObservedTime is not None:
-            self.lastObservedTime = lastObservedTime
+            self._lastObservedTime = lastObservedTime
 
 
 class io__k8s__api__events__v1beta1__EventSeries(K8STemplatable):
@@ -7572,8 +10140,13 @@ class io__k8s__api__events__v1beta1__EventSeries(K8STemplatable):
     props: List[str] = ["count", "lastObservedTime"]
     required_props: List[str] = ["count", "lastObservedTime"]
 
-    count: int
-    lastObservedTime: io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime
+    @property
+    def count(self) -> int:
+        return self._count
+
+    @property
+    def lastObservedTime(self) -> io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime:
+        return self._lastObservedTime
 
     def __init__(
         self,
@@ -7582,9 +10155,9 @@ class io__k8s__api__events__v1beta1__EventSeries(K8STemplatable):
     ):
         super().__init__()
         if count is not None:
-            self.count = count
+            self._count = count
         if lastObservedTime is not None:
-            self.lastObservedTime = lastObservedTime
+            self._lastObservedTime = lastObservedTime
 
 
 class io__k8s__api__flowcontrol__v1beta1__FlowSchemaCondition(K8STemplatable):
@@ -7593,13 +10166,27 @@ class io__k8s__api__flowcontrol__v1beta1__FlowSchemaCondition(K8STemplatable):
     props: List[str] = ["lastTransitionTime", "message", "reason", "status", "type"]
     required_props: List[str] = []
 
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: Optional[str] = None
-    type: Optional[str] = None
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> Optional[str]:
+        return self._status
+
+    @property
+    def type(self) -> Optional[str]:
+        return self._type
 
     def __init__(
         self,
@@ -7613,15 +10200,15 @@ class io__k8s__api__flowcontrol__v1beta1__FlowSchemaCondition(K8STemplatable):
     ):
         super().__init__()
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
 
 
 class io__k8s__api__flowcontrol__v1beta1__FlowSchemaStatus(K8STemplatable):
@@ -7630,9 +10217,11 @@ class io__k8s__api__flowcontrol__v1beta1__FlowSchemaStatus(K8STemplatable):
     props: List[str] = ["conditions"]
     required_props: List[str] = []
 
-    conditions: Optional[
-        List[io__k8s__api__flowcontrol__v1beta1__FlowSchemaCondition]
-    ] = None
+    @property
+    def conditions(
+        self,
+    ) -> Optional[List[io__k8s__api__flowcontrol__v1beta1__FlowSchemaCondition]]:
+        return self._conditions
 
     def __init__(
         self,
@@ -7642,7 +10231,7 @@ class io__k8s__api__flowcontrol__v1beta1__FlowSchemaStatus(K8STemplatable):
     ):
         super().__init__()
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
 
 
 class io__k8s__api__flowcontrol__v1beta1__LimitResponse(K8STemplatable):
@@ -7651,8 +10240,15 @@ class io__k8s__api__flowcontrol__v1beta1__LimitResponse(K8STemplatable):
     props: List[str] = ["queuing", "type"]
     required_props: List[str] = ["type"]
 
-    queuing: Optional[io__k8s__api__flowcontrol__v1beta1__QueuingConfiguration] = None
-    type: str
+    @property
+    def queuing(
+        self,
+    ) -> Optional[io__k8s__api__flowcontrol__v1beta1__QueuingConfiguration]:
+        return self._queuing
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -7663,9 +10259,9 @@ class io__k8s__api__flowcontrol__v1beta1__LimitResponse(K8STemplatable):
     ):
         super().__init__()
         if type is not None:
-            self.type = type
+            self._type = type
         if queuing is not None:
-            self.queuing = queuing
+            self._queuing = queuing
 
 
 class io__k8s__api__flowcontrol__v1beta1__LimitedPriorityLevelConfiguration(
@@ -7678,8 +10274,15 @@ class io__k8s__api__flowcontrol__v1beta1__LimitedPriorityLevelConfiguration(
     props: List[str] = ["assuredConcurrencyShares", "limitResponse"]
     required_props: List[str] = []
 
-    assuredConcurrencyShares: Optional[int] = None
-    limitResponse: Optional[io__k8s__api__flowcontrol__v1beta1__LimitResponse] = None
+    @property
+    def assuredConcurrencyShares(self) -> Optional[int]:
+        return self._assuredConcurrencyShares
+
+    @property
+    def limitResponse(
+        self,
+    ) -> Optional[io__k8s__api__flowcontrol__v1beta1__LimitResponse]:
+        return self._limitResponse
 
     def __init__(
         self,
@@ -7690,9 +10293,9 @@ class io__k8s__api__flowcontrol__v1beta1__LimitedPriorityLevelConfiguration(
     ):
         super().__init__()
         if assuredConcurrencyShares is not None:
-            self.assuredConcurrencyShares = assuredConcurrencyShares
+            self._assuredConcurrencyShares = assuredConcurrencyShares
         if limitResponse is not None:
-            self.limitResponse = limitResponse
+            self._limitResponse = limitResponse
 
 
 class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationCondition(
@@ -7703,13 +10306,27 @@ class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationCondition(
     props: List[str] = ["lastTransitionTime", "message", "reason", "status", "type"]
     required_props: List[str] = []
 
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: Optional[str] = None
-    type: Optional[str] = None
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> Optional[str]:
+        return self._status
+
+    @property
+    def type(self) -> Optional[str]:
+        return self._type
 
     def __init__(
         self,
@@ -7723,15 +10340,15 @@ class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationCondition(
     ):
         super().__init__()
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
 
 
 class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationSpec(
@@ -7742,10 +10359,17 @@ class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationSpec(
     props: List[str] = ["limited", "type"]
     required_props: List[str] = ["type"]
 
-    limited: Optional[
+    @property
+    def limited(
+        self,
+    ) -> Optional[
         io__k8s__api__flowcontrol__v1beta1__LimitedPriorityLevelConfiguration
-    ] = None
-    type: str
+    ]:
+        return self._limited
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -7756,9 +10380,9 @@ class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationSpec(
     ):
         super().__init__()
         if type is not None:
-            self.type = type
+            self._type = type
         if limited is not None:
-            self.limited = limited
+            self._limited = limited
 
 
 class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationStatus(
@@ -7769,9 +10393,13 @@ class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationStatus(
     props: List[str] = ["conditions"]
     required_props: List[str] = []
 
-    conditions: Optional[
+    @property
+    def conditions(
+        self,
+    ) -> Optional[
         List[io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationCondition]
-    ] = None
+    ]:
+        return self._conditions
 
     def __init__(
         self,
@@ -7783,7 +10411,7 @@ class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationStatus(
     ):
         super().__init__()
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
 
 
 class io__k8s__api__flowcontrol__v1beta1__Subject(K8STemplatable):
@@ -7792,12 +10420,23 @@ class io__k8s__api__flowcontrol__v1beta1__Subject(K8STemplatable):
     props: List[str] = ["group", "kind", "serviceAccount", "user"]
     required_props: List[str] = ["kind"]
 
-    group: Optional[io__k8s__api__flowcontrol__v1beta1__GroupSubject] = None
-    kind: str
-    serviceAccount: Optional[
-        io__k8s__api__flowcontrol__v1beta1__ServiceAccountSubject
-    ] = None
-    user: Optional[io__k8s__api__flowcontrol__v1beta1__UserSubject] = None
+    @property
+    def group(self) -> Optional[io__k8s__api__flowcontrol__v1beta1__GroupSubject]:
+        return self._group
+
+    @property
+    def kind(self) -> str:
+        return self._kind
+
+    @property
+    def serviceAccount(
+        self,
+    ) -> Optional[io__k8s__api__flowcontrol__v1beta1__ServiceAccountSubject]:
+        return self._serviceAccount
+
+    @property
+    def user(self) -> Optional[io__k8s__api__flowcontrol__v1beta1__UserSubject]:
+        return self._user
 
     def __init__(
         self,
@@ -7810,13 +10449,13 @@ class io__k8s__api__flowcontrol__v1beta1__Subject(K8STemplatable):
     ):
         super().__init__()
         if kind is not None:
-            self.kind = kind
+            self._kind = kind
         if group is not None:
-            self.group = group
+            self._group = group
         if serviceAccount is not None:
-            self.serviceAccount = serviceAccount
+            self._serviceAccount = serviceAccount
         if user is not None:
-            self.user = user
+            self._user = user
 
 
 class io__k8s__api__flowcontrol__v1beta2__FlowSchemaCondition(K8STemplatable):
@@ -7825,13 +10464,27 @@ class io__k8s__api__flowcontrol__v1beta2__FlowSchemaCondition(K8STemplatable):
     props: List[str] = ["lastTransitionTime", "message", "reason", "status", "type"]
     required_props: List[str] = []
 
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: Optional[str] = None
-    type: Optional[str] = None
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> Optional[str]:
+        return self._status
+
+    @property
+    def type(self) -> Optional[str]:
+        return self._type
 
     def __init__(
         self,
@@ -7845,15 +10498,15 @@ class io__k8s__api__flowcontrol__v1beta2__FlowSchemaCondition(K8STemplatable):
     ):
         super().__init__()
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
 
 
 class io__k8s__api__flowcontrol__v1beta2__FlowSchemaStatus(K8STemplatable):
@@ -7862,9 +10515,11 @@ class io__k8s__api__flowcontrol__v1beta2__FlowSchemaStatus(K8STemplatable):
     props: List[str] = ["conditions"]
     required_props: List[str] = []
 
-    conditions: Optional[
-        List[io__k8s__api__flowcontrol__v1beta2__FlowSchemaCondition]
-    ] = None
+    @property
+    def conditions(
+        self,
+    ) -> Optional[List[io__k8s__api__flowcontrol__v1beta2__FlowSchemaCondition]]:
+        return self._conditions
 
     def __init__(
         self,
@@ -7874,7 +10529,7 @@ class io__k8s__api__flowcontrol__v1beta2__FlowSchemaStatus(K8STemplatable):
     ):
         super().__init__()
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
 
 
 class io__k8s__api__flowcontrol__v1beta2__LimitResponse(K8STemplatable):
@@ -7883,8 +10538,15 @@ class io__k8s__api__flowcontrol__v1beta2__LimitResponse(K8STemplatable):
     props: List[str] = ["queuing", "type"]
     required_props: List[str] = ["type"]
 
-    queuing: Optional[io__k8s__api__flowcontrol__v1beta2__QueuingConfiguration] = None
-    type: str
+    @property
+    def queuing(
+        self,
+    ) -> Optional[io__k8s__api__flowcontrol__v1beta2__QueuingConfiguration]:
+        return self._queuing
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -7895,9 +10557,9 @@ class io__k8s__api__flowcontrol__v1beta2__LimitResponse(K8STemplatable):
     ):
         super().__init__()
         if type is not None:
-            self.type = type
+            self._type = type
         if queuing is not None:
-            self.queuing = queuing
+            self._queuing = queuing
 
 
 class io__k8s__api__flowcontrol__v1beta2__LimitedPriorityLevelConfiguration(
@@ -7910,8 +10572,15 @@ class io__k8s__api__flowcontrol__v1beta2__LimitedPriorityLevelConfiguration(
     props: List[str] = ["assuredConcurrencyShares", "limitResponse"]
     required_props: List[str] = []
 
-    assuredConcurrencyShares: Optional[int] = None
-    limitResponse: Optional[io__k8s__api__flowcontrol__v1beta2__LimitResponse] = None
+    @property
+    def assuredConcurrencyShares(self) -> Optional[int]:
+        return self._assuredConcurrencyShares
+
+    @property
+    def limitResponse(
+        self,
+    ) -> Optional[io__k8s__api__flowcontrol__v1beta2__LimitResponse]:
+        return self._limitResponse
 
     def __init__(
         self,
@@ -7922,9 +10591,9 @@ class io__k8s__api__flowcontrol__v1beta2__LimitedPriorityLevelConfiguration(
     ):
         super().__init__()
         if assuredConcurrencyShares is not None:
-            self.assuredConcurrencyShares = assuredConcurrencyShares
+            self._assuredConcurrencyShares = assuredConcurrencyShares
         if limitResponse is not None:
-            self.limitResponse = limitResponse
+            self._limitResponse = limitResponse
 
 
 class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationCondition(
@@ -7935,13 +10604,27 @@ class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationCondition(
     props: List[str] = ["lastTransitionTime", "message", "reason", "status", "type"]
     required_props: List[str] = []
 
-    lastTransitionTime: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    message: Optional[str] = None
-    reason: Optional[str] = None
-    status: Optional[str] = None
-    type: Optional[str] = None
+    @property
+    def lastTransitionTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> Optional[str]:
+        return self._status
+
+    @property
+    def type(self) -> Optional[str]:
+        return self._type
 
     def __init__(
         self,
@@ -7955,15 +10638,15 @@ class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationCondition(
     ):
         super().__init__()
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
 
 
 class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationSpec(
@@ -7974,10 +10657,17 @@ class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationSpec(
     props: List[str] = ["limited", "type"]
     required_props: List[str] = ["type"]
 
-    limited: Optional[
+    @property
+    def limited(
+        self,
+    ) -> Optional[
         io__k8s__api__flowcontrol__v1beta2__LimitedPriorityLevelConfiguration
-    ] = None
-    type: str
+    ]:
+        return self._limited
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -7988,9 +10678,9 @@ class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationSpec(
     ):
         super().__init__()
         if type is not None:
-            self.type = type
+            self._type = type
         if limited is not None:
-            self.limited = limited
+            self._limited = limited
 
 
 class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationStatus(
@@ -8001,9 +10691,13 @@ class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationStatus(
     props: List[str] = ["conditions"]
     required_props: List[str] = []
 
-    conditions: Optional[
+    @property
+    def conditions(
+        self,
+    ) -> Optional[
         List[io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationCondition]
-    ] = None
+    ]:
+        return self._conditions
 
     def __init__(
         self,
@@ -8015,7 +10709,7 @@ class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationStatus(
     ):
         super().__init__()
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
 
 
 class io__k8s__api__flowcontrol__v1beta2__Subject(K8STemplatable):
@@ -8024,12 +10718,23 @@ class io__k8s__api__flowcontrol__v1beta2__Subject(K8STemplatable):
     props: List[str] = ["group", "kind", "serviceAccount", "user"]
     required_props: List[str] = ["kind"]
 
-    group: Optional[io__k8s__api__flowcontrol__v1beta2__GroupSubject] = None
-    kind: str
-    serviceAccount: Optional[
-        io__k8s__api__flowcontrol__v1beta2__ServiceAccountSubject
-    ] = None
-    user: Optional[io__k8s__api__flowcontrol__v1beta2__UserSubject] = None
+    @property
+    def group(self) -> Optional[io__k8s__api__flowcontrol__v1beta2__GroupSubject]:
+        return self._group
+
+    @property
+    def kind(self) -> str:
+        return self._kind
+
+    @property
+    def serviceAccount(
+        self,
+    ) -> Optional[io__k8s__api__flowcontrol__v1beta2__ServiceAccountSubject]:
+        return self._serviceAccount
+
+    @property
+    def user(self) -> Optional[io__k8s__api__flowcontrol__v1beta2__UserSubject]:
+        return self._user
 
     def __init__(
         self,
@@ -8042,13 +10747,13 @@ class io__k8s__api__flowcontrol__v1beta2__Subject(K8STemplatable):
     ):
         super().__init__()
         if kind is not None:
-            self.kind = kind
+            self._kind = kind
         if group is not None:
-            self.group = group
+            self._group = group
         if serviceAccount is not None:
-            self.serviceAccount = serviceAccount
+            self._serviceAccount = serviceAccount
         if user is not None:
-            self.user = user
+            self._user = user
 
 
 class io__k8s__api__networking__v1__IngressServiceBackend(K8STemplatable):
@@ -8057,8 +10762,13 @@ class io__k8s__api__networking__v1__IngressServiceBackend(K8STemplatable):
     props: List[str] = ["name", "port"]
     required_props: List[str] = ["name"]
 
-    name: str
-    port: Optional[io__k8s__api__networking__v1__ServiceBackendPort] = None
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def port(self) -> Optional[io__k8s__api__networking__v1__ServiceBackendPort]:
+        return self._port
 
     def __init__(
         self,
@@ -8067,9 +10777,9 @@ class io__k8s__api__networking__v1__IngressServiceBackend(K8STemplatable):
     ):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if port is not None:
-            self.port = port
+            self._port = port
 
 
 class io__k8s__api__networking__v1__IngressStatus(K8STemplatable):
@@ -8078,14 +10788,16 @@ class io__k8s__api__networking__v1__IngressStatus(K8STemplatable):
     props: List[str] = ["loadBalancer"]
     required_props: List[str] = []
 
-    loadBalancer: Optional[io__k8s__api__core__v1__LoadBalancerStatus] = None
+    @property
+    def loadBalancer(self) -> Optional[io__k8s__api__core__v1__LoadBalancerStatus]:
+        return self._loadBalancer
 
     def __init__(
         self, loadBalancer: Optional[io__k8s__api__core__v1__LoadBalancerStatus] = None
     ):
         super().__init__()
         if loadBalancer is not None:
-            self.loadBalancer = loadBalancer
+            self._loadBalancer = loadBalancer
 
 
 class io__k8s__api__networking__v1__NetworkPolicyPort(K8STemplatable):
@@ -8094,9 +10806,17 @@ class io__k8s__api__networking__v1__NetworkPolicyPort(K8STemplatable):
     props: List[str] = ["endPort", "port", "protocol"]
     required_props: List[str] = []
 
-    endPort: Optional[int] = None
-    port: Optional[io__k8s__apimachinery__pkg__util__intstr__IntOrString] = None
-    protocol: Optional[str] = None
+    @property
+    def endPort(self) -> Optional[int]:
+        return self._endPort
+
+    @property
+    def port(self) -> Optional[io__k8s__apimachinery__pkg__util__intstr__IntOrString]:
+        return self._port
+
+    @property
+    def protocol(self) -> Optional[str]:
+        return self._protocol
 
     def __init__(
         self,
@@ -8106,11 +10826,11 @@ class io__k8s__api__networking__v1__NetworkPolicyPort(K8STemplatable):
     ):
         super().__init__()
         if endPort is not None:
-            self.endPort = endPort
+            self._endPort = endPort
         if port is not None:
-            self.port = port
+            self._port = port
         if protocol is not None:
-            self.protocol = protocol
+            self._protocol = protocol
 
 
 class io__k8s__api__policy__v1beta1__FSGroupStrategyOptions(K8STemplatable):
@@ -8119,8 +10839,13 @@ class io__k8s__api__policy__v1beta1__FSGroupStrategyOptions(K8STemplatable):
     props: List[str] = ["ranges", "rule"]
     required_props: List[str] = []
 
-    ranges: Optional[List[io__k8s__api__policy__v1beta1__IDRange]] = None
-    rule: Optional[str] = None
+    @property
+    def ranges(self) -> Optional[List[io__k8s__api__policy__v1beta1__IDRange]]:
+        return self._ranges
+
+    @property
+    def rule(self) -> Optional[str]:
+        return self._rule
 
     def __init__(
         self,
@@ -8129,9 +10854,9 @@ class io__k8s__api__policy__v1beta1__FSGroupStrategyOptions(K8STemplatable):
     ):
         super().__init__()
         if ranges is not None:
-            self.ranges = ranges
+            self._ranges = ranges
         if rule is not None:
-            self.rule = rule
+            self._rule = rule
 
 
 class io__k8s__api__policy__v1beta1__PodSecurityPolicySpec(K8STemplatable):
@@ -8170,40 +10895,113 @@ class io__k8s__api__policy__v1beta1__PodSecurityPolicySpec(K8STemplatable):
         "fsGroup",
     ]
 
-    allowPrivilegeEscalation: Optional[bool] = None
-    allowedCSIDrivers: Optional[
-        List[io__k8s__api__policy__v1beta1__AllowedCSIDriver]
-    ] = None
-    allowedCapabilities: Optional[List[str]] = None
-    allowedFlexVolumes: Optional[
-        List[io__k8s__api__policy__v1beta1__AllowedFlexVolume]
-    ] = None
-    allowedHostPaths: Optional[
-        List[io__k8s__api__policy__v1beta1__AllowedHostPath]
-    ] = None
-    allowedProcMountTypes: Optional[List[str]] = None
-    allowedUnsafeSysctls: Optional[List[str]] = None
-    defaultAddCapabilities: Optional[List[str]] = None
-    defaultAllowPrivilegeEscalation: Optional[bool] = None
-    forbiddenSysctls: Optional[List[str]] = None
-    fsGroup: io__k8s__api__policy__v1beta1__FSGroupStrategyOptions
-    hostIPC: Optional[bool] = None
-    hostNetwork: Optional[bool] = None
-    hostPID: Optional[bool] = None
-    hostPorts: Optional[List[io__k8s__api__policy__v1beta1__HostPortRange]] = None
-    privileged: Optional[bool] = None
-    readOnlyRootFilesystem: Optional[bool] = None
-    requiredDropCapabilities: Optional[List[str]] = None
-    runAsGroup: Optional[
-        io__k8s__api__policy__v1beta1__RunAsGroupStrategyOptions
-    ] = None
-    runAsUser: io__k8s__api__policy__v1beta1__RunAsUserStrategyOptions
-    runtimeClass: Optional[
-        io__k8s__api__policy__v1beta1__RuntimeClassStrategyOptions
-    ] = None
-    seLinux: io__k8s__api__policy__v1beta1__SELinuxStrategyOptions
-    supplementalGroups: io__k8s__api__policy__v1beta1__SupplementalGroupsStrategyOptions
-    volumes: Optional[List[str]] = None
+    @property
+    def allowPrivilegeEscalation(self) -> Optional[bool]:
+        return self._allowPrivilegeEscalation
+
+    @property
+    def allowedCSIDrivers(
+        self,
+    ) -> Optional[List[io__k8s__api__policy__v1beta1__AllowedCSIDriver]]:
+        return self._allowedCSIDrivers
+
+    @property
+    def allowedCapabilities(self) -> Optional[List[str]]:
+        return self._allowedCapabilities
+
+    @property
+    def allowedFlexVolumes(
+        self,
+    ) -> Optional[List[io__k8s__api__policy__v1beta1__AllowedFlexVolume]]:
+        return self._allowedFlexVolumes
+
+    @property
+    def allowedHostPaths(
+        self,
+    ) -> Optional[List[io__k8s__api__policy__v1beta1__AllowedHostPath]]:
+        return self._allowedHostPaths
+
+    @property
+    def allowedProcMountTypes(self) -> Optional[List[str]]:
+        return self._allowedProcMountTypes
+
+    @property
+    def allowedUnsafeSysctls(self) -> Optional[List[str]]:
+        return self._allowedUnsafeSysctls
+
+    @property
+    def defaultAddCapabilities(self) -> Optional[List[str]]:
+        return self._defaultAddCapabilities
+
+    @property
+    def defaultAllowPrivilegeEscalation(self) -> Optional[bool]:
+        return self._defaultAllowPrivilegeEscalation
+
+    @property
+    def forbiddenSysctls(self) -> Optional[List[str]]:
+        return self._forbiddenSysctls
+
+    @property
+    def fsGroup(self) -> io__k8s__api__policy__v1beta1__FSGroupStrategyOptions:
+        return self._fsGroup
+
+    @property
+    def hostIPC(self) -> Optional[bool]:
+        return self._hostIPC
+
+    @property
+    def hostNetwork(self) -> Optional[bool]:
+        return self._hostNetwork
+
+    @property
+    def hostPID(self) -> Optional[bool]:
+        return self._hostPID
+
+    @property
+    def hostPorts(self) -> Optional[List[io__k8s__api__policy__v1beta1__HostPortRange]]:
+        return self._hostPorts
+
+    @property
+    def privileged(self) -> Optional[bool]:
+        return self._privileged
+
+    @property
+    def readOnlyRootFilesystem(self) -> Optional[bool]:
+        return self._readOnlyRootFilesystem
+
+    @property
+    def requiredDropCapabilities(self) -> Optional[List[str]]:
+        return self._requiredDropCapabilities
+
+    @property
+    def runAsGroup(
+        self,
+    ) -> Optional[io__k8s__api__policy__v1beta1__RunAsGroupStrategyOptions]:
+        return self._runAsGroup
+
+    @property
+    def runAsUser(self) -> io__k8s__api__policy__v1beta1__RunAsUserStrategyOptions:
+        return self._runAsUser
+
+    @property
+    def runtimeClass(
+        self,
+    ) -> Optional[io__k8s__api__policy__v1beta1__RuntimeClassStrategyOptions]:
+        return self._runtimeClass
+
+    @property
+    def seLinux(self) -> io__k8s__api__policy__v1beta1__SELinuxStrategyOptions:
+        return self._seLinux
+
+    @property
+    def supplementalGroups(
+        self,
+    ) -> io__k8s__api__policy__v1beta1__SupplementalGroupsStrategyOptions:
+        return self._supplementalGroups
+
+    @property
+    def volumes(self) -> Optional[List[str]]:
+        return self._volumes
 
     def __init__(
         self,
@@ -8244,53 +11042,53 @@ class io__k8s__api__policy__v1beta1__PodSecurityPolicySpec(K8STemplatable):
     ):
         super().__init__()
         if fsGroup is not None:
-            self.fsGroup = fsGroup
+            self._fsGroup = fsGroup
         if runAsUser is not None:
-            self.runAsUser = runAsUser
+            self._runAsUser = runAsUser
         if seLinux is not None:
-            self.seLinux = seLinux
+            self._seLinux = seLinux
         if supplementalGroups is not None:
-            self.supplementalGroups = supplementalGroups
+            self._supplementalGroups = supplementalGroups
         if allowPrivilegeEscalation is not None:
-            self.allowPrivilegeEscalation = allowPrivilegeEscalation
+            self._allowPrivilegeEscalation = allowPrivilegeEscalation
         if allowedCSIDrivers is not None:
-            self.allowedCSIDrivers = allowedCSIDrivers
+            self._allowedCSIDrivers = allowedCSIDrivers
         if allowedCapabilities is not None:
-            self.allowedCapabilities = allowedCapabilities
+            self._allowedCapabilities = allowedCapabilities
         if allowedFlexVolumes is not None:
-            self.allowedFlexVolumes = allowedFlexVolumes
+            self._allowedFlexVolumes = allowedFlexVolumes
         if allowedHostPaths is not None:
-            self.allowedHostPaths = allowedHostPaths
+            self._allowedHostPaths = allowedHostPaths
         if allowedProcMountTypes is not None:
-            self.allowedProcMountTypes = allowedProcMountTypes
+            self._allowedProcMountTypes = allowedProcMountTypes
         if allowedUnsafeSysctls is not None:
-            self.allowedUnsafeSysctls = allowedUnsafeSysctls
+            self._allowedUnsafeSysctls = allowedUnsafeSysctls
         if defaultAddCapabilities is not None:
-            self.defaultAddCapabilities = defaultAddCapabilities
+            self._defaultAddCapabilities = defaultAddCapabilities
         if defaultAllowPrivilegeEscalation is not None:
-            self.defaultAllowPrivilegeEscalation = defaultAllowPrivilegeEscalation
+            self._defaultAllowPrivilegeEscalation = defaultAllowPrivilegeEscalation
         if forbiddenSysctls is not None:
-            self.forbiddenSysctls = forbiddenSysctls
+            self._forbiddenSysctls = forbiddenSysctls
         if hostIPC is not None:
-            self.hostIPC = hostIPC
+            self._hostIPC = hostIPC
         if hostNetwork is not None:
-            self.hostNetwork = hostNetwork
+            self._hostNetwork = hostNetwork
         if hostPID is not None:
-            self.hostPID = hostPID
+            self._hostPID = hostPID
         if hostPorts is not None:
-            self.hostPorts = hostPorts
+            self._hostPorts = hostPorts
         if privileged is not None:
-            self.privileged = privileged
+            self._privileged = privileged
         if readOnlyRootFilesystem is not None:
-            self.readOnlyRootFilesystem = readOnlyRootFilesystem
+            self._readOnlyRootFilesystem = readOnlyRootFilesystem
         if requiredDropCapabilities is not None:
-            self.requiredDropCapabilities = requiredDropCapabilities
+            self._requiredDropCapabilities = requiredDropCapabilities
         if runAsGroup is not None:
-            self.runAsGroup = runAsGroup
+            self._runAsGroup = runAsGroup
         if runtimeClass is not None:
-            self.runtimeClass = runtimeClass
+            self._runtimeClass = runtimeClass
         if volumes is not None:
-            self.volumes = volumes
+            self._volumes = volumes
 
 
 class io__k8s__api__storage__v1__CSIDriverSpec(K8STemplatable):
@@ -8307,13 +11105,33 @@ class io__k8s__api__storage__v1__CSIDriverSpec(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    attachRequired: Optional[bool] = None
-    fsGroupPolicy: Optional[str] = None
-    podInfoOnMount: Optional[bool] = None
-    requiresRepublish: Optional[bool] = None
-    storageCapacity: Optional[bool] = None
-    tokenRequests: Optional[List[io__k8s__api__storage__v1__TokenRequest]] = None
-    volumeLifecycleModes: Optional[List[str]] = None
+    @property
+    def attachRequired(self) -> Optional[bool]:
+        return self._attachRequired
+
+    @property
+    def fsGroupPolicy(self) -> Optional[str]:
+        return self._fsGroupPolicy
+
+    @property
+    def podInfoOnMount(self) -> Optional[bool]:
+        return self._podInfoOnMount
+
+    @property
+    def requiresRepublish(self) -> Optional[bool]:
+        return self._requiresRepublish
+
+    @property
+    def storageCapacity(self) -> Optional[bool]:
+        return self._storageCapacity
+
+    @property
+    def tokenRequests(self) -> Optional[List[io__k8s__api__storage__v1__TokenRequest]]:
+        return self._tokenRequests
+
+    @property
+    def volumeLifecycleModes(self) -> Optional[List[str]]:
+        return self._volumeLifecycleModes
 
     def __init__(
         self,
@@ -8327,19 +11145,19 @@ class io__k8s__api__storage__v1__CSIDriverSpec(K8STemplatable):
     ):
         super().__init__()
         if attachRequired is not None:
-            self.attachRequired = attachRequired
+            self._attachRequired = attachRequired
         if fsGroupPolicy is not None:
-            self.fsGroupPolicy = fsGroupPolicy
+            self._fsGroupPolicy = fsGroupPolicy
         if podInfoOnMount is not None:
-            self.podInfoOnMount = podInfoOnMount
+            self._podInfoOnMount = podInfoOnMount
         if requiresRepublish is not None:
-            self.requiresRepublish = requiresRepublish
+            self._requiresRepublish = requiresRepublish
         if storageCapacity is not None:
-            self.storageCapacity = storageCapacity
+            self._storageCapacity = storageCapacity
         if tokenRequests is not None:
-            self.tokenRequests = tokenRequests
+            self._tokenRequests = tokenRequests
         if volumeLifecycleModes is not None:
-            self.volumeLifecycleModes = volumeLifecycleModes
+            self._volumeLifecycleModes = volumeLifecycleModes
 
 
 class io__k8s__api__storage__v1__CSINodeDriver(K8STemplatable):
@@ -8348,10 +11166,21 @@ class io__k8s__api__storage__v1__CSINodeDriver(K8STemplatable):
     props: List[str] = ["allocatable", "name", "nodeID", "topologyKeys"]
     required_props: List[str] = ["name", "nodeID"]
 
-    allocatable: Optional[io__k8s__api__storage__v1__VolumeNodeResources] = None
-    name: str
-    nodeID: str
-    topologyKeys: Optional[List[str]] = None
+    @property
+    def allocatable(self) -> Optional[io__k8s__api__storage__v1__VolumeNodeResources]:
+        return self._allocatable
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def nodeID(self) -> str:
+        return self._nodeID
+
+    @property
+    def topologyKeys(self) -> Optional[List[str]]:
+        return self._topologyKeys
 
     def __init__(
         self,
@@ -8362,13 +11191,13 @@ class io__k8s__api__storage__v1__CSINodeDriver(K8STemplatable):
     ):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if nodeID is not None:
-            self.nodeID = nodeID
+            self._nodeID = nodeID
         if allocatable is not None:
-            self.allocatable = allocatable
+            self._allocatable = allocatable
         if topologyKeys is not None:
-            self.topologyKeys = topologyKeys
+            self._topologyKeys = topologyKeys
 
 
 class io__k8s__api__storage__v1__CSINodeSpec(K8STemplatable):
@@ -8377,12 +11206,14 @@ class io__k8s__api__storage__v1__CSINodeSpec(K8STemplatable):
     props: List[str] = ["drivers"]
     required_props: List[str] = ["drivers"]
 
-    drivers: List[io__k8s__api__storage__v1__CSINodeDriver]
+    @property
+    def drivers(self) -> List[io__k8s__api__storage__v1__CSINodeDriver]:
+        return self._drivers
 
     def __init__(self, drivers: List[io__k8s__api__storage__v1__CSINodeDriver]):
         super().__init__()
         if drivers is not None:
-            self.drivers = drivers
+            self._drivers = drivers
 
 
 class io__k8s__api__storage__v1__VolumeError(K8STemplatable):
@@ -8391,8 +11222,13 @@ class io__k8s__api__storage__v1__VolumeError(K8STemplatable):
     props: List[str] = ["message", "time"]
     required_props: List[str] = []
 
-    message: Optional[str] = None
-    time: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def time(self) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._time
 
     def __init__(
         self,
@@ -8401,9 +11237,9 @@ class io__k8s__api__storage__v1__VolumeError(K8STemplatable):
     ):
         super().__init__()
         if message is not None:
-            self.message = message
+            self._message = message
         if time is not None:
-            self.time = time
+            self._time = time
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__APIGroup(K8STemplatable):
@@ -8422,14 +11258,29 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__APIGroup(K8STemplatable):
     ]
     required_props: List[str] = ["name", "versions"]
 
-    name: str
-    preferredVersion: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__GroupVersionForDiscovery
-    ] = None
-    serverAddressByClientCIDRs: Optional[
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def preferredVersion(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__GroupVersionForDiscovery]:
+        return self._preferredVersion
+
+    @property
+    def serverAddressByClientCIDRs(
+        self,
+    ) -> Optional[
         List[io__k8s__apimachinery__pkg__apis__meta__v1__ServerAddressByClientCIDR]
-    ] = None
-    versions: List[io__k8s__apimachinery__pkg__apis__meta__v1__GroupVersionForDiscovery]
+    ]:
+        return self._serverAddressByClientCIDRs
+
+    @property
+    def versions(
+        self,
+    ) -> List[io__k8s__apimachinery__pkg__apis__meta__v1__GroupVersionForDiscovery]:
+        return self._versions
 
     def __init__(
         self,
@@ -8446,13 +11297,13 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__APIGroup(K8STemplatable):
     ):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if versions is not None:
-            self.versions = versions
+            self._versions = versions
         if preferredVersion is not None:
-            self.preferredVersion = preferredVersion
+            self._preferredVersion = preferredVersion
         if serverAddressByClientCIDRs is not None:
-            self.serverAddressByClientCIDRs = serverAddressByClientCIDRs
+            self._serverAddressByClientCIDRs = serverAddressByClientCIDRs
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__APIGroupList(K8STemplatable):
@@ -8464,14 +11315,16 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__APIGroupList(K8STemplatable):
     props: List[str] = ["apiVersion", "groups", "kind"]
     required_props: List[str] = ["groups"]
 
-    groups: List[io__k8s__apimachinery__pkg__apis__meta__v1__APIGroup]
+    @property
+    def groups(self) -> List[io__k8s__apimachinery__pkg__apis__meta__v1__APIGroup]:
+        return self._groups
 
     def __init__(
         self, groups: List[io__k8s__apimachinery__pkg__apis__meta__v1__APIGroup]
     ):
         super().__init__()
         if groups is not None:
-            self.groups = groups
+            self._groups = groups
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__APIVersions(K8STemplatable):
@@ -8483,10 +11336,15 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__APIVersions(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "serverAddressByClientCIDRs", "versions"]
     required_props: List[str] = ["versions", "serverAddressByClientCIDRs"]
 
-    serverAddressByClientCIDRs: List[
-        io__k8s__apimachinery__pkg__apis__meta__v1__ServerAddressByClientCIDR
-    ]
-    versions: List[str]
+    @property
+    def serverAddressByClientCIDRs(
+        self,
+    ) -> List[io__k8s__apimachinery__pkg__apis__meta__v1__ServerAddressByClientCIDR]:
+        return self._serverAddressByClientCIDRs
+
+    @property
+    def versions(self) -> List[str]:
+        return self._versions
 
     def __init__(
         self,
@@ -8497,9 +11355,9 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__APIVersions(K8STemplatable):
     ):
         super().__init__()
         if serverAddressByClientCIDRs is not None:
-            self.serverAddressByClientCIDRs = serverAddressByClientCIDRs
+            self._serverAddressByClientCIDRs = serverAddressByClientCIDRs
         if versions is not None:
-            self.versions = versions
+            self._versions = versions
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__Condition(K8STemplatable):
@@ -8521,12 +11379,29 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__Condition(K8STemplatable):
         "message",
     ]
 
-    lastTransitionTime: io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    message: str
-    observedGeneration: Optional[int] = None
-    reason: str
-    status: str
-    type: str
+    @property
+    def lastTransitionTime(self) -> io__k8s__apimachinery__pkg__apis__meta__v1__Time:
+        return self._lastTransitionTime
+
+    @property
+    def message(self) -> str:
+        return self._message
+
+    @property
+    def observedGeneration(self) -> Optional[int]:
+        return self._observedGeneration
+
+    @property
+    def reason(self) -> str:
+        return self._reason
+
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -8539,17 +11414,17 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__Condition(K8STemplatable):
     ):
         super().__init__()
         if lastTransitionTime is not None:
-            self.lastTransitionTime = lastTransitionTime
+            self._lastTransitionTime = lastTransitionTime
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
         if status is not None:
-            self.status = status
+            self._status = status
         if type is not None:
-            self.type = type
+            self._type = type
         if observedGeneration is not None:
-            self.observedGeneration = observedGeneration
+            self._observedGeneration = observedGeneration
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__DeleteOptions(K8STemplatable):
@@ -8569,13 +11444,27 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__DeleteOptions(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    dryRun: Optional[List[str]] = None
-    gracePeriodSeconds: Optional[int] = None
-    orphanDependents: Optional[bool] = None
-    preconditions: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Preconditions
-    ] = None
-    propagationPolicy: Optional[str] = None
+    @property
+    def dryRun(self) -> Optional[List[str]]:
+        return self._dryRun
+
+    @property
+    def gracePeriodSeconds(self) -> Optional[int]:
+        return self._gracePeriodSeconds
+
+    @property
+    def orphanDependents(self) -> Optional[bool]:
+        return self._orphanDependents
+
+    @property
+    def preconditions(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Preconditions]:
+        return self._preconditions
+
+    @property
+    def propagationPolicy(self) -> Optional[str]:
+        return self._propagationPolicy
 
     def __init__(
         self,
@@ -8589,15 +11478,15 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__DeleteOptions(K8STemplatable):
     ):
         super().__init__()
         if dryRun is not None:
-            self.dryRun = dryRun
+            self._dryRun = dryRun
         if gracePeriodSeconds is not None:
-            self.gracePeriodSeconds = gracePeriodSeconds
+            self._gracePeriodSeconds = gracePeriodSeconds
         if orphanDependents is not None:
-            self.orphanDependents = orphanDependents
+            self._orphanDependents = orphanDependents
         if preconditions is not None:
-            self.preconditions = preconditions
+            self._preconditions = preconditions
         if propagationPolicy is not None:
-            self.propagationPolicy = propagationPolicy
+            self._propagationPolicy = propagationPolicy
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector(K8STemplatable):
@@ -8606,10 +11495,17 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector(K8STemplatable):
     props: List[str] = ["matchExpressions", "matchLabels"]
     required_props: List[str] = []
 
-    matchExpressions: Optional[
+    @property
+    def matchExpressions(
+        self,
+    ) -> Optional[
         List[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelectorRequirement]
-    ] = None
-    matchLabels: Any
+    ]:
+        return self._matchExpressions
+
+    @property
+    def matchLabels(self) -> Any:
+        return self._matchLabels
 
     def __init__(
         self,
@@ -8620,9 +11516,9 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector(K8STemplatable):
     ):
         super().__init__()
         if matchExpressions is not None:
-            self.matchExpressions = matchExpressions
+            self._matchExpressions = matchExpressions
         if matchLabels is not None:
-            self.matchLabels = matchLabels
+            self._matchLabels = matchLabels
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__ManagedFieldsEntry(K8STemplatable):
@@ -8639,13 +11535,35 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__ManagedFieldsEntry(K8STemplata
     ]
     required_props: List[str] = []
 
-    apiVersion: Optional[str] = None
-    fieldsType: Optional[str] = None
-    fieldsV1: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__FieldsV1] = None
-    manager: Optional[str] = None
-    operation: Optional[str] = None
-    subresource: Optional[str] = None
-    time: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
+    @property
+    def apiVersion(self) -> Optional[str]:
+        return self._apiVersion
+
+    @property
+    def fieldsType(self) -> Optional[str]:
+        return self._fieldsType
+
+    @property
+    def fieldsV1(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__FieldsV1]:
+        return self._fieldsV1
+
+    @property
+    def manager(self) -> Optional[str]:
+        return self._manager
+
+    @property
+    def operation(self) -> Optional[str]:
+        return self._operation
+
+    @property
+    def subresource(self) -> Optional[str]:
+        return self._subresource
+
+    @property
+    def time(self) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._time
 
     def __init__(
         self,
@@ -8659,19 +11577,19 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__ManagedFieldsEntry(K8STemplata
     ):
         super().__init__()
         if apiVersion is not None:
-            self.apiVersion = apiVersion
+            self._apiVersion = apiVersion
         if fieldsType is not None:
-            self.fieldsType = fieldsType
+            self._fieldsType = fieldsType
         if fieldsV1 is not None:
-            self.fieldsV1 = fieldsV1
+            self._fieldsV1 = fieldsV1
         if manager is not None:
-            self.manager = manager
+            self._manager = manager
         if operation is not None:
-            self.operation = operation
+            self._operation = operation
         if subresource is not None:
-            self.subresource = subresource
+            self._subresource = subresource
         if time is not None:
-            self.time = time
+            self._time = time
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta(K8STemplatable):
@@ -8697,26 +11615,77 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    annotations: Any
-    clusterName: Optional[str] = None
-    creationTimestamp: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    deletionGracePeriodSeconds: Optional[int] = None
-    deletionTimestamp: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    finalizers: Optional[List[str]] = None
-    generateName: Optional[str] = None
-    generation: Optional[int] = None
-    labels: Any
-    managedFields: Optional[
-        List[io__k8s__apimachinery__pkg__apis__meta__v1__ManagedFieldsEntry]
-    ] = None
-    name: Optional[str] = None
-    namespace: Optional[str] = None
-    ownerReferences: Optional[
-        List[io__k8s__apimachinery__pkg__apis__meta__v1__OwnerReference]
-    ] = None
-    resourceVersion: Optional[str] = None
-    selfLink: Optional[str] = None
-    uid: Optional[str] = None
+    @property
+    def annotations(self) -> Any:
+        return self._annotations
+
+    @property
+    def clusterName(self) -> Optional[str]:
+        return self._clusterName
+
+    @property
+    def creationTimestamp(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._creationTimestamp
+
+    @property
+    def deletionGracePeriodSeconds(self) -> Optional[int]:
+        return self._deletionGracePeriodSeconds
+
+    @property
+    def deletionTimestamp(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._deletionTimestamp
+
+    @property
+    def finalizers(self) -> Optional[List[str]]:
+        return self._finalizers
+
+    @property
+    def generateName(self) -> Optional[str]:
+        return self._generateName
+
+    @property
+    def generation(self) -> Optional[int]:
+        return self._generation
+
+    @property
+    def labels(self) -> Any:
+        return self._labels
+
+    @property
+    def managedFields(
+        self,
+    ) -> Optional[List[io__k8s__apimachinery__pkg__apis__meta__v1__ManagedFieldsEntry]]:
+        return self._managedFields
+
+    @property
+    def name(self) -> Optional[str]:
+        return self._name
+
+    @property
+    def namespace(self) -> Optional[str]:
+        return self._namespace
+
+    @property
+    def ownerReferences(
+        self,
+    ) -> Optional[List[io__k8s__apimachinery__pkg__apis__meta__v1__OwnerReference]]:
+        return self._ownerReferences
+
+    @property
+    def resourceVersion(self) -> Optional[str]:
+        return self._resourceVersion
+
+    @property
+    def selfLink(self) -> Optional[str]:
+        return self._selfLink
+
+    @property
+    def uid(self) -> Optional[str]:
+        return self._uid
 
     def __init__(
         self,
@@ -8747,37 +11716,37 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta(K8STemplatable):
     ):
         super().__init__()
         if annotations is not None:
-            self.annotations = annotations
+            self._annotations = annotations
         if clusterName is not None:
-            self.clusterName = clusterName
+            self._clusterName = clusterName
         if creationTimestamp is not None:
-            self.creationTimestamp = creationTimestamp
+            self._creationTimestamp = creationTimestamp
         if deletionGracePeriodSeconds is not None:
-            self.deletionGracePeriodSeconds = deletionGracePeriodSeconds
+            self._deletionGracePeriodSeconds = deletionGracePeriodSeconds
         if deletionTimestamp is not None:
-            self.deletionTimestamp = deletionTimestamp
+            self._deletionTimestamp = deletionTimestamp
         if finalizers is not None:
-            self.finalizers = finalizers
+            self._finalizers = finalizers
         if generateName is not None:
-            self.generateName = generateName
+            self._generateName = generateName
         if generation is not None:
-            self.generation = generation
+            self._generation = generation
         if labels is not None:
-            self.labels = labels
+            self._labels = labels
         if managedFields is not None:
-            self.managedFields = managedFields
+            self._managedFields = managedFields
         if name is not None:
-            self.name = name
+            self._name = name
         if namespace is not None:
-            self.namespace = namespace
+            self._namespace = namespace
         if ownerReferences is not None:
-            self.ownerReferences = ownerReferences
+            self._ownerReferences = ownerReferences
         if resourceVersion is not None:
-            self.resourceVersion = resourceVersion
+            self._resourceVersion = resourceVersion
         if selfLink is not None:
-            self.selfLink = selfLink
+            self._selfLink = selfLink
         if uid is not None:
-            self.uid = uid
+            self._uid = uid
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__Status(K8STemplatable):
@@ -8798,12 +11767,33 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__Status(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    code: Optional[int] = None
-    details: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__StatusDetails] = None
-    message: Optional[str] = None
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
-    reason: Optional[str] = None
-    status: Optional[str] = None
+    @property
+    def code(self) -> Optional[int]:
+        return self._code
+
+    @property
+    def details(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__StatusDetails]:
+        return self._details
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def status(self) -> Optional[str]:
+        return self._status
 
     def __init__(
         self,
@@ -8818,17 +11808,17 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__Status(K8STemplatable):
     ):
         super().__init__()
         if code is not None:
-            self.code = code
+            self._code = code
         if details is not None:
-            self.details = details
+            self._details = details
         if message is not None:
-            self.message = message
+            self._message = message
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__apimachinery__pkg__apis__meta__v1__WatchEvent(K8STemplatable):
@@ -8840,17 +11830,22 @@ class io__k8s__apimachinery__pkg__apis__meta__v1__WatchEvent(K8STemplatable):
     props: List[str] = ["object", "type"]
     required_props: List[str] = ["type", "object"]
 
-    object: io__k8s__apimachinery__pkg__runtime__RawExtension
-    type: str
+    @property
+    def object(self) -> io__k8s__apimachinery__pkg__runtime__RawExtension:
+        return self._object
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self, object: io__k8s__apimachinery__pkg__runtime__RawExtension, type: str
     ):
         super().__init__()
         if object is not None:
-            self.object = object
+            self._object = object
         if type is not None:
-            self.type = type
+            self._type = type
 
 
 class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceSpec(
@@ -8869,15 +11864,37 @@ class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceSpec(
     ]
     required_props: List[str] = ["groupPriorityMinimum", "versionPriority"]
 
-    caBundle: Optional[str] = None
-    group: Optional[str] = None
-    groupPriorityMinimum: int
-    insecureSkipTLSVerify: Optional[bool] = None
-    service: Optional[
+    @property
+    def caBundle(self) -> Optional[str]:
+        return self._caBundle
+
+    @property
+    def group(self) -> Optional[str]:
+        return self._group
+
+    @property
+    def groupPriorityMinimum(self) -> int:
+        return self._groupPriorityMinimum
+
+    @property
+    def insecureSkipTLSVerify(self) -> Optional[bool]:
+        return self._insecureSkipTLSVerify
+
+    @property
+    def service(
+        self,
+    ) -> Optional[
         io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__ServiceReference
-    ] = None
-    version: Optional[str] = None
-    versionPriority: int
+    ]:
+        return self._service
+
+    @property
+    def version(self) -> Optional[str]:
+        return self._version
+
+    @property
+    def versionPriority(self) -> int:
+        return self._versionPriority
 
     def __init__(
         self,
@@ -8893,19 +11910,19 @@ class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceSpec(
     ):
         super().__init__()
         if groupPriorityMinimum is not None:
-            self.groupPriorityMinimum = groupPriorityMinimum
+            self._groupPriorityMinimum = groupPriorityMinimum
         if versionPriority is not None:
-            self.versionPriority = versionPriority
+            self._versionPriority = versionPriority
         if caBundle is not None:
-            self.caBundle = caBundle
+            self._caBundle = caBundle
         if group is not None:
-            self.group = group
+            self._group = group
         if insecureSkipTLSVerify is not None:
-            self.insecureSkipTLSVerify = insecureSkipTLSVerify
+            self._insecureSkipTLSVerify = insecureSkipTLSVerify
         if service is not None:
-            self.service = service
+            self._service = service
         if version is not None:
-            self.version = version
+            self._version = version
 
 
 class io__k8s__api__admissionregistration__v1__MutatingWebhook(K8STemplatable):
@@ -8931,23 +11948,57 @@ class io__k8s__api__admissionregistration__v1__MutatingWebhook(K8STemplatable):
         "admissionReviewVersions",
     ]
 
-    admissionReviewVersions: List[str]
-    clientConfig: io__k8s__api__admissionregistration__v1__WebhookClientConfig
-    failurePolicy: Optional[str] = None
-    matchPolicy: Optional[str] = None
-    name: str
-    namespaceSelector: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
-    ] = None
-    objectSelector: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
-    ] = None
-    reinvocationPolicy: Optional[str] = None
-    rules: Optional[
-        List[io__k8s__api__admissionregistration__v1__RuleWithOperations]
-    ] = None
-    sideEffects: str
-    timeoutSeconds: Optional[int] = None
+    @property
+    def admissionReviewVersions(self) -> List[str]:
+        return self._admissionReviewVersions
+
+    @property
+    def clientConfig(
+        self,
+    ) -> io__k8s__api__admissionregistration__v1__WebhookClientConfig:
+        return self._clientConfig
+
+    @property
+    def failurePolicy(self) -> Optional[str]:
+        return self._failurePolicy
+
+    @property
+    def matchPolicy(self) -> Optional[str]:
+        return self._matchPolicy
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def namespaceSelector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._namespaceSelector
+
+    @property
+    def objectSelector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._objectSelector
+
+    @property
+    def reinvocationPolicy(self) -> Optional[str]:
+        return self._reinvocationPolicy
+
+    @property
+    def rules(
+        self,
+    ) -> Optional[List[io__k8s__api__admissionregistration__v1__RuleWithOperations]]:
+        return self._rules
+
+    @property
+    def sideEffects(self) -> str:
+        return self._sideEffects
+
+    @property
+    def timeoutSeconds(self) -> Optional[int]:
+        return self._timeoutSeconds
 
     def __init__(
         self,
@@ -8971,27 +12022,27 @@ class io__k8s__api__admissionregistration__v1__MutatingWebhook(K8STemplatable):
     ):
         super().__init__()
         if admissionReviewVersions is not None:
-            self.admissionReviewVersions = admissionReviewVersions
+            self._admissionReviewVersions = admissionReviewVersions
         if clientConfig is not None:
-            self.clientConfig = clientConfig
+            self._clientConfig = clientConfig
         if name is not None:
-            self.name = name
+            self._name = name
         if sideEffects is not None:
-            self.sideEffects = sideEffects
+            self._sideEffects = sideEffects
         if failurePolicy is not None:
-            self.failurePolicy = failurePolicy
+            self._failurePolicy = failurePolicy
         if matchPolicy is not None:
-            self.matchPolicy = matchPolicy
+            self._matchPolicy = matchPolicy
         if namespaceSelector is not None:
-            self.namespaceSelector = namespaceSelector
+            self._namespaceSelector = namespaceSelector
         if objectSelector is not None:
-            self.objectSelector = objectSelector
+            self._objectSelector = objectSelector
         if reinvocationPolicy is not None:
-            self.reinvocationPolicy = reinvocationPolicy
+            self._reinvocationPolicy = reinvocationPolicy
         if rules is not None:
-            self.rules = rules
+            self._rules = rules
         if timeoutSeconds is not None:
-            self.timeoutSeconds = timeoutSeconds
+            self._timeoutSeconds = timeoutSeconds
 
 
 class io__k8s__api__admissionregistration__v1__MutatingWebhookConfiguration(
@@ -9005,10 +12056,17 @@ class io__k8s__api__admissionregistration__v1__MutatingWebhookConfiguration(
     props: List[str] = ["apiVersion", "kind", "metadata", "webhooks"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    webhooks: Optional[
-        List[io__k8s__api__admissionregistration__v1__MutatingWebhook]
-    ] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def webhooks(
+        self,
+    ) -> Optional[List[io__k8s__api__admissionregistration__v1__MutatingWebhook]]:
+        return self._webhooks
 
     def __init__(
         self,
@@ -9021,9 +12079,9 @@ class io__k8s__api__admissionregistration__v1__MutatingWebhookConfiguration(
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if webhooks is not None:
-            self.webhooks = webhooks
+            self._webhooks = webhooks
 
 
 class io__k8s__api__admissionregistration__v1__MutatingWebhookConfigurationList(
@@ -9037,8 +12095,17 @@ class io__k8s__api__admissionregistration__v1__MutatingWebhookConfigurationList(
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__admissionregistration__v1__MutatingWebhookConfiguration]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(
+        self,
+    ) -> List[io__k8s__api__admissionregistration__v1__MutatingWebhookConfiguration]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -9049,9 +12116,9 @@ class io__k8s__api__admissionregistration__v1__MutatingWebhookConfigurationList(
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__admissionregistration__v1__ValidatingWebhook(K8STemplatable):
@@ -9076,22 +12143,53 @@ class io__k8s__api__admissionregistration__v1__ValidatingWebhook(K8STemplatable)
         "admissionReviewVersions",
     ]
 
-    admissionReviewVersions: List[str]
-    clientConfig: io__k8s__api__admissionregistration__v1__WebhookClientConfig
-    failurePolicy: Optional[str] = None
-    matchPolicy: Optional[str] = None
-    name: str
-    namespaceSelector: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
-    ] = None
-    objectSelector: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
-    ] = None
-    rules: Optional[
-        List[io__k8s__api__admissionregistration__v1__RuleWithOperations]
-    ] = None
-    sideEffects: str
-    timeoutSeconds: Optional[int] = None
+    @property
+    def admissionReviewVersions(self) -> List[str]:
+        return self._admissionReviewVersions
+
+    @property
+    def clientConfig(
+        self,
+    ) -> io__k8s__api__admissionregistration__v1__WebhookClientConfig:
+        return self._clientConfig
+
+    @property
+    def failurePolicy(self) -> Optional[str]:
+        return self._failurePolicy
+
+    @property
+    def matchPolicy(self) -> Optional[str]:
+        return self._matchPolicy
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def namespaceSelector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._namespaceSelector
+
+    @property
+    def objectSelector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._objectSelector
+
+    @property
+    def rules(
+        self,
+    ) -> Optional[List[io__k8s__api__admissionregistration__v1__RuleWithOperations]]:
+        return self._rules
+
+    @property
+    def sideEffects(self) -> str:
+        return self._sideEffects
+
+    @property
+    def timeoutSeconds(self) -> Optional[int]:
+        return self._timeoutSeconds
 
     def __init__(
         self,
@@ -9114,25 +12212,25 @@ class io__k8s__api__admissionregistration__v1__ValidatingWebhook(K8STemplatable)
     ):
         super().__init__()
         if admissionReviewVersions is not None:
-            self.admissionReviewVersions = admissionReviewVersions
+            self._admissionReviewVersions = admissionReviewVersions
         if clientConfig is not None:
-            self.clientConfig = clientConfig
+            self._clientConfig = clientConfig
         if name is not None:
-            self.name = name
+            self._name = name
         if sideEffects is not None:
-            self.sideEffects = sideEffects
+            self._sideEffects = sideEffects
         if failurePolicy is not None:
-            self.failurePolicy = failurePolicy
+            self._failurePolicy = failurePolicy
         if matchPolicy is not None:
-            self.matchPolicy = matchPolicy
+            self._matchPolicy = matchPolicy
         if namespaceSelector is not None:
-            self.namespaceSelector = namespaceSelector
+            self._namespaceSelector = namespaceSelector
         if objectSelector is not None:
-            self.objectSelector = objectSelector
+            self._objectSelector = objectSelector
         if rules is not None:
-            self.rules = rules
+            self._rules = rules
         if timeoutSeconds is not None:
-            self.timeoutSeconds = timeoutSeconds
+            self._timeoutSeconds = timeoutSeconds
 
 
 class io__k8s__api__admissionregistration__v1__ValidatingWebhookConfiguration(
@@ -9146,10 +12244,17 @@ class io__k8s__api__admissionregistration__v1__ValidatingWebhookConfiguration(
     props: List[str] = ["apiVersion", "kind", "metadata", "webhooks"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    webhooks: Optional[
-        List[io__k8s__api__admissionregistration__v1__ValidatingWebhook]
-    ] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def webhooks(
+        self,
+    ) -> Optional[List[io__k8s__api__admissionregistration__v1__ValidatingWebhook]]:
+        return self._webhooks
 
     def __init__(
         self,
@@ -9162,9 +12267,9 @@ class io__k8s__api__admissionregistration__v1__ValidatingWebhookConfiguration(
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if webhooks is not None:
-            self.webhooks = webhooks
+            self._webhooks = webhooks
 
 
 class io__k8s__api__admissionregistration__v1__ValidatingWebhookConfigurationList(
@@ -9178,8 +12283,17 @@ class io__k8s__api__admissionregistration__v1__ValidatingWebhookConfigurationLis
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__admissionregistration__v1__ValidatingWebhookConfiguration]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(
+        self,
+    ) -> List[io__k8s__api__admissionregistration__v1__ValidatingWebhookConfiguration]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -9190,9 +12304,9 @@ class io__k8s__api__admissionregistration__v1__ValidatingWebhookConfigurationLis
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__apiserverinternal__v1alpha1__StorageVersion(K8STemplatable):
@@ -9204,9 +12318,19 @@ class io__k8s__api__apiserverinternal__v1alpha1__StorageVersion(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = ["spec", "status"]
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: io__k8s__api__apiserverinternal__v1alpha1__StorageVersionSpec
-    status: io__k8s__api__apiserverinternal__v1alpha1__StorageVersionStatus
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> io__k8s__api__apiserverinternal__v1alpha1__StorageVersionSpec:
+        return self._spec
+
+    @property
+    def status(self) -> io__k8s__api__apiserverinternal__v1alpha1__StorageVersionStatus:
+        return self._status
 
     def __init__(
         self,
@@ -9218,11 +12342,11 @@ class io__k8s__api__apiserverinternal__v1alpha1__StorageVersion(K8STemplatable):
     ):
         super().__init__()
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__apiserverinternal__v1alpha1__StorageVersionList(K8STemplatable):
@@ -9234,8 +12358,15 @@ class io__k8s__api__apiserverinternal__v1alpha1__StorageVersionList(K8STemplatab
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__apiserverinternal__v1alpha1__StorageVersion]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__apiserverinternal__v1alpha1__StorageVersion]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -9244,9 +12375,9 @@ class io__k8s__api__apiserverinternal__v1alpha1__StorageVersionList(K8STemplatab
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__apps__v1__ControllerRevision(K8STemplatable):
@@ -9258,9 +12389,19 @@ class io__k8s__api__apps__v1__ControllerRevision(K8STemplatable):
     props: List[str] = ["apiVersion", "data", "kind", "metadata", "revision"]
     required_props: List[str] = ["revision"]
 
-    data: Optional[io__k8s__apimachinery__pkg__runtime__RawExtension] = None
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    revision: int
+    @property
+    def data(self) -> Optional[io__k8s__apimachinery__pkg__runtime__RawExtension]:
+        return self._data
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def revision(self) -> int:
+        return self._revision
 
     def __init__(
         self,
@@ -9272,11 +12413,11 @@ class io__k8s__api__apps__v1__ControllerRevision(K8STemplatable):
     ):
         super().__init__()
         if revision is not None:
-            self.revision = revision
+            self._revision = revision
         if data is not None:
-            self.data = data
+            self._data = data
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__apps__v1__ControllerRevisionList(K8STemplatable):
@@ -9288,8 +12429,15 @@ class io__k8s__api__apps__v1__ControllerRevisionList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__apps__v1__ControllerRevision]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__apps__v1__ControllerRevision]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -9298,9 +12446,9 @@ class io__k8s__api__apps__v1__ControllerRevisionList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__apps__v1__DaemonSetUpdateStrategy(K8STemplatable):
@@ -9309,8 +12457,13 @@ class io__k8s__api__apps__v1__DaemonSetUpdateStrategy(K8STemplatable):
     props: List[str] = ["rollingUpdate", "type"]
     required_props: List[str] = []
 
-    rollingUpdate: Optional[io__k8s__api__apps__v1__RollingUpdateDaemonSet] = None
-    type: Optional[str] = None
+    @property
+    def rollingUpdate(self) -> Optional[io__k8s__api__apps__v1__RollingUpdateDaemonSet]:
+        return self._rollingUpdate
+
+    @property
+    def type(self) -> Optional[str]:
+        return self._type
 
     def __init__(
         self,
@@ -9319,9 +12472,9 @@ class io__k8s__api__apps__v1__DaemonSetUpdateStrategy(K8STemplatable):
     ):
         super().__init__()
         if rollingUpdate is not None:
-            self.rollingUpdate = rollingUpdate
+            self._rollingUpdate = rollingUpdate
         if type is not None:
-            self.type = type
+            self._type = type
 
 
 class io__k8s__api__apps__v1__DeploymentStrategy(K8STemplatable):
@@ -9330,8 +12483,15 @@ class io__k8s__api__apps__v1__DeploymentStrategy(K8STemplatable):
     props: List[str] = ["rollingUpdate", "type"]
     required_props: List[str] = []
 
-    rollingUpdate: Optional[io__k8s__api__apps__v1__RollingUpdateDeployment] = None
-    type: Optional[str] = None
+    @property
+    def rollingUpdate(
+        self,
+    ) -> Optional[io__k8s__api__apps__v1__RollingUpdateDeployment]:
+        return self._rollingUpdate
+
+    @property
+    def type(self) -> Optional[str]:
+        return self._type
 
     def __init__(
         self,
@@ -9340,9 +12500,9 @@ class io__k8s__api__apps__v1__DeploymentStrategy(K8STemplatable):
     ):
         super().__init__()
         if rollingUpdate is not None:
-            self.rollingUpdate = rollingUpdate
+            self._rollingUpdate = rollingUpdate
         if type is not None:
-            self.type = type
+            self._type = type
 
 
 class io__k8s__api__authentication__v1__TokenRequest(K8STemplatable):
@@ -9354,9 +12514,19 @@ class io__k8s__api__authentication__v1__TokenRequest(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = ["spec"]
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: io__k8s__api__authentication__v1__TokenRequestSpec
-    status: Optional[io__k8s__api__authentication__v1__TokenRequestStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> io__k8s__api__authentication__v1__TokenRequestSpec:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__authentication__v1__TokenRequestStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -9368,11 +12538,11 @@ class io__k8s__api__authentication__v1__TokenRequest(K8STemplatable):
     ):
         super().__init__()
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__authentication__v1__TokenReview(K8STemplatable):
@@ -9384,9 +12554,19 @@ class io__k8s__api__authentication__v1__TokenReview(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = ["spec"]
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: io__k8s__api__authentication__v1__TokenReviewSpec
-    status: Optional[io__k8s__api__authentication__v1__TokenReviewStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> io__k8s__api__authentication__v1__TokenReviewSpec:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__authentication__v1__TokenReviewStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -9398,11 +12578,11 @@ class io__k8s__api__authentication__v1__TokenReview(K8STemplatable):
     ):
         super().__init__()
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__authorization__v1__LocalSubjectAccessReview(K8STemplatable):
@@ -9414,9 +12594,21 @@ class io__k8s__api__authorization__v1__LocalSubjectAccessReview(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = ["spec"]
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: io__k8s__api__authorization__v1__SubjectAccessReviewSpec
-    status: Optional[io__k8s__api__authorization__v1__SubjectAccessReviewStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> io__k8s__api__authorization__v1__SubjectAccessReviewSpec:
+        return self._spec
+
+    @property
+    def status(
+        self,
+    ) -> Optional[io__k8s__api__authorization__v1__SubjectAccessReviewStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -9430,11 +12622,11 @@ class io__k8s__api__authorization__v1__LocalSubjectAccessReview(K8STemplatable):
     ):
         super().__init__()
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__authorization__v1__SelfSubjectAccessReview(K8STemplatable):
@@ -9446,9 +12638,21 @@ class io__k8s__api__authorization__v1__SelfSubjectAccessReview(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = ["spec"]
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: io__k8s__api__authorization__v1__SelfSubjectAccessReviewSpec
-    status: Optional[io__k8s__api__authorization__v1__SubjectAccessReviewStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> io__k8s__api__authorization__v1__SelfSubjectAccessReviewSpec:
+        return self._spec
+
+    @property
+    def status(
+        self,
+    ) -> Optional[io__k8s__api__authorization__v1__SubjectAccessReviewStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -9462,11 +12666,11 @@ class io__k8s__api__authorization__v1__SelfSubjectAccessReview(K8STemplatable):
     ):
         super().__init__()
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__authorization__v1__SelfSubjectRulesReview(K8STemplatable):
@@ -9478,9 +12682,21 @@ class io__k8s__api__authorization__v1__SelfSubjectRulesReview(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = ["spec"]
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: io__k8s__api__authorization__v1__SelfSubjectRulesReviewSpec
-    status: Optional[io__k8s__api__authorization__v1__SubjectRulesReviewStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> io__k8s__api__authorization__v1__SelfSubjectRulesReviewSpec:
+        return self._spec
+
+    @property
+    def status(
+        self,
+    ) -> Optional[io__k8s__api__authorization__v1__SubjectRulesReviewStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -9494,11 +12710,11 @@ class io__k8s__api__authorization__v1__SelfSubjectRulesReview(K8STemplatable):
     ):
         super().__init__()
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__authorization__v1__SubjectAccessReview(K8STemplatable):
@@ -9510,9 +12726,21 @@ class io__k8s__api__authorization__v1__SubjectAccessReview(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = ["spec"]
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: io__k8s__api__authorization__v1__SubjectAccessReviewSpec
-    status: Optional[io__k8s__api__authorization__v1__SubjectAccessReviewStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> io__k8s__api__authorization__v1__SubjectAccessReviewSpec:
+        return self._spec
+
+    @property
+    def status(
+        self,
+    ) -> Optional[io__k8s__api__authorization__v1__SubjectAccessReviewStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -9526,11 +12754,11 @@ class io__k8s__api__authorization__v1__SubjectAccessReview(K8STemplatable):
     ):
         super().__init__()
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__autoscaling__v1__HorizontalPodAutoscaler(K8STemplatable):
@@ -9542,11 +12770,23 @@ class io__k8s__api__autoscaling__v1__HorizontalPodAutoscaler(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__autoscaling__v1__HorizontalPodAutoscalerSpec] = None
-    status: Optional[
-        io__k8s__api__autoscaling__v1__HorizontalPodAutoscalerStatus
-    ] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v1__HorizontalPodAutoscalerSpec]:
+        return self._spec
+
+    @property
+    def status(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v1__HorizontalPodAutoscalerStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -9562,11 +12802,11 @@ class io__k8s__api__autoscaling__v1__HorizontalPodAutoscaler(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__autoscaling__v1__HorizontalPodAutoscalerList(K8STemplatable):
@@ -9578,8 +12818,15 @@ class io__k8s__api__autoscaling__v1__HorizontalPodAutoscalerList(K8STemplatable)
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__autoscaling__v1__HorizontalPodAutoscaler]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__autoscaling__v1__HorizontalPodAutoscaler]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -9588,9 +12835,9 @@ class io__k8s__api__autoscaling__v1__HorizontalPodAutoscalerList(K8STemplatable)
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__autoscaling__v1__Scale(K8STemplatable):
@@ -9602,9 +12849,19 @@ class io__k8s__api__autoscaling__v1__Scale(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__autoscaling__v1__ScaleSpec] = None
-    status: Optional[io__k8s__api__autoscaling__v1__ScaleStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__autoscaling__v1__ScaleSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__autoscaling__v1__ScaleStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -9616,11 +12873,11 @@ class io__k8s__api__autoscaling__v1__Scale(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__autoscaling__v2__ContainerResourceMetricSource(K8STemplatable):
@@ -9629,9 +12886,17 @@ class io__k8s__api__autoscaling__v2__ContainerResourceMetricSource(K8STemplatabl
     props: List[str] = ["container", "name", "target"]
     required_props: List[str] = ["name", "target", "container"]
 
-    container: str
-    name: str
-    target: io__k8s__api__autoscaling__v2__MetricTarget
+    @property
+    def container(self) -> str:
+        return self._container
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def target(self) -> io__k8s__api__autoscaling__v2__MetricTarget:
+        return self._target
 
     def __init__(
         self,
@@ -9641,11 +12906,11 @@ class io__k8s__api__autoscaling__v2__ContainerResourceMetricSource(K8STemplatabl
     ):
         super().__init__()
         if container is not None:
-            self.container = container
+            self._container = container
         if name is not None:
-            self.name = name
+            self._name = name
         if target is not None:
-            self.target = target
+            self._target = target
 
 
 class io__k8s__api__autoscaling__v2__ContainerResourceMetricStatus(K8STemplatable):
@@ -9654,9 +12919,17 @@ class io__k8s__api__autoscaling__v2__ContainerResourceMetricStatus(K8STemplatabl
     props: List[str] = ["container", "current", "name"]
     required_props: List[str] = ["name", "current", "container"]
 
-    container: str
-    current: io__k8s__api__autoscaling__v2__MetricValueStatus
-    name: str
+    @property
+    def container(self) -> str:
+        return self._container
+
+    @property
+    def current(self) -> io__k8s__api__autoscaling__v2__MetricValueStatus:
+        return self._current
+
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(
         self,
@@ -9666,11 +12939,11 @@ class io__k8s__api__autoscaling__v2__ContainerResourceMetricStatus(K8STemplatabl
     ):
         super().__init__()
         if container is not None:
-            self.container = container
+            self._container = container
         if current is not None:
-            self.current = current
+            self._current = current
         if name is not None:
-            self.name = name
+            self._name = name
 
 
 class io__k8s__api__autoscaling__v2__MetricIdentifier(K8STemplatable):
@@ -9679,8 +12952,15 @@ class io__k8s__api__autoscaling__v2__MetricIdentifier(K8STemplatable):
     props: List[str] = ["name", "selector"]
     required_props: List[str] = ["name"]
 
-    name: str
-    selector: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector] = None
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def selector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._selector
 
     def __init__(
         self,
@@ -9691,9 +12971,9 @@ class io__k8s__api__autoscaling__v2__MetricIdentifier(K8STemplatable):
     ):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if selector is not None:
-            self.selector = selector
+            self._selector = selector
 
 
 class io__k8s__api__autoscaling__v2__ObjectMetricSource(K8STemplatable):
@@ -9702,9 +12982,19 @@ class io__k8s__api__autoscaling__v2__ObjectMetricSource(K8STemplatable):
     props: List[str] = ["describedObject", "metric", "target"]
     required_props: List[str] = ["describedObject", "target", "metric"]
 
-    describedObject: io__k8s__api__autoscaling__v2__CrossVersionObjectReference
-    metric: io__k8s__api__autoscaling__v2__MetricIdentifier
-    target: io__k8s__api__autoscaling__v2__MetricTarget
+    @property
+    def describedObject(
+        self,
+    ) -> io__k8s__api__autoscaling__v2__CrossVersionObjectReference:
+        return self._describedObject
+
+    @property
+    def metric(self) -> io__k8s__api__autoscaling__v2__MetricIdentifier:
+        return self._metric
+
+    @property
+    def target(self) -> io__k8s__api__autoscaling__v2__MetricTarget:
+        return self._target
 
     def __init__(
         self,
@@ -9714,11 +13004,11 @@ class io__k8s__api__autoscaling__v2__ObjectMetricSource(K8STemplatable):
     ):
         super().__init__()
         if describedObject is not None:
-            self.describedObject = describedObject
+            self._describedObject = describedObject
         if metric is not None:
-            self.metric = metric
+            self._metric = metric
         if target is not None:
-            self.target = target
+            self._target = target
 
 
 class io__k8s__api__autoscaling__v2__ObjectMetricStatus(K8STemplatable):
@@ -9727,9 +13017,19 @@ class io__k8s__api__autoscaling__v2__ObjectMetricStatus(K8STemplatable):
     props: List[str] = ["current", "describedObject", "metric"]
     required_props: List[str] = ["metric", "current", "describedObject"]
 
-    current: io__k8s__api__autoscaling__v2__MetricValueStatus
-    describedObject: io__k8s__api__autoscaling__v2__CrossVersionObjectReference
-    metric: io__k8s__api__autoscaling__v2__MetricIdentifier
+    @property
+    def current(self) -> io__k8s__api__autoscaling__v2__MetricValueStatus:
+        return self._current
+
+    @property
+    def describedObject(
+        self,
+    ) -> io__k8s__api__autoscaling__v2__CrossVersionObjectReference:
+        return self._describedObject
+
+    @property
+    def metric(self) -> io__k8s__api__autoscaling__v2__MetricIdentifier:
+        return self._metric
 
     def __init__(
         self,
@@ -9739,11 +13039,11 @@ class io__k8s__api__autoscaling__v2__ObjectMetricStatus(K8STemplatable):
     ):
         super().__init__()
         if current is not None:
-            self.current = current
+            self._current = current
         if describedObject is not None:
-            self.describedObject = describedObject
+            self._describedObject = describedObject
         if metric is not None:
-            self.metric = metric
+            self._metric = metric
 
 
 class io__k8s__api__autoscaling__v2__PodsMetricSource(K8STemplatable):
@@ -9752,8 +13052,13 @@ class io__k8s__api__autoscaling__v2__PodsMetricSource(K8STemplatable):
     props: List[str] = ["metric", "target"]
     required_props: List[str] = ["metric", "target"]
 
-    metric: io__k8s__api__autoscaling__v2__MetricIdentifier
-    target: io__k8s__api__autoscaling__v2__MetricTarget
+    @property
+    def metric(self) -> io__k8s__api__autoscaling__v2__MetricIdentifier:
+        return self._metric
+
+    @property
+    def target(self) -> io__k8s__api__autoscaling__v2__MetricTarget:
+        return self._target
 
     def __init__(
         self,
@@ -9762,9 +13067,9 @@ class io__k8s__api__autoscaling__v2__PodsMetricSource(K8STemplatable):
     ):
         super().__init__()
         if metric is not None:
-            self.metric = metric
+            self._metric = metric
         if target is not None:
-            self.target = target
+            self._target = target
 
 
 class io__k8s__api__autoscaling__v2__PodsMetricStatus(K8STemplatable):
@@ -9773,8 +13078,13 @@ class io__k8s__api__autoscaling__v2__PodsMetricStatus(K8STemplatable):
     props: List[str] = ["current", "metric"]
     required_props: List[str] = ["metric", "current"]
 
-    current: io__k8s__api__autoscaling__v2__MetricValueStatus
-    metric: io__k8s__api__autoscaling__v2__MetricIdentifier
+    @property
+    def current(self) -> io__k8s__api__autoscaling__v2__MetricValueStatus:
+        return self._current
+
+    @property
+    def metric(self) -> io__k8s__api__autoscaling__v2__MetricIdentifier:
+        return self._metric
 
     def __init__(
         self,
@@ -9783,9 +13093,9 @@ class io__k8s__api__autoscaling__v2__PodsMetricStatus(K8STemplatable):
     ):
         super().__init__()
         if current is not None:
-            self.current = current
+            self._current = current
         if metric is not None:
-            self.metric = metric
+            self._metric = metric
 
 
 class io__k8s__api__autoscaling__v2beta1__ExternalMetricSource(K8STemplatable):
@@ -9799,14 +13109,27 @@ class io__k8s__api__autoscaling__v2beta1__ExternalMetricSource(K8STemplatable):
     ]
     required_props: List[str] = ["metricName"]
 
-    metricName: str
-    metricSelector: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
-    ] = None
-    targetAverageValue: Optional[
-        io__k8s__apimachinery__pkg__api__resource__Quantity
-    ] = None
-    targetValue: Optional[io__k8s__apimachinery__pkg__api__resource__Quantity] = None
+    @property
+    def metricName(self) -> str:
+        return self._metricName
+
+    @property
+    def metricSelector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._metricSelector
+
+    @property
+    def targetAverageValue(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._targetAverageValue
+
+    @property
+    def targetValue(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._targetValue
 
     def __init__(
         self,
@@ -9823,13 +13146,13 @@ class io__k8s__api__autoscaling__v2beta1__ExternalMetricSource(K8STemplatable):
     ):
         super().__init__()
         if metricName is not None:
-            self.metricName = metricName
+            self._metricName = metricName
         if metricSelector is not None:
-            self.metricSelector = metricSelector
+            self._metricSelector = metricSelector
         if targetAverageValue is not None:
-            self.targetAverageValue = targetAverageValue
+            self._targetAverageValue = targetAverageValue
         if targetValue is not None:
-            self.targetValue = targetValue
+            self._targetValue = targetValue
 
 
 class io__k8s__api__autoscaling__v2beta1__ExternalMetricStatus(K8STemplatable):
@@ -9843,14 +13166,25 @@ class io__k8s__api__autoscaling__v2beta1__ExternalMetricStatus(K8STemplatable):
     ]
     required_props: List[str] = ["metricName", "currentValue"]
 
-    currentAverageValue: Optional[
-        io__k8s__apimachinery__pkg__api__resource__Quantity
-    ] = None
-    currentValue: io__k8s__apimachinery__pkg__api__resource__Quantity
-    metricName: str
-    metricSelector: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
-    ] = None
+    @property
+    def currentAverageValue(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._currentAverageValue
+
+    @property
+    def currentValue(self) -> io__k8s__apimachinery__pkg__api__resource__Quantity:
+        return self._currentValue
+
+    @property
+    def metricName(self) -> str:
+        return self._metricName
+
+    @property
+    def metricSelector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._metricSelector
 
     def __init__(
         self,
@@ -9865,13 +13199,13 @@ class io__k8s__api__autoscaling__v2beta1__ExternalMetricStatus(K8STemplatable):
     ):
         super().__init__()
         if currentValue is not None:
-            self.currentValue = currentValue
+            self._currentValue = currentValue
         if metricName is not None:
-            self.metricName = metricName
+            self._metricName = metricName
         if currentAverageValue is not None:
-            self.currentAverageValue = currentAverageValue
+            self._currentAverageValue = currentAverageValue
         if metricSelector is not None:
-            self.metricSelector = metricSelector
+            self._metricSelector = metricSelector
 
 
 class io__k8s__api__autoscaling__v2beta1__ObjectMetricSource(K8STemplatable):
@@ -9886,11 +13220,29 @@ class io__k8s__api__autoscaling__v2beta1__ObjectMetricSource(K8STemplatable):
     ]
     required_props: List[str] = ["target", "metricName", "targetValue"]
 
-    averageValue: Optional[io__k8s__apimachinery__pkg__api__resource__Quantity] = None
-    metricName: str
-    selector: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector] = None
-    target: io__k8s__api__autoscaling__v2beta1__CrossVersionObjectReference
-    targetValue: io__k8s__apimachinery__pkg__api__resource__Quantity
+    @property
+    def averageValue(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._averageValue
+
+    @property
+    def metricName(self) -> str:
+        return self._metricName
+
+    @property
+    def selector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._selector
+
+    @property
+    def target(self) -> io__k8s__api__autoscaling__v2beta1__CrossVersionObjectReference:
+        return self._target
+
+    @property
+    def targetValue(self) -> io__k8s__apimachinery__pkg__api__resource__Quantity:
+        return self._targetValue
 
     def __init__(
         self,
@@ -9906,15 +13258,15 @@ class io__k8s__api__autoscaling__v2beta1__ObjectMetricSource(K8STemplatable):
     ):
         super().__init__()
         if metricName is not None:
-            self.metricName = metricName
+            self._metricName = metricName
         if target is not None:
-            self.target = target
+            self._target = target
         if targetValue is not None:
-            self.targetValue = targetValue
+            self._targetValue = targetValue
         if averageValue is not None:
-            self.averageValue = averageValue
+            self._averageValue = averageValue
         if selector is not None:
-            self.selector = selector
+            self._selector = selector
 
 
 class io__k8s__api__autoscaling__v2beta1__ObjectMetricStatus(K8STemplatable):
@@ -9929,11 +13281,29 @@ class io__k8s__api__autoscaling__v2beta1__ObjectMetricStatus(K8STemplatable):
     ]
     required_props: List[str] = ["target", "metricName", "currentValue"]
 
-    averageValue: Optional[io__k8s__apimachinery__pkg__api__resource__Quantity] = None
-    currentValue: io__k8s__apimachinery__pkg__api__resource__Quantity
-    metricName: str
-    selector: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector] = None
-    target: io__k8s__api__autoscaling__v2beta1__CrossVersionObjectReference
+    @property
+    def averageValue(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._averageValue
+
+    @property
+    def currentValue(self) -> io__k8s__apimachinery__pkg__api__resource__Quantity:
+        return self._currentValue
+
+    @property
+    def metricName(self) -> str:
+        return self._metricName
+
+    @property
+    def selector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._selector
+
+    @property
+    def target(self) -> io__k8s__api__autoscaling__v2beta1__CrossVersionObjectReference:
+        return self._target
 
     def __init__(
         self,
@@ -9949,15 +13319,15 @@ class io__k8s__api__autoscaling__v2beta1__ObjectMetricStatus(K8STemplatable):
     ):
         super().__init__()
         if currentValue is not None:
-            self.currentValue = currentValue
+            self._currentValue = currentValue
         if metricName is not None:
-            self.metricName = metricName
+            self._metricName = metricName
         if target is not None:
-            self.target = target
+            self._target = target
         if averageValue is not None:
-            self.averageValue = averageValue
+            self._averageValue = averageValue
         if selector is not None:
-            self.selector = selector
+            self._selector = selector
 
 
 class io__k8s__api__autoscaling__v2beta1__PodsMetricSource(K8STemplatable):
@@ -9966,9 +13336,19 @@ class io__k8s__api__autoscaling__v2beta1__PodsMetricSource(K8STemplatable):
     props: List[str] = ["metricName", "selector", "targetAverageValue"]
     required_props: List[str] = ["metricName", "targetAverageValue"]
 
-    metricName: str
-    selector: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector] = None
-    targetAverageValue: io__k8s__apimachinery__pkg__api__resource__Quantity
+    @property
+    def metricName(self) -> str:
+        return self._metricName
+
+    @property
+    def selector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._selector
+
+    @property
+    def targetAverageValue(self) -> io__k8s__apimachinery__pkg__api__resource__Quantity:
+        return self._targetAverageValue
 
     def __init__(
         self,
@@ -9980,11 +13360,11 @@ class io__k8s__api__autoscaling__v2beta1__PodsMetricSource(K8STemplatable):
     ):
         super().__init__()
         if metricName is not None:
-            self.metricName = metricName
+            self._metricName = metricName
         if targetAverageValue is not None:
-            self.targetAverageValue = targetAverageValue
+            self._targetAverageValue = targetAverageValue
         if selector is not None:
-            self.selector = selector
+            self._selector = selector
 
 
 class io__k8s__api__autoscaling__v2beta1__PodsMetricStatus(K8STemplatable):
@@ -9993,9 +13373,21 @@ class io__k8s__api__autoscaling__v2beta1__PodsMetricStatus(K8STemplatable):
     props: List[str] = ["currentAverageValue", "metricName", "selector"]
     required_props: List[str] = ["metricName", "currentAverageValue"]
 
-    currentAverageValue: io__k8s__apimachinery__pkg__api__resource__Quantity
-    metricName: str
-    selector: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector] = None
+    @property
+    def currentAverageValue(
+        self,
+    ) -> io__k8s__apimachinery__pkg__api__resource__Quantity:
+        return self._currentAverageValue
+
+    @property
+    def metricName(self) -> str:
+        return self._metricName
+
+    @property
+    def selector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._selector
 
     def __init__(
         self,
@@ -10007,11 +13399,11 @@ class io__k8s__api__autoscaling__v2beta1__PodsMetricStatus(K8STemplatable):
     ):
         super().__init__()
         if currentAverageValue is not None:
-            self.currentAverageValue = currentAverageValue
+            self._currentAverageValue = currentAverageValue
         if metricName is not None:
-            self.metricName = metricName
+            self._metricName = metricName
         if selector is not None:
-            self.selector = selector
+            self._selector = selector
 
 
 class io__k8s__api__autoscaling__v2beta2__ContainerResourceMetricSource(K8STemplatable):
@@ -10020,9 +13412,17 @@ class io__k8s__api__autoscaling__v2beta2__ContainerResourceMetricSource(K8STempl
     props: List[str] = ["container", "name", "target"]
     required_props: List[str] = ["name", "target", "container"]
 
-    container: str
-    name: str
-    target: io__k8s__api__autoscaling__v2beta2__MetricTarget
+    @property
+    def container(self) -> str:
+        return self._container
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def target(self) -> io__k8s__api__autoscaling__v2beta2__MetricTarget:
+        return self._target
 
     def __init__(
         self,
@@ -10032,11 +13432,11 @@ class io__k8s__api__autoscaling__v2beta2__ContainerResourceMetricSource(K8STempl
     ):
         super().__init__()
         if container is not None:
-            self.container = container
+            self._container = container
         if name is not None:
-            self.name = name
+            self._name = name
         if target is not None:
-            self.target = target
+            self._target = target
 
 
 class io__k8s__api__autoscaling__v2beta2__ContainerResourceMetricStatus(K8STemplatable):
@@ -10045,9 +13445,17 @@ class io__k8s__api__autoscaling__v2beta2__ContainerResourceMetricStatus(K8STempl
     props: List[str] = ["container", "current", "name"]
     required_props: List[str] = ["name", "current", "container"]
 
-    container: str
-    current: io__k8s__api__autoscaling__v2beta2__MetricValueStatus
-    name: str
+    @property
+    def container(self) -> str:
+        return self._container
+
+    @property
+    def current(self) -> io__k8s__api__autoscaling__v2beta2__MetricValueStatus:
+        return self._current
+
+    @property
+    def name(self) -> str:
+        return self._name
 
     def __init__(
         self,
@@ -10057,11 +13465,11 @@ class io__k8s__api__autoscaling__v2beta2__ContainerResourceMetricStatus(K8STempl
     ):
         super().__init__()
         if container is not None:
-            self.container = container
+            self._container = container
         if current is not None:
-            self.current = current
+            self._current = current
         if name is not None:
-            self.name = name
+            self._name = name
 
 
 class io__k8s__api__autoscaling__v2beta2__MetricIdentifier(K8STemplatable):
@@ -10070,8 +13478,15 @@ class io__k8s__api__autoscaling__v2beta2__MetricIdentifier(K8STemplatable):
     props: List[str] = ["name", "selector"]
     required_props: List[str] = ["name"]
 
-    name: str
-    selector: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector] = None
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def selector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._selector
 
     def __init__(
         self,
@@ -10082,9 +13497,9 @@ class io__k8s__api__autoscaling__v2beta2__MetricIdentifier(K8STemplatable):
     ):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if selector is not None:
-            self.selector = selector
+            self._selector = selector
 
 
 class io__k8s__api__autoscaling__v2beta2__ObjectMetricSource(K8STemplatable):
@@ -10093,9 +13508,19 @@ class io__k8s__api__autoscaling__v2beta2__ObjectMetricSource(K8STemplatable):
     props: List[str] = ["describedObject", "metric", "target"]
     required_props: List[str] = ["describedObject", "target", "metric"]
 
-    describedObject: io__k8s__api__autoscaling__v2beta2__CrossVersionObjectReference
-    metric: io__k8s__api__autoscaling__v2beta2__MetricIdentifier
-    target: io__k8s__api__autoscaling__v2beta2__MetricTarget
+    @property
+    def describedObject(
+        self,
+    ) -> io__k8s__api__autoscaling__v2beta2__CrossVersionObjectReference:
+        return self._describedObject
+
+    @property
+    def metric(self) -> io__k8s__api__autoscaling__v2beta2__MetricIdentifier:
+        return self._metric
+
+    @property
+    def target(self) -> io__k8s__api__autoscaling__v2beta2__MetricTarget:
+        return self._target
 
     def __init__(
         self,
@@ -10105,11 +13530,11 @@ class io__k8s__api__autoscaling__v2beta2__ObjectMetricSource(K8STemplatable):
     ):
         super().__init__()
         if describedObject is not None:
-            self.describedObject = describedObject
+            self._describedObject = describedObject
         if metric is not None:
-            self.metric = metric
+            self._metric = metric
         if target is not None:
-            self.target = target
+            self._target = target
 
 
 class io__k8s__api__autoscaling__v2beta2__ObjectMetricStatus(K8STemplatable):
@@ -10118,9 +13543,19 @@ class io__k8s__api__autoscaling__v2beta2__ObjectMetricStatus(K8STemplatable):
     props: List[str] = ["current", "describedObject", "metric"]
     required_props: List[str] = ["metric", "current", "describedObject"]
 
-    current: io__k8s__api__autoscaling__v2beta2__MetricValueStatus
-    describedObject: io__k8s__api__autoscaling__v2beta2__CrossVersionObjectReference
-    metric: io__k8s__api__autoscaling__v2beta2__MetricIdentifier
+    @property
+    def current(self) -> io__k8s__api__autoscaling__v2beta2__MetricValueStatus:
+        return self._current
+
+    @property
+    def describedObject(
+        self,
+    ) -> io__k8s__api__autoscaling__v2beta2__CrossVersionObjectReference:
+        return self._describedObject
+
+    @property
+    def metric(self) -> io__k8s__api__autoscaling__v2beta2__MetricIdentifier:
+        return self._metric
 
     def __init__(
         self,
@@ -10130,11 +13565,11 @@ class io__k8s__api__autoscaling__v2beta2__ObjectMetricStatus(K8STemplatable):
     ):
         super().__init__()
         if current is not None:
-            self.current = current
+            self._current = current
         if describedObject is not None:
-            self.describedObject = describedObject
+            self._describedObject = describedObject
         if metric is not None:
-            self.metric = metric
+            self._metric = metric
 
 
 class io__k8s__api__autoscaling__v2beta2__PodsMetricSource(K8STemplatable):
@@ -10143,8 +13578,13 @@ class io__k8s__api__autoscaling__v2beta2__PodsMetricSource(K8STemplatable):
     props: List[str] = ["metric", "target"]
     required_props: List[str] = ["metric", "target"]
 
-    metric: io__k8s__api__autoscaling__v2beta2__MetricIdentifier
-    target: io__k8s__api__autoscaling__v2beta2__MetricTarget
+    @property
+    def metric(self) -> io__k8s__api__autoscaling__v2beta2__MetricIdentifier:
+        return self._metric
+
+    @property
+    def target(self) -> io__k8s__api__autoscaling__v2beta2__MetricTarget:
+        return self._target
 
     def __init__(
         self,
@@ -10153,9 +13593,9 @@ class io__k8s__api__autoscaling__v2beta2__PodsMetricSource(K8STemplatable):
     ):
         super().__init__()
         if metric is not None:
-            self.metric = metric
+            self._metric = metric
         if target is not None:
-            self.target = target
+            self._target = target
 
 
 class io__k8s__api__autoscaling__v2beta2__PodsMetricStatus(K8STemplatable):
@@ -10164,8 +13604,13 @@ class io__k8s__api__autoscaling__v2beta2__PodsMetricStatus(K8STemplatable):
     props: List[str] = ["current", "metric"]
     required_props: List[str] = ["metric", "current"]
 
-    current: io__k8s__api__autoscaling__v2beta2__MetricValueStatus
-    metric: io__k8s__api__autoscaling__v2beta2__MetricIdentifier
+    @property
+    def current(self) -> io__k8s__api__autoscaling__v2beta2__MetricValueStatus:
+        return self._current
+
+    @property
+    def metric(self) -> io__k8s__api__autoscaling__v2beta2__MetricIdentifier:
+        return self._metric
 
     def __init__(
         self,
@@ -10174,9 +13619,9 @@ class io__k8s__api__autoscaling__v2beta2__PodsMetricStatus(K8STemplatable):
     ):
         super().__init__()
         if current is not None:
-            self.current = current
+            self._current = current
         if metric is not None:
-            self.metric = metric
+            self._metric = metric
 
 
 class io__k8s__api__certificates__v1__CertificateSigningRequest(K8STemplatable):
@@ -10194,11 +13639,21 @@ class io__k8s__api__certificates__v1__CertificateSigningRequest(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = ["spec"]
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: io__k8s__api__certificates__v1__CertificateSigningRequestSpec
-    status: Optional[
-        io__k8s__api__certificates__v1__CertificateSigningRequestStatus
-    ] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> io__k8s__api__certificates__v1__CertificateSigningRequestSpec:
+        return self._spec
+
+    @property
+    def status(
+        self,
+    ) -> Optional[io__k8s__api__certificates__v1__CertificateSigningRequestStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -10212,11 +13667,11 @@ class io__k8s__api__certificates__v1__CertificateSigningRequest(K8STemplatable):
     ):
         super().__init__()
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__certificates__v1__CertificateSigningRequestList(K8STemplatable):
@@ -10228,8 +13683,15 @@ class io__k8s__api__certificates__v1__CertificateSigningRequestList(K8STemplatab
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__certificates__v1__CertificateSigningRequest]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__certificates__v1__CertificateSigningRequest]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -10238,9 +13700,9 @@ class io__k8s__api__certificates__v1__CertificateSigningRequestList(K8STemplatab
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__coordination__v1__Lease(K8STemplatable):
@@ -10252,8 +13714,15 @@ class io__k8s__api__coordination__v1__Lease(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__coordination__v1__LeaseSpec] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__coordination__v1__LeaseSpec]:
+        return self._spec
 
     def __init__(
         self,
@@ -10264,9 +13733,9 @@ class io__k8s__api__coordination__v1__Lease(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
 
 
 class io__k8s__api__coordination__v1__LeaseList(K8STemplatable):
@@ -10278,8 +13747,15 @@ class io__k8s__api__coordination__v1__LeaseList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__coordination__v1__Lease]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__coordination__v1__Lease]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -10288,9 +13764,9 @@ class io__k8s__api__coordination__v1__LeaseList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__Binding(K8STemplatable):
@@ -10302,8 +13778,15 @@ class io__k8s__api__core__v1__Binding(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "target"]
     required_props: List[str] = ["target"]
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    target: io__k8s__api__core__v1__ObjectReference
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def target(self) -> io__k8s__api__core__v1__ObjectReference:
+        return self._target
 
     def __init__(
         self,
@@ -10314,9 +13797,9 @@ class io__k8s__api__core__v1__Binding(K8STemplatable):
     ):
         super().__init__()
         if target is not None:
-            self.target = target
+            self._target = target
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__ComponentStatus(K8STemplatable):
@@ -10328,8 +13811,15 @@ class io__k8s__api__core__v1__ComponentStatus(K8STemplatable):
     props: List[str] = ["apiVersion", "conditions", "kind", "metadata"]
     required_props: List[str] = []
 
-    conditions: Optional[List[io__k8s__api__core__v1__ComponentCondition]] = None
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
+    @property
+    def conditions(self) -> Optional[List[io__k8s__api__core__v1__ComponentCondition]]:
+        return self._conditions
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -10340,9 +13830,9 @@ class io__k8s__api__core__v1__ComponentStatus(K8STemplatable):
     ):
         super().__init__()
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__ComponentStatusList(K8STemplatable):
@@ -10354,8 +13844,15 @@ class io__k8s__api__core__v1__ComponentStatusList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__core__v1__ComponentStatus]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__core__v1__ComponentStatus]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -10364,9 +13861,9 @@ class io__k8s__api__core__v1__ComponentStatusList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__ConfigMap(K8STemplatable):
@@ -10385,10 +13882,23 @@ class io__k8s__api__core__v1__ConfigMap(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    binaryData: Any
-    data: Any
-    immutable: Optional[bool] = None
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
+    @property
+    def binaryData(self) -> Any:
+        return self._binaryData
+
+    @property
+    def data(self) -> Any:
+        return self._data
+
+    @property
+    def immutable(self) -> Optional[bool]:
+        return self._immutable
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -10401,13 +13911,13 @@ class io__k8s__api__core__v1__ConfigMap(K8STemplatable):
     ):
         super().__init__()
         if binaryData is not None:
-            self.binaryData = binaryData
+            self._binaryData = binaryData
         if data is not None:
-            self.data = data
+            self._data = data
         if immutable is not None:
-            self.immutable = immutable
+            self._immutable = immutable
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__ConfigMapList(K8STemplatable):
@@ -10419,8 +13929,15 @@ class io__k8s__api__core__v1__ConfigMapList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__core__v1__ConfigMap]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__core__v1__ConfigMap]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -10429,9 +13946,9 @@ class io__k8s__api__core__v1__ConfigMapList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__ContainerState(K8STemplatable):
@@ -10440,9 +13957,17 @@ class io__k8s__api__core__v1__ContainerState(K8STemplatable):
     props: List[str] = ["running", "terminated", "waiting"]
     required_props: List[str] = []
 
-    running: Optional[io__k8s__api__core__v1__ContainerStateRunning] = None
-    terminated: Optional[io__k8s__api__core__v1__ContainerStateTerminated] = None
-    waiting: Optional[io__k8s__api__core__v1__ContainerStateWaiting] = None
+    @property
+    def running(self) -> Optional[io__k8s__api__core__v1__ContainerStateRunning]:
+        return self._running
+
+    @property
+    def terminated(self) -> Optional[io__k8s__api__core__v1__ContainerStateTerminated]:
+        return self._terminated
+
+    @property
+    def waiting(self) -> Optional[io__k8s__api__core__v1__ContainerStateWaiting]:
+        return self._waiting
 
     def __init__(
         self,
@@ -10452,11 +13977,11 @@ class io__k8s__api__core__v1__ContainerState(K8STemplatable):
     ):
         super().__init__()
         if running is not None:
-            self.running = running
+            self._running = running
         if terminated is not None:
-            self.terminated = terminated
+            self._terminated = terminated
         if waiting is not None:
-            self.waiting = waiting
+            self._waiting = waiting
 
 
 class io__k8s__api__core__v1__ContainerStatus(K8STemplatable):
@@ -10475,15 +14000,41 @@ class io__k8s__api__core__v1__ContainerStatus(K8STemplatable):
     ]
     required_props: List[str] = ["name", "ready", "restartCount", "image", "imageID"]
 
-    containerID: Optional[str] = None
-    image: str
-    imageID: str
-    lastState: Optional[io__k8s__api__core__v1__ContainerState] = None
-    name: str
-    ready: bool
-    restartCount: int
-    started: Optional[bool] = None
-    state: Optional[io__k8s__api__core__v1__ContainerState] = None
+    @property
+    def containerID(self) -> Optional[str]:
+        return self._containerID
+
+    @property
+    def image(self) -> str:
+        return self._image
+
+    @property
+    def imageID(self) -> str:
+        return self._imageID
+
+    @property
+    def lastState(self) -> Optional[io__k8s__api__core__v1__ContainerState]:
+        return self._lastState
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def ready(self) -> bool:
+        return self._ready
+
+    @property
+    def restartCount(self) -> int:
+        return self._restartCount
+
+    @property
+    def started(self) -> Optional[bool]:
+        return self._started
+
+    @property
+    def state(self) -> Optional[io__k8s__api__core__v1__ContainerState]:
+        return self._state
 
     def __init__(
         self,
@@ -10499,23 +14050,23 @@ class io__k8s__api__core__v1__ContainerStatus(K8STemplatable):
     ):
         super().__init__()
         if image is not None:
-            self.image = image
+            self._image = image
         if imageID is not None:
-            self.imageID = imageID
+            self._imageID = imageID
         if name is not None:
-            self.name = name
+            self._name = name
         if ready is not None:
-            self.ready = ready
+            self._ready = ready
         if restartCount is not None:
-            self.restartCount = restartCount
+            self._restartCount = restartCount
         if containerID is not None:
-            self.containerID = containerID
+            self._containerID = containerID
         if lastState is not None:
-            self.lastState = lastState
+            self._lastState = lastState
         if started is not None:
-            self.started = started
+            self._started = started
         if state is not None:
-            self.state = state
+            self._state = state
 
 
 class io__k8s__api__core__v1__DownwardAPIVolumeFile(K8STemplatable):
@@ -10524,10 +14075,23 @@ class io__k8s__api__core__v1__DownwardAPIVolumeFile(K8STemplatable):
     props: List[str] = ["fieldRef", "mode", "path", "resourceFieldRef"]
     required_props: List[str] = ["path"]
 
-    fieldRef: Optional[io__k8s__api__core__v1__ObjectFieldSelector] = None
-    mode: Optional[int] = None
-    path: str
-    resourceFieldRef: Optional[io__k8s__api__core__v1__ResourceFieldSelector] = None
+    @property
+    def fieldRef(self) -> Optional[io__k8s__api__core__v1__ObjectFieldSelector]:
+        return self._fieldRef
+
+    @property
+    def mode(self) -> Optional[int]:
+        return self._mode
+
+    @property
+    def path(self) -> str:
+        return self._path
+
+    @property
+    def resourceFieldRef(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__ResourceFieldSelector]:
+        return self._resourceFieldRef
 
     def __init__(
         self,
@@ -10540,13 +14104,13 @@ class io__k8s__api__core__v1__DownwardAPIVolumeFile(K8STemplatable):
     ):
         super().__init__()
         if path is not None:
-            self.path = path
+            self._path = path
         if fieldRef is not None:
-            self.fieldRef = fieldRef
+            self._fieldRef = fieldRef
         if mode is not None:
-            self.mode = mode
+            self._mode = mode
         if resourceFieldRef is not None:
-            self.resourceFieldRef = resourceFieldRef
+            self._resourceFieldRef = resourceFieldRef
 
 
 class io__k8s__api__core__v1__DownwardAPIVolumeSource(K8STemplatable):
@@ -10555,8 +14119,13 @@ class io__k8s__api__core__v1__DownwardAPIVolumeSource(K8STemplatable):
     props: List[str] = ["defaultMode", "items"]
     required_props: List[str] = []
 
-    defaultMode: Optional[int] = None
-    items: Optional[List[io__k8s__api__core__v1__DownwardAPIVolumeFile]] = None
+    @property
+    def defaultMode(self) -> Optional[int]:
+        return self._defaultMode
+
+    @property
+    def items(self) -> Optional[List[io__k8s__api__core__v1__DownwardAPIVolumeFile]]:
+        return self._items
 
     def __init__(
         self,
@@ -10565,9 +14134,9 @@ class io__k8s__api__core__v1__DownwardAPIVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if defaultMode is not None:
-            self.defaultMode = defaultMode
+            self._defaultMode = defaultMode
         if items is not None:
-            self.items = items
+            self._items = items
 
 
 class io__k8s__api__core__v1__Endpoints(K8STemplatable):
@@ -10590,8 +14159,15 @@ class io__k8s__api__core__v1__Endpoints(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "subsets"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    subsets: Optional[List[io__k8s__api__core__v1__EndpointSubset]] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def subsets(self) -> Optional[List[io__k8s__api__core__v1__EndpointSubset]]:
+        return self._subsets
 
     def __init__(
         self,
@@ -10602,9 +14178,9 @@ class io__k8s__api__core__v1__Endpoints(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if subsets is not None:
-            self.subsets = subsets
+            self._subsets = subsets
 
 
 class io__k8s__api__core__v1__EndpointsList(K8STemplatable):
@@ -10616,8 +14192,15 @@ class io__k8s__api__core__v1__EndpointsList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__core__v1__Endpoints]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__core__v1__Endpoints]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -10626,9 +14209,9 @@ class io__k8s__api__core__v1__EndpointsList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__EnvVarSource(K8STemplatable):
@@ -10642,10 +14225,23 @@ class io__k8s__api__core__v1__EnvVarSource(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    configMapKeyRef: Optional[io__k8s__api__core__v1__ConfigMapKeySelector] = None
-    fieldRef: Optional[io__k8s__api__core__v1__ObjectFieldSelector] = None
-    resourceFieldRef: Optional[io__k8s__api__core__v1__ResourceFieldSelector] = None
-    secretKeyRef: Optional[io__k8s__api__core__v1__SecretKeySelector] = None
+    @property
+    def configMapKeyRef(self) -> Optional[io__k8s__api__core__v1__ConfigMapKeySelector]:
+        return self._configMapKeyRef
+
+    @property
+    def fieldRef(self) -> Optional[io__k8s__api__core__v1__ObjectFieldSelector]:
+        return self._fieldRef
+
+    @property
+    def resourceFieldRef(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__ResourceFieldSelector]:
+        return self._resourceFieldRef
+
+    @property
+    def secretKeyRef(self) -> Optional[io__k8s__api__core__v1__SecretKeySelector]:
+        return self._secretKeyRef
 
     def __init__(
         self,
@@ -10658,13 +14254,13 @@ class io__k8s__api__core__v1__EnvVarSource(K8STemplatable):
     ):
         super().__init__()
         if configMapKeyRef is not None:
-            self.configMapKeyRef = configMapKeyRef
+            self._configMapKeyRef = configMapKeyRef
         if fieldRef is not None:
-            self.fieldRef = fieldRef
+            self._fieldRef = fieldRef
         if resourceFieldRef is not None:
-            self.resourceFieldRef = resourceFieldRef
+            self._resourceFieldRef = resourceFieldRef
         if secretKeyRef is not None:
-            self.secretKeyRef = secretKeyRef
+            self._secretKeyRef = secretKeyRef
 
 
 class io__k8s__api__core__v1__Event(K8STemplatable):
@@ -10694,21 +14290,71 @@ class io__k8s__api__core__v1__Event(K8STemplatable):
     ]
     required_props: List[str] = ["metadata", "involvedObject"]
 
-    action: Optional[str] = None
-    count: Optional[int] = None
-    eventTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime] = None
-    firstTimestamp: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    involvedObject: io__k8s__api__core__v1__ObjectReference
-    lastTimestamp: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    message: Optional[str] = None
-    metadata: io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta
-    reason: Optional[str] = None
-    related: Optional[io__k8s__api__core__v1__ObjectReference] = None
-    reportingComponent: Optional[str] = None
-    reportingInstance: Optional[str] = None
-    series: Optional[io__k8s__api__core__v1__EventSeries] = None
-    source: Optional[io__k8s__api__core__v1__EventSource] = None
-    type: Optional[str] = None
+    @property
+    def action(self) -> Optional[str]:
+        return self._action
+
+    @property
+    def count(self) -> Optional[int]:
+        return self._count
+
+    @property
+    def eventTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime]:
+        return self._eventTime
+
+    @property
+    def firstTimestamp(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._firstTimestamp
+
+    @property
+    def involvedObject(self) -> io__k8s__api__core__v1__ObjectReference:
+        return self._involvedObject
+
+    @property
+    def lastTimestamp(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastTimestamp
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def metadata(self) -> io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta:
+        return self._metadata
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def related(self) -> Optional[io__k8s__api__core__v1__ObjectReference]:
+        return self._related
+
+    @property
+    def reportingComponent(self) -> Optional[str]:
+        return self._reportingComponent
+
+    @property
+    def reportingInstance(self) -> Optional[str]:
+        return self._reportingInstance
+
+    @property
+    def series(self) -> Optional[io__k8s__api__core__v1__EventSeries]:
+        return self._series
+
+    @property
+    def source(self) -> Optional[io__k8s__api__core__v1__EventSource]:
+        return self._source
+
+    @property
+    def type(self) -> Optional[str]:
+        return self._type
 
     def __init__(
         self,
@@ -10736,35 +14382,35 @@ class io__k8s__api__core__v1__Event(K8STemplatable):
     ):
         super().__init__()
         if involvedObject is not None:
-            self.involvedObject = involvedObject
+            self._involvedObject = involvedObject
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if action is not None:
-            self.action = action
+            self._action = action
         if count is not None:
-            self.count = count
+            self._count = count
         if eventTime is not None:
-            self.eventTime = eventTime
+            self._eventTime = eventTime
         if firstTimestamp is not None:
-            self.firstTimestamp = firstTimestamp
+            self._firstTimestamp = firstTimestamp
         if lastTimestamp is not None:
-            self.lastTimestamp = lastTimestamp
+            self._lastTimestamp = lastTimestamp
         if message is not None:
-            self.message = message
+            self._message = message
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
         if related is not None:
-            self.related = related
+            self._related = related
         if reportingComponent is not None:
-            self.reportingComponent = reportingComponent
+            self._reportingComponent = reportingComponent
         if reportingInstance is not None:
-            self.reportingInstance = reportingInstance
+            self._reportingInstance = reportingInstance
         if series is not None:
-            self.series = series
+            self._series = series
         if source is not None:
-            self.source = source
+            self._source = source
         if type is not None:
-            self.type = type
+            self._type = type
 
 
 class io__k8s__api__core__v1__EventList(K8STemplatable):
@@ -10776,8 +14422,15 @@ class io__k8s__api__core__v1__EventList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__core__v1__Event]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__core__v1__Event]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -10786,9 +14439,9 @@ class io__k8s__api__core__v1__EventList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__LifecycleHandler(K8STemplatable):
@@ -10797,9 +14450,17 @@ class io__k8s__api__core__v1__LifecycleHandler(K8STemplatable):
     props: List[str] = ["exec", "httpGet", "tcpSocket"]
     required_props: List[str] = []
 
-    exec: Optional[io__k8s__api__core__v1__ExecAction] = None
-    httpGet: Optional[io__k8s__api__core__v1__HTTPGetAction] = None
-    tcpSocket: Optional[io__k8s__api__core__v1__TCPSocketAction] = None
+    @property
+    def exec(self) -> Optional[io__k8s__api__core__v1__ExecAction]:
+        return self._exec
+
+    @property
+    def httpGet(self) -> Optional[io__k8s__api__core__v1__HTTPGetAction]:
+        return self._httpGet
+
+    @property
+    def tcpSocket(self) -> Optional[io__k8s__api__core__v1__TCPSocketAction]:
+        return self._tcpSocket
 
     def __init__(
         self,
@@ -10809,11 +14470,11 @@ class io__k8s__api__core__v1__LifecycleHandler(K8STemplatable):
     ):
         super().__init__()
         if exec is not None:
-            self.exec = exec
+            self._exec = exec
         if httpGet is not None:
-            self.httpGet = httpGet
+            self._httpGet = httpGet
         if tcpSocket is not None:
-            self.tcpSocket = tcpSocket
+            self._tcpSocket = tcpSocket
 
 
 class io__k8s__api__core__v1__LimitRange(K8STemplatable):
@@ -10825,8 +14486,15 @@ class io__k8s__api__core__v1__LimitRange(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__core__v1__LimitRangeSpec] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__core__v1__LimitRangeSpec]:
+        return self._spec
 
     def __init__(
         self,
@@ -10837,9 +14505,9 @@ class io__k8s__api__core__v1__LimitRange(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
 
 
 class io__k8s__api__core__v1__LimitRangeList(K8STemplatable):
@@ -10851,8 +14519,15 @@ class io__k8s__api__core__v1__LimitRangeList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__core__v1__LimitRange]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__core__v1__LimitRange]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -10861,9 +14536,9 @@ class io__k8s__api__core__v1__LimitRangeList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__Namespace(K8STemplatable):
@@ -10875,9 +14550,19 @@ class io__k8s__api__core__v1__Namespace(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__core__v1__NamespaceSpec] = None
-    status: Optional[io__k8s__api__core__v1__NamespaceStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__core__v1__NamespaceSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__core__v1__NamespaceStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -10889,11 +14574,11 @@ class io__k8s__api__core__v1__Namespace(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__core__v1__NamespaceList(K8STemplatable):
@@ -10905,8 +14590,15 @@ class io__k8s__api__core__v1__NamespaceList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__core__v1__Namespace]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__core__v1__Namespace]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -10915,9 +14607,9 @@ class io__k8s__api__core__v1__NamespaceList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__NodeAffinity(K8STemplatable):
@@ -10929,12 +14621,17 @@ class io__k8s__api__core__v1__NodeAffinity(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    preferredDuringSchedulingIgnoredDuringExecution: Optional[
-        List[io__k8s__api__core__v1__PreferredSchedulingTerm]
-    ] = None
-    requiredDuringSchedulingIgnoredDuringExecution: Optional[
-        io__k8s__api__core__v1__NodeSelector
-    ] = None
+    @property
+    def preferredDuringSchedulingIgnoredDuringExecution(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__PreferredSchedulingTerm]]:
+        return self._preferredDuringSchedulingIgnoredDuringExecution
+
+    @property
+    def requiredDuringSchedulingIgnoredDuringExecution(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__NodeSelector]:
+        return self._requiredDuringSchedulingIgnoredDuringExecution
 
     def __init__(
         self,
@@ -10947,11 +14644,11 @@ class io__k8s__api__core__v1__NodeAffinity(K8STemplatable):
     ):
         super().__init__()
         if preferredDuringSchedulingIgnoredDuringExecution is not None:
-            self.preferredDuringSchedulingIgnoredDuringExecution = (
+            self._preferredDuringSchedulingIgnoredDuringExecution = (
                 preferredDuringSchedulingIgnoredDuringExecution
             )
         if requiredDuringSchedulingIgnoredDuringExecution is not None:
-            self.requiredDuringSchedulingIgnoredDuringExecution = (
+            self._requiredDuringSchedulingIgnoredDuringExecution = (
                 requiredDuringSchedulingIgnoredDuringExecution
             )
 
@@ -10970,13 +14667,33 @@ class io__k8s__api__core__v1__NodeSpec(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    configSource: Optional[io__k8s__api__core__v1__NodeConfigSource] = None
-    externalID: Optional[str] = None
-    podCIDR: Optional[str] = None
-    podCIDRs: Optional[List[str]] = None
-    providerID: Optional[str] = None
-    taints: Optional[List[io__k8s__api__core__v1__Taint]] = None
-    unschedulable: Optional[bool] = None
+    @property
+    def configSource(self) -> Optional[io__k8s__api__core__v1__NodeConfigSource]:
+        return self._configSource
+
+    @property
+    def externalID(self) -> Optional[str]:
+        return self._externalID
+
+    @property
+    def podCIDR(self) -> Optional[str]:
+        return self._podCIDR
+
+    @property
+    def podCIDRs(self) -> Optional[List[str]]:
+        return self._podCIDRs
+
+    @property
+    def providerID(self) -> Optional[str]:
+        return self._providerID
+
+    @property
+    def taints(self) -> Optional[List[io__k8s__api__core__v1__Taint]]:
+        return self._taints
+
+    @property
+    def unschedulable(self) -> Optional[bool]:
+        return self._unschedulable
 
     def __init__(
         self,
@@ -10990,19 +14707,19 @@ class io__k8s__api__core__v1__NodeSpec(K8STemplatable):
     ):
         super().__init__()
         if configSource is not None:
-            self.configSource = configSource
+            self._configSource = configSource
         if externalID is not None:
-            self.externalID = externalID
+            self._externalID = externalID
         if podCIDR is not None:
-            self.podCIDR = podCIDR
+            self._podCIDR = podCIDR
         if podCIDRs is not None:
-            self.podCIDRs = podCIDRs
+            self._podCIDRs = podCIDRs
         if providerID is not None:
-            self.providerID = providerID
+            self._providerID = providerID
         if taints is not None:
-            self.taints = taints
+            self._taints = taints
         if unschedulable is not None:
-            self.unschedulable = unschedulable
+            self._unschedulable = unschedulable
 
 
 class io__k8s__api__core__v1__PersistentVolumeClaimSpec(K8STemplatable):
@@ -11020,14 +14737,41 @@ class io__k8s__api__core__v1__PersistentVolumeClaimSpec(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    accessModes: Optional[List[str]] = None
-    dataSource: Optional[io__k8s__api__core__v1__TypedLocalObjectReference] = None
-    dataSourceRef: Optional[io__k8s__api__core__v1__TypedLocalObjectReference] = None
-    resources: Optional[io__k8s__api__core__v1__ResourceRequirements] = None
-    selector: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector] = None
-    storageClassName: Optional[str] = None
-    volumeMode: Optional[str] = None
-    volumeName: Optional[str] = None
+    @property
+    def accessModes(self) -> Optional[List[str]]:
+        return self._accessModes
+
+    @property
+    def dataSource(self) -> Optional[io__k8s__api__core__v1__TypedLocalObjectReference]:
+        return self._dataSource
+
+    @property
+    def dataSourceRef(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__TypedLocalObjectReference]:
+        return self._dataSourceRef
+
+    @property
+    def resources(self) -> Optional[io__k8s__api__core__v1__ResourceRequirements]:
+        return self._resources
+
+    @property
+    def selector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._selector
+
+    @property
+    def storageClassName(self) -> Optional[str]:
+        return self._storageClassName
+
+    @property
+    def volumeMode(self) -> Optional[str]:
+        return self._volumeMode
+
+    @property
+    def volumeName(self) -> Optional[str]:
+        return self._volumeName
 
     def __init__(
         self,
@@ -11046,21 +14790,21 @@ class io__k8s__api__core__v1__PersistentVolumeClaimSpec(K8STemplatable):
     ):
         super().__init__()
         if accessModes is not None:
-            self.accessModes = accessModes
+            self._accessModes = accessModes
         if dataSource is not None:
-            self.dataSource = dataSource
+            self._dataSource = dataSource
         if dataSourceRef is not None:
-            self.dataSourceRef = dataSourceRef
+            self._dataSourceRef = dataSourceRef
         if resources is not None:
-            self.resources = resources
+            self._resources = resources
         if selector is not None:
-            self.selector = selector
+            self._selector = selector
         if storageClassName is not None:
-            self.storageClassName = storageClassName
+            self._storageClassName = storageClassName
         if volumeMode is not None:
-            self.volumeMode = volumeMode
+            self._volumeMode = volumeMode
         if volumeName is not None:
-            self.volumeName = volumeName
+            self._volumeName = volumeName
 
 
 class io__k8s__api__core__v1__PersistentVolumeClaimTemplate(K8STemplatable):
@@ -11069,8 +14813,15 @@ class io__k8s__api__core__v1__PersistentVolumeClaimTemplate(K8STemplatable):
     props: List[str] = ["metadata", "spec"]
     required_props: List[str] = ["spec"]
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: io__k8s__api__core__v1__PersistentVolumeClaimSpec
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> io__k8s__api__core__v1__PersistentVolumeClaimSpec:
+        return self._spec
 
     def __init__(
         self,
@@ -11081,9 +14832,9 @@ class io__k8s__api__core__v1__PersistentVolumeClaimTemplate(K8STemplatable):
     ):
         super().__init__()
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__PersistentVolumeSpec(K8STemplatable):
@@ -11123,44 +14874,143 @@ class io__k8s__api__core__v1__PersistentVolumeSpec(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    accessModes: Optional[List[str]] = None
-    awsElasticBlockStore: Optional[
-        io__k8s__api__core__v1__AWSElasticBlockStoreVolumeSource
-    ] = None
-    azureDisk: Optional[io__k8s__api__core__v1__AzureDiskVolumeSource] = None
-    azureFile: Optional[io__k8s__api__core__v1__AzureFilePersistentVolumeSource] = None
-    capacity: Any
-    cephfs: Optional[io__k8s__api__core__v1__CephFSPersistentVolumeSource] = None
-    cinder: Optional[io__k8s__api__core__v1__CinderPersistentVolumeSource] = None
-    claimRef: Optional[io__k8s__api__core__v1__ObjectReference] = None
-    csi: Optional[io__k8s__api__core__v1__CSIPersistentVolumeSource] = None
-    fc: Optional[io__k8s__api__core__v1__FCVolumeSource] = None
-    flexVolume: Optional[io__k8s__api__core__v1__FlexPersistentVolumeSource] = None
-    flocker: Optional[io__k8s__api__core__v1__FlockerVolumeSource] = None
-    gcePersistentDisk: Optional[
-        io__k8s__api__core__v1__GCEPersistentDiskVolumeSource
-    ] = None
-    glusterfs: Optional[io__k8s__api__core__v1__GlusterfsPersistentVolumeSource] = None
-    hostPath: Optional[io__k8s__api__core__v1__HostPathVolumeSource] = None
-    iscsi: Optional[io__k8s__api__core__v1__ISCSIPersistentVolumeSource] = None
-    local: Optional[io__k8s__api__core__v1__LocalVolumeSource] = None
-    mountOptions: Optional[List[str]] = None
-    nfs: Optional[io__k8s__api__core__v1__NFSVolumeSource] = None
-    nodeAffinity: Optional[io__k8s__api__core__v1__VolumeNodeAffinity] = None
-    persistentVolumeReclaimPolicy: Optional[str] = None
-    photonPersistentDisk: Optional[
-        io__k8s__api__core__v1__PhotonPersistentDiskVolumeSource
-    ] = None
-    portworxVolume: Optional[io__k8s__api__core__v1__PortworxVolumeSource] = None
-    quobyte: Optional[io__k8s__api__core__v1__QuobyteVolumeSource] = None
-    rbd: Optional[io__k8s__api__core__v1__RBDPersistentVolumeSource] = None
-    scaleIO: Optional[io__k8s__api__core__v1__ScaleIOPersistentVolumeSource] = None
-    storageClassName: Optional[str] = None
-    storageos: Optional[io__k8s__api__core__v1__StorageOSPersistentVolumeSource] = None
-    volumeMode: Optional[str] = None
-    vsphereVolume: Optional[
-        io__k8s__api__core__v1__VsphereVirtualDiskVolumeSource
-    ] = None
+    @property
+    def accessModes(self) -> Optional[List[str]]:
+        return self._accessModes
+
+    @property
+    def awsElasticBlockStore(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__AWSElasticBlockStoreVolumeSource]:
+        return self._awsElasticBlockStore
+
+    @property
+    def azureDisk(self) -> Optional[io__k8s__api__core__v1__AzureDiskVolumeSource]:
+        return self._azureDisk
+
+    @property
+    def azureFile(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__AzureFilePersistentVolumeSource]:
+        return self._azureFile
+
+    @property
+    def capacity(self) -> Any:
+        return self._capacity
+
+    @property
+    def cephfs(self) -> Optional[io__k8s__api__core__v1__CephFSPersistentVolumeSource]:
+        return self._cephfs
+
+    @property
+    def cinder(self) -> Optional[io__k8s__api__core__v1__CinderPersistentVolumeSource]:
+        return self._cinder
+
+    @property
+    def claimRef(self) -> Optional[io__k8s__api__core__v1__ObjectReference]:
+        return self._claimRef
+
+    @property
+    def csi(self) -> Optional[io__k8s__api__core__v1__CSIPersistentVolumeSource]:
+        return self._csi
+
+    @property
+    def fc(self) -> Optional[io__k8s__api__core__v1__FCVolumeSource]:
+        return self._fc
+
+    @property
+    def flexVolume(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__FlexPersistentVolumeSource]:
+        return self._flexVolume
+
+    @property
+    def flocker(self) -> Optional[io__k8s__api__core__v1__FlockerVolumeSource]:
+        return self._flocker
+
+    @property
+    def gcePersistentDisk(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__GCEPersistentDiskVolumeSource]:
+        return self._gcePersistentDisk
+
+    @property
+    def glusterfs(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__GlusterfsPersistentVolumeSource]:
+        return self._glusterfs
+
+    @property
+    def hostPath(self) -> Optional[io__k8s__api__core__v1__HostPathVolumeSource]:
+        return self._hostPath
+
+    @property
+    def iscsi(self) -> Optional[io__k8s__api__core__v1__ISCSIPersistentVolumeSource]:
+        return self._iscsi
+
+    @property
+    def local(self) -> Optional[io__k8s__api__core__v1__LocalVolumeSource]:
+        return self._local
+
+    @property
+    def mountOptions(self) -> Optional[List[str]]:
+        return self._mountOptions
+
+    @property
+    def nfs(self) -> Optional[io__k8s__api__core__v1__NFSVolumeSource]:
+        return self._nfs
+
+    @property
+    def nodeAffinity(self) -> Optional[io__k8s__api__core__v1__VolumeNodeAffinity]:
+        return self._nodeAffinity
+
+    @property
+    def persistentVolumeReclaimPolicy(self) -> Optional[str]:
+        return self._persistentVolumeReclaimPolicy
+
+    @property
+    def photonPersistentDisk(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__PhotonPersistentDiskVolumeSource]:
+        return self._photonPersistentDisk
+
+    @property
+    def portworxVolume(self) -> Optional[io__k8s__api__core__v1__PortworxVolumeSource]:
+        return self._portworxVolume
+
+    @property
+    def quobyte(self) -> Optional[io__k8s__api__core__v1__QuobyteVolumeSource]:
+        return self._quobyte
+
+    @property
+    def rbd(self) -> Optional[io__k8s__api__core__v1__RBDPersistentVolumeSource]:
+        return self._rbd
+
+    @property
+    def scaleIO(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__ScaleIOPersistentVolumeSource]:
+        return self._scaleIO
+
+    @property
+    def storageClassName(self) -> Optional[str]:
+        return self._storageClassName
+
+    @property
+    def storageos(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__StorageOSPersistentVolumeSource]:
+        return self._storageos
+
+    @property
+    def volumeMode(self) -> Optional[str]:
+        return self._volumeMode
+
+    @property
+    def vsphereVolume(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__VsphereVirtualDiskVolumeSource]:
+        return self._vsphereVolume
 
     def __init__(
         self,
@@ -11211,65 +15061,65 @@ class io__k8s__api__core__v1__PersistentVolumeSpec(K8STemplatable):
     ):
         super().__init__()
         if accessModes is not None:
-            self.accessModes = accessModes
+            self._accessModes = accessModes
         if awsElasticBlockStore is not None:
-            self.awsElasticBlockStore = awsElasticBlockStore
+            self._awsElasticBlockStore = awsElasticBlockStore
         if azureDisk is not None:
-            self.azureDisk = azureDisk
+            self._azureDisk = azureDisk
         if azureFile is not None:
-            self.azureFile = azureFile
+            self._azureFile = azureFile
         if capacity is not None:
-            self.capacity = capacity
+            self._capacity = capacity
         if cephfs is not None:
-            self.cephfs = cephfs
+            self._cephfs = cephfs
         if cinder is not None:
-            self.cinder = cinder
+            self._cinder = cinder
         if claimRef is not None:
-            self.claimRef = claimRef
+            self._claimRef = claimRef
         if csi is not None:
-            self.csi = csi
+            self._csi = csi
         if fc is not None:
-            self.fc = fc
+            self._fc = fc
         if flexVolume is not None:
-            self.flexVolume = flexVolume
+            self._flexVolume = flexVolume
         if flocker is not None:
-            self.flocker = flocker
+            self._flocker = flocker
         if gcePersistentDisk is not None:
-            self.gcePersistentDisk = gcePersistentDisk
+            self._gcePersistentDisk = gcePersistentDisk
         if glusterfs is not None:
-            self.glusterfs = glusterfs
+            self._glusterfs = glusterfs
         if hostPath is not None:
-            self.hostPath = hostPath
+            self._hostPath = hostPath
         if iscsi is not None:
-            self.iscsi = iscsi
+            self._iscsi = iscsi
         if local is not None:
-            self.local = local
+            self._local = local
         if mountOptions is not None:
-            self.mountOptions = mountOptions
+            self._mountOptions = mountOptions
         if nfs is not None:
-            self.nfs = nfs
+            self._nfs = nfs
         if nodeAffinity is not None:
-            self.nodeAffinity = nodeAffinity
+            self._nodeAffinity = nodeAffinity
         if persistentVolumeReclaimPolicy is not None:
-            self.persistentVolumeReclaimPolicy = persistentVolumeReclaimPolicy
+            self._persistentVolumeReclaimPolicy = persistentVolumeReclaimPolicy
         if photonPersistentDisk is not None:
-            self.photonPersistentDisk = photonPersistentDisk
+            self._photonPersistentDisk = photonPersistentDisk
         if portworxVolume is not None:
-            self.portworxVolume = portworxVolume
+            self._portworxVolume = portworxVolume
         if quobyte is not None:
-            self.quobyte = quobyte
+            self._quobyte = quobyte
         if rbd is not None:
-            self.rbd = rbd
+            self._rbd = rbd
         if scaleIO is not None:
-            self.scaleIO = scaleIO
+            self._scaleIO = scaleIO
         if storageClassName is not None:
-            self.storageClassName = storageClassName
+            self._storageClassName = storageClassName
         if storageos is not None:
-            self.storageos = storageos
+            self._storageos = storageos
         if volumeMode is not None:
-            self.volumeMode = volumeMode
+            self._volumeMode = volumeMode
         if vsphereVolume is not None:
-            self.vsphereVolume = vsphereVolume
+            self._vsphereVolume = vsphereVolume
 
 
 class io__k8s__api__core__v1__PodAffinityTerm(K8STemplatable):
@@ -11283,14 +15133,25 @@ class io__k8s__api__core__v1__PodAffinityTerm(K8STemplatable):
     ]
     required_props: List[str] = ["topologyKey"]
 
-    labelSelector: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
-    ] = None
-    namespaceSelector: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
-    ] = None
-    namespaces: Optional[List[str]] = None
-    topologyKey: str
+    @property
+    def labelSelector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._labelSelector
+
+    @property
+    def namespaceSelector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._namespaceSelector
+
+    @property
+    def namespaces(self) -> Optional[List[str]]:
+        return self._namespaces
+
+    @property
+    def topologyKey(self) -> str:
+        return self._topologyKey
 
     def __init__(
         self,
@@ -11305,13 +15166,13 @@ class io__k8s__api__core__v1__PodAffinityTerm(K8STemplatable):
     ):
         super().__init__()
         if topologyKey is not None:
-            self.topologyKey = topologyKey
+            self._topologyKey = topologyKey
         if labelSelector is not None:
-            self.labelSelector = labelSelector
+            self._labelSelector = labelSelector
         if namespaceSelector is not None:
-            self.namespaceSelector = namespaceSelector
+            self._namespaceSelector = namespaceSelector
         if namespaces is not None:
-            self.namespaces = namespaces
+            self._namespaces = namespaces
 
 
 class io__k8s__api__core__v1__PodStatus(K8STemplatable):
@@ -11334,23 +15195,63 @@ class io__k8s__api__core__v1__PodStatus(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    conditions: Optional[List[io__k8s__api__core__v1__PodCondition]] = None
-    containerStatuses: Optional[List[io__k8s__api__core__v1__ContainerStatus]] = None
-    ephemeralContainerStatuses: Optional[
-        List[io__k8s__api__core__v1__ContainerStatus]
-    ] = None
-    hostIP: Optional[str] = None
-    initContainerStatuses: Optional[
-        List[io__k8s__api__core__v1__ContainerStatus]
-    ] = None
-    message: Optional[str] = None
-    nominatedNodeName: Optional[str] = None
-    phase: Optional[str] = None
-    podIP: Optional[str] = None
-    podIPs: Optional[List[io__k8s__api__core__v1__PodIP]] = None
-    qosClass: Optional[str] = None
-    reason: Optional[str] = None
-    startTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
+    @property
+    def conditions(self) -> Optional[List[io__k8s__api__core__v1__PodCondition]]:
+        return self._conditions
+
+    @property
+    def containerStatuses(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__ContainerStatus]]:
+        return self._containerStatuses
+
+    @property
+    def ephemeralContainerStatuses(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__ContainerStatus]]:
+        return self._ephemeralContainerStatuses
+
+    @property
+    def hostIP(self) -> Optional[str]:
+        return self._hostIP
+
+    @property
+    def initContainerStatuses(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__ContainerStatus]]:
+        return self._initContainerStatuses
+
+    @property
+    def message(self) -> Optional[str]:
+        return self._message
+
+    @property
+    def nominatedNodeName(self) -> Optional[str]:
+        return self._nominatedNodeName
+
+    @property
+    def phase(self) -> Optional[str]:
+        return self._phase
+
+    @property
+    def podIP(self) -> Optional[str]:
+        return self._podIP
+
+    @property
+    def podIPs(self) -> Optional[List[io__k8s__api__core__v1__PodIP]]:
+        return self._podIPs
+
+    @property
+    def qosClass(self) -> Optional[str]:
+        return self._qosClass
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def startTime(self) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._startTime
 
     def __init__(
         self,
@@ -11376,31 +15277,31 @@ class io__k8s__api__core__v1__PodStatus(K8STemplatable):
     ):
         super().__init__()
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if containerStatuses is not None:
-            self.containerStatuses = containerStatuses
+            self._containerStatuses = containerStatuses
         if ephemeralContainerStatuses is not None:
-            self.ephemeralContainerStatuses = ephemeralContainerStatuses
+            self._ephemeralContainerStatuses = ephemeralContainerStatuses
         if hostIP is not None:
-            self.hostIP = hostIP
+            self._hostIP = hostIP
         if initContainerStatuses is not None:
-            self.initContainerStatuses = initContainerStatuses
+            self._initContainerStatuses = initContainerStatuses
         if message is not None:
-            self.message = message
+            self._message = message
         if nominatedNodeName is not None:
-            self.nominatedNodeName = nominatedNodeName
+            self._nominatedNodeName = nominatedNodeName
         if phase is not None:
-            self.phase = phase
+            self._phase = phase
         if podIP is not None:
-            self.podIP = podIP
+            self._podIP = podIP
         if podIPs is not None:
-            self.podIPs = podIPs
+            self._podIPs = podIPs
         if qosClass is not None:
-            self.qosClass = qosClass
+            self._qosClass = qosClass
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
         if startTime is not None:
-            self.startTime = startTime
+            self._startTime = startTime
 
 
 class io__k8s__api__core__v1__Probe(K8STemplatable):
@@ -11420,16 +15321,45 @@ class io__k8s__api__core__v1__Probe(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    exec: Optional[io__k8s__api__core__v1__ExecAction] = None
-    failureThreshold: Optional[int] = None
-    grpc: Optional[io__k8s__api__core__v1__GRPCAction] = None
-    httpGet: Optional[io__k8s__api__core__v1__HTTPGetAction] = None
-    initialDelaySeconds: Optional[int] = None
-    periodSeconds: Optional[int] = None
-    successThreshold: Optional[int] = None
-    tcpSocket: Optional[io__k8s__api__core__v1__TCPSocketAction] = None
-    terminationGracePeriodSeconds: Optional[int] = None
-    timeoutSeconds: Optional[int] = None
+    @property
+    def exec(self) -> Optional[io__k8s__api__core__v1__ExecAction]:
+        return self._exec
+
+    @property
+    def failureThreshold(self) -> Optional[int]:
+        return self._failureThreshold
+
+    @property
+    def grpc(self) -> Optional[io__k8s__api__core__v1__GRPCAction]:
+        return self._grpc
+
+    @property
+    def httpGet(self) -> Optional[io__k8s__api__core__v1__HTTPGetAction]:
+        return self._httpGet
+
+    @property
+    def initialDelaySeconds(self) -> Optional[int]:
+        return self._initialDelaySeconds
+
+    @property
+    def periodSeconds(self) -> Optional[int]:
+        return self._periodSeconds
+
+    @property
+    def successThreshold(self) -> Optional[int]:
+        return self._successThreshold
+
+    @property
+    def tcpSocket(self) -> Optional[io__k8s__api__core__v1__TCPSocketAction]:
+        return self._tcpSocket
+
+    @property
+    def terminationGracePeriodSeconds(self) -> Optional[int]:
+        return self._terminationGracePeriodSeconds
+
+    @property
+    def timeoutSeconds(self) -> Optional[int]:
+        return self._timeoutSeconds
 
     def __init__(
         self,
@@ -11446,25 +15376,25 @@ class io__k8s__api__core__v1__Probe(K8STemplatable):
     ):
         super().__init__()
         if exec is not None:
-            self.exec = exec
+            self._exec = exec
         if failureThreshold is not None:
-            self.failureThreshold = failureThreshold
+            self._failureThreshold = failureThreshold
         if grpc is not None:
-            self.grpc = grpc
+            self._grpc = grpc
         if httpGet is not None:
-            self.httpGet = httpGet
+            self._httpGet = httpGet
         if initialDelaySeconds is not None:
-            self.initialDelaySeconds = initialDelaySeconds
+            self._initialDelaySeconds = initialDelaySeconds
         if periodSeconds is not None:
-            self.periodSeconds = periodSeconds
+            self._periodSeconds = periodSeconds
         if successThreshold is not None:
-            self.successThreshold = successThreshold
+            self._successThreshold = successThreshold
         if tcpSocket is not None:
-            self.tcpSocket = tcpSocket
+            self._tcpSocket = tcpSocket
         if terminationGracePeriodSeconds is not None:
-            self.terminationGracePeriodSeconds = terminationGracePeriodSeconds
+            self._terminationGracePeriodSeconds = terminationGracePeriodSeconds
         if timeoutSeconds is not None:
-            self.timeoutSeconds = timeoutSeconds
+            self._timeoutSeconds = timeoutSeconds
 
 
 class io__k8s__api__core__v1__ResourceQuotaSpec(K8STemplatable):
@@ -11473,9 +15403,17 @@ class io__k8s__api__core__v1__ResourceQuotaSpec(K8STemplatable):
     props: List[str] = ["hard", "scopeSelector", "scopes"]
     required_props: List[str] = []
 
-    hard: Any
-    scopeSelector: Optional[io__k8s__api__core__v1__ScopeSelector] = None
-    scopes: Optional[List[str]] = None
+    @property
+    def hard(self) -> Any:
+        return self._hard
+
+    @property
+    def scopeSelector(self) -> Optional[io__k8s__api__core__v1__ScopeSelector]:
+        return self._scopeSelector
+
+    @property
+    def scopes(self) -> Optional[List[str]]:
+        return self._scopes
 
     def __init__(
         self,
@@ -11485,11 +15423,11 @@ class io__k8s__api__core__v1__ResourceQuotaSpec(K8STemplatable):
     ):
         super().__init__()
         if hard is not None:
-            self.hard = hard
+            self._hard = hard
         if scopeSelector is not None:
-            self.scopeSelector = scopeSelector
+            self._scopeSelector = scopeSelector
         if scopes is not None:
-            self.scopes = scopes
+            self._scopes = scopes
 
 
 class io__k8s__api__core__v1__Secret(K8STemplatable):
@@ -11509,11 +15447,27 @@ class io__k8s__api__core__v1__Secret(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    data: Any
-    immutable: Optional[bool] = None
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    stringData: Any
-    type: Optional[str] = None
+    @property
+    def data(self) -> Any:
+        return self._data
+
+    @property
+    def immutable(self) -> Optional[bool]:
+        return self._immutable
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def stringData(self) -> Any:
+        return self._stringData
+
+    @property
+    def type(self) -> Optional[str]:
+        return self._type
 
     def __init__(
         self,
@@ -11527,15 +15481,15 @@ class io__k8s__api__core__v1__Secret(K8STemplatable):
     ):
         super().__init__()
         if data is not None:
-            self.data = data
+            self._data = data
         if immutable is not None:
-            self.immutable = immutable
+            self._immutable = immutable
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if stringData is not None:
-            self.stringData = stringData
+            self._stringData = stringData
         if type is not None:
-            self.type = type
+            self._type = type
 
 
 class io__k8s__api__core__v1__SecretList(K8STemplatable):
@@ -11547,8 +15501,15 @@ class io__k8s__api__core__v1__SecretList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__core__v1__Secret]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__core__v1__Secret]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -11557,9 +15518,9 @@ class io__k8s__api__core__v1__SecretList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__ServiceAccount(K8STemplatable):
@@ -11578,12 +15539,25 @@ class io__k8s__api__core__v1__ServiceAccount(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    automountServiceAccountToken: Optional[bool] = None
-    imagePullSecrets: Optional[
-        List[io__k8s__api__core__v1__LocalObjectReference]
-    ] = None
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    secrets: Optional[List[io__k8s__api__core__v1__ObjectReference]] = None
+    @property
+    def automountServiceAccountToken(self) -> Optional[bool]:
+        return self._automountServiceAccountToken
+
+    @property
+    def imagePullSecrets(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__LocalObjectReference]]:
+        return self._imagePullSecrets
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def secrets(self) -> Optional[List[io__k8s__api__core__v1__ObjectReference]]:
+        return self._secrets
 
     def __init__(
         self,
@@ -11598,13 +15572,13 @@ class io__k8s__api__core__v1__ServiceAccount(K8STemplatable):
     ):
         super().__init__()
         if automountServiceAccountToken is not None:
-            self.automountServiceAccountToken = automountServiceAccountToken
+            self._automountServiceAccountToken = automountServiceAccountToken
         if imagePullSecrets is not None:
-            self.imagePullSecrets = imagePullSecrets
+            self._imagePullSecrets = imagePullSecrets
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if secrets is not None:
-            self.secrets = secrets
+            self._secrets = secrets
 
 
 class io__k8s__api__core__v1__ServiceAccountList(K8STemplatable):
@@ -11616,8 +15590,15 @@ class io__k8s__api__core__v1__ServiceAccountList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__core__v1__ServiceAccount]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__core__v1__ServiceAccount]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -11626,9 +15607,9 @@ class io__k8s__api__core__v1__ServiceAccountList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__ServiceStatus(K8STemplatable):
@@ -11637,10 +15618,15 @@ class io__k8s__api__core__v1__ServiceStatus(K8STemplatable):
     props: List[str] = ["conditions", "loadBalancer"]
     required_props: List[str] = []
 
-    conditions: Optional[
-        List[io__k8s__apimachinery__pkg__apis__meta__v1__Condition]
-    ] = None
-    loadBalancer: Optional[io__k8s__api__core__v1__LoadBalancerStatus] = None
+    @property
+    def conditions(
+        self,
+    ) -> Optional[List[io__k8s__apimachinery__pkg__apis__meta__v1__Condition]]:
+        return self._conditions
+
+    @property
+    def loadBalancer(self) -> Optional[io__k8s__api__core__v1__LoadBalancerStatus]:
+        return self._loadBalancer
 
     def __init__(
         self,
@@ -11651,9 +15637,9 @@ class io__k8s__api__core__v1__ServiceStatus(K8STemplatable):
     ):
         super().__init__()
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if loadBalancer is not None:
-            self.loadBalancer = loadBalancer
+            self._loadBalancer = loadBalancer
 
 
 class io__k8s__api__core__v1__TopologySpreadConstraint(K8STemplatable):
@@ -11668,13 +15654,27 @@ class io__k8s__api__core__v1__TopologySpreadConstraint(K8STemplatable):
     ]
     required_props: List[str] = ["maxSkew", "topologyKey", "whenUnsatisfiable"]
 
-    labelSelector: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
-    ] = None
-    maxSkew: int
-    minDomains: Optional[int] = None
-    topologyKey: str
-    whenUnsatisfiable: str
+    @property
+    def labelSelector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._labelSelector
+
+    @property
+    def maxSkew(self) -> int:
+        return self._maxSkew
+
+    @property
+    def minDomains(self) -> Optional[int]:
+        return self._minDomains
+
+    @property
+    def topologyKey(self) -> str:
+        return self._topologyKey
+
+    @property
+    def whenUnsatisfiable(self) -> str:
+        return self._whenUnsatisfiable
 
     def __init__(
         self,
@@ -11688,15 +15688,15 @@ class io__k8s__api__core__v1__TopologySpreadConstraint(K8STemplatable):
     ):
         super().__init__()
         if maxSkew is not None:
-            self.maxSkew = maxSkew
+            self._maxSkew = maxSkew
         if topologyKey is not None:
-            self.topologyKey = topologyKey
+            self._topologyKey = topologyKey
         if whenUnsatisfiable is not None:
-            self.whenUnsatisfiable = whenUnsatisfiable
+            self._whenUnsatisfiable = whenUnsatisfiable
         if labelSelector is not None:
-            self.labelSelector = labelSelector
+            self._labelSelector = labelSelector
         if minDomains is not None:
-            self.minDomains = minDomains
+            self._minDomains = minDomains
 
 
 class io__k8s__api__core__v1__WeightedPodAffinityTerm(K8STemplatable):
@@ -11705,17 +15705,22 @@ class io__k8s__api__core__v1__WeightedPodAffinityTerm(K8STemplatable):
     props: List[str] = ["podAffinityTerm", "weight"]
     required_props: List[str] = ["weight", "podAffinityTerm"]
 
-    podAffinityTerm: io__k8s__api__core__v1__PodAffinityTerm
-    weight: int
+    @property
+    def podAffinityTerm(self) -> io__k8s__api__core__v1__PodAffinityTerm:
+        return self._podAffinityTerm
+
+    @property
+    def weight(self) -> int:
+        return self._weight
 
     def __init__(
         self, podAffinityTerm: io__k8s__api__core__v1__PodAffinityTerm, weight: int
     ):
         super().__init__()
         if podAffinityTerm is not None:
-            self.podAffinityTerm = podAffinityTerm
+            self._podAffinityTerm = podAffinityTerm
         if weight is not None:
-            self.weight = weight
+            self._weight = weight
 
 
 class io__k8s__api__discovery__v1__Endpoint(K8STemplatable):
@@ -11733,14 +15738,37 @@ class io__k8s__api__discovery__v1__Endpoint(K8STemplatable):
     ]
     required_props: List[str] = ["addresses"]
 
-    addresses: List[str]
-    conditions: Optional[io__k8s__api__discovery__v1__EndpointConditions] = None
-    deprecatedTopology: Any
-    hints: Optional[io__k8s__api__discovery__v1__EndpointHints] = None
-    hostname: Optional[str] = None
-    nodeName: Optional[str] = None
-    targetRef: Optional[io__k8s__api__core__v1__ObjectReference] = None
-    zone: Optional[str] = None
+    @property
+    def addresses(self) -> List[str]:
+        return self._addresses
+
+    @property
+    def conditions(self) -> Optional[io__k8s__api__discovery__v1__EndpointConditions]:
+        return self._conditions
+
+    @property
+    def deprecatedTopology(self) -> Any:
+        return self._deprecatedTopology
+
+    @property
+    def hints(self) -> Optional[io__k8s__api__discovery__v1__EndpointHints]:
+        return self._hints
+
+    @property
+    def hostname(self) -> Optional[str]:
+        return self._hostname
+
+    @property
+    def nodeName(self) -> Optional[str]:
+        return self._nodeName
+
+    @property
+    def targetRef(self) -> Optional[io__k8s__api__core__v1__ObjectReference]:
+        return self._targetRef
+
+    @property
+    def zone(self) -> Optional[str]:
+        return self._zone
 
     def __init__(
         self,
@@ -11755,21 +15783,21 @@ class io__k8s__api__discovery__v1__Endpoint(K8STemplatable):
     ):
         super().__init__()
         if addresses is not None:
-            self.addresses = addresses
+            self._addresses = addresses
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if deprecatedTopology is not None:
-            self.deprecatedTopology = deprecatedTopology
+            self._deprecatedTopology = deprecatedTopology
         if hints is not None:
-            self.hints = hints
+            self._hints = hints
         if hostname is not None:
-            self.hostname = hostname
+            self._hostname = hostname
         if nodeName is not None:
-            self.nodeName = nodeName
+            self._nodeName = nodeName
         if targetRef is not None:
-            self.targetRef = targetRef
+            self._targetRef = targetRef
         if zone is not None:
-            self.zone = zone
+            self._zone = zone
 
 
 class io__k8s__api__discovery__v1__EndpointSlice(K8STemplatable):
@@ -11788,10 +15816,23 @@ class io__k8s__api__discovery__v1__EndpointSlice(K8STemplatable):
     ]
     required_props: List[str] = ["addressType", "endpoints"]
 
-    addressType: str
-    endpoints: List[io__k8s__api__discovery__v1__Endpoint]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    ports: Optional[List[io__k8s__api__discovery__v1__EndpointPort]] = None
+    @property
+    def addressType(self) -> str:
+        return self._addressType
+
+    @property
+    def endpoints(self) -> List[io__k8s__api__discovery__v1__Endpoint]:
+        return self._endpoints
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def ports(self) -> Optional[List[io__k8s__api__discovery__v1__EndpointPort]]:
+        return self._ports
 
     def __init__(
         self,
@@ -11804,13 +15845,13 @@ class io__k8s__api__discovery__v1__EndpointSlice(K8STemplatable):
     ):
         super().__init__()
         if addressType is not None:
-            self.addressType = addressType
+            self._addressType = addressType
         if endpoints is not None:
-            self.endpoints = endpoints
+            self._endpoints = endpoints
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if ports is not None:
-            self.ports = ports
+            self._ports = ports
 
 
 class io__k8s__api__discovery__v1__EndpointSliceList(K8STemplatable):
@@ -11822,8 +15863,15 @@ class io__k8s__api__discovery__v1__EndpointSliceList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__discovery__v1__EndpointSlice]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__discovery__v1__EndpointSlice]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -11832,9 +15880,9 @@ class io__k8s__api__discovery__v1__EndpointSliceList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__discovery__v1beta1__Endpoint(K8STemplatable):
@@ -11851,13 +15899,35 @@ class io__k8s__api__discovery__v1beta1__Endpoint(K8STemplatable):
     ]
     required_props: List[str] = ["addresses"]
 
-    addresses: List[str]
-    conditions: Optional[io__k8s__api__discovery__v1beta1__EndpointConditions] = None
-    hints: Optional[io__k8s__api__discovery__v1beta1__EndpointHints] = None
-    hostname: Optional[str] = None
-    nodeName: Optional[str] = None
-    targetRef: Optional[io__k8s__api__core__v1__ObjectReference] = None
-    topology: Any
+    @property
+    def addresses(self) -> List[str]:
+        return self._addresses
+
+    @property
+    def conditions(
+        self,
+    ) -> Optional[io__k8s__api__discovery__v1beta1__EndpointConditions]:
+        return self._conditions
+
+    @property
+    def hints(self) -> Optional[io__k8s__api__discovery__v1beta1__EndpointHints]:
+        return self._hints
+
+    @property
+    def hostname(self) -> Optional[str]:
+        return self._hostname
+
+    @property
+    def nodeName(self) -> Optional[str]:
+        return self._nodeName
+
+    @property
+    def targetRef(self) -> Optional[io__k8s__api__core__v1__ObjectReference]:
+        return self._targetRef
+
+    @property
+    def topology(self) -> Any:
+        return self._topology
 
     def __init__(
         self,
@@ -11873,19 +15943,19 @@ class io__k8s__api__discovery__v1beta1__Endpoint(K8STemplatable):
     ):
         super().__init__()
         if addresses is not None:
-            self.addresses = addresses
+            self._addresses = addresses
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if hints is not None:
-            self.hints = hints
+            self._hints = hints
         if hostname is not None:
-            self.hostname = hostname
+            self._hostname = hostname
         if nodeName is not None:
-            self.nodeName = nodeName
+            self._nodeName = nodeName
         if targetRef is not None:
-            self.targetRef = targetRef
+            self._targetRef = targetRef
         if topology is not None:
-            self.topology = topology
+            self._topology = topology
 
 
 class io__k8s__api__discovery__v1beta1__EndpointSlice(K8STemplatable):
@@ -11904,10 +15974,23 @@ class io__k8s__api__discovery__v1beta1__EndpointSlice(K8STemplatable):
     ]
     required_props: List[str] = ["addressType", "endpoints"]
 
-    addressType: str
-    endpoints: List[io__k8s__api__discovery__v1beta1__Endpoint]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    ports: Optional[List[io__k8s__api__discovery__v1beta1__EndpointPort]] = None
+    @property
+    def addressType(self) -> str:
+        return self._addressType
+
+    @property
+    def endpoints(self) -> List[io__k8s__api__discovery__v1beta1__Endpoint]:
+        return self._endpoints
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def ports(self) -> Optional[List[io__k8s__api__discovery__v1beta1__EndpointPort]]:
+        return self._ports
 
     def __init__(
         self,
@@ -11920,13 +16003,13 @@ class io__k8s__api__discovery__v1beta1__EndpointSlice(K8STemplatable):
     ):
         super().__init__()
         if addressType is not None:
-            self.addressType = addressType
+            self._addressType = addressType
         if endpoints is not None:
-            self.endpoints = endpoints
+            self._endpoints = endpoints
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if ports is not None:
-            self.ports = ports
+            self._ports = ports
 
 
 class io__k8s__api__discovery__v1beta1__EndpointSliceList(K8STemplatable):
@@ -11938,8 +16021,15 @@ class io__k8s__api__discovery__v1beta1__EndpointSliceList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__discovery__v1beta1__EndpointSlice]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__discovery__v1beta1__EndpointSlice]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -11948,9 +16038,9 @@ class io__k8s__api__discovery__v1beta1__EndpointSliceList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__events__v1__Event(K8STemplatable):
@@ -11980,25 +16070,71 @@ class io__k8s__api__events__v1__Event(K8STemplatable):
     ]
     required_props: List[str] = ["eventTime"]
 
-    action: Optional[str] = None
-    deprecatedCount: Optional[int] = None
-    deprecatedFirstTimestamp: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    deprecatedLastTimestamp: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    deprecatedSource: Optional[io__k8s__api__core__v1__EventSource] = None
-    eventTime: io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    note: Optional[str] = None
-    reason: Optional[str] = None
-    regarding: Optional[io__k8s__api__core__v1__ObjectReference] = None
-    related: Optional[io__k8s__api__core__v1__ObjectReference] = None
-    reportingController: Optional[str] = None
-    reportingInstance: Optional[str] = None
-    series: Optional[io__k8s__api__events__v1__EventSeries] = None
-    type: Optional[str] = None
+    @property
+    def action(self) -> Optional[str]:
+        return self._action
+
+    @property
+    def deprecatedCount(self) -> Optional[int]:
+        return self._deprecatedCount
+
+    @property
+    def deprecatedFirstTimestamp(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._deprecatedFirstTimestamp
+
+    @property
+    def deprecatedLastTimestamp(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._deprecatedLastTimestamp
+
+    @property
+    def deprecatedSource(self) -> Optional[io__k8s__api__core__v1__EventSource]:
+        return self._deprecatedSource
+
+    @property
+    def eventTime(self) -> io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime:
+        return self._eventTime
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def note(self) -> Optional[str]:
+        return self._note
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def regarding(self) -> Optional[io__k8s__api__core__v1__ObjectReference]:
+        return self._regarding
+
+    @property
+    def related(self) -> Optional[io__k8s__api__core__v1__ObjectReference]:
+        return self._related
+
+    @property
+    def reportingController(self) -> Optional[str]:
+        return self._reportingController
+
+    @property
+    def reportingInstance(self) -> Optional[str]:
+        return self._reportingInstance
+
+    @property
+    def series(self) -> Optional[io__k8s__api__events__v1__EventSeries]:
+        return self._series
+
+    @property
+    def type(self) -> Optional[str]:
+        return self._type
 
     def __init__(
         self,
@@ -12026,35 +16162,35 @@ class io__k8s__api__events__v1__Event(K8STemplatable):
     ):
         super().__init__()
         if eventTime is not None:
-            self.eventTime = eventTime
+            self._eventTime = eventTime
         if action is not None:
-            self.action = action
+            self._action = action
         if deprecatedCount is not None:
-            self.deprecatedCount = deprecatedCount
+            self._deprecatedCount = deprecatedCount
         if deprecatedFirstTimestamp is not None:
-            self.deprecatedFirstTimestamp = deprecatedFirstTimestamp
+            self._deprecatedFirstTimestamp = deprecatedFirstTimestamp
         if deprecatedLastTimestamp is not None:
-            self.deprecatedLastTimestamp = deprecatedLastTimestamp
+            self._deprecatedLastTimestamp = deprecatedLastTimestamp
         if deprecatedSource is not None:
-            self.deprecatedSource = deprecatedSource
+            self._deprecatedSource = deprecatedSource
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if note is not None:
-            self.note = note
+            self._note = note
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
         if regarding is not None:
-            self.regarding = regarding
+            self._regarding = regarding
         if related is not None:
-            self.related = related
+            self._related = related
         if reportingController is not None:
-            self.reportingController = reportingController
+            self._reportingController = reportingController
         if reportingInstance is not None:
-            self.reportingInstance = reportingInstance
+            self._reportingInstance = reportingInstance
         if series is not None:
-            self.series = series
+            self._series = series
         if type is not None:
-            self.type = type
+            self._type = type
 
 
 class io__k8s__api__events__v1__EventList(K8STemplatable):
@@ -12066,8 +16202,15 @@ class io__k8s__api__events__v1__EventList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__events__v1__Event]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__events__v1__Event]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -12076,9 +16219,9 @@ class io__k8s__api__events__v1__EventList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__events__v1beta1__Event(K8STemplatable):
@@ -12108,25 +16251,71 @@ class io__k8s__api__events__v1beta1__Event(K8STemplatable):
     ]
     required_props: List[str] = ["eventTime"]
 
-    action: Optional[str] = None
-    deprecatedCount: Optional[int] = None
-    deprecatedFirstTimestamp: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    deprecatedLastTimestamp: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__Time
-    ] = None
-    deprecatedSource: Optional[io__k8s__api__core__v1__EventSource] = None
-    eventTime: io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    note: Optional[str] = None
-    reason: Optional[str] = None
-    regarding: Optional[io__k8s__api__core__v1__ObjectReference] = None
-    related: Optional[io__k8s__api__core__v1__ObjectReference] = None
-    reportingController: Optional[str] = None
-    reportingInstance: Optional[str] = None
-    series: Optional[io__k8s__api__events__v1beta1__EventSeries] = None
-    type: Optional[str] = None
+    @property
+    def action(self) -> Optional[str]:
+        return self._action
+
+    @property
+    def deprecatedCount(self) -> Optional[int]:
+        return self._deprecatedCount
+
+    @property
+    def deprecatedFirstTimestamp(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._deprecatedFirstTimestamp
+
+    @property
+    def deprecatedLastTimestamp(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._deprecatedLastTimestamp
+
+    @property
+    def deprecatedSource(self) -> Optional[io__k8s__api__core__v1__EventSource]:
+        return self._deprecatedSource
+
+    @property
+    def eventTime(self) -> io__k8s__apimachinery__pkg__apis__meta__v1__MicroTime:
+        return self._eventTime
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def note(self) -> Optional[str]:
+        return self._note
+
+    @property
+    def reason(self) -> Optional[str]:
+        return self._reason
+
+    @property
+    def regarding(self) -> Optional[io__k8s__api__core__v1__ObjectReference]:
+        return self._regarding
+
+    @property
+    def related(self) -> Optional[io__k8s__api__core__v1__ObjectReference]:
+        return self._related
+
+    @property
+    def reportingController(self) -> Optional[str]:
+        return self._reportingController
+
+    @property
+    def reportingInstance(self) -> Optional[str]:
+        return self._reportingInstance
+
+    @property
+    def series(self) -> Optional[io__k8s__api__events__v1beta1__EventSeries]:
+        return self._series
+
+    @property
+    def type(self) -> Optional[str]:
+        return self._type
 
     def __init__(
         self,
@@ -12154,35 +16343,35 @@ class io__k8s__api__events__v1beta1__Event(K8STemplatable):
     ):
         super().__init__()
         if eventTime is not None:
-            self.eventTime = eventTime
+            self._eventTime = eventTime
         if action is not None:
-            self.action = action
+            self._action = action
         if deprecatedCount is not None:
-            self.deprecatedCount = deprecatedCount
+            self._deprecatedCount = deprecatedCount
         if deprecatedFirstTimestamp is not None:
-            self.deprecatedFirstTimestamp = deprecatedFirstTimestamp
+            self._deprecatedFirstTimestamp = deprecatedFirstTimestamp
         if deprecatedLastTimestamp is not None:
-            self.deprecatedLastTimestamp = deprecatedLastTimestamp
+            self._deprecatedLastTimestamp = deprecatedLastTimestamp
         if deprecatedSource is not None:
-            self.deprecatedSource = deprecatedSource
+            self._deprecatedSource = deprecatedSource
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if note is not None:
-            self.note = note
+            self._note = note
         if reason is not None:
-            self.reason = reason
+            self._reason = reason
         if regarding is not None:
-            self.regarding = regarding
+            self._regarding = regarding
         if related is not None:
-            self.related = related
+            self._related = related
         if reportingController is not None:
-            self.reportingController = reportingController
+            self._reportingController = reportingController
         if reportingInstance is not None:
-            self.reportingInstance = reportingInstance
+            self._reportingInstance = reportingInstance
         if series is not None:
-            self.series = series
+            self._series = series
         if type is not None:
-            self.type = type
+            self._type = type
 
 
 class io__k8s__api__events__v1beta1__EventList(K8STemplatable):
@@ -12194,8 +16383,15 @@ class io__k8s__api__events__v1beta1__EventList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__events__v1beta1__Event]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__events__v1beta1__Event]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -12204,9 +16400,9 @@ class io__k8s__api__events__v1beta1__EventList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__flowcontrol__v1beta1__PolicyRulesWithSubjects(K8STemplatable):
@@ -12215,13 +16411,21 @@ class io__k8s__api__flowcontrol__v1beta1__PolicyRulesWithSubjects(K8STemplatable
     props: List[str] = ["nonResourceRules", "resourceRules", "subjects"]
     required_props: List[str] = ["subjects"]
 
-    nonResourceRules: Optional[
-        List[io__k8s__api__flowcontrol__v1beta1__NonResourcePolicyRule]
-    ] = None
-    resourceRules: Optional[
-        List[io__k8s__api__flowcontrol__v1beta1__ResourcePolicyRule]
-    ] = None
-    subjects: List[io__k8s__api__flowcontrol__v1beta1__Subject]
+    @property
+    def nonResourceRules(
+        self,
+    ) -> Optional[List[io__k8s__api__flowcontrol__v1beta1__NonResourcePolicyRule]]:
+        return self._nonResourceRules
+
+    @property
+    def resourceRules(
+        self,
+    ) -> Optional[List[io__k8s__api__flowcontrol__v1beta1__ResourcePolicyRule]]:
+        return self._resourceRules
+
+    @property
+    def subjects(self) -> List[io__k8s__api__flowcontrol__v1beta1__Subject]:
+        return self._subjects
 
     def __init__(
         self,
@@ -12235,11 +16439,11 @@ class io__k8s__api__flowcontrol__v1beta1__PolicyRulesWithSubjects(K8STemplatable
     ):
         super().__init__()
         if subjects is not None:
-            self.subjects = subjects
+            self._subjects = subjects
         if nonResourceRules is not None:
-            self.nonResourceRules = nonResourceRules
+            self._nonResourceRules = nonResourceRules
         if resourceRules is not None:
-            self.resourceRules = resourceRules
+            self._resourceRules = resourceRules
 
 
 class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfiguration(K8STemplatable):
@@ -12251,13 +16455,23 @@ class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfiguration(K8STemplata
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[
-        io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationSpec
-    ] = None
-    status: Optional[
-        io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationStatus
-    ] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(
+        self,
+    ) -> Optional[io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationSpec]:
+        return self._spec
+
+    @property
+    def status(
+        self,
+    ) -> Optional[io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -12273,11 +16487,11 @@ class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfiguration(K8STemplata
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationList(
@@ -12291,8 +16505,17 @@ class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationList(
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfiguration]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(
+        self,
+    ) -> List[io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfiguration]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -12301,9 +16524,9 @@ class io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationList(
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__flowcontrol__v1beta2__PolicyRulesWithSubjects(K8STemplatable):
@@ -12312,13 +16535,21 @@ class io__k8s__api__flowcontrol__v1beta2__PolicyRulesWithSubjects(K8STemplatable
     props: List[str] = ["nonResourceRules", "resourceRules", "subjects"]
     required_props: List[str] = ["subjects"]
 
-    nonResourceRules: Optional[
-        List[io__k8s__api__flowcontrol__v1beta2__NonResourcePolicyRule]
-    ] = None
-    resourceRules: Optional[
-        List[io__k8s__api__flowcontrol__v1beta2__ResourcePolicyRule]
-    ] = None
-    subjects: List[io__k8s__api__flowcontrol__v1beta2__Subject]
+    @property
+    def nonResourceRules(
+        self,
+    ) -> Optional[List[io__k8s__api__flowcontrol__v1beta2__NonResourcePolicyRule]]:
+        return self._nonResourceRules
+
+    @property
+    def resourceRules(
+        self,
+    ) -> Optional[List[io__k8s__api__flowcontrol__v1beta2__ResourcePolicyRule]]:
+        return self._resourceRules
+
+    @property
+    def subjects(self) -> List[io__k8s__api__flowcontrol__v1beta2__Subject]:
+        return self._subjects
 
     def __init__(
         self,
@@ -12332,11 +16563,11 @@ class io__k8s__api__flowcontrol__v1beta2__PolicyRulesWithSubjects(K8STemplatable
     ):
         super().__init__()
         if subjects is not None:
-            self.subjects = subjects
+            self._subjects = subjects
         if nonResourceRules is not None:
-            self.nonResourceRules = nonResourceRules
+            self._nonResourceRules = nonResourceRules
         if resourceRules is not None:
-            self.resourceRules = resourceRules
+            self._resourceRules = resourceRules
 
 
 class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfiguration(K8STemplatable):
@@ -12348,13 +16579,23 @@ class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfiguration(K8STemplata
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[
-        io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationSpec
-    ] = None
-    status: Optional[
-        io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationStatus
-    ] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(
+        self,
+    ) -> Optional[io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationSpec]:
+        return self._spec
+
+    @property
+    def status(
+        self,
+    ) -> Optional[io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -12370,11 +16611,11 @@ class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfiguration(K8STemplata
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationList(
@@ -12388,8 +16629,17 @@ class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationList(
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfiguration]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(
+        self,
+    ) -> List[io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfiguration]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -12398,9 +16648,9 @@ class io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationList(
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__networking__v1__IngressBackend(K8STemplatable):
@@ -12409,8 +16659,13 @@ class io__k8s__api__networking__v1__IngressBackend(K8STemplatable):
     props: List[str] = ["resource", "service"]
     required_props: List[str] = []
 
-    resource: Optional[io__k8s__api__core__v1__TypedLocalObjectReference] = None
-    service: Optional[io__k8s__api__networking__v1__IngressServiceBackend] = None
+    @property
+    def resource(self) -> Optional[io__k8s__api__core__v1__TypedLocalObjectReference]:
+        return self._resource
+
+    @property
+    def service(self) -> Optional[io__k8s__api__networking__v1__IngressServiceBackend]:
+        return self._service
 
     def __init__(
         self,
@@ -12419,9 +16674,9 @@ class io__k8s__api__networking__v1__IngressBackend(K8STemplatable):
     ):
         super().__init__()
         if resource is not None:
-            self.resource = resource
+            self._resource = resource
         if service is not None:
-            self.service = service
+            self._service = service
 
 
 class io__k8s__api__networking__v1__IngressClass(K8STemplatable):
@@ -12433,8 +16688,15 @@ class io__k8s__api__networking__v1__IngressClass(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__networking__v1__IngressClassSpec] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__networking__v1__IngressClassSpec]:
+        return self._spec
 
     def __init__(
         self,
@@ -12445,9 +16707,9 @@ class io__k8s__api__networking__v1__IngressClass(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
 
 
 class io__k8s__api__networking__v1__IngressClassList(K8STemplatable):
@@ -12459,8 +16721,15 @@ class io__k8s__api__networking__v1__IngressClassList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__networking__v1__IngressClass]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__networking__v1__IngressClass]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -12469,9 +16738,9 @@ class io__k8s__api__networking__v1__IngressClassList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__networking__v1__NetworkPolicyPeer(K8STemplatable):
@@ -12480,13 +16749,21 @@ class io__k8s__api__networking__v1__NetworkPolicyPeer(K8STemplatable):
     props: List[str] = ["ipBlock", "namespaceSelector", "podSelector"]
     required_props: List[str] = []
 
-    ipBlock: Optional[io__k8s__api__networking__v1__IPBlock] = None
-    namespaceSelector: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
-    ] = None
-    podSelector: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
-    ] = None
+    @property
+    def ipBlock(self) -> Optional[io__k8s__api__networking__v1__IPBlock]:
+        return self._ipBlock
+
+    @property
+    def namespaceSelector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._namespaceSelector
+
+    @property
+    def podSelector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._podSelector
 
     def __init__(
         self,
@@ -12500,11 +16777,11 @@ class io__k8s__api__networking__v1__NetworkPolicyPeer(K8STemplatable):
     ):
         super().__init__()
         if ipBlock is not None:
-            self.ipBlock = ipBlock
+            self._ipBlock = ipBlock
         if namespaceSelector is not None:
-            self.namespaceSelector = namespaceSelector
+            self._namespaceSelector = namespaceSelector
         if podSelector is not None:
-            self.podSelector = podSelector
+            self._podSelector = podSelector
 
 
 class io__k8s__api__networking__v1__NetworkPolicyStatus(K8STemplatable):
@@ -12513,9 +16790,11 @@ class io__k8s__api__networking__v1__NetworkPolicyStatus(K8STemplatable):
     props: List[str] = ["conditions"]
     required_props: List[str] = []
 
-    conditions: Optional[
-        List[io__k8s__apimachinery__pkg__apis__meta__v1__Condition]
-    ] = None
+    @property
+    def conditions(
+        self,
+    ) -> Optional[List[io__k8s__apimachinery__pkg__apis__meta__v1__Condition]]:
+        return self._conditions
 
     def __init__(
         self,
@@ -12525,7 +16804,7 @@ class io__k8s__api__networking__v1__NetworkPolicyStatus(K8STemplatable):
     ):
         super().__init__()
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
 
 
 class io__k8s__api__node__v1__RuntimeClass(K8STemplatable):
@@ -12544,10 +16823,23 @@ class io__k8s__api__node__v1__RuntimeClass(K8STemplatable):
     ]
     required_props: List[str] = ["handler"]
 
-    handler: str
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    overhead: Optional[io__k8s__api__node__v1__Overhead] = None
-    scheduling: Optional[io__k8s__api__node__v1__Scheduling] = None
+    @property
+    def handler(self) -> str:
+        return self._handler
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def overhead(self) -> Optional[io__k8s__api__node__v1__Overhead]:
+        return self._overhead
+
+    @property
+    def scheduling(self) -> Optional[io__k8s__api__node__v1__Scheduling]:
+        return self._scheduling
 
     def __init__(
         self,
@@ -12560,13 +16852,13 @@ class io__k8s__api__node__v1__RuntimeClass(K8STemplatable):
     ):
         super().__init__()
         if handler is not None:
-            self.handler = handler
+            self._handler = handler
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if overhead is not None:
-            self.overhead = overhead
+            self._overhead = overhead
         if scheduling is not None:
-            self.scheduling = scheduling
+            self._scheduling = scheduling
 
 
 class io__k8s__api__node__v1__RuntimeClassList(K8STemplatable):
@@ -12578,8 +16870,15 @@ class io__k8s__api__node__v1__RuntimeClassList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__node__v1__RuntimeClass]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__node__v1__RuntimeClass]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -12588,9 +16887,9 @@ class io__k8s__api__node__v1__RuntimeClassList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__node__v1beta1__RuntimeClass(K8STemplatable):
@@ -12609,10 +16908,23 @@ class io__k8s__api__node__v1beta1__RuntimeClass(K8STemplatable):
     ]
     required_props: List[str] = ["handler"]
 
-    handler: str
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    overhead: Optional[io__k8s__api__node__v1beta1__Overhead] = None
-    scheduling: Optional[io__k8s__api__node__v1beta1__Scheduling] = None
+    @property
+    def handler(self) -> str:
+        return self._handler
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def overhead(self) -> Optional[io__k8s__api__node__v1beta1__Overhead]:
+        return self._overhead
+
+    @property
+    def scheduling(self) -> Optional[io__k8s__api__node__v1beta1__Scheduling]:
+        return self._scheduling
 
     def __init__(
         self,
@@ -12625,13 +16937,13 @@ class io__k8s__api__node__v1beta1__RuntimeClass(K8STemplatable):
     ):
         super().__init__()
         if handler is not None:
-            self.handler = handler
+            self._handler = handler
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if overhead is not None:
-            self.overhead = overhead
+            self._overhead = overhead
         if scheduling is not None:
-            self.scheduling = scheduling
+            self._scheduling = scheduling
 
 
 class io__k8s__api__node__v1beta1__RuntimeClassList(K8STemplatable):
@@ -12643,8 +16955,15 @@ class io__k8s__api__node__v1beta1__RuntimeClassList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__node__v1beta1__RuntimeClass]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__node__v1beta1__RuntimeClass]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -12653,9 +16972,9 @@ class io__k8s__api__node__v1beta1__RuntimeClassList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__policy__v1__Eviction(K8STemplatable):
@@ -12667,10 +16986,17 @@ class io__k8s__api__policy__v1__Eviction(K8STemplatable):
     props: List[str] = ["apiVersion", "deleteOptions", "kind", "metadata"]
     required_props: List[str] = []
 
-    deleteOptions: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__DeleteOptions
-    ] = None
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
+    @property
+    def deleteOptions(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__DeleteOptions]:
+        return self._deleteOptions
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -12683,9 +17009,9 @@ class io__k8s__api__policy__v1__Eviction(K8STemplatable):
     ):
         super().__init__()
         if deleteOptions is not None:
-            self.deleteOptions = deleteOptions
+            self._deleteOptions = deleteOptions
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__policy__v1__PodDisruptionBudgetSpec(K8STemplatable):
@@ -12694,11 +17020,23 @@ class io__k8s__api__policy__v1__PodDisruptionBudgetSpec(K8STemplatable):
     props: List[str] = ["maxUnavailable", "minAvailable", "selector"]
     required_props: List[str] = []
 
-    maxUnavailable: Optional[
-        io__k8s__apimachinery__pkg__util__intstr__IntOrString
-    ] = None
-    minAvailable: Optional[io__k8s__apimachinery__pkg__util__intstr__IntOrString] = None
-    selector: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector] = None
+    @property
+    def maxUnavailable(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__util__intstr__IntOrString]:
+        return self._maxUnavailable
+
+    @property
+    def minAvailable(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__util__intstr__IntOrString]:
+        return self._minAvailable
+
+    @property
+    def selector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._selector
 
     def __init__(
         self,
@@ -12714,11 +17052,11 @@ class io__k8s__api__policy__v1__PodDisruptionBudgetSpec(K8STemplatable):
     ):
         super().__init__()
         if maxUnavailable is not None:
-            self.maxUnavailable = maxUnavailable
+            self._maxUnavailable = maxUnavailable
         if minAvailable is not None:
-            self.minAvailable = minAvailable
+            self._minAvailable = minAvailable
         if selector is not None:
-            self.selector = selector
+            self._selector = selector
 
 
 class io__k8s__api__policy__v1__PodDisruptionBudgetStatus(K8STemplatable):
@@ -12740,15 +17078,35 @@ class io__k8s__api__policy__v1__PodDisruptionBudgetStatus(K8STemplatable):
         "expectedPods",
     ]
 
-    conditions: Optional[
-        List[io__k8s__apimachinery__pkg__apis__meta__v1__Condition]
-    ] = None
-    currentHealthy: int
-    desiredHealthy: int
-    disruptedPods: Any
-    disruptionsAllowed: int
-    expectedPods: int
-    observedGeneration: Optional[int] = None
+    @property
+    def conditions(
+        self,
+    ) -> Optional[List[io__k8s__apimachinery__pkg__apis__meta__v1__Condition]]:
+        return self._conditions
+
+    @property
+    def currentHealthy(self) -> int:
+        return self._currentHealthy
+
+    @property
+    def desiredHealthy(self) -> int:
+        return self._desiredHealthy
+
+    @property
+    def disruptedPods(self) -> Any:
+        return self._disruptedPods
+
+    @property
+    def disruptionsAllowed(self) -> int:
+        return self._disruptionsAllowed
+
+    @property
+    def expectedPods(self) -> int:
+        return self._expectedPods
+
+    @property
+    def observedGeneration(self) -> Optional[int]:
+        return self._observedGeneration
 
     def __init__(
         self,
@@ -12764,19 +17122,19 @@ class io__k8s__api__policy__v1__PodDisruptionBudgetStatus(K8STemplatable):
     ):
         super().__init__()
         if currentHealthy is not None:
-            self.currentHealthy = currentHealthy
+            self._currentHealthy = currentHealthy
         if desiredHealthy is not None:
-            self.desiredHealthy = desiredHealthy
+            self._desiredHealthy = desiredHealthy
         if disruptionsAllowed is not None:
-            self.disruptionsAllowed = disruptionsAllowed
+            self._disruptionsAllowed = disruptionsAllowed
         if expectedPods is not None:
-            self.expectedPods = expectedPods
+            self._expectedPods = expectedPods
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if disruptedPods is not None:
-            self.disruptedPods = disruptedPods
+            self._disruptedPods = disruptedPods
         if observedGeneration is not None:
-            self.observedGeneration = observedGeneration
+            self._observedGeneration = observedGeneration
 
 
 class io__k8s__api__policy__v1beta1__PodDisruptionBudgetSpec(K8STemplatable):
@@ -12785,11 +17143,23 @@ class io__k8s__api__policy__v1beta1__PodDisruptionBudgetSpec(K8STemplatable):
     props: List[str] = ["maxUnavailable", "minAvailable", "selector"]
     required_props: List[str] = []
 
-    maxUnavailable: Optional[
-        io__k8s__apimachinery__pkg__util__intstr__IntOrString
-    ] = None
-    minAvailable: Optional[io__k8s__apimachinery__pkg__util__intstr__IntOrString] = None
-    selector: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector] = None
+    @property
+    def maxUnavailable(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__util__intstr__IntOrString]:
+        return self._maxUnavailable
+
+    @property
+    def minAvailable(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__util__intstr__IntOrString]:
+        return self._minAvailable
+
+    @property
+    def selector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._selector
 
     def __init__(
         self,
@@ -12805,11 +17175,11 @@ class io__k8s__api__policy__v1beta1__PodDisruptionBudgetSpec(K8STemplatable):
     ):
         super().__init__()
         if maxUnavailable is not None:
-            self.maxUnavailable = maxUnavailable
+            self._maxUnavailable = maxUnavailable
         if minAvailable is not None:
-            self.minAvailable = minAvailable
+            self._minAvailable = minAvailable
         if selector is not None:
-            self.selector = selector
+            self._selector = selector
 
 
 class io__k8s__api__policy__v1beta1__PodDisruptionBudgetStatus(K8STemplatable):
@@ -12831,15 +17201,35 @@ class io__k8s__api__policy__v1beta1__PodDisruptionBudgetStatus(K8STemplatable):
         "expectedPods",
     ]
 
-    conditions: Optional[
-        List[io__k8s__apimachinery__pkg__apis__meta__v1__Condition]
-    ] = None
-    currentHealthy: int
-    desiredHealthy: int
-    disruptedPods: Any
-    disruptionsAllowed: int
-    expectedPods: int
-    observedGeneration: Optional[int] = None
+    @property
+    def conditions(
+        self,
+    ) -> Optional[List[io__k8s__apimachinery__pkg__apis__meta__v1__Condition]]:
+        return self._conditions
+
+    @property
+    def currentHealthy(self) -> int:
+        return self._currentHealthy
+
+    @property
+    def desiredHealthy(self) -> int:
+        return self._desiredHealthy
+
+    @property
+    def disruptedPods(self) -> Any:
+        return self._disruptedPods
+
+    @property
+    def disruptionsAllowed(self) -> int:
+        return self._disruptionsAllowed
+
+    @property
+    def expectedPods(self) -> int:
+        return self._expectedPods
+
+    @property
+    def observedGeneration(self) -> Optional[int]:
+        return self._observedGeneration
 
     def __init__(
         self,
@@ -12855,19 +17245,19 @@ class io__k8s__api__policy__v1beta1__PodDisruptionBudgetStatus(K8STemplatable):
     ):
         super().__init__()
         if currentHealthy is not None:
-            self.currentHealthy = currentHealthy
+            self._currentHealthy = currentHealthy
         if desiredHealthy is not None:
-            self.desiredHealthy = desiredHealthy
+            self._desiredHealthy = desiredHealthy
         if disruptionsAllowed is not None:
-            self.disruptionsAllowed = disruptionsAllowed
+            self._disruptionsAllowed = disruptionsAllowed
         if expectedPods is not None:
-            self.expectedPods = expectedPods
+            self._expectedPods = expectedPods
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if disruptedPods is not None:
-            self.disruptedPods = disruptedPods
+            self._disruptedPods = disruptedPods
         if observedGeneration is not None:
-            self.observedGeneration = observedGeneration
+            self._observedGeneration = observedGeneration
 
 
 class io__k8s__api__policy__v1beta1__PodSecurityPolicy(K8STemplatable):
@@ -12879,8 +17269,15 @@ class io__k8s__api__policy__v1beta1__PodSecurityPolicy(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__policy__v1beta1__PodSecurityPolicySpec] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__policy__v1beta1__PodSecurityPolicySpec]:
+        return self._spec
 
     def __init__(
         self,
@@ -12891,9 +17288,9 @@ class io__k8s__api__policy__v1beta1__PodSecurityPolicy(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
 
 
 class io__k8s__api__policy__v1beta1__PodSecurityPolicyList(K8STemplatable):
@@ -12905,8 +17302,15 @@ class io__k8s__api__policy__v1beta1__PodSecurityPolicyList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__policy__v1beta1__PodSecurityPolicy]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__policy__v1beta1__PodSecurityPolicy]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -12915,9 +17319,9 @@ class io__k8s__api__policy__v1beta1__PodSecurityPolicyList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__rbac__v1__AggregationRule(K8STemplatable):
@@ -12926,9 +17330,11 @@ class io__k8s__api__rbac__v1__AggregationRule(K8STemplatable):
     props: List[str] = ["clusterRoleSelectors"]
     required_props: List[str] = []
 
-    clusterRoleSelectors: Optional[
-        List[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]
-    ] = None
+    @property
+    def clusterRoleSelectors(
+        self,
+    ) -> Optional[List[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]]:
+        return self._clusterRoleSelectors
 
     def __init__(
         self,
@@ -12938,7 +17344,7 @@ class io__k8s__api__rbac__v1__AggregationRule(K8STemplatable):
     ):
         super().__init__()
         if clusterRoleSelectors is not None:
-            self.clusterRoleSelectors = clusterRoleSelectors
+            self._clusterRoleSelectors = clusterRoleSelectors
 
 
 class io__k8s__api__rbac__v1__ClusterRole(K8STemplatable):
@@ -12950,9 +17356,19 @@ class io__k8s__api__rbac__v1__ClusterRole(K8STemplatable):
     props: List[str] = ["aggregationRule", "apiVersion", "kind", "metadata", "rules"]
     required_props: List[str] = []
 
-    aggregationRule: Optional[io__k8s__api__rbac__v1__AggregationRule] = None
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    rules: Optional[List[io__k8s__api__rbac__v1__PolicyRule]] = None
+    @property
+    def aggregationRule(self) -> Optional[io__k8s__api__rbac__v1__AggregationRule]:
+        return self._aggregationRule
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def rules(self) -> Optional[List[io__k8s__api__rbac__v1__PolicyRule]]:
+        return self._rules
 
     def __init__(
         self,
@@ -12964,11 +17380,11 @@ class io__k8s__api__rbac__v1__ClusterRole(K8STemplatable):
     ):
         super().__init__()
         if aggregationRule is not None:
-            self.aggregationRule = aggregationRule
+            self._aggregationRule = aggregationRule
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if rules is not None:
-            self.rules = rules
+            self._rules = rules
 
 
 class io__k8s__api__rbac__v1__ClusterRoleBinding(K8STemplatable):
@@ -12980,9 +17396,19 @@ class io__k8s__api__rbac__v1__ClusterRoleBinding(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "roleRef", "subjects"]
     required_props: List[str] = ["roleRef"]
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    roleRef: io__k8s__api__rbac__v1__RoleRef
-    subjects: Optional[List[io__k8s__api__rbac__v1__Subject]] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def roleRef(self) -> io__k8s__api__rbac__v1__RoleRef:
+        return self._roleRef
+
+    @property
+    def subjects(self) -> Optional[List[io__k8s__api__rbac__v1__Subject]]:
+        return self._subjects
 
     def __init__(
         self,
@@ -12994,11 +17420,11 @@ class io__k8s__api__rbac__v1__ClusterRoleBinding(K8STemplatable):
     ):
         super().__init__()
         if roleRef is not None:
-            self.roleRef = roleRef
+            self._roleRef = roleRef
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if subjects is not None:
-            self.subjects = subjects
+            self._subjects = subjects
 
 
 class io__k8s__api__rbac__v1__ClusterRoleBindingList(K8STemplatable):
@@ -13010,8 +17436,15 @@ class io__k8s__api__rbac__v1__ClusterRoleBindingList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__rbac__v1__ClusterRoleBinding]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__rbac__v1__ClusterRoleBinding]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -13020,9 +17453,9 @@ class io__k8s__api__rbac__v1__ClusterRoleBindingList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__rbac__v1__ClusterRoleList(K8STemplatable):
@@ -13034,8 +17467,15 @@ class io__k8s__api__rbac__v1__ClusterRoleList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__rbac__v1__ClusterRole]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__rbac__v1__ClusterRole]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -13044,9 +17484,9 @@ class io__k8s__api__rbac__v1__ClusterRoleList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__rbac__v1__Role(K8STemplatable):
@@ -13058,8 +17498,15 @@ class io__k8s__api__rbac__v1__Role(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "rules"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    rules: Optional[List[io__k8s__api__rbac__v1__PolicyRule]] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def rules(self) -> Optional[List[io__k8s__api__rbac__v1__PolicyRule]]:
+        return self._rules
 
     def __init__(
         self,
@@ -13070,9 +17517,9 @@ class io__k8s__api__rbac__v1__Role(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if rules is not None:
-            self.rules = rules
+            self._rules = rules
 
 
 class io__k8s__api__rbac__v1__RoleBinding(K8STemplatable):
@@ -13084,9 +17531,19 @@ class io__k8s__api__rbac__v1__RoleBinding(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "roleRef", "subjects"]
     required_props: List[str] = ["roleRef"]
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    roleRef: io__k8s__api__rbac__v1__RoleRef
-    subjects: Optional[List[io__k8s__api__rbac__v1__Subject]] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def roleRef(self) -> io__k8s__api__rbac__v1__RoleRef:
+        return self._roleRef
+
+    @property
+    def subjects(self) -> Optional[List[io__k8s__api__rbac__v1__Subject]]:
+        return self._subjects
 
     def __init__(
         self,
@@ -13098,11 +17555,11 @@ class io__k8s__api__rbac__v1__RoleBinding(K8STemplatable):
     ):
         super().__init__()
         if roleRef is not None:
-            self.roleRef = roleRef
+            self._roleRef = roleRef
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if subjects is not None:
-            self.subjects = subjects
+            self._subjects = subjects
 
 
 class io__k8s__api__rbac__v1__RoleBindingList(K8STemplatable):
@@ -13114,8 +17571,15 @@ class io__k8s__api__rbac__v1__RoleBindingList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__rbac__v1__RoleBinding]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__rbac__v1__RoleBinding]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -13124,9 +17588,9 @@ class io__k8s__api__rbac__v1__RoleBindingList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__rbac__v1__RoleList(K8STemplatable):
@@ -13138,8 +17602,15 @@ class io__k8s__api__rbac__v1__RoleList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__rbac__v1__Role]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__rbac__v1__Role]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -13148,9 +17619,9 @@ class io__k8s__api__rbac__v1__RoleList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__scheduling__v1__PriorityClass(K8STemplatable):
@@ -13170,11 +17641,27 @@ class io__k8s__api__scheduling__v1__PriorityClass(K8STemplatable):
     ]
     required_props: List[str] = ["value"]
 
-    description: Optional[str] = None
-    globalDefault: Optional[bool] = None
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    preemptionPolicy: Optional[str] = None
-    value: int
+    @property
+    def description(self) -> Optional[str]:
+        return self._description
+
+    @property
+    def globalDefault(self) -> Optional[bool]:
+        return self._globalDefault
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def preemptionPolicy(self) -> Optional[str]:
+        return self._preemptionPolicy
+
+    @property
+    def value(self) -> int:
+        return self._value
 
     def __init__(
         self,
@@ -13188,15 +17675,15 @@ class io__k8s__api__scheduling__v1__PriorityClass(K8STemplatable):
     ):
         super().__init__()
         if value is not None:
-            self.value = value
+            self._value = value
         if description is not None:
-            self.description = description
+            self._description = description
         if globalDefault is not None:
-            self.globalDefault = globalDefault
+            self._globalDefault = globalDefault
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if preemptionPolicy is not None:
-            self.preemptionPolicy = preemptionPolicy
+            self._preemptionPolicy = preemptionPolicy
 
 
 class io__k8s__api__scheduling__v1__PriorityClassList(K8STemplatable):
@@ -13208,8 +17695,15 @@ class io__k8s__api__scheduling__v1__PriorityClassList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__scheduling__v1__PriorityClass]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__scheduling__v1__PriorityClass]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -13218,9 +17712,9 @@ class io__k8s__api__scheduling__v1__PriorityClassList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__storage__v1__CSIDriver(K8STemplatable):
@@ -13232,8 +17726,15 @@ class io__k8s__api__storage__v1__CSIDriver(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec"]
     required_props: List[str] = ["spec"]
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: io__k8s__api__storage__v1__CSIDriverSpec
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> io__k8s__api__storage__v1__CSIDriverSpec:
+        return self._spec
 
     def __init__(
         self,
@@ -13244,9 +17745,9 @@ class io__k8s__api__storage__v1__CSIDriver(K8STemplatable):
     ):
         super().__init__()
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__storage__v1__CSIDriverList(K8STemplatable):
@@ -13258,8 +17759,15 @@ class io__k8s__api__storage__v1__CSIDriverList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__storage__v1__CSIDriver]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__storage__v1__CSIDriver]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -13268,9 +17776,9 @@ class io__k8s__api__storage__v1__CSIDriverList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__storage__v1__CSINode(K8STemplatable):
@@ -13282,8 +17790,15 @@ class io__k8s__api__storage__v1__CSINode(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec"]
     required_props: List[str] = ["spec"]
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: io__k8s__api__storage__v1__CSINodeSpec
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> io__k8s__api__storage__v1__CSINodeSpec:
+        return self._spec
 
     def __init__(
         self,
@@ -13294,9 +17809,9 @@ class io__k8s__api__storage__v1__CSINode(K8STemplatable):
     ):
         super().__init__()
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__storage__v1__CSINodeList(K8STemplatable):
@@ -13308,8 +17823,15 @@ class io__k8s__api__storage__v1__CSINodeList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__storage__v1__CSINode]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__storage__v1__CSINode]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -13318,9 +17840,9 @@ class io__k8s__api__storage__v1__CSINodeList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__storage__v1__CSIStorageCapacity(K8STemplatable):
@@ -13348,15 +17870,31 @@ class io__k8s__api__storage__v1__CSIStorageCapacity(K8STemplatable):
     ]
     required_props: List[str] = ["storageClassName"]
 
-    capacity: Optional[io__k8s__apimachinery__pkg__api__resource__Quantity] = None
-    maximumVolumeSize: Optional[
-        io__k8s__apimachinery__pkg__api__resource__Quantity
-    ] = None
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    nodeTopology: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
-    ] = None
-    storageClassName: str
+    @property
+    def capacity(self) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._capacity
+
+    @property
+    def maximumVolumeSize(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._maximumVolumeSize
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def nodeTopology(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._nodeTopology
+
+    @property
+    def storageClassName(self) -> str:
+        return self._storageClassName
 
     def __init__(
         self,
@@ -13374,15 +17912,15 @@ class io__k8s__api__storage__v1__CSIStorageCapacity(K8STemplatable):
     ):
         super().__init__()
         if storageClassName is not None:
-            self.storageClassName = storageClassName
+            self._storageClassName = storageClassName
         if capacity is not None:
-            self.capacity = capacity
+            self._capacity = capacity
         if maximumVolumeSize is not None:
-            self.maximumVolumeSize = maximumVolumeSize
+            self._maximumVolumeSize = maximumVolumeSize
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if nodeTopology is not None:
-            self.nodeTopology = nodeTopology
+            self._nodeTopology = nodeTopology
 
 
 class io__k8s__api__storage__v1__CSIStorageCapacityList(K8STemplatable):
@@ -13394,8 +17932,15 @@ class io__k8s__api__storage__v1__CSIStorageCapacityList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__storage__v1__CSIStorageCapacity]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__storage__v1__CSIStorageCapacity]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -13404,9 +17949,9 @@ class io__k8s__api__storage__v1__CSIStorageCapacityList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__storage__v1__StorageClass(K8STemplatable):
@@ -13431,16 +17976,41 @@ class io__k8s__api__storage__v1__StorageClass(K8STemplatable):
     ]
     required_props: List[str] = ["provisioner"]
 
-    allowVolumeExpansion: Optional[bool] = None
-    allowedTopologies: Optional[
-        List[io__k8s__api__core__v1__TopologySelectorTerm]
-    ] = None
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    mountOptions: Optional[List[str]] = None
-    parameters: Any
-    provisioner: str
-    reclaimPolicy: Optional[str] = None
-    volumeBindingMode: Optional[str] = None
+    @property
+    def allowVolumeExpansion(self) -> Optional[bool]:
+        return self._allowVolumeExpansion
+
+    @property
+    def allowedTopologies(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__TopologySelectorTerm]]:
+        return self._allowedTopologies
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def mountOptions(self) -> Optional[List[str]]:
+        return self._mountOptions
+
+    @property
+    def parameters(self) -> Any:
+        return self._parameters
+
+    @property
+    def provisioner(self) -> str:
+        return self._provisioner
+
+    @property
+    def reclaimPolicy(self) -> Optional[str]:
+        return self._reclaimPolicy
+
+    @property
+    def volumeBindingMode(self) -> Optional[str]:
+        return self._volumeBindingMode
 
     def __init__(
         self,
@@ -13459,21 +18029,21 @@ class io__k8s__api__storage__v1__StorageClass(K8STemplatable):
     ):
         super().__init__()
         if provisioner is not None:
-            self.provisioner = provisioner
+            self._provisioner = provisioner
         if allowVolumeExpansion is not None:
-            self.allowVolumeExpansion = allowVolumeExpansion
+            self._allowVolumeExpansion = allowVolumeExpansion
         if allowedTopologies is not None:
-            self.allowedTopologies = allowedTopologies
+            self._allowedTopologies = allowedTopologies
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if mountOptions is not None:
-            self.mountOptions = mountOptions
+            self._mountOptions = mountOptions
         if parameters is not None:
-            self.parameters = parameters
+            self._parameters = parameters
         if reclaimPolicy is not None:
-            self.reclaimPolicy = reclaimPolicy
+            self._reclaimPolicy = reclaimPolicy
         if volumeBindingMode is not None:
-            self.volumeBindingMode = volumeBindingMode
+            self._volumeBindingMode = volumeBindingMode
 
 
 class io__k8s__api__storage__v1__StorageClassList(K8STemplatable):
@@ -13485,8 +18055,15 @@ class io__k8s__api__storage__v1__StorageClassList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__storage__v1__StorageClass]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__storage__v1__StorageClass]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -13495,9 +18072,9 @@ class io__k8s__api__storage__v1__StorageClassList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__storage__v1__VolumeAttachmentSource(K8STemplatable):
@@ -13506,8 +18083,15 @@ class io__k8s__api__storage__v1__VolumeAttachmentSource(K8STemplatable):
     props: List[str] = ["inlineVolumeSpec", "persistentVolumeName"]
     required_props: List[str] = []
 
-    inlineVolumeSpec: Optional[io__k8s__api__core__v1__PersistentVolumeSpec] = None
-    persistentVolumeName: Optional[str] = None
+    @property
+    def inlineVolumeSpec(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__PersistentVolumeSpec]:
+        return self._inlineVolumeSpec
+
+    @property
+    def persistentVolumeName(self) -> Optional[str]:
+        return self._persistentVolumeName
 
     def __init__(
         self,
@@ -13516,9 +18100,9 @@ class io__k8s__api__storage__v1__VolumeAttachmentSource(K8STemplatable):
     ):
         super().__init__()
         if inlineVolumeSpec is not None:
-            self.inlineVolumeSpec = inlineVolumeSpec
+            self._inlineVolumeSpec = inlineVolumeSpec
         if persistentVolumeName is not None:
-            self.persistentVolumeName = persistentVolumeName
+            self._persistentVolumeName = persistentVolumeName
 
 
 class io__k8s__api__storage__v1__VolumeAttachmentSpec(K8STemplatable):
@@ -13527,9 +18111,17 @@ class io__k8s__api__storage__v1__VolumeAttachmentSpec(K8STemplatable):
     props: List[str] = ["attacher", "nodeName", "source"]
     required_props: List[str] = ["attacher", "source", "nodeName"]
 
-    attacher: str
-    nodeName: str
-    source: io__k8s__api__storage__v1__VolumeAttachmentSource
+    @property
+    def attacher(self) -> str:
+        return self._attacher
+
+    @property
+    def nodeName(self) -> str:
+        return self._nodeName
+
+    @property
+    def source(self) -> io__k8s__api__storage__v1__VolumeAttachmentSource:
+        return self._source
 
     def __init__(
         self,
@@ -13539,11 +18131,11 @@ class io__k8s__api__storage__v1__VolumeAttachmentSpec(K8STemplatable):
     ):
         super().__init__()
         if attacher is not None:
-            self.attacher = attacher
+            self._attacher = attacher
         if nodeName is not None:
-            self.nodeName = nodeName
+            self._nodeName = nodeName
         if source is not None:
-            self.source = source
+            self._source = source
 
 
 class io__k8s__api__storage__v1__VolumeAttachmentStatus(K8STemplatable):
@@ -13552,10 +18144,21 @@ class io__k8s__api__storage__v1__VolumeAttachmentStatus(K8STemplatable):
     props: List[str] = ["attachError", "attached", "attachmentMetadata", "detachError"]
     required_props: List[str] = ["attached"]
 
-    attachError: Optional[io__k8s__api__storage__v1__VolumeError] = None
-    attached: bool
-    attachmentMetadata: Any
-    detachError: Optional[io__k8s__api__storage__v1__VolumeError] = None
+    @property
+    def attachError(self) -> Optional[io__k8s__api__storage__v1__VolumeError]:
+        return self._attachError
+
+    @property
+    def attached(self) -> bool:
+        return self._attached
+
+    @property
+    def attachmentMetadata(self) -> Any:
+        return self._attachmentMetadata
+
+    @property
+    def detachError(self) -> Optional[io__k8s__api__storage__v1__VolumeError]:
+        return self._detachError
 
     def __init__(
         self,
@@ -13566,13 +18169,13 @@ class io__k8s__api__storage__v1__VolumeAttachmentStatus(K8STemplatable):
     ):
         super().__init__()
         if attached is not None:
-            self.attached = attached
+            self._attached = attached
         if attachError is not None:
-            self.attachError = attachError
+            self._attachError = attachError
         if attachmentMetadata is not None:
-            self.attachmentMetadata = attachmentMetadata
+            self._attachmentMetadata = attachmentMetadata
         if detachError is not None:
-            self.detachError = detachError
+            self._detachError = detachError
 
 
 class io__k8s__api__storage__v1beta1__CSIStorageCapacity(K8STemplatable):
@@ -13600,15 +18203,31 @@ class io__k8s__api__storage__v1beta1__CSIStorageCapacity(K8STemplatable):
     ]
     required_props: List[str] = ["storageClassName"]
 
-    capacity: Optional[io__k8s__apimachinery__pkg__api__resource__Quantity] = None
-    maximumVolumeSize: Optional[
-        io__k8s__apimachinery__pkg__api__resource__Quantity
-    ] = None
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    nodeTopology: Optional[
-        io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
-    ] = None
-    storageClassName: str
+    @property
+    def capacity(self) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._capacity
+
+    @property
+    def maximumVolumeSize(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._maximumVolumeSize
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def nodeTopology(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._nodeTopology
+
+    @property
+    def storageClassName(self) -> str:
+        return self._storageClassName
 
     def __init__(
         self,
@@ -13626,15 +18245,15 @@ class io__k8s__api__storage__v1beta1__CSIStorageCapacity(K8STemplatable):
     ):
         super().__init__()
         if storageClassName is not None:
-            self.storageClassName = storageClassName
+            self._storageClassName = storageClassName
         if capacity is not None:
-            self.capacity = capacity
+            self._capacity = capacity
         if maximumVolumeSize is not None:
-            self.maximumVolumeSize = maximumVolumeSize
+            self._maximumVolumeSize = maximumVolumeSize
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if nodeTopology is not None:
-            self.nodeTopology = nodeTopology
+            self._nodeTopology = nodeTopology
 
 
 class io__k8s__api__storage__v1beta1__CSIStorageCapacityList(K8STemplatable):
@@ -13646,8 +18265,15 @@ class io__k8s__api__storage__v1beta1__CSIStorageCapacityList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__storage__v1beta1__CSIStorageCapacity]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__storage__v1beta1__CSIStorageCapacity]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -13656,9 +18282,9 @@ class io__k8s__api__storage__v1beta1__CSIStorageCapacityList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIService(
@@ -13672,13 +18298,27 @@ class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIService(
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(
+        self,
+    ) -> Optional[
         io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceSpec
-    ] = None
-    status: Optional[
+    ]:
+        return self._spec
+
+    @property
+    def status(
+        self,
+    ) -> Optional[
         io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceStatus
-    ] = None
+    ]:
+        return self._status
 
     def __init__(
         self,
@@ -13694,11 +18334,11 @@ class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIService(
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceList(
@@ -13712,8 +18352,17 @@ class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceList(
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIService]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(
+        self,
+    ) -> List[io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIService]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -13724,9 +18373,9 @@ class io__k8s__kube_aggregator__pkg__apis__apiregistration__v1__APIServiceList(
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__autoscaling__v2__ExternalMetricSource(K8STemplatable):
@@ -13735,8 +18384,13 @@ class io__k8s__api__autoscaling__v2__ExternalMetricSource(K8STemplatable):
     props: List[str] = ["metric", "target"]
     required_props: List[str] = ["metric", "target"]
 
-    metric: io__k8s__api__autoscaling__v2__MetricIdentifier
-    target: io__k8s__api__autoscaling__v2__MetricTarget
+    @property
+    def metric(self) -> io__k8s__api__autoscaling__v2__MetricIdentifier:
+        return self._metric
+
+    @property
+    def target(self) -> io__k8s__api__autoscaling__v2__MetricTarget:
+        return self._target
 
     def __init__(
         self,
@@ -13745,9 +18399,9 @@ class io__k8s__api__autoscaling__v2__ExternalMetricSource(K8STemplatable):
     ):
         super().__init__()
         if metric is not None:
-            self.metric = metric
+            self._metric = metric
         if target is not None:
-            self.target = target
+            self._target = target
 
 
 class io__k8s__api__autoscaling__v2__ExternalMetricStatus(K8STemplatable):
@@ -13756,8 +18410,13 @@ class io__k8s__api__autoscaling__v2__ExternalMetricStatus(K8STemplatable):
     props: List[str] = ["current", "metric"]
     required_props: List[str] = ["metric", "current"]
 
-    current: io__k8s__api__autoscaling__v2__MetricValueStatus
-    metric: io__k8s__api__autoscaling__v2__MetricIdentifier
+    @property
+    def current(self) -> io__k8s__api__autoscaling__v2__MetricValueStatus:
+        return self._current
+
+    @property
+    def metric(self) -> io__k8s__api__autoscaling__v2__MetricIdentifier:
+        return self._metric
 
     def __init__(
         self,
@@ -13766,9 +18425,9 @@ class io__k8s__api__autoscaling__v2__ExternalMetricStatus(K8STemplatable):
     ):
         super().__init__()
         if current is not None:
-            self.current = current
+            self._current = current
         if metric is not None:
-            self.metric = metric
+            self._metric = metric
 
 
 class io__k8s__api__autoscaling__v2__MetricSpec(K8STemplatable):
@@ -13784,14 +18443,31 @@ class io__k8s__api__autoscaling__v2__MetricSpec(K8STemplatable):
     ]
     required_props: List[str] = ["type"]
 
-    containerResource: Optional[
-        io__k8s__api__autoscaling__v2__ContainerResourceMetricSource
-    ] = None
-    external: Optional[io__k8s__api__autoscaling__v2__ExternalMetricSource] = None
-    object: Optional[io__k8s__api__autoscaling__v2__ObjectMetricSource] = None
-    pods: Optional[io__k8s__api__autoscaling__v2__PodsMetricSource] = None
-    resource: Optional[io__k8s__api__autoscaling__v2__ResourceMetricSource] = None
-    type: str
+    @property
+    def containerResource(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2__ContainerResourceMetricSource]:
+        return self._containerResource
+
+    @property
+    def external(self) -> Optional[io__k8s__api__autoscaling__v2__ExternalMetricSource]:
+        return self._external
+
+    @property
+    def object(self) -> Optional[io__k8s__api__autoscaling__v2__ObjectMetricSource]:
+        return self._object
+
+    @property
+    def pods(self) -> Optional[io__k8s__api__autoscaling__v2__PodsMetricSource]:
+        return self._pods
+
+    @property
+    def resource(self) -> Optional[io__k8s__api__autoscaling__v2__ResourceMetricSource]:
+        return self._resource
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -13806,17 +18482,17 @@ class io__k8s__api__autoscaling__v2__MetricSpec(K8STemplatable):
     ):
         super().__init__()
         if type is not None:
-            self.type = type
+            self._type = type
         if containerResource is not None:
-            self.containerResource = containerResource
+            self._containerResource = containerResource
         if external is not None:
-            self.external = external
+            self._external = external
         if object is not None:
-            self.object = object
+            self._object = object
         if pods is not None:
-            self.pods = pods
+            self._pods = pods
         if resource is not None:
-            self.resource = resource
+            self._resource = resource
 
 
 class io__k8s__api__autoscaling__v2__MetricStatus(K8STemplatable):
@@ -13832,14 +18508,31 @@ class io__k8s__api__autoscaling__v2__MetricStatus(K8STemplatable):
     ]
     required_props: List[str] = ["type"]
 
-    containerResource: Optional[
-        io__k8s__api__autoscaling__v2__ContainerResourceMetricStatus
-    ] = None
-    external: Optional[io__k8s__api__autoscaling__v2__ExternalMetricStatus] = None
-    object: Optional[io__k8s__api__autoscaling__v2__ObjectMetricStatus] = None
-    pods: Optional[io__k8s__api__autoscaling__v2__PodsMetricStatus] = None
-    resource: Optional[io__k8s__api__autoscaling__v2__ResourceMetricStatus] = None
-    type: str
+    @property
+    def containerResource(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2__ContainerResourceMetricStatus]:
+        return self._containerResource
+
+    @property
+    def external(self) -> Optional[io__k8s__api__autoscaling__v2__ExternalMetricStatus]:
+        return self._external
+
+    @property
+    def object(self) -> Optional[io__k8s__api__autoscaling__v2__ObjectMetricStatus]:
+        return self._object
+
+    @property
+    def pods(self) -> Optional[io__k8s__api__autoscaling__v2__PodsMetricStatus]:
+        return self._pods
+
+    @property
+    def resource(self) -> Optional[io__k8s__api__autoscaling__v2__ResourceMetricStatus]:
+        return self._resource
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -13854,17 +18547,17 @@ class io__k8s__api__autoscaling__v2__MetricStatus(K8STemplatable):
     ):
         super().__init__()
         if type is not None:
-            self.type = type
+            self._type = type
         if containerResource is not None:
-            self.containerResource = containerResource
+            self._containerResource = containerResource
         if external is not None:
-            self.external = external
+            self._external = external
         if object is not None:
-            self.object = object
+            self._object = object
         if pods is not None:
-            self.pods = pods
+            self._pods = pods
         if resource is not None:
-            self.resource = resource
+            self._resource = resource
 
 
 class io__k8s__api__autoscaling__v2beta1__MetricSpec(K8STemplatable):
@@ -13880,14 +18573,37 @@ class io__k8s__api__autoscaling__v2beta1__MetricSpec(K8STemplatable):
     ]
     required_props: List[str] = ["type"]
 
-    containerResource: Optional[
-        io__k8s__api__autoscaling__v2beta1__ContainerResourceMetricSource
-    ] = None
-    external: Optional[io__k8s__api__autoscaling__v2beta1__ExternalMetricSource] = None
-    object: Optional[io__k8s__api__autoscaling__v2beta1__ObjectMetricSource] = None
-    pods: Optional[io__k8s__api__autoscaling__v2beta1__PodsMetricSource] = None
-    resource: Optional[io__k8s__api__autoscaling__v2beta1__ResourceMetricSource] = None
-    type: str
+    @property
+    def containerResource(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta1__ContainerResourceMetricSource]:
+        return self._containerResource
+
+    @property
+    def external(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta1__ExternalMetricSource]:
+        return self._external
+
+    @property
+    def object(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta1__ObjectMetricSource]:
+        return self._object
+
+    @property
+    def pods(self) -> Optional[io__k8s__api__autoscaling__v2beta1__PodsMetricSource]:
+        return self._pods
+
+    @property
+    def resource(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta1__ResourceMetricSource]:
+        return self._resource
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -13906,17 +18622,17 @@ class io__k8s__api__autoscaling__v2beta1__MetricSpec(K8STemplatable):
     ):
         super().__init__()
         if type is not None:
-            self.type = type
+            self._type = type
         if containerResource is not None:
-            self.containerResource = containerResource
+            self._containerResource = containerResource
         if external is not None:
-            self.external = external
+            self._external = external
         if object is not None:
-            self.object = object
+            self._object = object
         if pods is not None:
-            self.pods = pods
+            self._pods = pods
         if resource is not None:
-            self.resource = resource
+            self._resource = resource
 
 
 class io__k8s__api__autoscaling__v2beta1__MetricStatus(K8STemplatable):
@@ -13932,14 +18648,37 @@ class io__k8s__api__autoscaling__v2beta1__MetricStatus(K8STemplatable):
     ]
     required_props: List[str] = ["type"]
 
-    containerResource: Optional[
-        io__k8s__api__autoscaling__v2beta1__ContainerResourceMetricStatus
-    ] = None
-    external: Optional[io__k8s__api__autoscaling__v2beta1__ExternalMetricStatus] = None
-    object: Optional[io__k8s__api__autoscaling__v2beta1__ObjectMetricStatus] = None
-    pods: Optional[io__k8s__api__autoscaling__v2beta1__PodsMetricStatus] = None
-    resource: Optional[io__k8s__api__autoscaling__v2beta1__ResourceMetricStatus] = None
-    type: str
+    @property
+    def containerResource(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta1__ContainerResourceMetricStatus]:
+        return self._containerResource
+
+    @property
+    def external(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta1__ExternalMetricStatus]:
+        return self._external
+
+    @property
+    def object(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta1__ObjectMetricStatus]:
+        return self._object
+
+    @property
+    def pods(self) -> Optional[io__k8s__api__autoscaling__v2beta1__PodsMetricStatus]:
+        return self._pods
+
+    @property
+    def resource(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta1__ResourceMetricStatus]:
+        return self._resource
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -13958,17 +18697,17 @@ class io__k8s__api__autoscaling__v2beta1__MetricStatus(K8STemplatable):
     ):
         super().__init__()
         if type is not None:
-            self.type = type
+            self._type = type
         if containerResource is not None:
-            self.containerResource = containerResource
+            self._containerResource = containerResource
         if external is not None:
-            self.external = external
+            self._external = external
         if object is not None:
-            self.object = object
+            self._object = object
         if pods is not None:
-            self.pods = pods
+            self._pods = pods
         if resource is not None:
-            self.resource = resource
+            self._resource = resource
 
 
 class io__k8s__api__autoscaling__v2beta2__ExternalMetricSource(K8STemplatable):
@@ -13977,8 +18716,13 @@ class io__k8s__api__autoscaling__v2beta2__ExternalMetricSource(K8STemplatable):
     props: List[str] = ["metric", "target"]
     required_props: List[str] = ["metric", "target"]
 
-    metric: io__k8s__api__autoscaling__v2beta2__MetricIdentifier
-    target: io__k8s__api__autoscaling__v2beta2__MetricTarget
+    @property
+    def metric(self) -> io__k8s__api__autoscaling__v2beta2__MetricIdentifier:
+        return self._metric
+
+    @property
+    def target(self) -> io__k8s__api__autoscaling__v2beta2__MetricTarget:
+        return self._target
 
     def __init__(
         self,
@@ -13987,9 +18731,9 @@ class io__k8s__api__autoscaling__v2beta2__ExternalMetricSource(K8STemplatable):
     ):
         super().__init__()
         if metric is not None:
-            self.metric = metric
+            self._metric = metric
         if target is not None:
-            self.target = target
+            self._target = target
 
 
 class io__k8s__api__autoscaling__v2beta2__ExternalMetricStatus(K8STemplatable):
@@ -13998,8 +18742,13 @@ class io__k8s__api__autoscaling__v2beta2__ExternalMetricStatus(K8STemplatable):
     props: List[str] = ["current", "metric"]
     required_props: List[str] = ["metric", "current"]
 
-    current: io__k8s__api__autoscaling__v2beta2__MetricValueStatus
-    metric: io__k8s__api__autoscaling__v2beta2__MetricIdentifier
+    @property
+    def current(self) -> io__k8s__api__autoscaling__v2beta2__MetricValueStatus:
+        return self._current
+
+    @property
+    def metric(self) -> io__k8s__api__autoscaling__v2beta2__MetricIdentifier:
+        return self._metric
 
     def __init__(
         self,
@@ -14008,9 +18757,9 @@ class io__k8s__api__autoscaling__v2beta2__ExternalMetricStatus(K8STemplatable):
     ):
         super().__init__()
         if current is not None:
-            self.current = current
+            self._current = current
         if metric is not None:
-            self.metric = metric
+            self._metric = metric
 
 
 class io__k8s__api__autoscaling__v2beta2__MetricSpec(K8STemplatable):
@@ -14026,14 +18775,37 @@ class io__k8s__api__autoscaling__v2beta2__MetricSpec(K8STemplatable):
     ]
     required_props: List[str] = ["type"]
 
-    containerResource: Optional[
-        io__k8s__api__autoscaling__v2beta2__ContainerResourceMetricSource
-    ] = None
-    external: Optional[io__k8s__api__autoscaling__v2beta2__ExternalMetricSource] = None
-    object: Optional[io__k8s__api__autoscaling__v2beta2__ObjectMetricSource] = None
-    pods: Optional[io__k8s__api__autoscaling__v2beta2__PodsMetricSource] = None
-    resource: Optional[io__k8s__api__autoscaling__v2beta2__ResourceMetricSource] = None
-    type: str
+    @property
+    def containerResource(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta2__ContainerResourceMetricSource]:
+        return self._containerResource
+
+    @property
+    def external(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta2__ExternalMetricSource]:
+        return self._external
+
+    @property
+    def object(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta2__ObjectMetricSource]:
+        return self._object
+
+    @property
+    def pods(self) -> Optional[io__k8s__api__autoscaling__v2beta2__PodsMetricSource]:
+        return self._pods
+
+    @property
+    def resource(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta2__ResourceMetricSource]:
+        return self._resource
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -14052,17 +18824,17 @@ class io__k8s__api__autoscaling__v2beta2__MetricSpec(K8STemplatable):
     ):
         super().__init__()
         if type is not None:
-            self.type = type
+            self._type = type
         if containerResource is not None:
-            self.containerResource = containerResource
+            self._containerResource = containerResource
         if external is not None:
-            self.external = external
+            self._external = external
         if object is not None:
-            self.object = object
+            self._object = object
         if pods is not None:
-            self.pods = pods
+            self._pods = pods
         if resource is not None:
-            self.resource = resource
+            self._resource = resource
 
 
 class io__k8s__api__autoscaling__v2beta2__MetricStatus(K8STemplatable):
@@ -14078,14 +18850,37 @@ class io__k8s__api__autoscaling__v2beta2__MetricStatus(K8STemplatable):
     ]
     required_props: List[str] = ["type"]
 
-    containerResource: Optional[
-        io__k8s__api__autoscaling__v2beta2__ContainerResourceMetricStatus
-    ] = None
-    external: Optional[io__k8s__api__autoscaling__v2beta2__ExternalMetricStatus] = None
-    object: Optional[io__k8s__api__autoscaling__v2beta2__ObjectMetricStatus] = None
-    pods: Optional[io__k8s__api__autoscaling__v2beta2__PodsMetricStatus] = None
-    resource: Optional[io__k8s__api__autoscaling__v2beta2__ResourceMetricStatus] = None
-    type: str
+    @property
+    def containerResource(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta2__ContainerResourceMetricStatus]:
+        return self._containerResource
+
+    @property
+    def external(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta2__ExternalMetricStatus]:
+        return self._external
+
+    @property
+    def object(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta2__ObjectMetricStatus]:
+        return self._object
+
+    @property
+    def pods(self) -> Optional[io__k8s__api__autoscaling__v2beta2__PodsMetricStatus]:
+        return self._pods
+
+    @property
+    def resource(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta2__ResourceMetricStatus]:
+        return self._resource
+
+    @property
+    def type(self) -> str:
+        return self._type
 
     def __init__(
         self,
@@ -14104,17 +18899,17 @@ class io__k8s__api__autoscaling__v2beta2__MetricStatus(K8STemplatable):
     ):
         super().__init__()
         if type is not None:
-            self.type = type
+            self._type = type
         if containerResource is not None:
-            self.containerResource = containerResource
+            self._containerResource = containerResource
         if external is not None:
-            self.external = external
+            self._external = external
         if object is not None:
-            self.object = object
+            self._object = object
         if pods is not None:
-            self.pods = pods
+            self._pods = pods
         if resource is not None:
-            self.resource = resource
+            self._resource = resource
 
 
 class io__k8s__api__core__v1__DownwardAPIProjection(K8STemplatable):
@@ -14123,7 +18918,9 @@ class io__k8s__api__core__v1__DownwardAPIProjection(K8STemplatable):
     props: List[str] = ["items"]
     required_props: List[str] = []
 
-    items: Optional[List[io__k8s__api__core__v1__DownwardAPIVolumeFile]] = None
+    @property
+    def items(self) -> Optional[List[io__k8s__api__core__v1__DownwardAPIVolumeFile]]:
+        return self._items
 
     def __init__(
         self,
@@ -14131,7 +18928,7 @@ class io__k8s__api__core__v1__DownwardAPIProjection(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
 
 
 class io__k8s__api__core__v1__EnvVar(K8STemplatable):
@@ -14140,9 +18937,17 @@ class io__k8s__api__core__v1__EnvVar(K8STemplatable):
     props: List[str] = ["name", "value", "valueFrom"]
     required_props: List[str] = ["name"]
 
-    name: str
-    value: Optional[str] = None
-    valueFrom: Optional[io__k8s__api__core__v1__EnvVarSource] = None
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def value(self) -> Optional[str]:
+        return self._value
+
+    @property
+    def valueFrom(self) -> Optional[io__k8s__api__core__v1__EnvVarSource]:
+        return self._valueFrom
 
     def __init__(
         self,
@@ -14152,11 +18957,11 @@ class io__k8s__api__core__v1__EnvVar(K8STemplatable):
     ):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if value is not None:
-            self.value = value
+            self._value = value
         if valueFrom is not None:
-            self.valueFrom = valueFrom
+            self._valueFrom = valueFrom
 
 
 class io__k8s__api__core__v1__EphemeralVolumeSource(K8STemplatable):
@@ -14165,9 +18970,11 @@ class io__k8s__api__core__v1__EphemeralVolumeSource(K8STemplatable):
     props: List[str] = ["volumeClaimTemplate"]
     required_props: List[str] = []
 
-    volumeClaimTemplate: Optional[
-        io__k8s__api__core__v1__PersistentVolumeClaimTemplate
-    ] = None
+    @property
+    def volumeClaimTemplate(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__PersistentVolumeClaimTemplate]:
+        return self._volumeClaimTemplate
 
     def __init__(
         self,
@@ -14177,7 +18984,7 @@ class io__k8s__api__core__v1__EphemeralVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if volumeClaimTemplate is not None:
-            self.volumeClaimTemplate = volumeClaimTemplate
+            self._volumeClaimTemplate = volumeClaimTemplate
 
 
 class io__k8s__api__core__v1__Lifecycle(K8STemplatable):
@@ -14186,8 +18993,13 @@ class io__k8s__api__core__v1__Lifecycle(K8STemplatable):
     props: List[str] = ["postStart", "preStop"]
     required_props: List[str] = []
 
-    postStart: Optional[io__k8s__api__core__v1__LifecycleHandler] = None
-    preStop: Optional[io__k8s__api__core__v1__LifecycleHandler] = None
+    @property
+    def postStart(self) -> Optional[io__k8s__api__core__v1__LifecycleHandler]:
+        return self._postStart
+
+    @property
+    def preStop(self) -> Optional[io__k8s__api__core__v1__LifecycleHandler]:
+        return self._preStop
 
     def __init__(
         self,
@@ -14196,9 +19008,9 @@ class io__k8s__api__core__v1__Lifecycle(K8STemplatable):
     ):
         super().__init__()
         if postStart is not None:
-            self.postStart = postStart
+            self._postStart = postStart
         if preStop is not None:
-            self.preStop = preStop
+            self._preStop = preStop
 
 
 class io__k8s__api__core__v1__Node(K8STemplatable):
@@ -14210,9 +19022,19 @@ class io__k8s__api__core__v1__Node(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__core__v1__NodeSpec] = None
-    status: Optional[io__k8s__api__core__v1__NodeStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__core__v1__NodeSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__core__v1__NodeStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -14224,11 +19046,11 @@ class io__k8s__api__core__v1__Node(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__core__v1__NodeList(K8STemplatable):
@@ -14240,8 +19062,15 @@ class io__k8s__api__core__v1__NodeList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__core__v1__Node]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__core__v1__Node]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -14250,9 +19079,9 @@ class io__k8s__api__core__v1__NodeList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__PersistentVolume(K8STemplatable):
@@ -14264,9 +19093,19 @@ class io__k8s__api__core__v1__PersistentVolume(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__core__v1__PersistentVolumeSpec] = None
-    status: Optional[io__k8s__api__core__v1__PersistentVolumeStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__core__v1__PersistentVolumeSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__core__v1__PersistentVolumeStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -14278,11 +19117,11 @@ class io__k8s__api__core__v1__PersistentVolume(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__core__v1__PersistentVolumeClaim(K8STemplatable):
@@ -14294,9 +19133,19 @@ class io__k8s__api__core__v1__PersistentVolumeClaim(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__core__v1__PersistentVolumeClaimSpec] = None
-    status: Optional[io__k8s__api__core__v1__PersistentVolumeClaimStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__core__v1__PersistentVolumeClaimSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__core__v1__PersistentVolumeClaimStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -14308,11 +19157,11 @@ class io__k8s__api__core__v1__PersistentVolumeClaim(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__core__v1__PersistentVolumeClaimList(K8STemplatable):
@@ -14324,8 +19173,15 @@ class io__k8s__api__core__v1__PersistentVolumeClaimList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__core__v1__PersistentVolumeClaim]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__core__v1__PersistentVolumeClaim]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -14334,9 +19190,9 @@ class io__k8s__api__core__v1__PersistentVolumeClaimList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__PersistentVolumeList(K8STemplatable):
@@ -14348,8 +19204,15 @@ class io__k8s__api__core__v1__PersistentVolumeList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__core__v1__PersistentVolume]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__core__v1__PersistentVolume]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -14358,9 +19221,9 @@ class io__k8s__api__core__v1__PersistentVolumeList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__PodAffinity(K8STemplatable):
@@ -14372,12 +19235,17 @@ class io__k8s__api__core__v1__PodAffinity(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    preferredDuringSchedulingIgnoredDuringExecution: Optional[
-        List[io__k8s__api__core__v1__WeightedPodAffinityTerm]
-    ] = None
-    requiredDuringSchedulingIgnoredDuringExecution: Optional[
-        List[io__k8s__api__core__v1__PodAffinityTerm]
-    ] = None
+    @property
+    def preferredDuringSchedulingIgnoredDuringExecution(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__WeightedPodAffinityTerm]]:
+        return self._preferredDuringSchedulingIgnoredDuringExecution
+
+    @property
+    def requiredDuringSchedulingIgnoredDuringExecution(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__PodAffinityTerm]]:
+        return self._requiredDuringSchedulingIgnoredDuringExecution
 
     def __init__(
         self,
@@ -14390,11 +19258,11 @@ class io__k8s__api__core__v1__PodAffinity(K8STemplatable):
     ):
         super().__init__()
         if preferredDuringSchedulingIgnoredDuringExecution is not None:
-            self.preferredDuringSchedulingIgnoredDuringExecution = (
+            self._preferredDuringSchedulingIgnoredDuringExecution = (
                 preferredDuringSchedulingIgnoredDuringExecution
             )
         if requiredDuringSchedulingIgnoredDuringExecution is not None:
-            self.requiredDuringSchedulingIgnoredDuringExecution = (
+            self._requiredDuringSchedulingIgnoredDuringExecution = (
                 requiredDuringSchedulingIgnoredDuringExecution
             )
 
@@ -14408,12 +19276,17 @@ class io__k8s__api__core__v1__PodAntiAffinity(K8STemplatable):
     ]
     required_props: List[str] = []
 
-    preferredDuringSchedulingIgnoredDuringExecution: Optional[
-        List[io__k8s__api__core__v1__WeightedPodAffinityTerm]
-    ] = None
-    requiredDuringSchedulingIgnoredDuringExecution: Optional[
-        List[io__k8s__api__core__v1__PodAffinityTerm]
-    ] = None
+    @property
+    def preferredDuringSchedulingIgnoredDuringExecution(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__WeightedPodAffinityTerm]]:
+        return self._preferredDuringSchedulingIgnoredDuringExecution
+
+    @property
+    def requiredDuringSchedulingIgnoredDuringExecution(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__PodAffinityTerm]]:
+        return self._requiredDuringSchedulingIgnoredDuringExecution
 
     def __init__(
         self,
@@ -14426,11 +19299,11 @@ class io__k8s__api__core__v1__PodAntiAffinity(K8STemplatable):
     ):
         super().__init__()
         if preferredDuringSchedulingIgnoredDuringExecution is not None:
-            self.preferredDuringSchedulingIgnoredDuringExecution = (
+            self._preferredDuringSchedulingIgnoredDuringExecution = (
                 preferredDuringSchedulingIgnoredDuringExecution
             )
         if requiredDuringSchedulingIgnoredDuringExecution is not None:
-            self.requiredDuringSchedulingIgnoredDuringExecution = (
+            self._requiredDuringSchedulingIgnoredDuringExecution = (
                 requiredDuringSchedulingIgnoredDuringExecution
             )
 
@@ -14444,9 +19317,19 @@ class io__k8s__api__core__v1__ResourceQuota(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__core__v1__ResourceQuotaSpec] = None
-    status: Optional[io__k8s__api__core__v1__ResourceQuotaStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__core__v1__ResourceQuotaSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__core__v1__ResourceQuotaStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -14458,11 +19341,11 @@ class io__k8s__api__core__v1__ResourceQuota(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__core__v1__ResourceQuotaList(K8STemplatable):
@@ -14474,8 +19357,15 @@ class io__k8s__api__core__v1__ResourceQuotaList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__core__v1__ResourceQuota]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__core__v1__ResourceQuota]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -14484,9 +19374,9 @@ class io__k8s__api__core__v1__ResourceQuotaList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__Service(K8STemplatable):
@@ -14498,9 +19388,19 @@ class io__k8s__api__core__v1__Service(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__core__v1__ServiceSpec] = None
-    status: Optional[io__k8s__api__core__v1__ServiceStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__core__v1__ServiceSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__core__v1__ServiceStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -14512,11 +19412,11 @@ class io__k8s__api__core__v1__Service(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__core__v1__ServiceList(K8STemplatable):
@@ -14528,8 +19428,15 @@ class io__k8s__api__core__v1__ServiceList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__core__v1__Service]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__core__v1__Service]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -14538,9 +19445,9 @@ class io__k8s__api__core__v1__ServiceList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__VolumeProjection(K8STemplatable):
@@ -14549,12 +19456,23 @@ class io__k8s__api__core__v1__VolumeProjection(K8STemplatable):
     props: List[str] = ["configMap", "downwardAPI", "secret", "serviceAccountToken"]
     required_props: List[str] = []
 
-    configMap: Optional[io__k8s__api__core__v1__ConfigMapProjection] = None
-    downwardAPI: Optional[io__k8s__api__core__v1__DownwardAPIProjection] = None
-    secret: Optional[io__k8s__api__core__v1__SecretProjection] = None
-    serviceAccountToken: Optional[
-        io__k8s__api__core__v1__ServiceAccountTokenProjection
-    ] = None
+    @property
+    def configMap(self) -> Optional[io__k8s__api__core__v1__ConfigMapProjection]:
+        return self._configMap
+
+    @property
+    def downwardAPI(self) -> Optional[io__k8s__api__core__v1__DownwardAPIProjection]:
+        return self._downwardAPI
+
+    @property
+    def secret(self) -> Optional[io__k8s__api__core__v1__SecretProjection]:
+        return self._secret
+
+    @property
+    def serviceAccountToken(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__ServiceAccountTokenProjection]:
+        return self._serviceAccountToken
 
     def __init__(
         self,
@@ -14567,13 +19485,13 @@ class io__k8s__api__core__v1__VolumeProjection(K8STemplatable):
     ):
         super().__init__()
         if configMap is not None:
-            self.configMap = configMap
+            self._configMap = configMap
         if downwardAPI is not None:
-            self.downwardAPI = downwardAPI
+            self._downwardAPI = downwardAPI
         if secret is not None:
-            self.secret = secret
+            self._secret = secret
         if serviceAccountToken is not None:
-            self.serviceAccountToken = serviceAccountToken
+            self._serviceAccountToken = serviceAccountToken
 
 
 class io__k8s__api__flowcontrol__v1beta1__FlowSchemaSpec(K8STemplatable):
@@ -14587,14 +19505,27 @@ class io__k8s__api__flowcontrol__v1beta1__FlowSchemaSpec(K8STemplatable):
     ]
     required_props: List[str] = ["priorityLevelConfiguration"]
 
-    distinguisherMethod: Optional[
-        io__k8s__api__flowcontrol__v1beta1__FlowDistinguisherMethod
-    ] = None
-    matchingPrecedence: Optional[int] = None
-    priorityLevelConfiguration: io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationReference
-    rules: Optional[
-        List[io__k8s__api__flowcontrol__v1beta1__PolicyRulesWithSubjects]
-    ] = None
+    @property
+    def distinguisherMethod(
+        self,
+    ) -> Optional[io__k8s__api__flowcontrol__v1beta1__FlowDistinguisherMethod]:
+        return self._distinguisherMethod
+
+    @property
+    def matchingPrecedence(self) -> Optional[int]:
+        return self._matchingPrecedence
+
+    @property
+    def priorityLevelConfiguration(
+        self,
+    ) -> io__k8s__api__flowcontrol__v1beta1__PriorityLevelConfigurationReference:
+        return self._priorityLevelConfiguration
+
+    @property
+    def rules(
+        self,
+    ) -> Optional[List[io__k8s__api__flowcontrol__v1beta1__PolicyRulesWithSubjects]]:
+        return self._rules
 
     def __init__(
         self,
@@ -14609,13 +19540,13 @@ class io__k8s__api__flowcontrol__v1beta1__FlowSchemaSpec(K8STemplatable):
     ):
         super().__init__()
         if priorityLevelConfiguration is not None:
-            self.priorityLevelConfiguration = priorityLevelConfiguration
+            self._priorityLevelConfiguration = priorityLevelConfiguration
         if distinguisherMethod is not None:
-            self.distinguisherMethod = distinguisherMethod
+            self._distinguisherMethod = distinguisherMethod
         if matchingPrecedence is not None:
-            self.matchingPrecedence = matchingPrecedence
+            self._matchingPrecedence = matchingPrecedence
         if rules is not None:
-            self.rules = rules
+            self._rules = rules
 
 
 class io__k8s__api__flowcontrol__v1beta2__FlowSchemaSpec(K8STemplatable):
@@ -14629,14 +19560,27 @@ class io__k8s__api__flowcontrol__v1beta2__FlowSchemaSpec(K8STemplatable):
     ]
     required_props: List[str] = ["priorityLevelConfiguration"]
 
-    distinguisherMethod: Optional[
-        io__k8s__api__flowcontrol__v1beta2__FlowDistinguisherMethod
-    ] = None
-    matchingPrecedence: Optional[int] = None
-    priorityLevelConfiguration: io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationReference
-    rules: Optional[
-        List[io__k8s__api__flowcontrol__v1beta2__PolicyRulesWithSubjects]
-    ] = None
+    @property
+    def distinguisherMethod(
+        self,
+    ) -> Optional[io__k8s__api__flowcontrol__v1beta2__FlowDistinguisherMethod]:
+        return self._distinguisherMethod
+
+    @property
+    def matchingPrecedence(self) -> Optional[int]:
+        return self._matchingPrecedence
+
+    @property
+    def priorityLevelConfiguration(
+        self,
+    ) -> io__k8s__api__flowcontrol__v1beta2__PriorityLevelConfigurationReference:
+        return self._priorityLevelConfiguration
+
+    @property
+    def rules(
+        self,
+    ) -> Optional[List[io__k8s__api__flowcontrol__v1beta2__PolicyRulesWithSubjects]]:
+        return self._rules
 
     def __init__(
         self,
@@ -14651,13 +19595,13 @@ class io__k8s__api__flowcontrol__v1beta2__FlowSchemaSpec(K8STemplatable):
     ):
         super().__init__()
         if priorityLevelConfiguration is not None:
-            self.priorityLevelConfiguration = priorityLevelConfiguration
+            self._priorityLevelConfiguration = priorityLevelConfiguration
         if distinguisherMethod is not None:
-            self.distinguisherMethod = distinguisherMethod
+            self._distinguisherMethod = distinguisherMethod
         if matchingPrecedence is not None:
-            self.matchingPrecedence = matchingPrecedence
+            self._matchingPrecedence = matchingPrecedence
         if rules is not None:
-            self.rules = rules
+            self._rules = rules
 
 
 class io__k8s__api__networking__v1__HTTPIngressPath(K8STemplatable):
@@ -14666,9 +19610,17 @@ class io__k8s__api__networking__v1__HTTPIngressPath(K8STemplatable):
     props: List[str] = ["backend", "path", "pathType"]
     required_props: List[str] = ["pathType", "backend"]
 
-    backend: io__k8s__api__networking__v1__IngressBackend
-    path: Optional[str] = None
-    pathType: str
+    @property
+    def backend(self) -> io__k8s__api__networking__v1__IngressBackend:
+        return self._backend
+
+    @property
+    def path(self) -> Optional[str]:
+        return self._path
+
+    @property
+    def pathType(self) -> str:
+        return self._pathType
 
     def __init__(
         self,
@@ -14678,11 +19630,11 @@ class io__k8s__api__networking__v1__HTTPIngressPath(K8STemplatable):
     ):
         super().__init__()
         if backend is not None:
-            self.backend = backend
+            self._backend = backend
         if pathType is not None:
-            self.pathType = pathType
+            self._pathType = pathType
         if path is not None:
-            self.path = path
+            self._path = path
 
 
 class io__k8s__api__networking__v1__HTTPIngressRuleValue(K8STemplatable):
@@ -14691,12 +19643,14 @@ class io__k8s__api__networking__v1__HTTPIngressRuleValue(K8STemplatable):
     props: List[str] = ["paths"]
     required_props: List[str] = ["paths"]
 
-    paths: List[io__k8s__api__networking__v1__HTTPIngressPath]
+    @property
+    def paths(self) -> List[io__k8s__api__networking__v1__HTTPIngressPath]:
+        return self._paths
 
     def __init__(self, paths: List[io__k8s__api__networking__v1__HTTPIngressPath]):
         super().__init__()
         if paths is not None:
-            self.paths = paths
+            self._paths = paths
 
 
 class io__k8s__api__networking__v1__IngressRule(K8STemplatable):
@@ -14705,8 +19659,13 @@ class io__k8s__api__networking__v1__IngressRule(K8STemplatable):
     props: List[str] = ["host", "http"]
     required_props: List[str] = []
 
-    host: Optional[str] = None
-    http: Optional[io__k8s__api__networking__v1__HTTPIngressRuleValue] = None
+    @property
+    def host(self) -> Optional[str]:
+        return self._host
+
+    @property
+    def http(self) -> Optional[io__k8s__api__networking__v1__HTTPIngressRuleValue]:
+        return self._http
 
     def __init__(
         self,
@@ -14715,9 +19674,9 @@ class io__k8s__api__networking__v1__IngressRule(K8STemplatable):
     ):
         super().__init__()
         if host is not None:
-            self.host = host
+            self._host = host
         if http is not None:
-            self.http = http
+            self._http = http
 
 
 class io__k8s__api__networking__v1__IngressSpec(K8STemplatable):
@@ -14726,10 +19685,21 @@ class io__k8s__api__networking__v1__IngressSpec(K8STemplatable):
     props: List[str] = ["defaultBackend", "ingressClassName", "rules", "tls"]
     required_props: List[str] = []
 
-    defaultBackend: Optional[io__k8s__api__networking__v1__IngressBackend] = None
-    ingressClassName: Optional[str] = None
-    rules: Optional[List[io__k8s__api__networking__v1__IngressRule]] = None
-    tls: Optional[List[io__k8s__api__networking__v1__IngressTLS]] = None
+    @property
+    def defaultBackend(self) -> Optional[io__k8s__api__networking__v1__IngressBackend]:
+        return self._defaultBackend
+
+    @property
+    def ingressClassName(self) -> Optional[str]:
+        return self._ingressClassName
+
+    @property
+    def rules(self) -> Optional[List[io__k8s__api__networking__v1__IngressRule]]:
+        return self._rules
+
+    @property
+    def tls(self) -> Optional[List[io__k8s__api__networking__v1__IngressTLS]]:
+        return self._tls
 
     def __init__(
         self,
@@ -14740,13 +19710,13 @@ class io__k8s__api__networking__v1__IngressSpec(K8STemplatable):
     ):
         super().__init__()
         if defaultBackend is not None:
-            self.defaultBackend = defaultBackend
+            self._defaultBackend = defaultBackend
         if ingressClassName is not None:
-            self.ingressClassName = ingressClassName
+            self._ingressClassName = ingressClassName
         if rules is not None:
-            self.rules = rules
+            self._rules = rules
         if tls is not None:
-            self.tls = tls
+            self._tls = tls
 
 
 class io__k8s__api__networking__v1__NetworkPolicyEgressRule(K8STemplatable):
@@ -14755,8 +19725,13 @@ class io__k8s__api__networking__v1__NetworkPolicyEgressRule(K8STemplatable):
     props: List[str] = ["ports", "to"]
     required_props: List[str] = []
 
-    ports: Optional[List[io__k8s__api__networking__v1__NetworkPolicyPort]] = None
-    to: Optional[List[io__k8s__api__networking__v1__NetworkPolicyPeer]] = None
+    @property
+    def ports(self) -> Optional[List[io__k8s__api__networking__v1__NetworkPolicyPort]]:
+        return self._ports
+
+    @property
+    def to(self) -> Optional[List[io__k8s__api__networking__v1__NetworkPolicyPeer]]:
+        return self._to
 
     def __init__(
         self,
@@ -14765,9 +19740,9 @@ class io__k8s__api__networking__v1__NetworkPolicyEgressRule(K8STemplatable):
     ):
         super().__init__()
         if ports is not None:
-            self.ports = ports
+            self._ports = ports
         if to is not None:
-            self.to = to
+            self._to = to
 
 
 class io__k8s__api__networking__v1__NetworkPolicyIngressRule(K8STemplatable):
@@ -14776,8 +19751,15 @@ class io__k8s__api__networking__v1__NetworkPolicyIngressRule(K8STemplatable):
     props: List[str] = ["k8s_from", "ports"]
     required_props: List[str] = []
 
-    k8s_from: Optional[List[io__k8s__api__networking__v1__NetworkPolicyPeer]] = None
-    ports: Optional[List[io__k8s__api__networking__v1__NetworkPolicyPort]] = None
+    @property
+    def k8s_from(
+        self,
+    ) -> Optional[List[io__k8s__api__networking__v1__NetworkPolicyPeer]]:
+        return self._k8s_from
+
+    @property
+    def ports(self) -> Optional[List[io__k8s__api__networking__v1__NetworkPolicyPort]]:
+        return self._ports
 
     def __init__(
         self,
@@ -14788,9 +19770,9 @@ class io__k8s__api__networking__v1__NetworkPolicyIngressRule(K8STemplatable):
     ):
         super().__init__()
         if k8s_from is not None:
-            self.k8s_from = k8s_from
+            self._k8s_from = k8s_from
         if ports is not None:
-            self.ports = ports
+            self._ports = ports
 
 
 class io__k8s__api__networking__v1__NetworkPolicySpec(K8STemplatable):
@@ -14799,12 +19781,25 @@ class io__k8s__api__networking__v1__NetworkPolicySpec(K8STemplatable):
     props: List[str] = ["egress", "ingress", "podSelector", "policyTypes"]
     required_props: List[str] = ["podSelector"]
 
-    egress: Optional[List[io__k8s__api__networking__v1__NetworkPolicyEgressRule]] = None
-    ingress: Optional[
-        List[io__k8s__api__networking__v1__NetworkPolicyIngressRule]
-    ] = None
-    podSelector: io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
-    policyTypes: Optional[List[str]] = None
+    @property
+    def egress(
+        self,
+    ) -> Optional[List[io__k8s__api__networking__v1__NetworkPolicyEgressRule]]:
+        return self._egress
+
+    @property
+    def ingress(
+        self,
+    ) -> Optional[List[io__k8s__api__networking__v1__NetworkPolicyIngressRule]]:
+        return self._ingress
+
+    @property
+    def podSelector(self) -> io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector:
+        return self._podSelector
+
+    @property
+    def policyTypes(self) -> Optional[List[str]]:
+        return self._policyTypes
 
     def __init__(
         self,
@@ -14819,13 +19814,13 @@ class io__k8s__api__networking__v1__NetworkPolicySpec(K8STemplatable):
     ):
         super().__init__()
         if podSelector is not None:
-            self.podSelector = podSelector
+            self._podSelector = podSelector
         if egress is not None:
-            self.egress = egress
+            self._egress = egress
         if ingress is not None:
-            self.ingress = ingress
+            self._ingress = ingress
         if policyTypes is not None:
-            self.policyTypes = policyTypes
+            self._policyTypes = policyTypes
 
 
 class io__k8s__api__policy__v1__PodDisruptionBudget(K8STemplatable):
@@ -14837,9 +19832,19 @@ class io__k8s__api__policy__v1__PodDisruptionBudget(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__policy__v1__PodDisruptionBudgetSpec] = None
-    status: Optional[io__k8s__api__policy__v1__PodDisruptionBudgetStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__policy__v1__PodDisruptionBudgetSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__policy__v1__PodDisruptionBudgetStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -14851,11 +19856,11 @@ class io__k8s__api__policy__v1__PodDisruptionBudget(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__policy__v1__PodDisruptionBudgetList(K8STemplatable):
@@ -14867,8 +19872,15 @@ class io__k8s__api__policy__v1__PodDisruptionBudgetList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__policy__v1__PodDisruptionBudget]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__policy__v1__PodDisruptionBudget]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -14877,9 +19889,9 @@ class io__k8s__api__policy__v1__PodDisruptionBudgetList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__policy__v1beta1__PodDisruptionBudget(K8STemplatable):
@@ -14891,9 +19903,21 @@ class io__k8s__api__policy__v1beta1__PodDisruptionBudget(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__policy__v1beta1__PodDisruptionBudgetSpec] = None
-    status: Optional[io__k8s__api__policy__v1beta1__PodDisruptionBudgetStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__policy__v1beta1__PodDisruptionBudgetSpec]:
+        return self._spec
+
+    @property
+    def status(
+        self,
+    ) -> Optional[io__k8s__api__policy__v1beta1__PodDisruptionBudgetStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -14907,11 +19931,11 @@ class io__k8s__api__policy__v1beta1__PodDisruptionBudget(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__policy__v1beta1__PodDisruptionBudgetList(K8STemplatable):
@@ -14923,8 +19947,15 @@ class io__k8s__api__policy__v1beta1__PodDisruptionBudgetList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__policy__v1beta1__PodDisruptionBudget]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__policy__v1beta1__PodDisruptionBudget]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -14933,9 +19964,9 @@ class io__k8s__api__policy__v1beta1__PodDisruptionBudgetList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__storage__v1__VolumeAttachment(K8STemplatable):
@@ -14949,9 +19980,19 @@ class io__k8s__api__storage__v1__VolumeAttachment(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = ["spec"]
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: io__k8s__api__storage__v1__VolumeAttachmentSpec
-    status: Optional[io__k8s__api__storage__v1__VolumeAttachmentStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> io__k8s__api__storage__v1__VolumeAttachmentSpec:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__storage__v1__VolumeAttachmentStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -14963,11 +20004,11 @@ class io__k8s__api__storage__v1__VolumeAttachment(K8STemplatable):
     ):
         super().__init__()
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__storage__v1__VolumeAttachmentList(K8STemplatable):
@@ -14979,8 +20020,15 @@ class io__k8s__api__storage__v1__VolumeAttachmentList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__storage__v1__VolumeAttachment]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__storage__v1__VolumeAttachment]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -14989,9 +20037,9 @@ class io__k8s__api__storage__v1__VolumeAttachmentList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerSpec(K8STemplatable):
@@ -15006,13 +20054,29 @@ class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerSpec(K8STemplatable)
     ]
     required_props: List[str] = ["scaleTargetRef", "maxReplicas"]
 
-    behavior: Optional[
-        io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerBehavior
-    ] = None
-    maxReplicas: int
-    metrics: Optional[List[io__k8s__api__autoscaling__v2__MetricSpec]] = None
-    minReplicas: Optional[int] = None
-    scaleTargetRef: io__k8s__api__autoscaling__v2__CrossVersionObjectReference
+    @property
+    def behavior(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerBehavior]:
+        return self._behavior
+
+    @property
+    def maxReplicas(self) -> int:
+        return self._maxReplicas
+
+    @property
+    def metrics(self) -> Optional[List[io__k8s__api__autoscaling__v2__MetricSpec]]:
+        return self._metrics
+
+    @property
+    def minReplicas(self) -> Optional[int]:
+        return self._minReplicas
+
+    @property
+    def scaleTargetRef(
+        self,
+    ) -> io__k8s__api__autoscaling__v2__CrossVersionObjectReference:
+        return self._scaleTargetRef
 
     def __init__(
         self,
@@ -15026,15 +20090,15 @@ class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerSpec(K8STemplatable)
     ):
         super().__init__()
         if maxReplicas is not None:
-            self.maxReplicas = maxReplicas
+            self._maxReplicas = maxReplicas
         if scaleTargetRef is not None:
-            self.scaleTargetRef = scaleTargetRef
+            self._scaleTargetRef = scaleTargetRef
         if behavior is not None:
-            self.behavior = behavior
+            self._behavior = behavior
         if metrics is not None:
-            self.metrics = metrics
+            self._metrics = metrics
         if minReplicas is not None:
-            self.minReplicas = minReplicas
+            self._minReplicas = minReplicas
 
 
 class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerStatus(K8STemplatable):
@@ -15050,14 +20114,37 @@ class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerStatus(K8STemplatabl
     ]
     required_props: List[str] = ["desiredReplicas"]
 
-    conditions: Optional[
+    @property
+    def conditions(
+        self,
+    ) -> Optional[
         List[io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerCondition]
-    ] = None
-    currentMetrics: Optional[List[io__k8s__api__autoscaling__v2__MetricStatus]] = None
-    currentReplicas: Optional[int] = None
-    desiredReplicas: int
-    lastScaleTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    observedGeneration: Optional[int] = None
+    ]:
+        return self._conditions
+
+    @property
+    def currentMetrics(
+        self,
+    ) -> Optional[List[io__k8s__api__autoscaling__v2__MetricStatus]]:
+        return self._currentMetrics
+
+    @property
+    def currentReplicas(self) -> Optional[int]:
+        return self._currentReplicas
+
+    @property
+    def desiredReplicas(self) -> int:
+        return self._desiredReplicas
+
+    @property
+    def lastScaleTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastScaleTime
+
+    @property
+    def observedGeneration(self) -> Optional[int]:
+        return self._observedGeneration
 
     def __init__(
         self,
@@ -15076,17 +20163,17 @@ class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerStatus(K8STemplatabl
     ):
         super().__init__()
         if desiredReplicas is not None:
-            self.desiredReplicas = desiredReplicas
+            self._desiredReplicas = desiredReplicas
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if currentMetrics is not None:
-            self.currentMetrics = currentMetrics
+            self._currentMetrics = currentMetrics
         if currentReplicas is not None:
-            self.currentReplicas = currentReplicas
+            self._currentReplicas = currentReplicas
         if lastScaleTime is not None:
-            self.lastScaleTime = lastScaleTime
+            self._lastScaleTime = lastScaleTime
         if observedGeneration is not None:
-            self.observedGeneration = observedGeneration
+            self._observedGeneration = observedGeneration
 
 
 class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerSpec(K8STemplatable):
@@ -15095,10 +20182,23 @@ class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerSpec(K8STemplat
     props: List[str] = ["maxReplicas", "metrics", "minReplicas", "scaleTargetRef"]
     required_props: List[str] = ["scaleTargetRef", "maxReplicas"]
 
-    maxReplicas: int
-    metrics: Optional[List[io__k8s__api__autoscaling__v2beta1__MetricSpec]] = None
-    minReplicas: Optional[int] = None
-    scaleTargetRef: io__k8s__api__autoscaling__v2beta1__CrossVersionObjectReference
+    @property
+    def maxReplicas(self) -> int:
+        return self._maxReplicas
+
+    @property
+    def metrics(self) -> Optional[List[io__k8s__api__autoscaling__v2beta1__MetricSpec]]:
+        return self._metrics
+
+    @property
+    def minReplicas(self) -> Optional[int]:
+        return self._minReplicas
+
+    @property
+    def scaleTargetRef(
+        self,
+    ) -> io__k8s__api__autoscaling__v2beta1__CrossVersionObjectReference:
+        return self._scaleTargetRef
 
     def __init__(
         self,
@@ -15109,13 +20209,13 @@ class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerSpec(K8STemplat
     ):
         super().__init__()
         if maxReplicas is not None:
-            self.maxReplicas = maxReplicas
+            self._maxReplicas = maxReplicas
         if scaleTargetRef is not None:
-            self.scaleTargetRef = scaleTargetRef
+            self._scaleTargetRef = scaleTargetRef
         if metrics is not None:
-            self.metrics = metrics
+            self._metrics = metrics
         if minReplicas is not None:
-            self.minReplicas = minReplicas
+            self._minReplicas = minReplicas
 
 
 class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerStatus(K8STemplatable):
@@ -15131,16 +20231,37 @@ class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerStatus(K8STempl
     ]
     required_props: List[str] = ["currentReplicas", "desiredReplicas"]
 
-    conditions: Optional[
+    @property
+    def conditions(
+        self,
+    ) -> Optional[
         List[io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerCondition]
-    ] = None
-    currentMetrics: Optional[
-        List[io__k8s__api__autoscaling__v2beta1__MetricStatus]
-    ] = None
-    currentReplicas: int
-    desiredReplicas: int
-    lastScaleTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    observedGeneration: Optional[int] = None
+    ]:
+        return self._conditions
+
+    @property
+    def currentMetrics(
+        self,
+    ) -> Optional[List[io__k8s__api__autoscaling__v2beta1__MetricStatus]]:
+        return self._currentMetrics
+
+    @property
+    def currentReplicas(self) -> int:
+        return self._currentReplicas
+
+    @property
+    def desiredReplicas(self) -> int:
+        return self._desiredReplicas
+
+    @property
+    def lastScaleTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastScaleTime
+
+    @property
+    def observedGeneration(self) -> Optional[int]:
+        return self._observedGeneration
 
     def __init__(
         self,
@@ -15159,17 +20280,17 @@ class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerStatus(K8STempl
     ):
         super().__init__()
         if currentReplicas is not None:
-            self.currentReplicas = currentReplicas
+            self._currentReplicas = currentReplicas
         if desiredReplicas is not None:
-            self.desiredReplicas = desiredReplicas
+            self._desiredReplicas = desiredReplicas
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if currentMetrics is not None:
-            self.currentMetrics = currentMetrics
+            self._currentMetrics = currentMetrics
         if lastScaleTime is not None:
-            self.lastScaleTime = lastScaleTime
+            self._lastScaleTime = lastScaleTime
         if observedGeneration is not None:
-            self.observedGeneration = observedGeneration
+            self._observedGeneration = observedGeneration
 
 
 class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerSpec(K8STemplatable):
@@ -15184,13 +20305,29 @@ class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerSpec(K8STemplat
     ]
     required_props: List[str] = ["scaleTargetRef", "maxReplicas"]
 
-    behavior: Optional[
-        io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerBehavior
-    ] = None
-    maxReplicas: int
-    metrics: Optional[List[io__k8s__api__autoscaling__v2beta2__MetricSpec]] = None
-    minReplicas: Optional[int] = None
-    scaleTargetRef: io__k8s__api__autoscaling__v2beta2__CrossVersionObjectReference
+    @property
+    def behavior(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerBehavior]:
+        return self._behavior
+
+    @property
+    def maxReplicas(self) -> int:
+        return self._maxReplicas
+
+    @property
+    def metrics(self) -> Optional[List[io__k8s__api__autoscaling__v2beta2__MetricSpec]]:
+        return self._metrics
+
+    @property
+    def minReplicas(self) -> Optional[int]:
+        return self._minReplicas
+
+    @property
+    def scaleTargetRef(
+        self,
+    ) -> io__k8s__api__autoscaling__v2beta2__CrossVersionObjectReference:
+        return self._scaleTargetRef
 
     def __init__(
         self,
@@ -15204,15 +20341,15 @@ class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerSpec(K8STemplat
     ):
         super().__init__()
         if maxReplicas is not None:
-            self.maxReplicas = maxReplicas
+            self._maxReplicas = maxReplicas
         if scaleTargetRef is not None:
-            self.scaleTargetRef = scaleTargetRef
+            self._scaleTargetRef = scaleTargetRef
         if behavior is not None:
-            self.behavior = behavior
+            self._behavior = behavior
         if metrics is not None:
-            self.metrics = metrics
+            self._metrics = metrics
         if minReplicas is not None:
-            self.minReplicas = minReplicas
+            self._minReplicas = minReplicas
 
 
 class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerStatus(K8STemplatable):
@@ -15228,16 +20365,37 @@ class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerStatus(K8STempl
     ]
     required_props: List[str] = ["currentReplicas", "desiredReplicas"]
 
-    conditions: Optional[
+    @property
+    def conditions(
+        self,
+    ) -> Optional[
         List[io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerCondition]
-    ] = None
-    currentMetrics: Optional[
-        List[io__k8s__api__autoscaling__v2beta2__MetricStatus]
-    ] = None
-    currentReplicas: int
-    desiredReplicas: int
-    lastScaleTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None
-    observedGeneration: Optional[int] = None
+    ]:
+        return self._conditions
+
+    @property
+    def currentMetrics(
+        self,
+    ) -> Optional[List[io__k8s__api__autoscaling__v2beta2__MetricStatus]]:
+        return self._currentMetrics
+
+    @property
+    def currentReplicas(self) -> int:
+        return self._currentReplicas
+
+    @property
+    def desiredReplicas(self) -> int:
+        return self._desiredReplicas
+
+    @property
+    def lastScaleTime(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time]:
+        return self._lastScaleTime
+
+    @property
+    def observedGeneration(self) -> Optional[int]:
+        return self._observedGeneration
 
     def __init__(
         self,
@@ -15256,17 +20414,17 @@ class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerStatus(K8STempl
     ):
         super().__init__()
         if currentReplicas is not None:
-            self.currentReplicas = currentReplicas
+            self._currentReplicas = currentReplicas
         if desiredReplicas is not None:
-            self.desiredReplicas = desiredReplicas
+            self._desiredReplicas = desiredReplicas
         if conditions is not None:
-            self.conditions = conditions
+            self._conditions = conditions
         if currentMetrics is not None:
-            self.currentMetrics = currentMetrics
+            self._currentMetrics = currentMetrics
         if lastScaleTime is not None:
-            self.lastScaleTime = lastScaleTime
+            self._lastScaleTime = lastScaleTime
         if observedGeneration is not None:
-            self.observedGeneration = observedGeneration
+            self._observedGeneration = observedGeneration
 
 
 class io__k8s__api__core__v1__Affinity(K8STemplatable):
@@ -15275,9 +20433,17 @@ class io__k8s__api__core__v1__Affinity(K8STemplatable):
     props: List[str] = ["nodeAffinity", "podAffinity", "podAntiAffinity"]
     required_props: List[str] = []
 
-    nodeAffinity: Optional[io__k8s__api__core__v1__NodeAffinity] = None
-    podAffinity: Optional[io__k8s__api__core__v1__PodAffinity] = None
-    podAntiAffinity: Optional[io__k8s__api__core__v1__PodAntiAffinity] = None
+    @property
+    def nodeAffinity(self) -> Optional[io__k8s__api__core__v1__NodeAffinity]:
+        return self._nodeAffinity
+
+    @property
+    def podAffinity(self) -> Optional[io__k8s__api__core__v1__PodAffinity]:
+        return self._podAffinity
+
+    @property
+    def podAntiAffinity(self) -> Optional[io__k8s__api__core__v1__PodAntiAffinity]:
+        return self._podAntiAffinity
 
     def __init__(
         self,
@@ -15287,11 +20453,11 @@ class io__k8s__api__core__v1__Affinity(K8STemplatable):
     ):
         super().__init__()
         if nodeAffinity is not None:
-            self.nodeAffinity = nodeAffinity
+            self._nodeAffinity = nodeAffinity
         if podAffinity is not None:
-            self.podAffinity = podAffinity
+            self._podAffinity = podAffinity
         if podAntiAffinity is not None:
-            self.podAntiAffinity = podAntiAffinity
+            self._podAntiAffinity = podAntiAffinity
 
 
 class io__k8s__api__core__v1__Container(K8STemplatable):
@@ -15323,28 +20489,93 @@ class io__k8s__api__core__v1__Container(K8STemplatable):
     ]
     required_props: List[str] = ["name"]
 
-    args: Optional[List[str]] = None
-    command: Optional[List[str]] = None
-    env: Optional[List[io__k8s__api__core__v1__EnvVar]] = None
-    envFrom: Optional[List[io__k8s__api__core__v1__EnvFromSource]] = None
-    image: Optional[str] = None
-    imagePullPolicy: Optional[str] = None
-    lifecycle: Optional[io__k8s__api__core__v1__Lifecycle] = None
-    livenessProbe: Optional[io__k8s__api__core__v1__Probe] = None
-    name: str
-    ports: Optional[List[io__k8s__api__core__v1__ContainerPort]] = None
-    readinessProbe: Optional[io__k8s__api__core__v1__Probe] = None
-    resources: Optional[io__k8s__api__core__v1__ResourceRequirements] = None
-    securityContext: Optional[io__k8s__api__core__v1__SecurityContext] = None
-    startupProbe: Optional[io__k8s__api__core__v1__Probe] = None
-    stdin: Optional[bool] = None
-    stdinOnce: Optional[bool] = None
-    terminationMessagePath: Optional[str] = None
-    terminationMessagePolicy: Optional[str] = None
-    tty: Optional[bool] = None
-    volumeDevices: Optional[List[io__k8s__api__core__v1__VolumeDevice]] = None
-    volumeMounts: Optional[List[io__k8s__api__core__v1__VolumeMount]] = None
-    workingDir: Optional[str] = None
+    @property
+    def args(self) -> Optional[List[str]]:
+        return self._args
+
+    @property
+    def command(self) -> Optional[List[str]]:
+        return self._command
+
+    @property
+    def env(self) -> Optional[List[io__k8s__api__core__v1__EnvVar]]:
+        return self._env
+
+    @property
+    def envFrom(self) -> Optional[List[io__k8s__api__core__v1__EnvFromSource]]:
+        return self._envFrom
+
+    @property
+    def image(self) -> Optional[str]:
+        return self._image
+
+    @property
+    def imagePullPolicy(self) -> Optional[str]:
+        return self._imagePullPolicy
+
+    @property
+    def lifecycle(self) -> Optional[io__k8s__api__core__v1__Lifecycle]:
+        return self._lifecycle
+
+    @property
+    def livenessProbe(self) -> Optional[io__k8s__api__core__v1__Probe]:
+        return self._livenessProbe
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def ports(self) -> Optional[List[io__k8s__api__core__v1__ContainerPort]]:
+        return self._ports
+
+    @property
+    def readinessProbe(self) -> Optional[io__k8s__api__core__v1__Probe]:
+        return self._readinessProbe
+
+    @property
+    def resources(self) -> Optional[io__k8s__api__core__v1__ResourceRequirements]:
+        return self._resources
+
+    @property
+    def securityContext(self) -> Optional[io__k8s__api__core__v1__SecurityContext]:
+        return self._securityContext
+
+    @property
+    def startupProbe(self) -> Optional[io__k8s__api__core__v1__Probe]:
+        return self._startupProbe
+
+    @property
+    def stdin(self) -> Optional[bool]:
+        return self._stdin
+
+    @property
+    def stdinOnce(self) -> Optional[bool]:
+        return self._stdinOnce
+
+    @property
+    def terminationMessagePath(self) -> Optional[str]:
+        return self._terminationMessagePath
+
+    @property
+    def terminationMessagePolicy(self) -> Optional[str]:
+        return self._terminationMessagePolicy
+
+    @property
+    def tty(self) -> Optional[bool]:
+        return self._tty
+
+    @property
+    def volumeDevices(self) -> Optional[List[io__k8s__api__core__v1__VolumeDevice]]:
+        return self._volumeDevices
+
+    @property
+    def volumeMounts(self) -> Optional[List[io__k8s__api__core__v1__VolumeMount]]:
+        return self._volumeMounts
+
+    @property
+    def workingDir(self) -> Optional[str]:
+        return self._workingDir
 
     def __init__(
         self,
@@ -15373,49 +20604,49 @@ class io__k8s__api__core__v1__Container(K8STemplatable):
     ):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if args is not None:
-            self.args = args
+            self._args = args
         if command is not None:
-            self.command = command
+            self._command = command
         if env is not None:
-            self.env = env
+            self._env = env
         if envFrom is not None:
-            self.envFrom = envFrom
+            self._envFrom = envFrom
         if image is not None:
-            self.image = image
+            self._image = image
         if imagePullPolicy is not None:
-            self.imagePullPolicy = imagePullPolicy
+            self._imagePullPolicy = imagePullPolicy
         if lifecycle is not None:
-            self.lifecycle = lifecycle
+            self._lifecycle = lifecycle
         if livenessProbe is not None:
-            self.livenessProbe = livenessProbe
+            self._livenessProbe = livenessProbe
         if ports is not None:
-            self.ports = ports
+            self._ports = ports
         if readinessProbe is not None:
-            self.readinessProbe = readinessProbe
+            self._readinessProbe = readinessProbe
         if resources is not None:
-            self.resources = resources
+            self._resources = resources
         if securityContext is not None:
-            self.securityContext = securityContext
+            self._securityContext = securityContext
         if startupProbe is not None:
-            self.startupProbe = startupProbe
+            self._startupProbe = startupProbe
         if stdin is not None:
-            self.stdin = stdin
+            self._stdin = stdin
         if stdinOnce is not None:
-            self.stdinOnce = stdinOnce
+            self._stdinOnce = stdinOnce
         if terminationMessagePath is not None:
-            self.terminationMessagePath = terminationMessagePath
+            self._terminationMessagePath = terminationMessagePath
         if terminationMessagePolicy is not None:
-            self.terminationMessagePolicy = terminationMessagePolicy
+            self._terminationMessagePolicy = terminationMessagePolicy
         if tty is not None:
-            self.tty = tty
+            self._tty = tty
         if volumeDevices is not None:
-            self.volumeDevices = volumeDevices
+            self._volumeDevices = volumeDevices
         if volumeMounts is not None:
-            self.volumeMounts = volumeMounts
+            self._volumeMounts = volumeMounts
         if workingDir is not None:
-            self.workingDir = workingDir
+            self._workingDir = workingDir
 
 
 class io__k8s__api__core__v1__EphemeralContainer(K8STemplatable):
@@ -15452,29 +20683,97 @@ class io__k8s__api__core__v1__EphemeralContainer(K8STemplatable):
     ]
     required_props: List[str] = ["name"]
 
-    args: Optional[List[str]] = None
-    command: Optional[List[str]] = None
-    env: Optional[List[io__k8s__api__core__v1__EnvVar]] = None
-    envFrom: Optional[List[io__k8s__api__core__v1__EnvFromSource]] = None
-    image: Optional[str] = None
-    imagePullPolicy: Optional[str] = None
-    lifecycle: Optional[io__k8s__api__core__v1__Lifecycle] = None
-    livenessProbe: Optional[io__k8s__api__core__v1__Probe] = None
-    name: str
-    ports: Optional[List[io__k8s__api__core__v1__ContainerPort]] = None
-    readinessProbe: Optional[io__k8s__api__core__v1__Probe] = None
-    resources: Optional[io__k8s__api__core__v1__ResourceRequirements] = None
-    securityContext: Optional[io__k8s__api__core__v1__SecurityContext] = None
-    startupProbe: Optional[io__k8s__api__core__v1__Probe] = None
-    stdin: Optional[bool] = None
-    stdinOnce: Optional[bool] = None
-    targetContainerName: Optional[str] = None
-    terminationMessagePath: Optional[str] = None
-    terminationMessagePolicy: Optional[str] = None
-    tty: Optional[bool] = None
-    volumeDevices: Optional[List[io__k8s__api__core__v1__VolumeDevice]] = None
-    volumeMounts: Optional[List[io__k8s__api__core__v1__VolumeMount]] = None
-    workingDir: Optional[str] = None
+    @property
+    def args(self) -> Optional[List[str]]:
+        return self._args
+
+    @property
+    def command(self) -> Optional[List[str]]:
+        return self._command
+
+    @property
+    def env(self) -> Optional[List[io__k8s__api__core__v1__EnvVar]]:
+        return self._env
+
+    @property
+    def envFrom(self) -> Optional[List[io__k8s__api__core__v1__EnvFromSource]]:
+        return self._envFrom
+
+    @property
+    def image(self) -> Optional[str]:
+        return self._image
+
+    @property
+    def imagePullPolicy(self) -> Optional[str]:
+        return self._imagePullPolicy
+
+    @property
+    def lifecycle(self) -> Optional[io__k8s__api__core__v1__Lifecycle]:
+        return self._lifecycle
+
+    @property
+    def livenessProbe(self) -> Optional[io__k8s__api__core__v1__Probe]:
+        return self._livenessProbe
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def ports(self) -> Optional[List[io__k8s__api__core__v1__ContainerPort]]:
+        return self._ports
+
+    @property
+    def readinessProbe(self) -> Optional[io__k8s__api__core__v1__Probe]:
+        return self._readinessProbe
+
+    @property
+    def resources(self) -> Optional[io__k8s__api__core__v1__ResourceRequirements]:
+        return self._resources
+
+    @property
+    def securityContext(self) -> Optional[io__k8s__api__core__v1__SecurityContext]:
+        return self._securityContext
+
+    @property
+    def startupProbe(self) -> Optional[io__k8s__api__core__v1__Probe]:
+        return self._startupProbe
+
+    @property
+    def stdin(self) -> Optional[bool]:
+        return self._stdin
+
+    @property
+    def stdinOnce(self) -> Optional[bool]:
+        return self._stdinOnce
+
+    @property
+    def targetContainerName(self) -> Optional[str]:
+        return self._targetContainerName
+
+    @property
+    def terminationMessagePath(self) -> Optional[str]:
+        return self._terminationMessagePath
+
+    @property
+    def terminationMessagePolicy(self) -> Optional[str]:
+        return self._terminationMessagePolicy
+
+    @property
+    def tty(self) -> Optional[bool]:
+        return self._tty
+
+    @property
+    def volumeDevices(self) -> Optional[List[io__k8s__api__core__v1__VolumeDevice]]:
+        return self._volumeDevices
+
+    @property
+    def volumeMounts(self) -> Optional[List[io__k8s__api__core__v1__VolumeMount]]:
+        return self._volumeMounts
+
+    @property
+    def workingDir(self) -> Optional[str]:
+        return self._workingDir
 
     def __init__(
         self,
@@ -15504,51 +20803,51 @@ class io__k8s__api__core__v1__EphemeralContainer(K8STemplatable):
     ):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if args is not None:
-            self.args = args
+            self._args = args
         if command is not None:
-            self.command = command
+            self._command = command
         if env is not None:
-            self.env = env
+            self._env = env
         if envFrom is not None:
-            self.envFrom = envFrom
+            self._envFrom = envFrom
         if image is not None:
-            self.image = image
+            self._image = image
         if imagePullPolicy is not None:
-            self.imagePullPolicy = imagePullPolicy
+            self._imagePullPolicy = imagePullPolicy
         if lifecycle is not None:
-            self.lifecycle = lifecycle
+            self._lifecycle = lifecycle
         if livenessProbe is not None:
-            self.livenessProbe = livenessProbe
+            self._livenessProbe = livenessProbe
         if ports is not None:
-            self.ports = ports
+            self._ports = ports
         if readinessProbe is not None:
-            self.readinessProbe = readinessProbe
+            self._readinessProbe = readinessProbe
         if resources is not None:
-            self.resources = resources
+            self._resources = resources
         if securityContext is not None:
-            self.securityContext = securityContext
+            self._securityContext = securityContext
         if startupProbe is not None:
-            self.startupProbe = startupProbe
+            self._startupProbe = startupProbe
         if stdin is not None:
-            self.stdin = stdin
+            self._stdin = stdin
         if stdinOnce is not None:
-            self.stdinOnce = stdinOnce
+            self._stdinOnce = stdinOnce
         if targetContainerName is not None:
-            self.targetContainerName = targetContainerName
+            self._targetContainerName = targetContainerName
         if terminationMessagePath is not None:
-            self.terminationMessagePath = terminationMessagePath
+            self._terminationMessagePath = terminationMessagePath
         if terminationMessagePolicy is not None:
-            self.terminationMessagePolicy = terminationMessagePolicy
+            self._terminationMessagePolicy = terminationMessagePolicy
         if tty is not None:
-            self.tty = tty
+            self._tty = tty
         if volumeDevices is not None:
-            self.volumeDevices = volumeDevices
+            self._volumeDevices = volumeDevices
         if volumeMounts is not None:
-            self.volumeMounts = volumeMounts
+            self._volumeMounts = volumeMounts
         if workingDir is not None:
-            self.workingDir = workingDir
+            self._workingDir = workingDir
 
 
 class io__k8s__api__core__v1__ProjectedVolumeSource(K8STemplatable):
@@ -15557,8 +20856,13 @@ class io__k8s__api__core__v1__ProjectedVolumeSource(K8STemplatable):
     props: List[str] = ["defaultMode", "sources"]
     required_props: List[str] = []
 
-    defaultMode: Optional[int] = None
-    sources: Optional[List[io__k8s__api__core__v1__VolumeProjection]] = None
+    @property
+    def defaultMode(self) -> Optional[int]:
+        return self._defaultMode
+
+    @property
+    def sources(self) -> Optional[List[io__k8s__api__core__v1__VolumeProjection]]:
+        return self._sources
 
     def __init__(
         self,
@@ -15567,9 +20871,9 @@ class io__k8s__api__core__v1__ProjectedVolumeSource(K8STemplatable):
     ):
         super().__init__()
         if defaultMode is not None:
-            self.defaultMode = defaultMode
+            self._defaultMode = defaultMode
         if sources is not None:
-            self.sources = sources
+            self._sources = sources
 
 
 class io__k8s__api__core__v1__Volume(K8STemplatable):
@@ -15609,46 +20913,135 @@ class io__k8s__api__core__v1__Volume(K8STemplatable):
     ]
     required_props: List[str] = ["name"]
 
-    awsElasticBlockStore: Optional[
-        io__k8s__api__core__v1__AWSElasticBlockStoreVolumeSource
-    ] = None
-    azureDisk: Optional[io__k8s__api__core__v1__AzureDiskVolumeSource] = None
-    azureFile: Optional[io__k8s__api__core__v1__AzureFileVolumeSource] = None
-    cephfs: Optional[io__k8s__api__core__v1__CephFSVolumeSource] = None
-    cinder: Optional[io__k8s__api__core__v1__CinderVolumeSource] = None
-    configMap: Optional[io__k8s__api__core__v1__ConfigMapVolumeSource] = None
-    csi: Optional[io__k8s__api__core__v1__CSIVolumeSource] = None
-    downwardAPI: Optional[io__k8s__api__core__v1__DownwardAPIVolumeSource] = None
-    emptyDir: Optional[io__k8s__api__core__v1__EmptyDirVolumeSource] = None
-    ephemeral: Optional[io__k8s__api__core__v1__EphemeralVolumeSource] = None
-    fc: Optional[io__k8s__api__core__v1__FCVolumeSource] = None
-    flexVolume: Optional[io__k8s__api__core__v1__FlexVolumeSource] = None
-    flocker: Optional[io__k8s__api__core__v1__FlockerVolumeSource] = None
-    gcePersistentDisk: Optional[
-        io__k8s__api__core__v1__GCEPersistentDiskVolumeSource
-    ] = None
-    gitRepo: Optional[io__k8s__api__core__v1__GitRepoVolumeSource] = None
-    glusterfs: Optional[io__k8s__api__core__v1__GlusterfsVolumeSource] = None
-    hostPath: Optional[io__k8s__api__core__v1__HostPathVolumeSource] = None
-    iscsi: Optional[io__k8s__api__core__v1__ISCSIVolumeSource] = None
-    name: str
-    nfs: Optional[io__k8s__api__core__v1__NFSVolumeSource] = None
-    persistentVolumeClaim: Optional[
-        io__k8s__api__core__v1__PersistentVolumeClaimVolumeSource
-    ] = None
-    photonPersistentDisk: Optional[
-        io__k8s__api__core__v1__PhotonPersistentDiskVolumeSource
-    ] = None
-    portworxVolume: Optional[io__k8s__api__core__v1__PortworxVolumeSource] = None
-    projected: Optional[io__k8s__api__core__v1__ProjectedVolumeSource] = None
-    quobyte: Optional[io__k8s__api__core__v1__QuobyteVolumeSource] = None
-    rbd: Optional[io__k8s__api__core__v1__RBDVolumeSource] = None
-    scaleIO: Optional[io__k8s__api__core__v1__ScaleIOVolumeSource] = None
-    secret: Optional[io__k8s__api__core__v1__SecretVolumeSource] = None
-    storageos: Optional[io__k8s__api__core__v1__StorageOSVolumeSource] = None
-    vsphereVolume: Optional[
-        io__k8s__api__core__v1__VsphereVirtualDiskVolumeSource
-    ] = None
+    @property
+    def awsElasticBlockStore(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__AWSElasticBlockStoreVolumeSource]:
+        return self._awsElasticBlockStore
+
+    @property
+    def azureDisk(self) -> Optional[io__k8s__api__core__v1__AzureDiskVolumeSource]:
+        return self._azureDisk
+
+    @property
+    def azureFile(self) -> Optional[io__k8s__api__core__v1__AzureFileVolumeSource]:
+        return self._azureFile
+
+    @property
+    def cephfs(self) -> Optional[io__k8s__api__core__v1__CephFSVolumeSource]:
+        return self._cephfs
+
+    @property
+    def cinder(self) -> Optional[io__k8s__api__core__v1__CinderVolumeSource]:
+        return self._cinder
+
+    @property
+    def configMap(self) -> Optional[io__k8s__api__core__v1__ConfigMapVolumeSource]:
+        return self._configMap
+
+    @property
+    def csi(self) -> Optional[io__k8s__api__core__v1__CSIVolumeSource]:
+        return self._csi
+
+    @property
+    def downwardAPI(self) -> Optional[io__k8s__api__core__v1__DownwardAPIVolumeSource]:
+        return self._downwardAPI
+
+    @property
+    def emptyDir(self) -> Optional[io__k8s__api__core__v1__EmptyDirVolumeSource]:
+        return self._emptyDir
+
+    @property
+    def ephemeral(self) -> Optional[io__k8s__api__core__v1__EphemeralVolumeSource]:
+        return self._ephemeral
+
+    @property
+    def fc(self) -> Optional[io__k8s__api__core__v1__FCVolumeSource]:
+        return self._fc
+
+    @property
+    def flexVolume(self) -> Optional[io__k8s__api__core__v1__FlexVolumeSource]:
+        return self._flexVolume
+
+    @property
+    def flocker(self) -> Optional[io__k8s__api__core__v1__FlockerVolumeSource]:
+        return self._flocker
+
+    @property
+    def gcePersistentDisk(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__GCEPersistentDiskVolumeSource]:
+        return self._gcePersistentDisk
+
+    @property
+    def gitRepo(self) -> Optional[io__k8s__api__core__v1__GitRepoVolumeSource]:
+        return self._gitRepo
+
+    @property
+    def glusterfs(self) -> Optional[io__k8s__api__core__v1__GlusterfsVolumeSource]:
+        return self._glusterfs
+
+    @property
+    def hostPath(self) -> Optional[io__k8s__api__core__v1__HostPathVolumeSource]:
+        return self._hostPath
+
+    @property
+    def iscsi(self) -> Optional[io__k8s__api__core__v1__ISCSIVolumeSource]:
+        return self._iscsi
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def nfs(self) -> Optional[io__k8s__api__core__v1__NFSVolumeSource]:
+        return self._nfs
+
+    @property
+    def persistentVolumeClaim(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__PersistentVolumeClaimVolumeSource]:
+        return self._persistentVolumeClaim
+
+    @property
+    def photonPersistentDisk(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__PhotonPersistentDiskVolumeSource]:
+        return self._photonPersistentDisk
+
+    @property
+    def portworxVolume(self) -> Optional[io__k8s__api__core__v1__PortworxVolumeSource]:
+        return self._portworxVolume
+
+    @property
+    def projected(self) -> Optional[io__k8s__api__core__v1__ProjectedVolumeSource]:
+        return self._projected
+
+    @property
+    def quobyte(self) -> Optional[io__k8s__api__core__v1__QuobyteVolumeSource]:
+        return self._quobyte
+
+    @property
+    def rbd(self) -> Optional[io__k8s__api__core__v1__RBDVolumeSource]:
+        return self._rbd
+
+    @property
+    def scaleIO(self) -> Optional[io__k8s__api__core__v1__ScaleIOVolumeSource]:
+        return self._scaleIO
+
+    @property
+    def secret(self) -> Optional[io__k8s__api__core__v1__SecretVolumeSource]:
+        return self._secret
+
+    @property
+    def storageos(self) -> Optional[io__k8s__api__core__v1__StorageOSVolumeSource]:
+        return self._storageos
+
+    @property
+    def vsphereVolume(
+        self,
+    ) -> Optional[io__k8s__api__core__v1__VsphereVirtualDiskVolumeSource]:
+        return self._vsphereVolume
 
     def __init__(
         self,
@@ -15695,65 +21088,65 @@ class io__k8s__api__core__v1__Volume(K8STemplatable):
     ):
         super().__init__()
         if name is not None:
-            self.name = name
+            self._name = name
         if awsElasticBlockStore is not None:
-            self.awsElasticBlockStore = awsElasticBlockStore
+            self._awsElasticBlockStore = awsElasticBlockStore
         if azureDisk is not None:
-            self.azureDisk = azureDisk
+            self._azureDisk = azureDisk
         if azureFile is not None:
-            self.azureFile = azureFile
+            self._azureFile = azureFile
         if cephfs is not None:
-            self.cephfs = cephfs
+            self._cephfs = cephfs
         if cinder is not None:
-            self.cinder = cinder
+            self._cinder = cinder
         if configMap is not None:
-            self.configMap = configMap
+            self._configMap = configMap
         if csi is not None:
-            self.csi = csi
+            self._csi = csi
         if downwardAPI is not None:
-            self.downwardAPI = downwardAPI
+            self._downwardAPI = downwardAPI
         if emptyDir is not None:
-            self.emptyDir = emptyDir
+            self._emptyDir = emptyDir
         if ephemeral is not None:
-            self.ephemeral = ephemeral
+            self._ephemeral = ephemeral
         if fc is not None:
-            self.fc = fc
+            self._fc = fc
         if flexVolume is not None:
-            self.flexVolume = flexVolume
+            self._flexVolume = flexVolume
         if flocker is not None:
-            self.flocker = flocker
+            self._flocker = flocker
         if gcePersistentDisk is not None:
-            self.gcePersistentDisk = gcePersistentDisk
+            self._gcePersistentDisk = gcePersistentDisk
         if gitRepo is not None:
-            self.gitRepo = gitRepo
+            self._gitRepo = gitRepo
         if glusterfs is not None:
-            self.glusterfs = glusterfs
+            self._glusterfs = glusterfs
         if hostPath is not None:
-            self.hostPath = hostPath
+            self._hostPath = hostPath
         if iscsi is not None:
-            self.iscsi = iscsi
+            self._iscsi = iscsi
         if nfs is not None:
-            self.nfs = nfs
+            self._nfs = nfs
         if persistentVolumeClaim is not None:
-            self.persistentVolumeClaim = persistentVolumeClaim
+            self._persistentVolumeClaim = persistentVolumeClaim
         if photonPersistentDisk is not None:
-            self.photonPersistentDisk = photonPersistentDisk
+            self._photonPersistentDisk = photonPersistentDisk
         if portworxVolume is not None:
-            self.portworxVolume = portworxVolume
+            self._portworxVolume = portworxVolume
         if projected is not None:
-            self.projected = projected
+            self._projected = projected
         if quobyte is not None:
-            self.quobyte = quobyte
+            self._quobyte = quobyte
         if rbd is not None:
-            self.rbd = rbd
+            self._rbd = rbd
         if scaleIO is not None:
-            self.scaleIO = scaleIO
+            self._scaleIO = scaleIO
         if secret is not None:
-            self.secret = secret
+            self._secret = secret
         if storageos is not None:
-            self.storageos = storageos
+            self._storageos = storageos
         if vsphereVolume is not None:
-            self.vsphereVolume = vsphereVolume
+            self._vsphereVolume = vsphereVolume
 
 
 class io__k8s__api__flowcontrol__v1beta1__FlowSchema(K8STemplatable):
@@ -15765,9 +21158,19 @@ class io__k8s__api__flowcontrol__v1beta1__FlowSchema(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__flowcontrol__v1beta1__FlowSchemaSpec] = None
-    status: Optional[io__k8s__api__flowcontrol__v1beta1__FlowSchemaStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__flowcontrol__v1beta1__FlowSchemaSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__flowcontrol__v1beta1__FlowSchemaStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -15779,11 +21182,11 @@ class io__k8s__api__flowcontrol__v1beta1__FlowSchema(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__flowcontrol__v1beta1__FlowSchemaList(K8STemplatable):
@@ -15795,8 +21198,15 @@ class io__k8s__api__flowcontrol__v1beta1__FlowSchemaList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__flowcontrol__v1beta1__FlowSchema]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__flowcontrol__v1beta1__FlowSchema]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -15805,9 +21215,9 @@ class io__k8s__api__flowcontrol__v1beta1__FlowSchemaList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__flowcontrol__v1beta2__FlowSchema(K8STemplatable):
@@ -15819,9 +21229,19 @@ class io__k8s__api__flowcontrol__v1beta2__FlowSchema(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__flowcontrol__v1beta2__FlowSchemaSpec] = None
-    status: Optional[io__k8s__api__flowcontrol__v1beta2__FlowSchemaStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__flowcontrol__v1beta2__FlowSchemaSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__flowcontrol__v1beta2__FlowSchemaStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -15833,11 +21253,11 @@ class io__k8s__api__flowcontrol__v1beta2__FlowSchema(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__flowcontrol__v1beta2__FlowSchemaList(K8STemplatable):
@@ -15849,8 +21269,15 @@ class io__k8s__api__flowcontrol__v1beta2__FlowSchemaList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__flowcontrol__v1beta2__FlowSchema]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__flowcontrol__v1beta2__FlowSchema]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -15859,9 +21286,9 @@ class io__k8s__api__flowcontrol__v1beta2__FlowSchemaList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__networking__v1__Ingress(K8STemplatable):
@@ -15873,9 +21300,19 @@ class io__k8s__api__networking__v1__Ingress(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__networking__v1__IngressSpec] = None
-    status: Optional[io__k8s__api__networking__v1__IngressStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__networking__v1__IngressSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__networking__v1__IngressStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -15887,11 +21324,11 @@ class io__k8s__api__networking__v1__Ingress(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__networking__v1__IngressList(K8STemplatable):
@@ -15903,8 +21340,15 @@ class io__k8s__api__networking__v1__IngressList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__networking__v1__Ingress]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__networking__v1__Ingress]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -15913,9 +21357,9 @@ class io__k8s__api__networking__v1__IngressList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__networking__v1__NetworkPolicy(K8STemplatable):
@@ -15927,9 +21371,19 @@ class io__k8s__api__networking__v1__NetworkPolicy(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__networking__v1__NetworkPolicySpec] = None
-    status: Optional[io__k8s__api__networking__v1__NetworkPolicyStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__networking__v1__NetworkPolicySpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__networking__v1__NetworkPolicyStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -15941,11 +21395,11 @@ class io__k8s__api__networking__v1__NetworkPolicy(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__networking__v1__NetworkPolicyList(K8STemplatable):
@@ -15957,8 +21411,15 @@ class io__k8s__api__networking__v1__NetworkPolicyList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__networking__v1__NetworkPolicy]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__networking__v1__NetworkPolicy]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -15967,9 +21428,9 @@ class io__k8s__api__networking__v1__NetworkPolicyList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__autoscaling__v2__HorizontalPodAutoscaler(K8STemplatable):
@@ -15981,11 +21442,23 @@ class io__k8s__api__autoscaling__v2__HorizontalPodAutoscaler(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerSpec] = None
-    status: Optional[
-        io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerStatus
-    ] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerSpec]:
+        return self._spec
+
+    @property
+    def status(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -16001,11 +21474,11 @@ class io__k8s__api__autoscaling__v2__HorizontalPodAutoscaler(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerList(K8STemplatable):
@@ -16017,8 +21490,15 @@ class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerList(K8STemplatable)
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__autoscaling__v2__HorizontalPodAutoscaler]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__autoscaling__v2__HorizontalPodAutoscaler]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -16027,9 +21507,9 @@ class io__k8s__api__autoscaling__v2__HorizontalPodAutoscalerList(K8STemplatable)
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscaler(K8STemplatable):
@@ -16041,13 +21521,23 @@ class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscaler(K8STemplatable
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[
-        io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerSpec
-    ] = None
-    status: Optional[
-        io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerStatus
-    ] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerSpec]:
+        return self._spec
+
+    @property
+    def status(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -16063,11 +21553,11 @@ class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscaler(K8STemplatable
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerList(K8STemplatable):
@@ -16079,8 +21569,17 @@ class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerList(K8STemplat
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscaler]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(
+        self,
+    ) -> List[io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscaler]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -16089,9 +21588,9 @@ class io__k8s__api__autoscaling__v2beta1__HorizontalPodAutoscalerList(K8STemplat
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscaler(K8STemplatable):
@@ -16103,13 +21602,23 @@ class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscaler(K8STemplatable
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[
-        io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerSpec
-    ] = None
-    status: Optional[
-        io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerStatus
-    ] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerSpec]:
+        return self._spec
+
+    @property
+    def status(
+        self,
+    ) -> Optional[io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -16125,11 +21634,11 @@ class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscaler(K8STemplatable
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerList(K8STemplatable):
@@ -16141,8 +21650,17 @@ class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerList(K8STemplat
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscaler]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(
+        self,
+    ) -> List[io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscaler]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -16151,9 +21669,9 @@ class io__k8s__api__autoscaling__v2beta2__HorizontalPodAutoscalerList(K8STemplat
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__PodSpec(K8STemplatable):
@@ -16199,48 +21717,157 @@ class io__k8s__api__core__v1__PodSpec(K8STemplatable):
     ]
     required_props: List[str] = ["containers"]
 
-    activeDeadlineSeconds: Optional[int] = None
-    affinity: Optional[io__k8s__api__core__v1__Affinity] = None
-    automountServiceAccountToken: Optional[bool] = None
-    containers: List[io__k8s__api__core__v1__Container]
-    dnsConfig: Optional[io__k8s__api__core__v1__PodDNSConfig] = None
-    dnsPolicy: Optional[str] = None
-    enableServiceLinks: Optional[bool] = None
-    ephemeralContainers: Optional[
-        List[io__k8s__api__core__v1__EphemeralContainer]
-    ] = None
-    hostAliases: Optional[List[io__k8s__api__core__v1__HostAlias]] = None
-    hostIPC: Optional[bool] = None
-    hostNetwork: Optional[bool] = None
-    hostPID: Optional[bool] = None
-    hostname: Optional[str] = None
-    imagePullSecrets: Optional[
-        List[io__k8s__api__core__v1__LocalObjectReference]
-    ] = None
-    initContainers: Optional[List[io__k8s__api__core__v1__Container]] = None
-    nodeName: Optional[str] = None
-    nodeSelector: Any
-    os: Optional[io__k8s__api__core__v1__PodOS] = None
-    overhead: Any
-    preemptionPolicy: Optional[str] = None
-    priority: Optional[int] = None
-    priorityClassName: Optional[str] = None
-    readinessGates: Optional[List[io__k8s__api__core__v1__PodReadinessGate]] = None
-    restartPolicy: Optional[str] = None
-    runtimeClassName: Optional[str] = None
-    schedulerName: Optional[str] = None
-    securityContext: Optional[io__k8s__api__core__v1__PodSecurityContext] = None
-    serviceAccount: Optional[str] = None
-    serviceAccountName: Optional[str] = None
-    setHostnameAsFQDN: Optional[bool] = None
-    shareProcessNamespace: Optional[bool] = None
-    subdomain: Optional[str] = None
-    terminationGracePeriodSeconds: Optional[int] = None
-    tolerations: Optional[List[io__k8s__api__core__v1__Toleration]] = None
-    topologySpreadConstraints: Optional[
-        List[io__k8s__api__core__v1__TopologySpreadConstraint]
-    ] = None
-    volumes: Optional[List[io__k8s__api__core__v1__Volume]] = None
+    @property
+    def activeDeadlineSeconds(self) -> Optional[int]:
+        return self._activeDeadlineSeconds
+
+    @property
+    def affinity(self) -> Optional[io__k8s__api__core__v1__Affinity]:
+        return self._affinity
+
+    @property
+    def automountServiceAccountToken(self) -> Optional[bool]:
+        return self._automountServiceAccountToken
+
+    @property
+    def containers(self) -> List[io__k8s__api__core__v1__Container]:
+        return self._containers
+
+    @property
+    def dnsConfig(self) -> Optional[io__k8s__api__core__v1__PodDNSConfig]:
+        return self._dnsConfig
+
+    @property
+    def dnsPolicy(self) -> Optional[str]:
+        return self._dnsPolicy
+
+    @property
+    def enableServiceLinks(self) -> Optional[bool]:
+        return self._enableServiceLinks
+
+    @property
+    def ephemeralContainers(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__EphemeralContainer]]:
+        return self._ephemeralContainers
+
+    @property
+    def hostAliases(self) -> Optional[List[io__k8s__api__core__v1__HostAlias]]:
+        return self._hostAliases
+
+    @property
+    def hostIPC(self) -> Optional[bool]:
+        return self._hostIPC
+
+    @property
+    def hostNetwork(self) -> Optional[bool]:
+        return self._hostNetwork
+
+    @property
+    def hostPID(self) -> Optional[bool]:
+        return self._hostPID
+
+    @property
+    def hostname(self) -> Optional[str]:
+        return self._hostname
+
+    @property
+    def imagePullSecrets(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__LocalObjectReference]]:
+        return self._imagePullSecrets
+
+    @property
+    def initContainers(self) -> Optional[List[io__k8s__api__core__v1__Container]]:
+        return self._initContainers
+
+    @property
+    def nodeName(self) -> Optional[str]:
+        return self._nodeName
+
+    @property
+    def nodeSelector(self) -> Any:
+        return self._nodeSelector
+
+    @property
+    def os(self) -> Optional[io__k8s__api__core__v1__PodOS]:
+        return self._os
+
+    @property
+    def overhead(self) -> Any:
+        return self._overhead
+
+    @property
+    def preemptionPolicy(self) -> Optional[str]:
+        return self._preemptionPolicy
+
+    @property
+    def priority(self) -> Optional[int]:
+        return self._priority
+
+    @property
+    def priorityClassName(self) -> Optional[str]:
+        return self._priorityClassName
+
+    @property
+    def readinessGates(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__PodReadinessGate]]:
+        return self._readinessGates
+
+    @property
+    def restartPolicy(self) -> Optional[str]:
+        return self._restartPolicy
+
+    @property
+    def runtimeClassName(self) -> Optional[str]:
+        return self._runtimeClassName
+
+    @property
+    def schedulerName(self) -> Optional[str]:
+        return self._schedulerName
+
+    @property
+    def securityContext(self) -> Optional[io__k8s__api__core__v1__PodSecurityContext]:
+        return self._securityContext
+
+    @property
+    def serviceAccount(self) -> Optional[str]:
+        return self._serviceAccount
+
+    @property
+    def serviceAccountName(self) -> Optional[str]:
+        return self._serviceAccountName
+
+    @property
+    def setHostnameAsFQDN(self) -> Optional[bool]:
+        return self._setHostnameAsFQDN
+
+    @property
+    def shareProcessNamespace(self) -> Optional[bool]:
+        return self._shareProcessNamespace
+
+    @property
+    def subdomain(self) -> Optional[str]:
+        return self._subdomain
+
+    @property
+    def terminationGracePeriodSeconds(self) -> Optional[int]:
+        return self._terminationGracePeriodSeconds
+
+    @property
+    def tolerations(self) -> Optional[List[io__k8s__api__core__v1__Toleration]]:
+        return self._tolerations
+
+    @property
+    def topologySpreadConstraints(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__TopologySpreadConstraint]]:
+        return self._topologySpreadConstraints
+
+    @property
+    def volumes(self) -> Optional[List[io__k8s__api__core__v1__Volume]]:
+        return self._volumes
 
     def __init__(
         self,
@@ -16289,77 +21916,77 @@ class io__k8s__api__core__v1__PodSpec(K8STemplatable):
     ):
         super().__init__()
         if containers is not None:
-            self.containers = containers
+            self._containers = containers
         if activeDeadlineSeconds is not None:
-            self.activeDeadlineSeconds = activeDeadlineSeconds
+            self._activeDeadlineSeconds = activeDeadlineSeconds
         if affinity is not None:
-            self.affinity = affinity
+            self._affinity = affinity
         if automountServiceAccountToken is not None:
-            self.automountServiceAccountToken = automountServiceAccountToken
+            self._automountServiceAccountToken = automountServiceAccountToken
         if dnsConfig is not None:
-            self.dnsConfig = dnsConfig
+            self._dnsConfig = dnsConfig
         if dnsPolicy is not None:
-            self.dnsPolicy = dnsPolicy
+            self._dnsPolicy = dnsPolicy
         if enableServiceLinks is not None:
-            self.enableServiceLinks = enableServiceLinks
+            self._enableServiceLinks = enableServiceLinks
         if ephemeralContainers is not None:
-            self.ephemeralContainers = ephemeralContainers
+            self._ephemeralContainers = ephemeralContainers
         if hostAliases is not None:
-            self.hostAliases = hostAliases
+            self._hostAliases = hostAliases
         if hostIPC is not None:
-            self.hostIPC = hostIPC
+            self._hostIPC = hostIPC
         if hostNetwork is not None:
-            self.hostNetwork = hostNetwork
+            self._hostNetwork = hostNetwork
         if hostPID is not None:
-            self.hostPID = hostPID
+            self._hostPID = hostPID
         if hostname is not None:
-            self.hostname = hostname
+            self._hostname = hostname
         if imagePullSecrets is not None:
-            self.imagePullSecrets = imagePullSecrets
+            self._imagePullSecrets = imagePullSecrets
         if initContainers is not None:
-            self.initContainers = initContainers
+            self._initContainers = initContainers
         if nodeName is not None:
-            self.nodeName = nodeName
+            self._nodeName = nodeName
         if nodeSelector is not None:
-            self.nodeSelector = nodeSelector
+            self._nodeSelector = nodeSelector
         if os is not None:
-            self.os = os
+            self._os = os
         if overhead is not None:
-            self.overhead = overhead
+            self._overhead = overhead
         if preemptionPolicy is not None:
-            self.preemptionPolicy = preemptionPolicy
+            self._preemptionPolicy = preemptionPolicy
         if priority is not None:
-            self.priority = priority
+            self._priority = priority
         if priorityClassName is not None:
-            self.priorityClassName = priorityClassName
+            self._priorityClassName = priorityClassName
         if readinessGates is not None:
-            self.readinessGates = readinessGates
+            self._readinessGates = readinessGates
         if restartPolicy is not None:
-            self.restartPolicy = restartPolicy
+            self._restartPolicy = restartPolicy
         if runtimeClassName is not None:
-            self.runtimeClassName = runtimeClassName
+            self._runtimeClassName = runtimeClassName
         if schedulerName is not None:
-            self.schedulerName = schedulerName
+            self._schedulerName = schedulerName
         if securityContext is not None:
-            self.securityContext = securityContext
+            self._securityContext = securityContext
         if serviceAccount is not None:
-            self.serviceAccount = serviceAccount
+            self._serviceAccount = serviceAccount
         if serviceAccountName is not None:
-            self.serviceAccountName = serviceAccountName
+            self._serviceAccountName = serviceAccountName
         if setHostnameAsFQDN is not None:
-            self.setHostnameAsFQDN = setHostnameAsFQDN
+            self._setHostnameAsFQDN = setHostnameAsFQDN
         if shareProcessNamespace is not None:
-            self.shareProcessNamespace = shareProcessNamespace
+            self._shareProcessNamespace = shareProcessNamespace
         if subdomain is not None:
-            self.subdomain = subdomain
+            self._subdomain = subdomain
         if terminationGracePeriodSeconds is not None:
-            self.terminationGracePeriodSeconds = terminationGracePeriodSeconds
+            self._terminationGracePeriodSeconds = terminationGracePeriodSeconds
         if tolerations is not None:
-            self.tolerations = tolerations
+            self._tolerations = tolerations
         if topologySpreadConstraints is not None:
-            self.topologySpreadConstraints = topologySpreadConstraints
+            self._topologySpreadConstraints = topologySpreadConstraints
         if volumes is not None:
-            self.volumes = volumes
+            self._volumes = volumes
 
 
 class io__k8s__api__core__v1__PodTemplateSpec(K8STemplatable):
@@ -16368,8 +21995,15 @@ class io__k8s__api__core__v1__PodTemplateSpec(K8STemplatable):
     props: List[str] = ["metadata", "spec"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__core__v1__PodSpec] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__core__v1__PodSpec]:
+        return self._spec
 
     def __init__(
         self,
@@ -16380,9 +22014,9 @@ class io__k8s__api__core__v1__PodTemplateSpec(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
 
 
 class io__k8s__api__core__v1__ReplicationControllerSpec(K8STemplatable):
@@ -16391,10 +22025,21 @@ class io__k8s__api__core__v1__ReplicationControllerSpec(K8STemplatable):
     props: List[str] = ["minReadySeconds", "replicas", "selector", "template"]
     required_props: List[str] = []
 
-    minReadySeconds: Optional[int] = None
-    replicas: Optional[int] = None
-    selector: Any
-    template: Optional[io__k8s__api__core__v1__PodTemplateSpec] = None
+    @property
+    def minReadySeconds(self) -> Optional[int]:
+        return self._minReadySeconds
+
+    @property
+    def replicas(self) -> Optional[int]:
+        return self._replicas
+
+    @property
+    def selector(self) -> Any:
+        return self._selector
+
+    @property
+    def template(self) -> Optional[io__k8s__api__core__v1__PodTemplateSpec]:
+        return self._template
 
     def __init__(
         self,
@@ -16405,13 +22050,13 @@ class io__k8s__api__core__v1__ReplicationControllerSpec(K8STemplatable):
     ):
         super().__init__()
         if minReadySeconds is not None:
-            self.minReadySeconds = minReadySeconds
+            self._minReadySeconds = minReadySeconds
         if replicas is not None:
-            self.replicas = replicas
+            self._replicas = replicas
         if selector is not None:
-            self.selector = selector
+            self._selector = selector
         if template is not None:
-            self.template = template
+            self._template = template
 
 
 class io__k8s__api__apps__v1__DaemonSetSpec(K8STemplatable):
@@ -16426,11 +22071,27 @@ class io__k8s__api__apps__v1__DaemonSetSpec(K8STemplatable):
     ]
     required_props: List[str] = ["selector", "template"]
 
-    minReadySeconds: Optional[int] = None
-    revisionHistoryLimit: Optional[int] = None
-    selector: io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
-    template: io__k8s__api__core__v1__PodTemplateSpec
-    updateStrategy: Optional[io__k8s__api__apps__v1__DaemonSetUpdateStrategy] = None
+    @property
+    def minReadySeconds(self) -> Optional[int]:
+        return self._minReadySeconds
+
+    @property
+    def revisionHistoryLimit(self) -> Optional[int]:
+        return self._revisionHistoryLimit
+
+    @property
+    def selector(self) -> io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector:
+        return self._selector
+
+    @property
+    def template(self) -> io__k8s__api__core__v1__PodTemplateSpec:
+        return self._template
+
+    @property
+    def updateStrategy(
+        self,
+    ) -> Optional[io__k8s__api__apps__v1__DaemonSetUpdateStrategy]:
+        return self._updateStrategy
 
     def __init__(
         self,
@@ -16444,15 +22105,15 @@ class io__k8s__api__apps__v1__DaemonSetSpec(K8STemplatable):
     ):
         super().__init__()
         if selector is not None:
-            self.selector = selector
+            self._selector = selector
         if template is not None:
-            self.template = template
+            self._template = template
         if minReadySeconds is not None:
-            self.minReadySeconds = minReadySeconds
+            self._minReadySeconds = minReadySeconds
         if revisionHistoryLimit is not None:
-            self.revisionHistoryLimit = revisionHistoryLimit
+            self._revisionHistoryLimit = revisionHistoryLimit
         if updateStrategy is not None:
-            self.updateStrategy = updateStrategy
+            self._updateStrategy = updateStrategy
 
 
 class io__k8s__api__apps__v1__DeploymentSpec(K8STemplatable):
@@ -16470,14 +22131,37 @@ class io__k8s__api__apps__v1__DeploymentSpec(K8STemplatable):
     ]
     required_props: List[str] = ["selector", "template"]
 
-    minReadySeconds: Optional[int] = None
-    paused: Optional[bool] = None
-    progressDeadlineSeconds: Optional[int] = None
-    replicas: Optional[int] = None
-    revisionHistoryLimit: Optional[int] = None
-    selector: io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
-    strategy: Optional[io__k8s__api__apps__v1__DeploymentStrategy] = None
-    template: io__k8s__api__core__v1__PodTemplateSpec
+    @property
+    def minReadySeconds(self) -> Optional[int]:
+        return self._minReadySeconds
+
+    @property
+    def paused(self) -> Optional[bool]:
+        return self._paused
+
+    @property
+    def progressDeadlineSeconds(self) -> Optional[int]:
+        return self._progressDeadlineSeconds
+
+    @property
+    def replicas(self) -> Optional[int]:
+        return self._replicas
+
+    @property
+    def revisionHistoryLimit(self) -> Optional[int]:
+        return self._revisionHistoryLimit
+
+    @property
+    def selector(self) -> io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector:
+        return self._selector
+
+    @property
+    def strategy(self) -> Optional[io__k8s__api__apps__v1__DeploymentStrategy]:
+        return self._strategy
+
+    @property
+    def template(self) -> io__k8s__api__core__v1__PodTemplateSpec:
+        return self._template
 
     def __init__(
         self,
@@ -16492,21 +22176,21 @@ class io__k8s__api__apps__v1__DeploymentSpec(K8STemplatable):
     ):
         super().__init__()
         if selector is not None:
-            self.selector = selector
+            self._selector = selector
         if template is not None:
-            self.template = template
+            self._template = template
         if minReadySeconds is not None:
-            self.minReadySeconds = minReadySeconds
+            self._minReadySeconds = minReadySeconds
         if paused is not None:
-            self.paused = paused
+            self._paused = paused
         if progressDeadlineSeconds is not None:
-            self.progressDeadlineSeconds = progressDeadlineSeconds
+            self._progressDeadlineSeconds = progressDeadlineSeconds
         if replicas is not None:
-            self.replicas = replicas
+            self._replicas = replicas
         if revisionHistoryLimit is not None:
-            self.revisionHistoryLimit = revisionHistoryLimit
+            self._revisionHistoryLimit = revisionHistoryLimit
         if strategy is not None:
-            self.strategy = strategy
+            self._strategy = strategy
 
 
 class io__k8s__api__apps__v1__ReplicaSetSpec(K8STemplatable):
@@ -16515,10 +22199,21 @@ class io__k8s__api__apps__v1__ReplicaSetSpec(K8STemplatable):
     props: List[str] = ["minReadySeconds", "replicas", "selector", "template"]
     required_props: List[str] = ["selector"]
 
-    minReadySeconds: Optional[int] = None
-    replicas: Optional[int] = None
-    selector: io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
-    template: Optional[io__k8s__api__core__v1__PodTemplateSpec] = None
+    @property
+    def minReadySeconds(self) -> Optional[int]:
+        return self._minReadySeconds
+
+    @property
+    def replicas(self) -> Optional[int]:
+        return self._replicas
+
+    @property
+    def selector(self) -> io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector:
+        return self._selector
+
+    @property
+    def template(self) -> Optional[io__k8s__api__core__v1__PodTemplateSpec]:
+        return self._template
 
     def __init__(
         self,
@@ -16529,13 +22224,13 @@ class io__k8s__api__apps__v1__ReplicaSetSpec(K8STemplatable):
     ):
         super().__init__()
         if selector is not None:
-            self.selector = selector
+            self._selector = selector
         if minReadySeconds is not None:
-            self.minReadySeconds = minReadySeconds
+            self._minReadySeconds = minReadySeconds
         if replicas is not None:
-            self.replicas = replicas
+            self._replicas = replicas
         if template is not None:
-            self.template = template
+            self._template = template
 
 
 class io__k8s__api__apps__v1__StatefulSetSpec(K8STemplatable):
@@ -16555,20 +22250,53 @@ class io__k8s__api__apps__v1__StatefulSetSpec(K8STemplatable):
     ]
     required_props: List[str] = ["selector", "template", "serviceName"]
 
-    minReadySeconds: Optional[int] = None
-    persistentVolumeClaimRetentionPolicy: Optional[
+    @property
+    def minReadySeconds(self) -> Optional[int]:
+        return self._minReadySeconds
+
+    @property
+    def persistentVolumeClaimRetentionPolicy(
+        self,
+    ) -> Optional[
         io__k8s__api__apps__v1__StatefulSetPersistentVolumeClaimRetentionPolicy
-    ] = None
-    podManagementPolicy: Optional[str] = None
-    replicas: Optional[int] = None
-    revisionHistoryLimit: Optional[int] = None
-    selector: io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
-    serviceName: str
-    template: io__k8s__api__core__v1__PodTemplateSpec
-    updateStrategy: Optional[io__k8s__api__apps__v1__StatefulSetUpdateStrategy] = None
-    volumeClaimTemplates: Optional[
-        List[io__k8s__api__core__v1__PersistentVolumeClaim]
-    ] = None
+    ]:
+        return self._persistentVolumeClaimRetentionPolicy
+
+    @property
+    def podManagementPolicy(self) -> Optional[str]:
+        return self._podManagementPolicy
+
+    @property
+    def replicas(self) -> Optional[int]:
+        return self._replicas
+
+    @property
+    def revisionHistoryLimit(self) -> Optional[int]:
+        return self._revisionHistoryLimit
+
+    @property
+    def selector(self) -> io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector:
+        return self._selector
+
+    @property
+    def serviceName(self) -> str:
+        return self._serviceName
+
+    @property
+    def template(self) -> io__k8s__api__core__v1__PodTemplateSpec:
+        return self._template
+
+    @property
+    def updateStrategy(
+        self,
+    ) -> Optional[io__k8s__api__apps__v1__StatefulSetUpdateStrategy]:
+        return self._updateStrategy
+
+    @property
+    def volumeClaimTemplates(
+        self,
+    ) -> Optional[List[io__k8s__api__core__v1__PersistentVolumeClaim]]:
+        return self._volumeClaimTemplates
 
     def __init__(
         self,
@@ -16591,27 +22319,27 @@ class io__k8s__api__apps__v1__StatefulSetSpec(K8STemplatable):
     ):
         super().__init__()
         if selector is not None:
-            self.selector = selector
+            self._selector = selector
         if serviceName is not None:
-            self.serviceName = serviceName
+            self._serviceName = serviceName
         if template is not None:
-            self.template = template
+            self._template = template
         if minReadySeconds is not None:
-            self.minReadySeconds = minReadySeconds
+            self._minReadySeconds = minReadySeconds
         if persistentVolumeClaimRetentionPolicy is not None:
-            self.persistentVolumeClaimRetentionPolicy = (
+            self._persistentVolumeClaimRetentionPolicy = (
                 persistentVolumeClaimRetentionPolicy
             )
         if podManagementPolicy is not None:
-            self.podManagementPolicy = podManagementPolicy
+            self._podManagementPolicy = podManagementPolicy
         if replicas is not None:
-            self.replicas = replicas
+            self._replicas = replicas
         if revisionHistoryLimit is not None:
-            self.revisionHistoryLimit = revisionHistoryLimit
+            self._revisionHistoryLimit = revisionHistoryLimit
         if updateStrategy is not None:
-            self.updateStrategy = updateStrategy
+            self._updateStrategy = updateStrategy
         if volumeClaimTemplates is not None:
-            self.volumeClaimTemplates = volumeClaimTemplates
+            self._volumeClaimTemplates = volumeClaimTemplates
 
 
 class io__k8s__api__batch__v1__JobSpec(K8STemplatable):
@@ -16631,16 +22359,47 @@ class io__k8s__api__batch__v1__JobSpec(K8STemplatable):
     ]
     required_props: List[str] = ["template"]
 
-    activeDeadlineSeconds: Optional[int] = None
-    backoffLimit: Optional[int] = None
-    completionMode: Optional[str] = None
-    completions: Optional[int] = None
-    manualSelector: Optional[bool] = None
-    parallelism: Optional[int] = None
-    selector: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector] = None
-    suspend: Optional[bool] = None
-    template: io__k8s__api__core__v1__PodTemplateSpec
-    ttlSecondsAfterFinished: Optional[int] = None
+    @property
+    def activeDeadlineSeconds(self) -> Optional[int]:
+        return self._activeDeadlineSeconds
+
+    @property
+    def backoffLimit(self) -> Optional[int]:
+        return self._backoffLimit
+
+    @property
+    def completionMode(self) -> Optional[str]:
+        return self._completionMode
+
+    @property
+    def completions(self) -> Optional[int]:
+        return self._completions
+
+    @property
+    def manualSelector(self) -> Optional[bool]:
+        return self._manualSelector
+
+    @property
+    def parallelism(self) -> Optional[int]:
+        return self._parallelism
+
+    @property
+    def selector(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._selector
+
+    @property
+    def suspend(self) -> Optional[bool]:
+        return self._suspend
+
+    @property
+    def template(self) -> io__k8s__api__core__v1__PodTemplateSpec:
+        return self._template
+
+    @property
+    def ttlSecondsAfterFinished(self) -> Optional[int]:
+        return self._ttlSecondsAfterFinished
 
     def __init__(
         self,
@@ -16659,25 +22418,25 @@ class io__k8s__api__batch__v1__JobSpec(K8STemplatable):
     ):
         super().__init__()
         if template is not None:
-            self.template = template
+            self._template = template
         if activeDeadlineSeconds is not None:
-            self.activeDeadlineSeconds = activeDeadlineSeconds
+            self._activeDeadlineSeconds = activeDeadlineSeconds
         if backoffLimit is not None:
-            self.backoffLimit = backoffLimit
+            self._backoffLimit = backoffLimit
         if completionMode is not None:
-            self.completionMode = completionMode
+            self._completionMode = completionMode
         if completions is not None:
-            self.completions = completions
+            self._completions = completions
         if manualSelector is not None:
-            self.manualSelector = manualSelector
+            self._manualSelector = manualSelector
         if parallelism is not None:
-            self.parallelism = parallelism
+            self._parallelism = parallelism
         if selector is not None:
-            self.selector = selector
+            self._selector = selector
         if suspend is not None:
-            self.suspend = suspend
+            self._suspend = suspend
         if ttlSecondsAfterFinished is not None:
-            self.ttlSecondsAfterFinished = ttlSecondsAfterFinished
+            self._ttlSecondsAfterFinished = ttlSecondsAfterFinished
 
 
 class io__k8s__api__batch__v1__JobTemplateSpec(K8STemplatable):
@@ -16686,8 +22445,15 @@ class io__k8s__api__batch__v1__JobTemplateSpec(K8STemplatable):
     props: List[str] = ["metadata", "spec"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__batch__v1__JobSpec] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__batch__v1__JobSpec]:
+        return self._spec
 
     def __init__(
         self,
@@ -16698,9 +22464,9 @@ class io__k8s__api__batch__v1__JobTemplateSpec(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
 
 
 class io__k8s__api__batch__v1beta1__JobTemplateSpec(K8STemplatable):
@@ -16709,8 +22475,15 @@ class io__k8s__api__batch__v1beta1__JobTemplateSpec(K8STemplatable):
     props: List[str] = ["metadata", "spec"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__batch__v1__JobSpec] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__batch__v1__JobSpec]:
+        return self._spec
 
     def __init__(
         self,
@@ -16721,9 +22494,9 @@ class io__k8s__api__batch__v1beta1__JobTemplateSpec(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
 
 
 class io__k8s__api__core__v1__Pod(K8STemplatable):
@@ -16735,9 +22508,19 @@ class io__k8s__api__core__v1__Pod(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__core__v1__PodSpec] = None
-    status: Optional[io__k8s__api__core__v1__PodStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__core__v1__PodSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__core__v1__PodStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -16749,11 +22532,11 @@ class io__k8s__api__core__v1__Pod(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__core__v1__PodList(K8STemplatable):
@@ -16765,8 +22548,15 @@ class io__k8s__api__core__v1__PodList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__core__v1__Pod]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__core__v1__Pod]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -16775,9 +22565,9 @@ class io__k8s__api__core__v1__PodList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__PodTemplate(K8STemplatable):
@@ -16789,8 +22579,15 @@ class io__k8s__api__core__v1__PodTemplate(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "template"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    template: Optional[io__k8s__api__core__v1__PodTemplateSpec] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def template(self) -> Optional[io__k8s__api__core__v1__PodTemplateSpec]:
+        return self._template
 
     def __init__(
         self,
@@ -16801,9 +22598,9 @@ class io__k8s__api__core__v1__PodTemplate(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if template is not None:
-            self.template = template
+            self._template = template
 
 
 class io__k8s__api__core__v1__PodTemplateList(K8STemplatable):
@@ -16815,8 +22612,15 @@ class io__k8s__api__core__v1__PodTemplateList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__core__v1__PodTemplate]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__core__v1__PodTemplate]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -16825,9 +22629,9 @@ class io__k8s__api__core__v1__PodTemplateList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__core__v1__ReplicationController(K8STemplatable):
@@ -16839,9 +22643,19 @@ class io__k8s__api__core__v1__ReplicationController(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__core__v1__ReplicationControllerSpec] = None
-    status: Optional[io__k8s__api__core__v1__ReplicationControllerStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__core__v1__ReplicationControllerSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__core__v1__ReplicationControllerStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -16853,11 +22667,11 @@ class io__k8s__api__core__v1__ReplicationController(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__core__v1__ReplicationControllerList(K8STemplatable):
@@ -16869,8 +22683,15 @@ class io__k8s__api__core__v1__ReplicationControllerList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__core__v1__ReplicationController]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__core__v1__ReplicationController]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -16879,9 +22700,9 @@ class io__k8s__api__core__v1__ReplicationControllerList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__apps__v1__DaemonSet(K8STemplatable):
@@ -16893,9 +22714,19 @@ class io__k8s__api__apps__v1__DaemonSet(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__apps__v1__DaemonSetSpec] = None
-    status: Optional[io__k8s__api__apps__v1__DaemonSetStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__apps__v1__DaemonSetSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__apps__v1__DaemonSetStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -16907,11 +22738,11 @@ class io__k8s__api__apps__v1__DaemonSet(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__apps__v1__DaemonSetList(K8STemplatable):
@@ -16923,8 +22754,15 @@ class io__k8s__api__apps__v1__DaemonSetList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__apps__v1__DaemonSet]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__apps__v1__DaemonSet]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -16933,9 +22771,9 @@ class io__k8s__api__apps__v1__DaemonSetList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__apps__v1__Deployment(K8STemplatable):
@@ -16947,9 +22785,19 @@ class io__k8s__api__apps__v1__Deployment(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__apps__v1__DeploymentSpec] = None
-    status: Optional[io__k8s__api__apps__v1__DeploymentStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__apps__v1__DeploymentSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__apps__v1__DeploymentStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -16961,11 +22809,11 @@ class io__k8s__api__apps__v1__Deployment(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__apps__v1__DeploymentList(K8STemplatable):
@@ -16977,8 +22825,15 @@ class io__k8s__api__apps__v1__DeploymentList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__apps__v1__Deployment]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__apps__v1__Deployment]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -16987,9 +22842,9 @@ class io__k8s__api__apps__v1__DeploymentList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__apps__v1__ReplicaSet(K8STemplatable):
@@ -17001,9 +22856,19 @@ class io__k8s__api__apps__v1__ReplicaSet(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__apps__v1__ReplicaSetSpec] = None
-    status: Optional[io__k8s__api__apps__v1__ReplicaSetStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__apps__v1__ReplicaSetSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__apps__v1__ReplicaSetStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -17015,11 +22880,11 @@ class io__k8s__api__apps__v1__ReplicaSet(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__apps__v1__ReplicaSetList(K8STemplatable):
@@ -17031,8 +22896,15 @@ class io__k8s__api__apps__v1__ReplicaSetList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__apps__v1__ReplicaSet]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__apps__v1__ReplicaSet]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -17041,9 +22913,9 @@ class io__k8s__api__apps__v1__ReplicaSetList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__apps__v1__StatefulSet(K8STemplatable):
@@ -17058,9 +22930,19 @@ class io__k8s__api__apps__v1__StatefulSet(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__apps__v1__StatefulSetSpec] = None
-    status: Optional[io__k8s__api__apps__v1__StatefulSetStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__apps__v1__StatefulSetSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__apps__v1__StatefulSetStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -17072,11 +22954,11 @@ class io__k8s__api__apps__v1__StatefulSet(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__apps__v1__StatefulSetList(K8STemplatable):
@@ -17088,8 +22970,15 @@ class io__k8s__api__apps__v1__StatefulSetList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__apps__v1__StatefulSet]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__apps__v1__StatefulSet]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -17098,9 +22987,9 @@ class io__k8s__api__apps__v1__StatefulSetList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__batch__v1__CronJobSpec(K8STemplatable):
@@ -17118,14 +23007,37 @@ class io__k8s__api__batch__v1__CronJobSpec(K8STemplatable):
     ]
     required_props: List[str] = ["schedule", "jobTemplate"]
 
-    concurrencyPolicy: Optional[str] = None
-    failedJobsHistoryLimit: Optional[int] = None
-    jobTemplate: io__k8s__api__batch__v1__JobTemplateSpec
-    schedule: str
-    startingDeadlineSeconds: Optional[int] = None
-    successfulJobsHistoryLimit: Optional[int] = None
-    suspend: Optional[bool] = None
-    timeZone: Optional[str] = None
+    @property
+    def concurrencyPolicy(self) -> Optional[str]:
+        return self._concurrencyPolicy
+
+    @property
+    def failedJobsHistoryLimit(self) -> Optional[int]:
+        return self._failedJobsHistoryLimit
+
+    @property
+    def jobTemplate(self) -> io__k8s__api__batch__v1__JobTemplateSpec:
+        return self._jobTemplate
+
+    @property
+    def schedule(self) -> str:
+        return self._schedule
+
+    @property
+    def startingDeadlineSeconds(self) -> Optional[int]:
+        return self._startingDeadlineSeconds
+
+    @property
+    def successfulJobsHistoryLimit(self) -> Optional[int]:
+        return self._successfulJobsHistoryLimit
+
+    @property
+    def suspend(self) -> Optional[bool]:
+        return self._suspend
+
+    @property
+    def timeZone(self) -> Optional[str]:
+        return self._timeZone
 
     def __init__(
         self,
@@ -17140,21 +23052,21 @@ class io__k8s__api__batch__v1__CronJobSpec(K8STemplatable):
     ):
         super().__init__()
         if jobTemplate is not None:
-            self.jobTemplate = jobTemplate
+            self._jobTemplate = jobTemplate
         if schedule is not None:
-            self.schedule = schedule
+            self._schedule = schedule
         if concurrencyPolicy is not None:
-            self.concurrencyPolicy = concurrencyPolicy
+            self._concurrencyPolicy = concurrencyPolicy
         if failedJobsHistoryLimit is not None:
-            self.failedJobsHistoryLimit = failedJobsHistoryLimit
+            self._failedJobsHistoryLimit = failedJobsHistoryLimit
         if startingDeadlineSeconds is not None:
-            self.startingDeadlineSeconds = startingDeadlineSeconds
+            self._startingDeadlineSeconds = startingDeadlineSeconds
         if successfulJobsHistoryLimit is not None:
-            self.successfulJobsHistoryLimit = successfulJobsHistoryLimit
+            self._successfulJobsHistoryLimit = successfulJobsHistoryLimit
         if suspend is not None:
-            self.suspend = suspend
+            self._suspend = suspend
         if timeZone is not None:
-            self.timeZone = timeZone
+            self._timeZone = timeZone
 
 
 class io__k8s__api__batch__v1__Job(K8STemplatable):
@@ -17166,9 +23078,19 @@ class io__k8s__api__batch__v1__Job(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__batch__v1__JobSpec] = None
-    status: Optional[io__k8s__api__batch__v1__JobStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__batch__v1__JobSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__batch__v1__JobStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -17180,11 +23102,11 @@ class io__k8s__api__batch__v1__Job(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__batch__v1__JobList(K8STemplatable):
@@ -17196,8 +23118,15 @@ class io__k8s__api__batch__v1__JobList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__batch__v1__Job]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__batch__v1__Job]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -17206,9 +23135,9 @@ class io__k8s__api__batch__v1__JobList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__batch__v1beta1__CronJobSpec(K8STemplatable):
@@ -17226,14 +23155,37 @@ class io__k8s__api__batch__v1beta1__CronJobSpec(K8STemplatable):
     ]
     required_props: List[str] = ["schedule", "jobTemplate"]
 
-    concurrencyPolicy: Optional[str] = None
-    failedJobsHistoryLimit: Optional[int] = None
-    jobTemplate: io__k8s__api__batch__v1beta1__JobTemplateSpec
-    schedule: str
-    startingDeadlineSeconds: Optional[int] = None
-    successfulJobsHistoryLimit: Optional[int] = None
-    suspend: Optional[bool] = None
-    timeZone: Optional[str] = None
+    @property
+    def concurrencyPolicy(self) -> Optional[str]:
+        return self._concurrencyPolicy
+
+    @property
+    def failedJobsHistoryLimit(self) -> Optional[int]:
+        return self._failedJobsHistoryLimit
+
+    @property
+    def jobTemplate(self) -> io__k8s__api__batch__v1beta1__JobTemplateSpec:
+        return self._jobTemplate
+
+    @property
+    def schedule(self) -> str:
+        return self._schedule
+
+    @property
+    def startingDeadlineSeconds(self) -> Optional[int]:
+        return self._startingDeadlineSeconds
+
+    @property
+    def successfulJobsHistoryLimit(self) -> Optional[int]:
+        return self._successfulJobsHistoryLimit
+
+    @property
+    def suspend(self) -> Optional[bool]:
+        return self._suspend
+
+    @property
+    def timeZone(self) -> Optional[str]:
+        return self._timeZone
 
     def __init__(
         self,
@@ -17248,21 +23200,21 @@ class io__k8s__api__batch__v1beta1__CronJobSpec(K8STemplatable):
     ):
         super().__init__()
         if jobTemplate is not None:
-            self.jobTemplate = jobTemplate
+            self._jobTemplate = jobTemplate
         if schedule is not None:
-            self.schedule = schedule
+            self._schedule = schedule
         if concurrencyPolicy is not None:
-            self.concurrencyPolicy = concurrencyPolicy
+            self._concurrencyPolicy = concurrencyPolicy
         if failedJobsHistoryLimit is not None:
-            self.failedJobsHistoryLimit = failedJobsHistoryLimit
+            self._failedJobsHistoryLimit = failedJobsHistoryLimit
         if startingDeadlineSeconds is not None:
-            self.startingDeadlineSeconds = startingDeadlineSeconds
+            self._startingDeadlineSeconds = startingDeadlineSeconds
         if successfulJobsHistoryLimit is not None:
-            self.successfulJobsHistoryLimit = successfulJobsHistoryLimit
+            self._successfulJobsHistoryLimit = successfulJobsHistoryLimit
         if suspend is not None:
-            self.suspend = suspend
+            self._suspend = suspend
         if timeZone is not None:
-            self.timeZone = timeZone
+            self._timeZone = timeZone
 
 
 class io__k8s__api__batch__v1__CronJob(K8STemplatable):
@@ -17274,9 +23226,19 @@ class io__k8s__api__batch__v1__CronJob(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__batch__v1__CronJobSpec] = None
-    status: Optional[io__k8s__api__batch__v1__CronJobStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__batch__v1__CronJobSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__batch__v1__CronJobStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -17288,11 +23250,11 @@ class io__k8s__api__batch__v1__CronJob(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__batch__v1__CronJobList(K8STemplatable):
@@ -17304,8 +23266,15 @@ class io__k8s__api__batch__v1__CronJobList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__batch__v1__CronJob]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__batch__v1__CronJob]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -17314,9 +23283,9 @@ class io__k8s__api__batch__v1__CronJobList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 class io__k8s__api__batch__v1beta1__CronJob(K8STemplatable):
@@ -17328,9 +23297,19 @@ class io__k8s__api__batch__v1beta1__CronJob(K8STemplatable):
     props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
     required_props: List[str] = []
 
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta] = None
-    spec: Optional[io__k8s__api__batch__v1beta1__CronJobSpec] = None
-    status: Optional[io__k8s__api__batch__v1beta1__CronJobStatus] = None
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def spec(self) -> Optional[io__k8s__api__batch__v1beta1__CronJobSpec]:
+        return self._spec
+
+    @property
+    def status(self) -> Optional[io__k8s__api__batch__v1beta1__CronJobStatus]:
+        return self._status
 
     def __init__(
         self,
@@ -17342,11 +23321,11 @@ class io__k8s__api__batch__v1beta1__CronJob(K8STemplatable):
     ):
         super().__init__()
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
         if spec is not None:
-            self.spec = spec
+            self._spec = spec
         if status is not None:
-            self.status = status
+            self._status = status
 
 
 class io__k8s__api__batch__v1beta1__CronJobList(K8STemplatable):
@@ -17358,8 +23337,15 @@ class io__k8s__api__batch__v1beta1__CronJobList(K8STemplatable):
     props: List[str] = ["apiVersion", "items", "kind", "metadata"]
     required_props: List[str] = ["items"]
 
-    items: List[io__k8s__api__batch__v1beta1__CronJob]
-    metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None
+    @property
+    def items(self) -> List[io__k8s__api__batch__v1beta1__CronJob]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
 
     def __init__(
         self,
@@ -17368,9 +23354,9 @@ class io__k8s__api__batch__v1beta1__CronJobList(K8STemplatable):
     ):
         super().__init__()
         if items is not None:
-            self.items = items
+            self._items = items
         if metadata is not None:
-            self.metadata = metadata
+            self._metadata = metadata
 
 
 MutatingWebhook = io__k8s__api__admissionregistration__v1__MutatingWebhook
