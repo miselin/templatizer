@@ -6,7 +6,7 @@ import yaml
 from .templatable import Templatable
 
 
-def string_as_block(dumper, data):
+def string_as_block(dumper: yaml.Dumper, data: str) -> Any:
     """string_as_block uses YAML's block style for strings with newlines."""
     if "\n" in data:
         return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="|")
@@ -23,5 +23,5 @@ class YamlBlob(Templatable):
         """data returns the raw data to be YAML-encoded."""
         raise NotImplementedError("data() must be implemented on ConfigurationData")
 
-    def generate(self) -> str:
+    def generate(self) -> Any:
         return yaml.dump(self.data())

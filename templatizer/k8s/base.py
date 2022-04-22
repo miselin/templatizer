@@ -1,12 +1,12 @@
 """Base support code for Kubernetes template generation."""
-from typing import Any, List
+from typing import Any, List, Optional
 
 import yaml
 
 from templatizer import NoValue, Templatable
 
 
-def fix_value(val: Any):
+def fix_value(val: Any) -> Any:
     """fix_value fixes value types to embed into YAML correctly."""
     if isinstance(val, list):
         return [fix_value(v) for v in val]
@@ -21,12 +21,12 @@ def fix_value(val: Any):
 class K8STemplatable(Templatable):
     """K8STemplatable is the base class for all Kubernetes template objects."""
 
-    description = NoValue
-    apiVersion = NoValue
-    kind = NoValue
+    description: Optional[str] = None
+    apiVersion: Optional[str] = None
+    kind: Optional[str] = None
     required_props: List[str] = []
 
-    def generate(self) -> str:
+    def generate(self) -> Any:
         document = {}
 
         props = self.propval("props")
