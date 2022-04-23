@@ -2,7 +2,7 @@
 # pylint: skip-file
 # flake8: noqa
 
-from typing import Any, List, Optional
+from typing import Any, List, Literal, Optional
 
 from . import K8STemplatable
 
@@ -171,6 +171,22 @@ class io__k8s__api__apiserverinternal__v1alpha1__StorageVersionSpec(K8STemplatab
     required_props: List[str] = []
 
 
+class io__k8s__api__apps__v1__RollingUpdateStatefulSetStrategy(K8STemplatable):
+    """RollingUpdateStatefulSetStrategy is used to communicate parameter for RollingUpdateStatefulSetStrategyType."""
+
+    props: List[str] = ["partition"]
+    required_props: List[str] = []
+
+    @property
+    def partition(self) -> Optional[int]:
+        return self._partition
+
+    def __init__(self, partition: Optional[int] = None):
+        super().__init__()
+        if partition is not None:
+            self._partition = partition
+
+
 class io__k8s__api__apps__v1__StatefulSetPersistentVolumeClaimRetentionPolicy(
     K8STemplatable
 ):
@@ -195,6 +211,36 @@ class io__k8s__api__apps__v1__StatefulSetPersistentVolumeClaimRetentionPolicy(
             self._whenDeleted = whenDeleted
         if whenScaled is not None:
             self._whenScaled = whenScaled
+
+
+class io__k8s__api__apps__v1__StatefulSetUpdateStrategy(K8STemplatable):
+    """StatefulSetUpdateStrategy indicates the strategy that the StatefulSet controller will use to perform updates. It includes any additional parameters necessary to perform the update for the indicated strategy."""
+
+    props: List[str] = ["rollingUpdate", "type"]
+    required_props: List[str] = []
+
+    @property
+    def rollingUpdate(
+        self,
+    ) -> Optional[io__k8s__api__apps__v1__RollingUpdateStatefulSetStrategy]:
+        return self._rollingUpdate
+
+    @property
+    def type(self) -> Optional[Literal["OnDelete", "RollingUpdate"]]:
+        return self._type
+
+    def __init__(
+        self,
+        rollingUpdate: Optional[
+            io__k8s__api__apps__v1__RollingUpdateStatefulSetStrategy
+        ] = None,
+        type: Optional[Literal["OnDelete", "RollingUpdate"]] = None,
+    ):
+        super().__init__()
+        if rollingUpdate is not None:
+            self._rollingUpdate = rollingUpdate
+        if type is not None:
+            self._type = type
 
 
 class io__k8s__api__authentication__v1__BoundObjectReference(K8STemplatable):
@@ -1610,7 +1656,7 @@ class io__k8s__api__core__v1__ContainerPort(K8STemplatable):
         return self._name
 
     @property
-    def protocol(self) -> Optional[str]:
+    def protocol(self) -> Optional[Literal["SCTP", "TCP", "UDP"]]:
         return self._protocol
 
     def __init__(
@@ -1619,7 +1665,7 @@ class io__k8s__api__core__v1__ContainerPort(K8STemplatable):
         hostIP: Optional[str] = None,
         hostPort: Optional[int] = None,
         name: Optional[str] = None,
-        protocol: Optional[str] = None,
+        protocol: Optional[Literal["SCTP", "TCP", "UDP"]] = None,
     ):
         super().__init__()
         if containerPort is not None:
@@ -1691,7 +1737,7 @@ class io__k8s__api__core__v1__EndpointPort(K8STemplatable):
         return self._port
 
     @property
-    def protocol(self) -> Optional[str]:
+    def protocol(self) -> Optional[Literal["SCTP", "TCP", "UDP"]]:
         return self._protocol
 
     def __init__(
@@ -1699,7 +1745,7 @@ class io__k8s__api__core__v1__EndpointPort(K8STemplatable):
         port: int,
         appProtocol: Optional[str] = None,
         name: Optional[str] = None,
-        protocol: Optional[str] = None,
+        protocol: Optional[Literal["SCTP", "TCP", "UDP"]] = None,
     ):
         super().__init__()
         if port is not None:
@@ -2337,14 +2383,19 @@ class io__k8s__api__core__v1__NodeSelectorRequirement(K8STemplatable):
         return self._key
 
     @property
-    def operator(self) -> str:
+    def operator(self) -> Literal["DoesNotExist", "Exists", "Gt", "In", "Lt", "NotIn"]:
         return self._operator
 
     @property
     def values(self) -> Optional[List[str]]:
         return self._values
 
-    def __init__(self, key: str, operator: str, values: Optional[List[str]] = None):
+    def __init__(
+        self,
+        key: str,
+        operator: Literal["DoesNotExist", "Exists", "Gt", "In", "Lt", "NotIn"],
+        values: Optional[List[str]] = None,
+    ):
         super().__init__()
         if key is not None:
             self._key = key
@@ -2616,7 +2667,9 @@ class io__k8s__api__core__v1__PersistentVolumeStatus(K8STemplatable):
         return self._message
 
     @property
-    def phase(self) -> Optional[str]:
+    def phase(
+        self,
+    ) -> Optional[Literal["Available", "Bound", "Failed", "Pending", "Released"]]:
         return self._phase
 
     @property
@@ -2626,7 +2679,9 @@ class io__k8s__api__core__v1__PersistentVolumeStatus(K8STemplatable):
     def __init__(
         self,
         message: Optional[str] = None,
-        phase: Optional[str] = None,
+        phase: Optional[
+            Literal["Available", "Bound", "Failed", "Pending", "Released"]
+        ] = None,
         reason: Optional[str] = None,
     ):
         super().__init__()
@@ -2746,10 +2801,15 @@ class io__k8s__api__core__v1__PortStatus(K8STemplatable):
         return self._port
 
     @property
-    def protocol(self) -> str:
+    def protocol(self) -> Literal["SCTP", "TCP", "UDP"]:
         return self._protocol
 
-    def __init__(self, port: int, protocol: str, error: Optional[str] = None):
+    def __init__(
+        self,
+        port: int,
+        protocol: Literal["SCTP", "TCP", "UDP"],
+        error: Optional[str] = None,
+    ):
         super().__init__()
         if port is not None:
             self._port = port
@@ -3131,11 +3191,20 @@ class io__k8s__api__core__v1__ScopedResourceSelectorRequirement(K8STemplatable):
     required_props: List[str] = ["scopeName", "operator"]
 
     @property
-    def operator(self) -> str:
+    def operator(self) -> Literal["DoesNotExist", "Exists", "In", "NotIn"]:
         return self._operator
 
     @property
-    def scopeName(self) -> str:
+    def scopeName(
+        self,
+    ) -> Literal[
+        "BestEffort",
+        "CrossNamespacePodAffinity",
+        "NotBestEffort",
+        "NotTerminating",
+        "PriorityClass",
+        "Terminating",
+    ]:
         return self._scopeName
 
     @property
@@ -3143,7 +3212,17 @@ class io__k8s__api__core__v1__ScopedResourceSelectorRequirement(K8STemplatable):
         return self._values
 
     def __init__(
-        self, operator: str, scopeName: str, values: Optional[List[str]] = None
+        self,
+        operator: Literal["DoesNotExist", "Exists", "In", "NotIn"],
+        scopeName: Literal[
+            "BestEffort",
+            "CrossNamespacePodAffinity",
+            "NotBestEffort",
+            "NotTerminating",
+            "PriorityClass",
+            "Terminating",
+        ],
+        values: Optional[List[str]] = None,
     ):
         super().__init__()
         if operator is not None:
@@ -3165,10 +3244,14 @@ class io__k8s__api__core__v1__SeccompProfile(K8STemplatable):
         return self._localhostProfile
 
     @property
-    def type(self) -> str:
+    def type(self) -> Literal["Localhost", "RuntimeDefault", "Unconfined"]:
         return self._type
 
-    def __init__(self, type: str, localhostProfile: Optional[str] = None):
+    def __init__(
+        self,
+        type: Literal["Localhost", "RuntimeDefault", "Unconfined"],
+        localhostProfile: Optional[str] = None,
+    ):
         super().__init__()
         if type is not None:
             self._type = type
@@ -3515,7 +3598,9 @@ class io__k8s__api__core__v1__Toleration(K8STemplatable):
     required_props: List[str] = []
 
     @property
-    def effect(self) -> Optional[str]:
+    def effect(
+        self,
+    ) -> Optional[Literal["NoExecute", "NoSchedule", "PreferNoSchedule"]]:
         return self._effect
 
     @property
@@ -3523,7 +3608,7 @@ class io__k8s__api__core__v1__Toleration(K8STemplatable):
         return self._key
 
     @property
-    def operator(self) -> Optional[str]:
+    def operator(self) -> Optional[Literal["Equal", "Exists"]]:
         return self._operator
 
     @property
@@ -3536,9 +3621,9 @@ class io__k8s__api__core__v1__Toleration(K8STemplatable):
 
     def __init__(
         self,
-        effect: Optional[str] = None,
+        effect: Optional[Literal["NoExecute", "NoSchedule", "PreferNoSchedule"]] = None,
         key: Optional[str] = None,
-        operator: Optional[str] = None,
+        operator: Optional[Literal["Equal", "Exists"]] = None,
         tolerationSeconds: Optional[int] = None,
         value: Optional[str] = None,
     ):
@@ -6306,36 +6391,6 @@ class io__k8s__api__apps__v1__RollingUpdateDeployment(K8STemplatable):
             self._maxUnavailable = maxUnavailable
 
 
-class io__k8s__api__apps__v1__RollingUpdateStatefulSetStrategy(K8STemplatable):
-    """RollingUpdateStatefulSetStrategy is used to communicate parameter for RollingUpdateStatefulSetStrategyType."""
-
-    props: List[str] = ["maxUnavailable", "partition"]
-    required_props: List[str] = []
-
-    @property
-    def maxUnavailable(
-        self,
-    ) -> Optional[io__k8s__apimachinery__pkg__util__intstr__IntOrString]:
-        return self._maxUnavailable
-
-    @property
-    def partition(self) -> Optional[int]:
-        return self._partition
-
-    def __init__(
-        self,
-        maxUnavailable: Optional[
-            io__k8s__apimachinery__pkg__util__intstr__IntOrString
-        ] = None,
-        partition: Optional[int] = None,
-    ):
-        super().__init__()
-        if maxUnavailable is not None:
-            self._maxUnavailable = maxUnavailable
-        if partition is not None:
-            self._partition = partition
-
-
 class io__k8s__api__apps__v1__StatefulSetCondition(K8STemplatable):
     """StatefulSetCondition describes the state of a statefulset at a certain point."""
 
@@ -6402,10 +6457,10 @@ class io__k8s__api__apps__v1__StatefulSetStatus(K8STemplatable):
         "updateRevision",
         "updatedReplicas",
     ]
-    required_props: List[str] = ["replicas"]
+    required_props: List[str] = ["replicas", "availableReplicas"]
 
     @property
-    def availableReplicas(self) -> Optional[int]:
+    def availableReplicas(self) -> int:
         return self._availableReplicas
 
     @property
@@ -6448,8 +6503,8 @@ class io__k8s__api__apps__v1__StatefulSetStatus(K8STemplatable):
 
     def __init__(
         self,
+        availableReplicas: int,
         replicas: int,
-        availableReplicas: Optional[int] = None,
         collisionCount: Optional[int] = None,
         conditions: Optional[List[io__k8s__api__apps__v1__StatefulSetCondition]] = None,
         currentReplicas: Optional[int] = None,
@@ -6460,10 +6515,10 @@ class io__k8s__api__apps__v1__StatefulSetStatus(K8STemplatable):
         updatedReplicas: Optional[int] = None,
     ):
         super().__init__()
-        if replicas is not None:
-            self._replicas = replicas
         if availableReplicas is not None:
             self._availableReplicas = availableReplicas
+        if replicas is not None:
+            self._replicas = replicas
         if collisionCount is not None:
             self._collisionCount = collisionCount
         if conditions is not None:
@@ -6480,36 +6535,6 @@ class io__k8s__api__apps__v1__StatefulSetStatus(K8STemplatable):
             self._updateRevision = updateRevision
         if updatedReplicas is not None:
             self._updatedReplicas = updatedReplicas
-
-
-class io__k8s__api__apps__v1__StatefulSetUpdateStrategy(K8STemplatable):
-    """StatefulSetUpdateStrategy indicates the strategy that the StatefulSet controller will use to perform updates. It includes any additional parameters necessary to perform the update for the indicated strategy."""
-
-    props: List[str] = ["rollingUpdate", "type"]
-    required_props: List[str] = []
-
-    @property
-    def rollingUpdate(
-        self,
-    ) -> Optional[io__k8s__api__apps__v1__RollingUpdateStatefulSetStrategy]:
-        return self._rollingUpdate
-
-    @property
-    def type(self) -> Optional[str]:
-        return self._type
-
-    def __init__(
-        self,
-        rollingUpdate: Optional[
-            io__k8s__api__apps__v1__RollingUpdateStatefulSetStrategy
-        ] = None,
-        type: Optional[str] = None,
-    ):
-        super().__init__()
-        if rollingUpdate is not None:
-            self._rollingUpdate = rollingUpdate
-        if type is not None:
-            self._type = type
 
 
 class io__k8s__api__authentication__v1__TokenRequestStatus(K8STemplatable):
@@ -7500,13 +7525,13 @@ class io__k8s__api__certificates__v1__CertificateSigningRequestCondition(
         return self._status
 
     @property
-    def type(self) -> str:
+    def type(self) -> Literal["Approved", "Denied", "Failed"]:
         return self._type
 
     def __init__(
         self,
         status: str,
-        type: str,
+        type: Literal["Approved", "Denied", "Failed"],
         lastTransitionTime: Optional[
             io__k8s__apimachinery__pkg__apis__meta__v1__Time
         ] = None,
@@ -8433,7 +8458,7 @@ class io__k8s__api__core__v1__HTTPGetAction(K8STemplatable):
         return self._port
 
     @property
-    def scheme(self) -> Optional[str]:
+    def scheme(self) -> Optional[Literal["HTTP", "HTTPS"]]:
         return self._scheme
 
     def __init__(
@@ -8442,7 +8467,7 @@ class io__k8s__api__core__v1__HTTPGetAction(K8STemplatable):
         host: Optional[str] = None,
         httpHeaders: Optional[List[io__k8s__api__core__v1__HTTPHeader]] = None,
         path: Optional[str] = None,
-        scheme: Optional[str] = None,
+        scheme: Optional[Literal["HTTP", "HTTPS"]] = None,
     ):
         super().__init__()
         if port is not None:
@@ -8773,13 +8798,13 @@ class io__k8s__api__core__v1__NamespaceStatus(K8STemplatable):
         return self._conditions
 
     @property
-    def phase(self) -> Optional[str]:
+    def phase(self) -> Optional[Literal["Active", "Terminating"]]:
         return self._phase
 
     def __init__(
         self,
         conditions: Optional[List[io__k8s__api__core__v1__NamespaceCondition]] = None,
-        phase: Optional[str] = None,
+        phase: Optional[Literal["Active", "Terminating"]] = None,
     ):
         super().__init__()
         if conditions is not None:
@@ -8926,7 +8951,7 @@ class io__k8s__api__core__v1__NodeStatus(K8STemplatable):
         return self._nodeInfo
 
     @property
-    def phase(self) -> Optional[str]:
+    def phase(self) -> Optional[Literal["Pending", "Running", "Terminated"]]:
         return self._phase
 
     @property
@@ -8947,7 +8972,7 @@ class io__k8s__api__core__v1__NodeStatus(K8STemplatable):
         daemonEndpoints: Optional[io__k8s__api__core__v1__NodeDaemonEndpoints] = None,
         images: Optional[List[io__k8s__api__core__v1__ContainerImage]] = None,
         nodeInfo: Optional[io__k8s__api__core__v1__NodeSystemInfo] = None,
-        phase: Optional[str] = None,
+        phase: Optional[Literal["Pending", "Running", "Terminated"]] = None,
         volumesAttached: Optional[List[io__k8s__api__core__v1__AttachedVolume]] = None,
         volumesInUse: Optional[List[str]] = None,
     ):
@@ -9077,7 +9102,7 @@ class io__k8s__api__core__v1__PersistentVolumeClaimStatus(K8STemplatable):
         return self._conditions
 
     @property
-    def phase(self) -> Optional[str]:
+    def phase(self) -> Optional[Literal["Bound", "Lost", "Pending"]]:
         return self._phase
 
     @property
@@ -9092,7 +9117,7 @@ class io__k8s__api__core__v1__PersistentVolumeClaimStatus(K8STemplatable):
         conditions: Optional[
             List[io__k8s__api__core__v1__PersistentVolumeClaimCondition]
         ] = None,
-        phase: Optional[str] = None,
+        phase: Optional[Literal["Bound", "Lost", "Pending"]] = None,
         resizeStatus: Optional[str] = None,
     ):
         super().__init__()
@@ -9786,7 +9811,7 @@ class io__k8s__api__core__v1__ServicePort(K8STemplatable):
         return self._port
 
     @property
-    def protocol(self) -> Optional[str]:
+    def protocol(self) -> Optional[Literal["SCTP", "TCP", "UDP"]]:
         return self._protocol
 
     @property
@@ -9801,7 +9826,7 @@ class io__k8s__api__core__v1__ServicePort(K8STemplatable):
         appProtocol: Optional[str] = None,
         name: Optional[str] = None,
         nodePort: Optional[int] = None,
-        protocol: Optional[str] = None,
+        protocol: Optional[Literal["SCTP", "TCP", "UDP"]] = None,
         targetPort: Optional[
             io__k8s__apimachinery__pkg__util__intstr__IntOrString
         ] = None,
@@ -9868,7 +9893,7 @@ class io__k8s__api__core__v1__ServiceSpec(K8STemplatable):
         return self._externalName
 
     @property
-    def externalTrafficPolicy(self) -> Optional[str]:
+    def externalTrafficPolicy(self) -> Optional[Literal["Cluster", "Local"]]:
         return self._externalTrafficPolicy
 
     @property
@@ -9912,7 +9937,7 @@ class io__k8s__api__core__v1__ServiceSpec(K8STemplatable):
         return self._selector
 
     @property
-    def sessionAffinity(self) -> Optional[str]:
+    def sessionAffinity(self) -> Optional[Literal["ClientIP", "None"]]:
         return self._sessionAffinity
 
     @property
@@ -9922,7 +9947,9 @@ class io__k8s__api__core__v1__ServiceSpec(K8STemplatable):
         return self._sessionAffinityConfig
 
     @property
-    def type(self) -> Optional[str]:
+    def type(
+        self,
+    ) -> Optional[Literal["ClusterIP", "ExternalName", "LoadBalancer", "NodePort"]]:
         return self._type
 
     def __init__(
@@ -9932,7 +9959,7 @@ class io__k8s__api__core__v1__ServiceSpec(K8STemplatable):
         clusterIPs: Optional[List[str]] = None,
         externalIPs: Optional[List[str]] = None,
         externalName: Optional[str] = None,
-        externalTrafficPolicy: Optional[str] = None,
+        externalTrafficPolicy: Optional[Literal["Cluster", "Local"]] = None,
         healthCheckNodePort: Optional[int] = None,
         internalTrafficPolicy: Optional[str] = None,
         ipFamilies: Optional[List[str]] = None,
@@ -9943,11 +9970,13 @@ class io__k8s__api__core__v1__ServiceSpec(K8STemplatable):
         ports: Optional[List[io__k8s__api__core__v1__ServicePort]] = None,
         publishNotReadyAddresses: Optional[bool] = None,
         selector: Any = None,
-        sessionAffinity: Optional[str] = None,
+        sessionAffinity: Optional[Literal["ClientIP", "None"]] = None,
         sessionAffinityConfig: Optional[
             io__k8s__api__core__v1__SessionAffinityConfig
         ] = None,
-        type: Optional[str] = None,
+        type: Optional[
+            Literal["ClusterIP", "ExternalName", "LoadBalancer", "NodePort"]
+        ] = None,
     ):
         super().__init__()
         if allocateLoadBalancerNodePorts is not None:
@@ -10023,7 +10052,7 @@ class io__k8s__api__core__v1__Taint(K8STemplatable):
     required_props: List[str] = ["key", "effect"]
 
     @property
-    def effect(self) -> str:
+    def effect(self) -> Literal["NoExecute", "NoSchedule", "PreferNoSchedule"]:
         return self._effect
 
     @property
@@ -10040,7 +10069,7 @@ class io__k8s__api__core__v1__Taint(K8STemplatable):
 
     def __init__(
         self,
-        effect: str,
+        effect: Literal["NoExecute", "NoSchedule", "PreferNoSchedule"],
         key: str,
         timeAdded: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None,
         value: Optional[str] = None,
@@ -12462,13 +12491,13 @@ class io__k8s__api__apps__v1__DaemonSetUpdateStrategy(K8STemplatable):
         return self._rollingUpdate
 
     @property
-    def type(self) -> Optional[str]:
+    def type(self) -> Optional[Literal["OnDelete", "RollingUpdate"]]:
         return self._type
 
     def __init__(
         self,
         rollingUpdate: Optional[io__k8s__api__apps__v1__RollingUpdateDaemonSet] = None,
-        type: Optional[str] = None,
+        type: Optional[Literal["OnDelete", "RollingUpdate"]] = None,
     ):
         super().__init__()
         if rollingUpdate is not None:
@@ -12490,13 +12519,13 @@ class io__k8s__api__apps__v1__DeploymentStrategy(K8STemplatable):
         return self._rollingUpdate
 
     @property
-    def type(self) -> Optional[str]:
+    def type(self) -> Optional[Literal["Recreate", "RollingUpdate"]]:
         return self._type
 
     def __init__(
         self,
         rollingUpdate: Optional[io__k8s__api__apps__v1__RollingUpdateDeployment] = None,
-        type: Optional[str] = None,
+        type: Optional[Literal["Recreate", "RollingUpdate"]] = None,
     ):
         super().__init__()
         if rollingUpdate is not None:
@@ -14965,7 +14994,9 @@ class io__k8s__api__core__v1__PersistentVolumeSpec(K8STemplatable):
         return self._nodeAffinity
 
     @property
-    def persistentVolumeReclaimPolicy(self) -> Optional[str]:
+    def persistentVolumeReclaimPolicy(
+        self,
+    ) -> Optional[Literal["Delete", "Recycle", "Retain"]]:
         return self._persistentVolumeReclaimPolicy
 
     @property
@@ -15042,7 +15073,9 @@ class io__k8s__api__core__v1__PersistentVolumeSpec(K8STemplatable):
         mountOptions: Optional[List[str]] = None,
         nfs: Optional[io__k8s__api__core__v1__NFSVolumeSource] = None,
         nodeAffinity: Optional[io__k8s__api__core__v1__VolumeNodeAffinity] = None,
-        persistentVolumeReclaimPolicy: Optional[str] = None,
+        persistentVolumeReclaimPolicy: Optional[
+            Literal["Delete", "Recycle", "Retain"]
+        ] = None,
         photonPersistentDisk: Optional[
             io__k8s__api__core__v1__PhotonPersistentDiskVolumeSource
         ] = None,
@@ -15230,7 +15263,9 @@ class io__k8s__api__core__v1__PodStatus(K8STemplatable):
         return self._nominatedNodeName
 
     @property
-    def phase(self) -> Optional[str]:
+    def phase(
+        self,
+    ) -> Optional[Literal["Failed", "Pending", "Running", "Succeeded", "Unknown"]]:
         return self._phase
 
     @property
@@ -15242,7 +15277,7 @@ class io__k8s__api__core__v1__PodStatus(K8STemplatable):
         return self._podIPs
 
     @property
-    def qosClass(self) -> Optional[str]:
+    def qosClass(self) -> Optional[Literal["BestEffort", "Burstable", "Guaranteed"]]:
         return self._qosClass
 
     @property
@@ -15268,10 +15303,12 @@ class io__k8s__api__core__v1__PodStatus(K8STemplatable):
         ] = None,
         message: Optional[str] = None,
         nominatedNodeName: Optional[str] = None,
-        phase: Optional[str] = None,
+        phase: Optional[
+            Literal["Failed", "Pending", "Running", "Succeeded", "Unknown"]
+        ] = None,
         podIP: Optional[str] = None,
         podIPs: Optional[List[io__k8s__api__core__v1__PodIP]] = None,
-        qosClass: Optional[str] = None,
+        qosClass: Optional[Literal["BestEffort", "Burstable", "Guaranteed"]] = None,
         reason: Optional[str] = None,
         startTime: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__Time] = None,
     ):
@@ -15673,14 +15710,14 @@ class io__k8s__api__core__v1__TopologySpreadConstraint(K8STemplatable):
         return self._topologyKey
 
     @property
-    def whenUnsatisfiable(self) -> str:
+    def whenUnsatisfiable(self) -> Literal["DoNotSchedule", "ScheduleAnyway"]:
         return self._whenUnsatisfiable
 
     def __init__(
         self,
         maxSkew: int,
         topologyKey: str,
-        whenUnsatisfiable: str,
+        whenUnsatisfiable: Literal["DoNotSchedule", "ScheduleAnyway"],
         labelSelector: Optional[
             io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
         ] = None,
@@ -15817,7 +15854,7 @@ class io__k8s__api__discovery__v1__EndpointSlice(K8STemplatable):
     required_props: List[str] = ["addressType", "endpoints"]
 
     @property
-    def addressType(self) -> str:
+    def addressType(self) -> Literal["FQDN", "IPv4", "IPv6"]:
         return self._addressType
 
     @property
@@ -15836,7 +15873,7 @@ class io__k8s__api__discovery__v1__EndpointSlice(K8STemplatable):
 
     def __init__(
         self,
-        addressType: str,
+        addressType: Literal["FQDN", "IPv4", "IPv6"],
         endpoints: List[io__k8s__api__discovery__v1__Endpoint],
         metadata: Optional[
             io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta
@@ -16782,29 +16819,6 @@ class io__k8s__api__networking__v1__NetworkPolicyPeer(K8STemplatable):
             self._namespaceSelector = namespaceSelector
         if podSelector is not None:
             self._podSelector = podSelector
-
-
-class io__k8s__api__networking__v1__NetworkPolicyStatus(K8STemplatable):
-    """NetworkPolicyStatus describe the current state of the NetworkPolicy."""
-
-    props: List[str] = ["conditions"]
-    required_props: List[str] = []
-
-    @property
-    def conditions(
-        self,
-    ) -> Optional[List[io__k8s__apimachinery__pkg__apis__meta__v1__Condition]]:
-        return self._conditions
-
-    def __init__(
-        self,
-        conditions: Optional[
-            List[io__k8s__apimachinery__pkg__apis__meta__v1__Condition]
-        ] = None,
-    ):
-        super().__init__()
-        if conditions is not None:
-            self._conditions = conditions
 
 
 class io__k8s__api__node__v1__RuntimeClass(K8STemplatable):
@@ -18176,6 +18190,115 @@ class io__k8s__api__storage__v1__VolumeAttachmentStatus(K8STemplatable):
             self._attachmentMetadata = attachmentMetadata
         if detachError is not None:
             self._detachError = detachError
+
+
+class io__k8s__api__storage__v1alpha1__CSIStorageCapacity(K8STemplatable):
+    """CSIStorageCapacity stores the result of one CSI GetCapacity call. For a given StorageClass, this describes the available capacity in a particular topology segment.  This can be used when considering where to instantiate new PersistentVolumes.
+
+    For example this can express things like: - StorageClass "standard" has "1234 GiB" available in "topology.kubernetes.io/zone=us-east1" - StorageClass "localssd" has "10 GiB" available in "kubernetes.io/hostname=knode-abc123"
+
+    The following three cases all imply that no capacity is available for a certain combination: - no object exists with suitable topology and storage class name - such an object exists, but the capacity is unset - such an object exists, but the capacity is zero
+
+    The producer of these objects can decide which approach is more suitable.
+
+    They are consumed by the kube-scheduler when a CSI driver opts into capacity-aware scheduling with CSIDriverSpec.StorageCapacity. The scheduler compares the MaximumVolumeSize against the requested size of pending volumes to filter out unsuitable nodes. If MaximumVolumeSize is unset, it falls back to a comparison against the less precise Capacity. If that is also unset, the scheduler assumes that capacity is insufficient and tries some other node."""
+
+    apiVersion: str = "storage.k8s.io/v1alpha1"
+    kind: str = "CSIStorageCapacity"
+
+    props: List[str] = [
+        "apiVersion",
+        "capacity",
+        "kind",
+        "maximumVolumeSize",
+        "metadata",
+        "nodeTopology",
+        "storageClassName",
+    ]
+    required_props: List[str] = ["storageClassName"]
+
+    @property
+    def capacity(self) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._capacity
+
+    @property
+    def maximumVolumeSize(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__api__resource__Quantity]:
+        return self._maximumVolumeSize
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta]:
+        return self._metadata
+
+    @property
+    def nodeTopology(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector]:
+        return self._nodeTopology
+
+    @property
+    def storageClassName(self) -> str:
+        return self._storageClassName
+
+    def __init__(
+        self,
+        storageClassName: str,
+        capacity: Optional[io__k8s__apimachinery__pkg__api__resource__Quantity] = None,
+        maximumVolumeSize: Optional[
+            io__k8s__apimachinery__pkg__api__resource__Quantity
+        ] = None,
+        metadata: Optional[
+            io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta
+        ] = None,
+        nodeTopology: Optional[
+            io__k8s__apimachinery__pkg__apis__meta__v1__LabelSelector
+        ] = None,
+    ):
+        super().__init__()
+        if storageClassName is not None:
+            self._storageClassName = storageClassName
+        if capacity is not None:
+            self._capacity = capacity
+        if maximumVolumeSize is not None:
+            self._maximumVolumeSize = maximumVolumeSize
+        if metadata is not None:
+            self._metadata = metadata
+        if nodeTopology is not None:
+            self._nodeTopology = nodeTopology
+
+
+class io__k8s__api__storage__v1alpha1__CSIStorageCapacityList(K8STemplatable):
+    """CSIStorageCapacityList is a collection of CSIStorageCapacity objects."""
+
+    apiVersion: str = "storage.k8s.io/v1alpha1"
+    kind: str = "CSIStorageCapacityList"
+
+    props: List[str] = ["apiVersion", "items", "kind", "metadata"]
+    required_props: List[str] = ["items"]
+
+    @property
+    def items(self) -> List[io__k8s__api__storage__v1alpha1__CSIStorageCapacity]:
+        return self._items
+
+    @property
+    def metadata(
+        self,
+    ) -> Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta]:
+        return self._metadata
+
+    def __init__(
+        self,
+        items: List[io__k8s__api__storage__v1alpha1__CSIStorageCapacity],
+        metadata: Optional[io__k8s__apimachinery__pkg__apis__meta__v1__ListMeta] = None,
+    ):
+        super().__init__()
+        if items is not None:
+            self._items = items
+        if metadata is not None:
+            self._metadata = metadata
 
 
 class io__k8s__api__storage__v1beta1__CSIStorageCapacity(K8STemplatable):
@@ -20510,7 +20633,7 @@ class io__k8s__api__core__v1__Container(K8STemplatable):
         return self._image
 
     @property
-    def imagePullPolicy(self) -> Optional[str]:
+    def imagePullPolicy(self) -> Optional[Literal["Always", "IfNotPresent", "Never"]]:
         return self._imagePullPolicy
 
     @property
@@ -20558,7 +20681,9 @@ class io__k8s__api__core__v1__Container(K8STemplatable):
         return self._terminationMessagePath
 
     @property
-    def terminationMessagePolicy(self) -> Optional[str]:
+    def terminationMessagePolicy(
+        self,
+    ) -> Optional[Literal["FallbackToLogsOnError", "File"]]:
         return self._terminationMessagePolicy
 
     @property
@@ -20585,7 +20710,7 @@ class io__k8s__api__core__v1__Container(K8STemplatable):
         env: Optional[List[io__k8s__api__core__v1__EnvVar]] = None,
         envFrom: Optional[List[io__k8s__api__core__v1__EnvFromSource]] = None,
         image: Optional[str] = None,
-        imagePullPolicy: Optional[str] = None,
+        imagePullPolicy: Optional[Literal["Always", "IfNotPresent", "Never"]] = None,
         lifecycle: Optional[io__k8s__api__core__v1__Lifecycle] = None,
         livenessProbe: Optional[io__k8s__api__core__v1__Probe] = None,
         ports: Optional[List[io__k8s__api__core__v1__ContainerPort]] = None,
@@ -20596,7 +20721,9 @@ class io__k8s__api__core__v1__Container(K8STemplatable):
         stdin: Optional[bool] = None,
         stdinOnce: Optional[bool] = None,
         terminationMessagePath: Optional[str] = None,
-        terminationMessagePolicy: Optional[str] = None,
+        terminationMessagePolicy: Optional[
+            Literal["FallbackToLogsOnError", "File"]
+        ] = None,
         tty: Optional[bool] = None,
         volumeDevices: Optional[List[io__k8s__api__core__v1__VolumeDevice]] = None,
         volumeMounts: Optional[List[io__k8s__api__core__v1__VolumeMount]] = None,
@@ -20704,7 +20831,7 @@ class io__k8s__api__core__v1__EphemeralContainer(K8STemplatable):
         return self._image
 
     @property
-    def imagePullPolicy(self) -> Optional[str]:
+    def imagePullPolicy(self) -> Optional[Literal["Always", "IfNotPresent", "Never"]]:
         return self._imagePullPolicy
 
     @property
@@ -20756,7 +20883,9 @@ class io__k8s__api__core__v1__EphemeralContainer(K8STemplatable):
         return self._terminationMessagePath
 
     @property
-    def terminationMessagePolicy(self) -> Optional[str]:
+    def terminationMessagePolicy(
+        self,
+    ) -> Optional[Literal["FallbackToLogsOnError", "File"]]:
         return self._terminationMessagePolicy
 
     @property
@@ -20783,7 +20912,7 @@ class io__k8s__api__core__v1__EphemeralContainer(K8STemplatable):
         env: Optional[List[io__k8s__api__core__v1__EnvVar]] = None,
         envFrom: Optional[List[io__k8s__api__core__v1__EnvFromSource]] = None,
         image: Optional[str] = None,
-        imagePullPolicy: Optional[str] = None,
+        imagePullPolicy: Optional[Literal["Always", "IfNotPresent", "Never"]] = None,
         lifecycle: Optional[io__k8s__api__core__v1__Lifecycle] = None,
         livenessProbe: Optional[io__k8s__api__core__v1__Probe] = None,
         ports: Optional[List[io__k8s__api__core__v1__ContainerPort]] = None,
@@ -20795,7 +20924,9 @@ class io__k8s__api__core__v1__EphemeralContainer(K8STemplatable):
         stdinOnce: Optional[bool] = None,
         targetContainerName: Optional[str] = None,
         terminationMessagePath: Optional[str] = None,
-        terminationMessagePolicy: Optional[str] = None,
+        terminationMessagePolicy: Optional[
+            Literal["FallbackToLogsOnError", "File"]
+        ] = None,
         tty: Optional[bool] = None,
         volumeDevices: Optional[List[io__k8s__api__core__v1__VolumeDevice]] = None,
         volumeMounts: Optional[List[io__k8s__api__core__v1__VolumeMount]] = None,
@@ -21368,7 +21499,7 @@ class io__k8s__api__networking__v1__NetworkPolicy(K8STemplatable):
     apiVersion: str = "networking.k8s.io/v1"
     kind: str = "NetworkPolicy"
 
-    props: List[str] = ["apiVersion", "kind", "metadata", "spec", "status"]
+    props: List[str] = ["apiVersion", "kind", "metadata", "spec"]
     required_props: List[str] = []
 
     @property
@@ -21381,25 +21512,18 @@ class io__k8s__api__networking__v1__NetworkPolicy(K8STemplatable):
     def spec(self) -> Optional[io__k8s__api__networking__v1__NetworkPolicySpec]:
         return self._spec
 
-    @property
-    def status(self) -> Optional[io__k8s__api__networking__v1__NetworkPolicyStatus]:
-        return self._status
-
     def __init__(
         self,
         metadata: Optional[
             io__k8s__apimachinery__pkg__apis__meta__v1__ObjectMeta
         ] = None,
         spec: Optional[io__k8s__api__networking__v1__NetworkPolicySpec] = None,
-        status: Optional[io__k8s__api__networking__v1__NetworkPolicyStatus] = None,
     ):
         super().__init__()
         if metadata is not None:
             self._metadata = metadata
         if spec is not None:
             self._spec = spec
-        if status is not None:
-            self._status = status
 
 
 class io__k8s__api__networking__v1__NetworkPolicyList(K8STemplatable):
@@ -21738,7 +21862,11 @@ class io__k8s__api__core__v1__PodSpec(K8STemplatable):
         return self._dnsConfig
 
     @property
-    def dnsPolicy(self) -> Optional[str]:
+    def dnsPolicy(
+        self,
+    ) -> Optional[
+        Literal["ClusterFirst", "ClusterFirstWithHostNet", "Default", "None"]
+    ]:
         return self._dnsPolicy
 
     @property
@@ -21816,7 +21944,7 @@ class io__k8s__api__core__v1__PodSpec(K8STemplatable):
         return self._readinessGates
 
     @property
-    def restartPolicy(self) -> Optional[str]:
+    def restartPolicy(self) -> Optional[Literal["Always", "Never", "OnFailure"]]:
         return self._restartPolicy
 
     @property
@@ -21876,7 +22004,9 @@ class io__k8s__api__core__v1__PodSpec(K8STemplatable):
         affinity: Optional[io__k8s__api__core__v1__Affinity] = None,
         automountServiceAccountToken: Optional[bool] = None,
         dnsConfig: Optional[io__k8s__api__core__v1__PodDNSConfig] = None,
-        dnsPolicy: Optional[str] = None,
+        dnsPolicy: Optional[
+            Literal["ClusterFirst", "ClusterFirstWithHostNet", "Default", "None"]
+        ] = None,
         enableServiceLinks: Optional[bool] = None,
         ephemeralContainers: Optional[
             List[io__k8s__api__core__v1__EphemeralContainer]
@@ -21898,7 +22028,7 @@ class io__k8s__api__core__v1__PodSpec(K8STemplatable):
         priority: Optional[int] = None,
         priorityClassName: Optional[str] = None,
         readinessGates: Optional[List[io__k8s__api__core__v1__PodReadinessGate]] = None,
-        restartPolicy: Optional[str] = None,
+        restartPolicy: Optional[Literal["Always", "Never", "OnFailure"]] = None,
         runtimeClassName: Optional[str] = None,
         schedulerName: Optional[str] = None,
         securityContext: Optional[io__k8s__api__core__v1__PodSecurityContext] = None,
@@ -22263,7 +22393,7 @@ class io__k8s__api__apps__v1__StatefulSetSpec(K8STemplatable):
         return self._persistentVolumeClaimRetentionPolicy
 
     @property
-    def podManagementPolicy(self) -> Optional[str]:
+    def podManagementPolicy(self) -> Optional[Literal["OrderedReady", "Parallel"]]:
         return self._podManagementPolicy
 
     @property
@@ -22307,7 +22437,7 @@ class io__k8s__api__apps__v1__StatefulSetSpec(K8STemplatable):
         persistentVolumeClaimRetentionPolicy: Optional[
             io__k8s__api__apps__v1__StatefulSetPersistentVolumeClaimRetentionPolicy
         ] = None,
-        podManagementPolicy: Optional[str] = None,
+        podManagementPolicy: Optional[Literal["OrderedReady", "Parallel"]] = None,
         replicas: Optional[int] = None,
         revisionHistoryLimit: Optional[int] = None,
         updateStrategy: Optional[
@@ -23003,12 +23133,11 @@ class io__k8s__api__batch__v1__CronJobSpec(K8STemplatable):
         "startingDeadlineSeconds",
         "successfulJobsHistoryLimit",
         "suspend",
-        "timeZone",
     ]
     required_props: List[str] = ["schedule", "jobTemplate"]
 
     @property
-    def concurrencyPolicy(self) -> Optional[str]:
+    def concurrencyPolicy(self) -> Optional[Literal["Allow", "Forbid", "Replace"]]:
         return self._concurrencyPolicy
 
     @property
@@ -23035,20 +23164,15 @@ class io__k8s__api__batch__v1__CronJobSpec(K8STemplatable):
     def suspend(self) -> Optional[bool]:
         return self._suspend
 
-    @property
-    def timeZone(self) -> Optional[str]:
-        return self._timeZone
-
     def __init__(
         self,
         jobTemplate: io__k8s__api__batch__v1__JobTemplateSpec,
         schedule: str,
-        concurrencyPolicy: Optional[str] = None,
+        concurrencyPolicy: Optional[Literal["Allow", "Forbid", "Replace"]] = None,
         failedJobsHistoryLimit: Optional[int] = None,
         startingDeadlineSeconds: Optional[int] = None,
         successfulJobsHistoryLimit: Optional[int] = None,
         suspend: Optional[bool] = None,
-        timeZone: Optional[str] = None,
     ):
         super().__init__()
         if jobTemplate is not None:
@@ -23065,8 +23189,6 @@ class io__k8s__api__batch__v1__CronJobSpec(K8STemplatable):
             self._successfulJobsHistoryLimit = successfulJobsHistoryLimit
         if suspend is not None:
             self._suspend = suspend
-        if timeZone is not None:
-            self._timeZone = timeZone
 
 
 class io__k8s__api__batch__v1__Job(K8STemplatable):
@@ -23151,7 +23273,6 @@ class io__k8s__api__batch__v1beta1__CronJobSpec(K8STemplatable):
         "startingDeadlineSeconds",
         "successfulJobsHistoryLimit",
         "suspend",
-        "timeZone",
     ]
     required_props: List[str] = ["schedule", "jobTemplate"]
 
@@ -23183,10 +23304,6 @@ class io__k8s__api__batch__v1beta1__CronJobSpec(K8STemplatable):
     def suspend(self) -> Optional[bool]:
         return self._suspend
 
-    @property
-    def timeZone(self) -> Optional[str]:
-        return self._timeZone
-
     def __init__(
         self,
         jobTemplate: io__k8s__api__batch__v1beta1__JobTemplateSpec,
@@ -23196,7 +23313,6 @@ class io__k8s__api__batch__v1beta1__CronJobSpec(K8STemplatable):
         startingDeadlineSeconds: Optional[int] = None,
         successfulJobsHistoryLimit: Optional[int] = None,
         suspend: Optional[bool] = None,
-        timeZone: Optional[str] = None,
     ):
         super().__init__()
         if jobTemplate is not None:
@@ -23213,8 +23329,6 @@ class io__k8s__api__batch__v1beta1__CronJobSpec(K8STemplatable):
             self._successfulJobsHistoryLimit = successfulJobsHistoryLimit
         if suspend is not None:
             self._suspend = suspend
-        if timeZone is not None:
-            self._timeZone = timeZone
 
 
 class io__k8s__api__batch__v1__CronJob(K8STemplatable):
@@ -23824,7 +23938,6 @@ NetworkPolicyList = io__k8s__api__networking__v1__NetworkPolicyList
 NetworkPolicyPeer = io__k8s__api__networking__v1__NetworkPolicyPeer
 NetworkPolicyPort = io__k8s__api__networking__v1__NetworkPolicyPort
 NetworkPolicySpec = io__k8s__api__networking__v1__NetworkPolicySpec
-NetworkPolicyStatus = io__k8s__api__networking__v1__NetworkPolicyStatus
 ServiceBackendPort = io__k8s__api__networking__v1__ServiceBackendPort
 Overhead = io__k8s__api__node__v1beta1__Overhead
 RuntimeClass = io__k8s__api__node__v1__RuntimeClass
@@ -23888,6 +24001,12 @@ VolumeAttachmentSpec = io__k8s__api__storage__v1__VolumeAttachmentSpec
 VolumeAttachmentStatus = io__k8s__api__storage__v1__VolumeAttachmentStatus
 VolumeError = io__k8s__api__storage__v1__VolumeError
 VolumeNodeResources = io__k8s__api__storage__v1__VolumeNodeResources
+storage__k8s__io_v1alpha1_CSIStorageCapacity = (
+    io__k8s__api__storage__v1alpha1__CSIStorageCapacity
+)
+storage__k8s__io_v1alpha1_CSIStorageCapacityList = (
+    io__k8s__api__storage__v1alpha1__CSIStorageCapacityList
+)
 storage__k8s__io_v1beta1_CSIStorageCapacity = (
     io__k8s__api__storage__v1beta1__CSIStorageCapacity
 )

@@ -66,6 +66,10 @@ def createTypeAnnotation(propspec):
             return (None, [])
         return (result, [result])
 
+    enum = propspec.get('enum')
+    if enum is not None:
+        return ('Literal[%s]' % (', '.join((repr(x) for x in enum))), [])
+
     if proptype == 'array':
         itemspec = propspec.get('items')
         if itemspec is None:
@@ -222,7 +226,7 @@ class {classname}(K8STemplatable):
 # pylint: skip-file
 # flake8: noqa
 
-from typing import Any, List, Optional
+from typing import Any, List, Literal, Optional
 
 from . import K8STemplatable
 
