@@ -13,7 +13,6 @@ from typing import Tuple
 DEFN_PREFIX = '#/definitions/'
 
 IGNORED_PREFIXES = (
-    'io.k8s.apiextensions-apiserver.',
 )
 
 
@@ -22,6 +21,11 @@ def fixKeyword(name: str) -> str:
         return 'k8s_%s' % (name,)
     else:
         return name.replace('-', '_')
+
+
+def fixPropName(prop: str) -> str:
+    # meh, this is kinda gross
+    return prop.replace('$', 'S_')
 
 
 def definitionToClass(defn: str) -> str:
@@ -57,7 +61,7 @@ def createReferencedTypeAnnotation(propspec):
     return definitionToType(ref)
 
 
-def createTypeAnnotation(propspec):
+def createTypeAnnotation(propname, propspec):
     """Returns a (annotation, [dependent classes]) tuple"""
     proptype = propspec.get('type')
     if proptype is None:
@@ -76,7 +80,7 @@ def createTypeAnnotation(propspec):
             raise ValueError('no items field for array type')
 
         # This will handle $ref and other types automatically
-        classname, classes = createTypeAnnotation(itemspec)
+        classname, classes = createTypeAnnotation(propname, itemspec)
         return ('List[%s]' % (classname), classes)
     elif proptype == 'string':
         return ('str', [])
@@ -87,6 +91,11 @@ def createTypeAnnotation(propspec):
     elif proptype == 'number':
         return ('float', [])
     elif proptype == 'object':
+        additionalProperties = propspec.get('additionalProperties')
+        if additionalProperties:
+            classname, classes = createTypeAnnotation(propname, additionalProperties)
+            return ('Dict[str, %s]' % (classname), classes)
+
         # give up on types
         return (None, [])
 
@@ -101,7 +110,6 @@ def main():
         # (the "paths" map is much larger than "definitions")
         spec = json.load(f)['definitions']
 
-    # TODO(miselin): handle OneOf, AnyOf, AllOf etc
     classes = {}
     simplified_mappings = {}
     for k, spec in spec.items():
@@ -116,6 +124,13 @@ def main():
 
         orig_k = k
         k = definitionToClass(k)
+
+        # is this a raw type? in that case, the propspec is also the class spec
+        raw_type = spec.get('type')
+        if raw_type is not None and raw_type != 'object':
+            proptype, propclasses = createTypeAnnotation(k, spec)
+            classes[k] = (propclasses, f'{k} = {proptype}')
+            continue
 
         apiBlock = ''
         if 'x-kubernetes-group-version-kind' in spec:
@@ -139,14 +154,13 @@ def main():
         deps = []
         prop_params = []
         for prop, propspec in spec.get('properties', {}).items():
-            if prop in ('anyOf', 'default', 'allOf', '$ref', '$schema', 'not'):
-                continue
-
             if prop in ('apiVersion', 'kind') and apiBlock != '':
                 propkeys.append(prop)
                 continue
 
-            annotation = createTypeAnnotation(propspec)
+            prop = fixPropName(prop)
+
+            annotation = createTypeAnnotation(prop, propspec)
             if annotation is None:
                 continue  # not available
             proptype, propclasses = annotation
@@ -226,7 +240,7 @@ class {classname}(K8STemplatable):
 # pylint: skip-file
 # flake8: noqa
 
-from typing import Any, List, Literal, Optional
+from typing import Dict, List, Literal, Optional
 
 from . import K8STemplatable
 
