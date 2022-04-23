@@ -9,13 +9,12 @@ class CoolBinaryContainer(k8s.Container):
     """Defines a container with tweakable resource requests."""
 
     def __init__(self, big: bool) -> None:
-        super().__init__("my-cool-binary")
+        super().__init__("my-cool-binary", imagePullPolicy="IfNotPresent")
 
         self.is_big = big
 
     command = ["/bin/true"]
     image = "gcr.io/my/cool-binary:latest"
-    imagePullPolicy = "IfNotPresent"
 
     @property
     def resources(self) -> k8s.ResourceRequirements:
