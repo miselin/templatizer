@@ -1,8 +1,10 @@
 """Tests for basic functionality in templatizer.k8s"""
+from ast import Mult
+import string
 import unittest
 
 import yaml
-from utils import Simple
+from utils import MultilineString, Simple
 
 import templatizer
 import templatizer.k8s
@@ -31,7 +33,7 @@ class InvalidK8STemplate(templatizer.k8s.K8STemplatable):
 
 
 class K8STemplateWithYAML(templatizer.k8s.K8STemplatable):
-    """A simple Kubernetes template that is missing a required prop."""
+    """A simple Kubernetes template that has a simple value property."""
 
     props = ["blob"]
 
@@ -39,8 +41,17 @@ class K8STemplateWithYAML(templatizer.k8s.K8STemplatable):
         return Simple()
 
 
+class K8STemplateWithMultilineYAML(templatizer.k8s.K8STemplatable):
+    """A simple Kubernetes template that has a long multiline string in it."""
+
+    props = ["blob"]
+
+    def blob(self):
+        return MultilineString()
+
+
 class K8STemplateWithLists(templatizer.k8s.K8STemplatable):
-    """A simple Kubernetes template that is missing a required prop."""
+    """A simple Kubernetes template that has a list of values."""
 
     props = ["blobs"]
 
@@ -75,6 +86,18 @@ class TestBasicK8STemplating(unittest.TestCase):
             gen,
             {
                 "blob": 12345,
+            },
+        )
+
+    def test_internal_generating_multiline(self):
+        obj = K8STemplateWithMultilineYAML()
+        print(obj.generate())
+        gen = yaml.load(obj.generate(), Loader=yaml.Loader)
+
+        self.assertDictEqual(
+            gen,
+            {
+                "blob": '\n'.join(string.ascii_lowercase),
             },
         )
 

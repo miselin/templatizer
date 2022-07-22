@@ -3,7 +3,7 @@ from typing import Any, List, Optional
 
 import yaml
 
-from templatizer import NoValue, Templatable
+from templatizer import NoValue, Templatable, yamlDump
 
 
 def fix_value(val: Any) -> Any:
@@ -49,4 +49,4 @@ class K8STemplatable(Templatable):
             elif prop in required_props:
                 raise ValueError(f'no value for required property "%{prop}s"')
 
-        return yaml.dump(document)
+        return yamlDump(document)
