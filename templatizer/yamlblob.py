@@ -7,21 +7,21 @@ from .templatable import Templatable
 
 
 # We don't want aliases in generated YAML blobs (especially not for K8S).
-class YamlDumperWithDropAliases(yaml.SafeDumper):
-    """YamlDumperWithDropAliases implements yaml.SafeDumper but overrides ignore_aliases."""
+class YamlDumperWithDropAliases(yaml.Dumper):
+    """YamlDumperWithDropAliases implements yaml.Dumper but overrides ignore_aliases."""
 
     def ignore_aliases(self, data):
         return True
 
 
-def string_as_block(dumper: YamlDumperWithDropAliases, data: str) -> Any:
+def string_as_block(dumper: yaml.Dumper, data: str) -> Any:
     """string_as_block uses YAML's block style for strings with newlines."""
     if "\n" in data:
         return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="|")
     return dumper.represent_scalar("tag:yaml.org,2002:str", data)
 
 
-YamlDumperWithDropAliases.add_representer(str, string_as_block)
+yaml.add_representer(str, string_as_block)
 
 
 class YamlBlob(Templatable):
