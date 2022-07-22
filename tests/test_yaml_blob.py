@@ -16,6 +16,17 @@ class YamlBlobWithNewlines(YamlBlob):
         }
 
 
+class YamlBlobWithSharedObjects(YamlBlob):
+    """Defines a YamlBlob class that has keys pointing at the same object."""
+
+    def data(self):
+        shared = {"foo": "bar"}
+        return {
+            "a": shared,
+            "b": shared,
+        }
+
+
 class TestImperativeTemplates(unittest.TestCase):
     """Unit tests for imperative generation."""
 
@@ -28,6 +39,21 @@ blob: |-
   foo
   bar
   baz
+""",
+        )
+
+
+class TestNoAliases(unittest.TestCase):
+    """Unit tests for yaml without aliases."""
+
+    def test_no_aliases_generated(self):
+        obj = YamlBlobWithSharedObjects()
+        self.assertEqual(
+            obj.generate(),
+            """a:
+  foo: bar
+b:
+  foo: bar
 """,
         )
 
